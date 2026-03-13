@@ -30,7 +30,9 @@ function StudentSuccessStories() {
       name: "Mayuri Samanta",
       role: "Fresher to SDE1 at LogWinTech Pvt. Ltd.",
       initials: "MS",
-      text: "Mayuri received widespread recognition in her district, with her achievements featured in local newspapers. She chose to pursue commerce after high school and supported her family by tutoring neighborhood children while aspiring to become a Chartered Accountant. Despite multiple attempts, that path did not materialize. Determined to build a new career, she learned job-ready technical skills, practiced interviews consistently, and successfully transitioned into her first SDE role.",
+      text:"Mayuri comes from Navsari near Surat in Gujarat. She was a bright student in school and even received recognition in local newspapers after scoring excellent marks in her 12th-grade exams. After choosing commerce, she aspired to become a Chartered Accountant while supporting her family by giving tuition to neighbourhood children. However, after several unsuccessful attempts at the CA exams, she began facing pressure from her family to get married.Wanting to change her path, Mayuri joined Gryphon Academy, where she trained in Java and developed strong technical and communication skills through intensive industry-focused learning. Her hard work paid off when she secured a job as a Java Developer at LogwinTech Pvt. Ltd. Today, Mayuri is building a successful career in tech. Her journey shows that with determination, the right guidance, and continuous learning, it’s possible to completely transform one’s future. 🚀"
+
+,
       city: "Navsari"
     },
     {

@@ -1,148 +1,109 @@
-import React from "react";
+import { useState } from "react";
 
-const services = [
+const serviceTabs = [
   {
     id: "colleges",
-    title: "For Colleges",
-    blurb:
-      "Digital Marketing & Branding, Induction Programmes, End-to-End Admission Solutions",
-    detail:
-      "End-to-end admission pipelines, campus branding, induction programs, and marketing campaigns crafted for institutes.",
-    borderColor: "#f97316",
-    planet: "#f97316",
-    icon: "🏛️",
-    duration: "Tailored"
+    label: "For Colleges",
+    headline: "Built to improve admissions, branding, and placements.",
+    cards: [
+      { tag: "Admissions", title: "Application Pipeline", meta: "Screening + counseling" },
+      { tag: "Branding", title: "Campus Marketing", meta: "Digital + outreach" },
+      { tag: "Induction", title: "Student Onboarding", meta: "Orientation programs" },
+      { tag: "Placements", title: "Placement Support", meta: "Drives + recruiter connects" }
+    ]
   },
   {
     id: "corporate",
-    title: "For Corporate",
-    blurb:
-      "Zero-Cost Hiring Assistance, Corporate Training Programs, Talent Development Solutions",
-    detail:
-      "Hire job-ready talent at zero cost, upskill teams with targeted training, and unlock scalable talent development.",
-    borderColor: "#a855f7",
-    planet: "#a855f7",
-    icon: "💼",
-    duration: "On Demand"
+    label: "For Corporate",
+    headline: "Hire and train job-ready talent at scale.",
+    cards: [
+      { tag: "Hiring", title: "Zero-Cost Hiring", meta: "Pre-assessed candidates" },
+      { tag: "Training", title: "Team Upskilling", meta: "Role-based modules" },
+      { tag: "Assessment", title: "Skill Evaluation", meta: "Benchmarked outcomes" },
+      { tag: "L&D", title: "Custom Learning Paths", meta: "Function-specific tracks" }
+    ]
   },
   {
     id: "students",
-    title: "For Students",
-    blurb:
-      "Job-Ready Professional Training, Career Development Programs, Placement with Top Recruiters",
-    detail:
-      "Industry-aligned courses, interview prep, and placement support to land roles with leading recruiters.",
-    borderColor: "#0ea5e9",
-    planet: "#0ea5e9",
-    icon: "🎓",
-    duration: "6 Months"
+    label: "For Students",
+    headline: "Structured training to become interview-ready and placeable.",
+    cards: [
+      { tag: "Courses", title: "Job-Ready Programs", meta: "Industry-aligned curriculum" },
+      { tag: "Mentorship", title: "1:1 Guidance", meta: "Weekly expert sessions" },
+      { tag: "Practice", title: "Interview Prep", meta: "Mocks + feedback loops" },
+      { tag: "Career", title: "Placement Assistance", meta: "Resume + referrals" }
+    ]
   }
 ];
 
-const orbitStyles = `
-@keyframes orbitSpin {
-  0% {
-    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--orbit-radius)) rotate(calc(-1 * var(--angle)));
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(calc(360deg + var(--angle))) translateX(var(--orbit-radius)) rotate(calc(-360deg - var(--angle)));
-  }
-}
-
-.orbit-item {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform-origin: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: orbitSpin var(--orbit-duration) linear infinite;
-  will-change: transform;
-}
-
-.planet::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 9999px;
-  background: radial-gradient(circle at 60% 40%, rgba(255,255,255,0.25), transparent 45%);
-  mix-blend-mode: screen;
-}
-
-@media (max-width: 1024px) {
-  .orbit-item { --orbit-radius: 220px; }
-}
-
-@media (max-width: 768px) {
-  .orbit-item { --orbit-radius: 180px; }
-}
-
-@media (max-width: 640px) {
-  .orbit-item { --orbit-duration: 18s; --orbit-radius: 150px; }
-}
-`;
-
 export default function Services() {
+  const [activeTabId, setActiveTabId] = useState(serviceTabs[0].id);
+  const activeTab = serviceTabs.find((tab) => tab.id === activeTabId) || serviceTabs[0];
+
   return (
-    <section className="relative bg-[#050b24] text-white py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#0b153d,#050b24_60%,#030617_100%)]" />
+    <section className="bg-[#f5f7fb] py-20 md:py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-[#151826]">
+            One Platform. Three Growth Paths.
+          </h2>
+          <p className="mt-4 text-lg text-slate-500">Choose your lane. We take you from strategy to outcomes.</p>
+        </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
-        <h2 className="text-4xl md:text-5xl font-semibold mb-10">
-          Transform Your Journey
-        </h2>
-
-        <div className="relative w-[620px] h-[620px] mx-auto">
-          {/* orbit line */}
-          <div className="absolute inset-1/2 w-[520px] h-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-white/35" />
-
-          {/* sun */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <div className="w-36 h-36 rounded-full flex items-center justify-center bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 shadow-[0_0_90px_rgba(249,115,22,0.8)]">
-              <span className="text-5xl">🦅</span>
+        <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_1.25fr] lg:items-center">
+          <div>
+            <div className="space-y-5">
+              {serviceTabs.map((tab) => {
+                const isActive = tab.id === activeTabId;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setActiveTabId(tab.id)}
+                    className={`group flex w-full items-center justify-between rounded-2xl px-4 py-4 text-left transition ${
+                      isActive ? "bg-white shadow-sm" : "hover:bg-white/80"
+                    }`}
+                  >
+                    <span
+                      className={`text-3xl md:text-5xl font-semibold transition ${
+                        isActive ? "text-[#1f2450]" : "text-slate-300 group-hover:text-slate-400"
+                      }`}
+                    >
+                      {tab.label}
+                    </span>
+                    <span
+                      className={`text-4xl transition ${
+                        isActive ? "text-[#7c68ff]" : "text-slate-300"
+                      }`}
+                      aria-hidden
+                    >
+                      {isActive ? "→" : "·"}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
-          {/* orbiting items */}
-          {services.map((service, idx) => {
-            const angle = idx * 120;
-            const duration = 22 + idx * 2;
-            return (
-              <div
-                key={service.id}
-                className="orbit-item hover:animate-none"
-                style={{
-                  "--angle": `${angle}deg`,
-                  "--orbit-duration": `${duration}s`,
-                  "--orbit-radius": "260px"
-                }}
-              >
-                <div className="flex flex-col items-center gap-3 w-64">
-                  <div
-                    className="planet w-16 h-16 rounded-full"
-                    style={{
-                      background: `radial-gradient(circle at 35% 35%, #ffffffaa, ${service.planet} 45%, #020617 70%)`,
-                      boxShadow: `0 0 35px ${service.planet}55`
-                    }}
-                  />
-                  <div className="w-full p-4 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-                    <div className="flex items-center gap-2 mb-2 justify-center">
-                      <span className="text-lg" aria-hidden>{service.icon}</span>
-                      <h3 className="text-lg font-semibold leading-tight">{service.title}</h3>
-                    </div>
-                    <p className="text-sm text-slate-100/85 leading-relaxed">{service.blurb}</p>
-                    <p className="text-xs text-slate-100/60 mt-3">Duration: {service.duration}</p>
-                    <p className="text-xs text-slate-100/70 mt-2 leading-relaxed">{service.detail}</p>
+          <div className="rounded-3xl border border-[#e6e8f0] bg-[#eceef4] p-5 md:p-7 shadow-[0_22px_55px_rgba(15,23,42,0.08)]">
+            <p className="mb-5 text-lg font-medium text-slate-600">{activeTab.headline}</p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {activeTab.cards.map((card) => (
+                <article key={card.title} className="rounded-2xl border border-white bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                  <span className="inline-flex rounded-full bg-[#7c68ff]/10 px-3 py-1 text-xs font-semibold text-[#6e58ff]">
+                    {card.tag}
+                  </span>
+                  <h3 className="mt-3 text-2xl font-semibold text-[#171a28]">{card.title}</h3>
+                  <p className="mt-2 text-base text-slate-500">{card.meta}</p>
+                  <div className="mt-4 h-1.5 w-full rounded-full bg-slate-100">
+                    <div className="h-full w-2/3 rounded-full bg-[#7c68ff]/35" />
                   </div>
-                </div>
-              </div>
-            );
-          })}
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-
-      <style>{orbitStyles}</style>
     </section>
   );
 }

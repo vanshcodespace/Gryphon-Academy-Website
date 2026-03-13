@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import AboutUs from "../components/AboutUs";
 import Stats from "../components/Stats";
 import Services from "../components/Services";
+import AudiencePathways from "../components/AudiencePathways";
 import Placements from "../components/Placements";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Events from "../components/Events";
@@ -20,7 +21,8 @@ export default function Home() {
       <Hero />
       <AboutUs />
       <Stats />
-      <Services />
+ 
+      <AudiencePathways />
       <Placements />
       <WhyChooseUs />
       <Events />
