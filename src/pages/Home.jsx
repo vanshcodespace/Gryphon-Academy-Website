@@ -10,9 +10,11 @@ import Events from "../components/Events";
 import InductionPrograms from "../components/InductionPrograms";
 import Testimonials from "../components/Testimonials";
 import Blogs from "../components/Blogs";
+import Gallery from "../components/Gallery";
 // eslint-disable-next-line react/display-name
 import CTA from "../components/CTA";
 import Footer from "../components/Footer";
+import Solutions from "../components/Solutions";
 
 export default function Home() {
   return (
@@ -21,8 +23,10 @@ export default function Home() {
       <Hero />
       <AboutUs />
       <Stats />
- 
       <AudiencePathways />
+      <Solutions />
+      <Gallery />
+
       <Placements />
       <WhyChooseUs />
       <Events />
