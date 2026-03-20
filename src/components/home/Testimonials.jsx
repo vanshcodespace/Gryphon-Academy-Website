@@ -1,0 +1,529 @@
+/* eslint-disable react/prop-types */
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+
+const TestimonialCard = ({ review }) => {
+  const stars = Array.from({ length: review.rating }, (_, i) => i);
+
+  return (
+    <div className="bg-white bg-opacity-5 backdrop-blur p-8 rounded-xl hover:bg-opacity-10 transition border border-white border-opacity-10">
+      <div className="flex items-center mb-4">
+        {stars.map((i) => (
+          <span key={`star-${review.name}-${i}`} className="text-yellow-400">
+            ★
+          </span>
+        ))}
+      </div>
+      <p className="text-black mb-4 italic">&quot;{review.text}&quot;</p>
+      <div className="border-t border-white border-opacity-10 pt-4">
+        <h4 className="font-bold text-black">{review.name}</h4>
+        <p className="text-sm text-black">{review.role}</p>
+        <p className="text-sm text-yellow-400">{review.company}</p>
+      </div>
+    </div>
+  );
+};
+
+function StudentSuccessStories() {
+  const stories = useMemo(
+    () => [
+      {
+        id: 1,
+        name: "Mayuri Samanta",
+        role: "SDE1, LogWinTech Pvt. Ltd.",
+        initials: "MS",
+        text: "From Navsari, near Surat. A bright student. After facing pressure to marry, she trained in Java at Gryphon Academy. Her dedication led to an SDE1 role at LogWinTech, showcasing the power of continuous learning.",
+      },
+      {
+        id: 2,
+        name: "Anjali Rao",
+        role: "Data Analyst, TechCorp Solutions",
+        initials: "AR",
+        text: "From Navsari, near Surat. Excellent student. Escaping traditional expectations, she trained intensely at Gryphon Academy. Anjali is now a successful Data Analyst, reshaping her future through tech skills.",
+      },
+      {
+        id: 3,
+        name: "Karan Singh",
+        role: "DevOps Engineer, CloudSolutions Inc.",
+        initials: "KS",
+        text: "Background in commerce, then failed CA exams. Facing pressure, he joined Gryphon Academy and mastered Java. Now a DevOps Engineer, Karan's journey shows the potential of switching career paths.",
+      },
+      {
+        id: 4,
+        name: "Priyanka Patel",
+        role: "Frontend Developer, WebWorks Digital",
+        initials: "PP",
+        text: "A bright student from Surat. After family pressure and CA exam setbacks, Priyanka turned to Gryphon Academy. She is now a Frontend Developer, with a career in tech built on intense learning.",
+      },
+      {
+        id: 5,
+        name: "Rahul Verma",
+        role: "Software Engineer, ByteWave",
+        initials: "RV",
+        text: "From a tier-3 college with low confidence, Rahul built his base through structured mentorship and regular mock interviews. He now works as a Software Engineer and mentors new learners.",
+      },
+      {
+        id: 6,
+        name: "Sneha Iyer",
+        role: "Data Analyst, QuantHive",
+        initials: "SI",
+        text: "Sneha had theory but lacked confidence in practical application. Live projects and review cycles at Gryphon Academy made her interview ready. She now solves business problems as a Data Analyst.",
+      },
+      {
+        id: 7,
+        name: "Aarav Mehta",
+        role: "Backend Engineer, NovaStack",
+        initials: "AM",
+        text: "Aarav came from a non-CS background and built strong fundamentals through project-based learning. With steady mentoring, he moved into backend development and cracked multiple interviews.",
+      },
+      {
+        id: 8,
+        name: "Nisha Kulkarni",
+        role: "QA Engineer, PixelForge",
+        initials: "NK",
+        text: "Nisha improved her testing depth through hands-on automation and sprint simulations. She now works as a QA Engineer and contributes to release quality from day one.",
+      },
+      {
+        id: 9,
+        name: "Imran Shaikh",
+        role: "Support Analyst, TechBridge",
+        initials: "IS",
+        text: "Imran strengthened communication, debugging, and ticket handling through practical labs. He transitioned confidently into IT support and quickly became a dependable team member.",
+      },
+    ],
+    [],
+  );
+
+  const [visibleCount, setVisibleCount] = useState(6);
+  const [startIndex, setStartIndex] = useState(0);
+  const [pendingStartIndex, setPendingStartIndex] = useState(null);
+  const [isSliding, setIsSliding] = useState(false);
+  const [slideDirection, setSlideDirection] = useState("next");
+  const [trackTranslateY, setTrackTranslateY] = useState(0);
+  const [isTrackTransitionOn, setIsTrackTransitionOn] = useState(false);
+  const [desktopCardHeight, setDesktopCardHeight] = useState(420);
+
+  const pageShiftPxRef = useRef(436);
+  const slideTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    const getCount = () => {
+      if (typeof window === "undefined") return 6;
+      const width = window.innerWidth;
+      if (width >= 1024) return 6;
+      if (width >= 768) return 4;
+      return 2;
+    };
+
+    const applyCount = () => setVisibleCount(getCount());
+    applyCount();
+    window.addEventListener("resize", applyCount);
+    return () => window.removeEventListener("resize", applyCount);
+  }, []);
+
+  useEffect(() => {
+    const applyDesktopCardHeight = () => {
+      if (typeof window === "undefined") return;
+
+      if (window.innerWidth < 1024) {
+        setDesktopCardHeight(420);
+        return;
+      }
+
+      // Space budget: heading + paddings + controls + margins.
+      const reservedHeight = 300;
+      const gridGap = 16;
+      const usableHeight = Math.max(window.innerHeight - reservedHeight, 0);
+      const perCard = Math.floor((usableHeight - gridGap) / 2);
+      const bounded = Math.max(220, Math.min(380, perCard));
+      setDesktopCardHeight(bounded);
+    };
+
+    applyDesktopCardHeight();
+    window.addEventListener("resize", applyDesktopCardHeight);
+    return () => window.removeEventListener("resize", applyDesktopCardHeight);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (slideTimeoutRef.current) {
+        window.clearTimeout(slideTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const stepSize = Math.max(visibleCount, 1);
+
+  const pageStarts = useMemo(() => {
+    if (stories.length <= visibleCount) return [0];
+
+    const starts = [];
+    for (let idx = 0; idx < stories.length; idx += stepSize) {
+      starts.push(idx);
+    }
+
+    return starts;
+  }, [stepSize, stories.length, visibleCount]);
+
+  useEffect(() => {
+    setStartIndex((idx) => {
+      if (!pageStarts.length) return 0;
+      return pageStarts.reduce((nearest, candidate) => {
+        if (Math.abs(candidate - idx) < Math.abs(nearest - idx)) {
+          return candidate;
+        }
+        return nearest;
+      }, pageStarts[0]);
+    });
+  }, [pageStarts]);
+
+  const currentPageIndex = useMemo(() => {
+    const exactIndex = pageStarts.indexOf(startIndex);
+    if (exactIndex >= 0) return exactIndex;
+    if (!pageStarts.length) return 0;
+
+    return pageStarts.reduce((bestIndex, value, idx) => {
+      if (
+        Math.abs(value - startIndex) <
+        Math.abs(pageStarts[bestIndex] - startIndex)
+      ) {
+        return idx;
+      }
+      return bestIndex;
+    }, 0);
+  }, [pageStarts, startIndex]);
+
+  const lastPageIndex = Math.max(pageStarts.length - 1, 0);
+
+  const getPageStories = useCallback(
+    (pageStart) => {
+      if (!stories.length) return [];
+
+      return Array.from({ length: visibleCount }, (_, offset) => {
+        const index = (pageStart + offset) % stories.length;
+        return stories[index];
+      });
+    },
+    [stories, visibleCount],
+  );
+
+  const visibleStories = useMemo(
+    () => getPageStories(startIndex),
+    [getPageStories, startIndex],
+  );
+
+  const incomingStories = useMemo(() => {
+    if (!isSliding || pendingStartIndex === null) return [];
+    return getPageStories(pendingStartIndex);
+  }, [getPageStories, isSliding, pendingStartIndex]);
+
+  const pageGroups = useMemo(() => {
+    if (!isSliding || incomingStories.length === 0) return [visibleStories];
+    if (slideDirection === "next") return [visibleStories, incomingStories];
+    return [incomingStories, visibleStories];
+  }, [incomingStories, isSliding, slideDirection, visibleStories]);
+
+  const gridColumns = useMemo(() => {
+    if (visibleCount >= 6) return 3;
+    if (visibleCount >= 4) return 2;
+    return 1;
+  }, [visibleCount]);
+
+  const pageRows = useMemo(
+    () => Math.max(Math.ceil(visibleCount / gridColumns), 1),
+    [gridColumns, visibleCount],
+  );
+
+  const pageViewportHeight = useMemo(
+    () => pageRows * desktopCardHeight + (pageRows - 1) * 16,
+    [desktopCardHeight, pageRows],
+  );
+
+  useEffect(() => {
+    pageShiftPxRef.current = pageViewportHeight + 16;
+  }, [pageViewportHeight]);
+
+  const endSlide = useCallback((targetStartIndex, durationMs) => {
+    if (slideTimeoutRef.current) {
+      window.clearTimeout(slideTimeoutRef.current);
+    }
+
+    slideTimeoutRef.current = window.setTimeout(() => {
+      setStartIndex(targetStartIndex);
+      setPendingStartIndex(null);
+      setIsTrackTransitionOn(false);
+      setTrackTranslateY(0);
+      setIsSliding(false);
+    }, durationMs);
+  }, []);
+
+  const slide = useCallback(
+    (direction) => {
+      if (isSliding) return;
+
+      const targetPageIndex =
+        direction === "next" ? currentPageIndex + 1 : currentPageIndex - 1;
+      if (targetPageIndex < 0 || targetPageIndex > lastPageIndex) return;
+
+      const targetStartIndex = pageStarts[targetPageIndex];
+      const shift = pageShiftPxRef.current;
+      const durationMs = 700;
+
+      setSlideDirection(direction);
+      setPendingStartIndex(targetStartIndex);
+      setIsSliding(true);
+
+      if (direction === "prev") {
+        setIsTrackTransitionOn(false);
+        setTrackTranslateY(-shift);
+        window.requestAnimationFrame(() => {
+          window.requestAnimationFrame(() => {
+            setIsTrackTransitionOn(true);
+            setTrackTranslateY(0);
+          });
+        });
+      } else {
+        setTrackTranslateY(0);
+        setIsTrackTransitionOn(true);
+        setTrackTranslateY(-shift);
+      }
+
+      endSlide(targetStartIndex, durationMs);
+    },
+    [currentPageIndex, endSlide, isSliding, lastPageIndex, pageStarts],
+  );
+
+  const nextStory = useCallback(() => slide("next"), [slide]);
+  const prevStory = useCallback(() => slide("prev"), [slide]);
+
+  const activeDot = isSliding
+    ? slideDirection === "next"
+      ? Math.min(currentPageIndex + 1, lastPageIndex)
+      : Math.max(currentPageIndex - 1, 0)
+    : currentPageIndex;
+
+  const textLineClamp = useMemo(() => {
+    const estimated = Math.floor((desktopCardHeight - 130) / 24);
+    return Math.max(5, Math.min(12, estimated));
+  }, [desktopCardHeight]);
+
+  const textFontSize = useMemo(() => {
+    if (desktopCardHeight >= 340) return "1rem";
+    if (desktopCardHeight >= 300) return "0.93rem";
+    if (desktopCardHeight >= 260) return "0.88rem";
+    return "0.82rem";
+  }, [desktopCardHeight]);
+
+  const nameFontSize = useMemo(() => {
+    if (desktopCardHeight >= 340) return "1.25rem";
+    if (desktopCardHeight >= 300) return "1.12rem";
+    return "1rem";
+  }, [desktopCardHeight]);
+
+  const roleFontSize = useMemo(() => {
+    if (desktopCardHeight >= 340) return "0.98rem";
+    if (desktopCardHeight >= 300) return "0.9rem";
+    return "0.82rem";
+  }, [desktopCardHeight]);
+
+  return (
+    <div className="mb-16 rounded-3xl bg-[#01224F] py-10 md:py-12 xl:py-8">
+      <div className="mb-6 px-4 text-center md:mb-8 xl:mb-6">
+        <h2 className="mb-3 text-4xl font-bold tracking-tight text-white md:text-6xl">
+          Shaping Success Stories Since 2019
+        </h2>
+        <p className="text-2xl font-bold tracking-tight text-white md:text-5xl">
+          Your Goal. Our Mission
+        </p>
+      </div>
+
+      <div className="mx-auto max-w-[1200px] px-4 md:px-6">
+        <div
+          className="relative overflow-hidden"
+          style={{ height: `${pageViewportHeight}px` }}
+        >
+          <div
+            className={`flex flex-col gap-4 ${
+              isTrackTransitionOn
+                ? "transition-transform duration-700 ease-in-out"
+                : "transition-none"
+            }`}
+            style={{
+              transform: `translate3d(0, ${trackTranslateY}px, 0)`,
+              willChange: "transform",
+            }}
+          >
+            {pageGroups.map((group, groupIndex) => (
+              <div
+                key={`page-${groupIndex}-${group[0]?.id ?? "empty"}`}
+                data-page="true"
+                className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+              >
+                {group.map((story) => (
+                  <article key={`story-${groupIndex}-${story.id}`}>
+                    <div
+                      className="relative z-10 flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/45 bg-[linear-gradient(155deg,rgba(236,243,251,0.9)_0%,rgba(217,230,244,0.86)_100%)] p-4 shadow-[0_14px_30px_rgba(0,0,0,0.2)] backdrop-blur-xl transition-shadow duration-300 md:p-5"
+                      style={{ height: `${desktopCardHeight}px` }}
+                    >
+                      <div className="mb-2 text-3xl font-black leading-none text-[#c8cdd4] md:text-4xl">
+                        <span>“ ”</span>
+                      </div>
+
+                      <p
+                        className="min-h-0 flex-1 overflow-hidden leading-[1.35] text-[#0f172a]"
+                        style={{
+                          display: "-webkit-box",
+                          WebkitLineClamp: textLineClamp,
+                          WebkitBoxOrient: "vertical",
+                          fontSize: textFontSize,
+                        }}
+                      >
+                        {story.text}
+                      </p>
+
+                      <div className="mt-3 border-t border-[#cfd6de] pt-3">
+                        <div className="flex items-start gap-2.5">
+                          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#eadfb3] text-[10px] font-semibold text-[#6a5f2d] md:h-8 md:w-8 md:text-[11px]">
+                            {story.initials}
+                          </div>
+                          <div className="min-w-0">
+                            <h3
+                              className="font-semibold leading-tight text-[#9f934d]"
+                              style={{ fontSize: nameFontSize }}
+                            >
+                              {story.name}
+                            </h3>
+                            <p
+                              className="mt-1 leading-tight text-[#111827]"
+                              style={{ fontSize: roleFontSize }}
+                            >
+                              {story.role}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-6 flex items-center justify-center gap-4 xl:mt-5">
+          <button
+            type="button"
+            onClick={prevStory}
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-[#e4c55b] text-2xl text-[#e4c55b] transition hover:bg-[#ffffff12] disabled:cursor-not-allowed disabled:opacity-35"
+            aria-label="Previous testimonial"
+            disabled={isSliding || currentPageIndex <= 0}
+          >
+            ↑
+          </button>
+
+          <div className="flex items-center gap-2">
+            {Array.from({ length: pageStarts.length }).map((_, idx) => {
+              const dotIndex = idx;
+              const isActive = dotIndex === activeDot;
+              return (
+                <span
+                  key={`dot-${dotIndex}`}
+                  className={`h-3 rounded-full transition-all ${
+                    isActive ? "w-8 bg-[#d8be5d]" : "w-2.5 bg-[#cfb24f]"
+                  }`}
+                />
+              );
+            })}
+          </div>
+
+          <button
+            type="button"
+            onClick={nextStory}
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-[#e4c55b] text-2xl text-[#e4c55b] transition hover:bg-[#ffffff12] disabled:cursor-not-allowed disabled:opacity-35"
+            aria-label="Next testimonial"
+            disabled={isSliding || currentPageIndex >= lastPageIndex}
+          >
+            ↓
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Testimonials() {
+  const corporateReviews = [
+    {
+      name: "Vikram Patel",
+      role: "HR Director",
+      company: "Accenture",
+      text: "Gryphon Academy's hiring assistance program has been instrumental in building our talent pipeline. Highly recommended!",
+      rating: 5,
+    },
+    {
+      name: "Priya Nair",
+      role: "Training Head",
+      company: "Infosys",
+      text: "Their corporate training solutions are tailored perfectly to our needs. Outstanding ROI and employee satisfaction.",
+      rating: 5,
+    },
+  ];
+
+  const collegeReviews = [
+    {
+      name: "Dr. Ramesh Kumar",
+      role: "Dean",
+      company: "Tech Institute",
+      text: "The end-to-end admission and placement support has significantly improved our institutional metrics.",
+      rating: 5,
+    },
+    {
+      name: "Prof. Sneha Desai",
+      role: "Placement Coordinator",
+      company: "Engineering College",
+      text: "Their induction programs and placement drives have transformed our placement records. Partnering with Gryphon was the best decision!",
+      rating: 5,
+    },
+  ];
+
+  return (
+    <section className="py-20 bg-[#01224F] border-t border-white border-opacity-10">
+      <div className="max-w-7xl mx-auto px-6">
+        <StudentSuccessStories />
+
+        {/* Corporate Testimonials */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-2">
+              Corporate Partners
+            </h2>
+            <p className="text-white">
+              What leading organizations say about us
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {corporateReviews.map((review) => (
+              <TestimonialCard key={review.name} review={review} />
+            ))}
+          </div>
+        </div>
+
+        {/* College Testimonials */}
+        <div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-2">
+              College Partners
+            </h2>
+            <p className="text-white">
+              Institutions benefit from our comprehensive solutions
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {collegeReviews.map((review) => (
+              <TestimonialCard key={review.name} review={review} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
