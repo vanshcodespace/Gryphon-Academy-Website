@@ -29,6 +29,7 @@ function StudentSuccessStories() {
       {
         id: 1,
         name: "Mayuri Samanta",
+        category: "students",
         role: "SDE1, LogWinTech Pvt. Ltd.",
         initials: "MS",
         text: "From Navsari, near Surat. A bright student. After facing pressure to marry, she trained in Java at Gryphon Academy. Her dedication led to an SDE1 role at LogWinTech, showcasing the power of continuous learning.",
@@ -36,6 +37,7 @@ function StudentSuccessStories() {
       {
         id: 2,
         name: "Anjali Rao",
+        category: "colleges",
         role: "Data Analyst, TechCorp Solutions",
         initials: "AR",
         text: "From Navsari, near Surat. Excellent student. Escaping traditional expectations, she trained intensely at Gryphon Academy. Anjali is now a successful Data Analyst, reshaping her future through tech skills.",
@@ -43,6 +45,7 @@ function StudentSuccessStories() {
       {
         id: 3,
         name: "Karan Singh",
+        category: "corporate",
         role: "DevOps Engineer, CloudSolutions Inc.",
         initials: "KS",
         text: "Background in commerce, then failed CA exams. Facing pressure, he joined Gryphon Academy and mastered Java. Now a DevOps Engineer, Karan's journey shows the potential of switching career paths.",
@@ -50,6 +53,7 @@ function StudentSuccessStories() {
       {
         id: 4,
         name: "Priyanka Patel",
+        category: "students",
         role: "Frontend Developer, WebWorks Digital",
         initials: "PP",
         text: "A bright student from Surat. After family pressure and CA exam setbacks, Priyanka turned to Gryphon Academy. She is now a Frontend Developer, with a career in tech built on intense learning.",
@@ -57,6 +61,7 @@ function StudentSuccessStories() {
       {
         id: 5,
         name: "Rahul Verma",
+        category: "students",
         role: "Software Engineer, ByteWave",
         initials: "RV",
         text: "From a tier-3 college with low confidence, Rahul built his base through structured mentorship and regular mock interviews. He now works as a Software Engineer and mentors new learners.",
@@ -64,6 +69,7 @@ function StudentSuccessStories() {
       {
         id: 6,
         name: "Sneha Iyer",
+        category: "colleges",
         role: "Data Analyst, QuantHive",
         initials: "SI",
         text: "Sneha had theory but lacked confidence in practical application. Live projects and review cycles at Gryphon Academy made her interview ready. She now solves business problems as a Data Analyst.",
@@ -71,6 +77,7 @@ function StudentSuccessStories() {
       {
         id: 7,
         name: "Aarav Mehta",
+        category: "corporate",
         role: "Backend Engineer, NovaStack",
         initials: "AM",
         text: "Aarav came from a non-CS background and built strong fundamentals through project-based learning. With steady mentoring, he moved into backend development and cracked multiple interviews.",
@@ -78,6 +85,7 @@ function StudentSuccessStories() {
       {
         id: 8,
         name: "Nisha Kulkarni",
+        category: "colleges",
         role: "QA Engineer, PixelForge",
         initials: "NK",
         text: "Nisha improved her testing depth through hands-on automation and sprint simulations. She now works as a QA Engineer and contributes to release quality from day one.",
@@ -85,6 +93,7 @@ function StudentSuccessStories() {
       {
         id: 9,
         name: "Imran Shaikh",
+        category: "corporate",
         role: "Support Analyst, TechBridge",
         initials: "IS",
         text: "Imran strengthened communication, debugging, and ticket handling through practical labs. He transitioned confidently into IT support and quickly became a dependable team member.",
@@ -151,59 +160,70 @@ function StudentSuccessStories() {
     };
   }, []);
 
-  const stepSize = Math.max(visibleCount, 1);
+  const categoryOrder = useMemo(
+    () => ["students", "colleges", "corporate"],
+    [],
+  );
 
-  const pageStarts = useMemo(() => {
-    if (stories.length <= visibleCount) return [0];
+  const storiesByCategory = useMemo(() => {
+    const grouped = { students: [], colleges: [], corporate: [] };
+    stories.forEach((story) => {
+      const key = story.category;
+      if (grouped[key]) grouped[key].push(story);
+    });
+    return grouped;
+  }, [stories]);
 
-    const starts = [];
-    for (let idx = 0; idx < stories.length; idx += stepSize) {
-      starts.push(idx);
-    }
+  const cardsPerCategory = useMemo(
+    () => Math.max(Math.floor(visibleCount / categoryOrder.length), 1),
+    [categoryOrder.length, visibleCount],
+  );
 
-    return starts;
-  }, [stepSize, stories.length, visibleCount]);
+  const totalPages = useMemo(() => {
+    const maxCategorySize = Math.max(
+      ...categoryOrder.map((category) => storiesByCategory[category].length),
+    );
+    return Math.max(Math.ceil(maxCategorySize / cardsPerCategory), 1);
+  }, [cardsPerCategory, categoryOrder, storiesByCategory]);
 
   useEffect(() => {
-    setStartIndex((idx) => {
-      if (!pageStarts.length) return 0;
-      return pageStarts.reduce((nearest, candidate) => {
-        if (Math.abs(candidate - idx) < Math.abs(nearest - idx)) {
-          return candidate;
-        }
-        return nearest;
-      }, pageStarts[0]);
+    setStartIndex((idx) => Math.min(Math.max(idx, 0), totalPages - 1));
+  }, [totalPages]);
+
+  const currentPageIndex = Math.min(Math.max(startIndex, 0), totalPages - 1);
+  const lastPageIndex = Math.max(totalPages - 1, 0);
+
+  const getCategoryChunk = useCallback((categoryStories, pageIndex, count) => {
+    if (!categoryStories.length) return [];
+
+    const start = pageIndex * count;
+    return Array.from({ length: count }, (_, idx) => {
+      const storyIndex = (start + idx) % categoryStories.length;
+      return categoryStories[storyIndex];
     });
-  }, [pageStarts]);
-
-  const currentPageIndex = useMemo(() => {
-    const exactIndex = pageStarts.indexOf(startIndex);
-    if (exactIndex >= 0) return exactIndex;
-    if (!pageStarts.length) return 0;
-
-    return pageStarts.reduce((bestIndex, value, idx) => {
-      if (
-        Math.abs(value - startIndex) <
-        Math.abs(pageStarts[bestIndex] - startIndex)
-      ) {
-        return idx;
-      }
-      return bestIndex;
-    }, 0);
-  }, [pageStarts, startIndex]);
-
-  const lastPageIndex = Math.max(pageStarts.length - 1, 0);
+  }, []);
 
   const getPageStories = useCallback(
-    (pageStart) => {
-      if (!stories.length) return [];
+    (pageIndex) => {
+      const categoryChunks = categoryOrder.map((category) =>
+        getCategoryChunk(
+          storiesByCategory[category],
+          pageIndex,
+          cardsPerCategory,
+        ),
+      );
 
-      return Array.from({ length: visibleCount }, (_, offset) => {
-        const index = (pageStart + offset) % stories.length;
-        return stories[index];
-      });
+      const sortedStories = [];
+      for (let row = 0; row < cardsPerCategory; row += 1) {
+        for (let col = 0; col < categoryChunks.length; col += 1) {
+          const story = categoryChunks[col][row];
+          if (story) sortedStories.push(story);
+        }
+      }
+
+      return sortedStories;
     },
-    [stories, visibleCount],
+    [cardsPerCategory, categoryOrder, getCategoryChunk, storiesByCategory],
   );
 
   const visibleStories = useMemo(
@@ -264,7 +284,7 @@ function StudentSuccessStories() {
         direction === "next" ? currentPageIndex + 1 : currentPageIndex - 1;
       if (targetPageIndex < 0 || targetPageIndex > lastPageIndex) return;
 
-      const targetStartIndex = pageStarts[targetPageIndex];
+      const targetStartIndex = targetPageIndex;
       const shift = pageShiftPxRef.current;
       const durationMs = 700;
 
@@ -289,7 +309,7 @@ function StudentSuccessStories() {
 
       endSlide(targetStartIndex, durationMs);
     },
-    [currentPageIndex, endSlide, isSliding, lastPageIndex, pageStarts],
+    [currentPageIndex, endSlide, isSliding, lastPageIndex],
   );
 
   const nextStory = useCallback(() => slide("next"), [slide]);
@@ -337,6 +357,21 @@ function StudentSuccessStories() {
       </div>
 
       <div className="mx-auto max-w-[1200px] px-4 md:px-6">
+        <div className="mb-3 hidden gap-4 lg:grid lg:grid-cols-3">
+          {[
+            { id: "students", label: "Students" },
+            { id: "colleges", label: "Colleges" },
+            { id: "corporate", label: "Corporate" },
+          ].map((header) => (
+            <div
+              key={header.id}
+              className="rounded-xl bg-[#0B2A5A] py-2 text-center text-3xl font-semibold text-white shadow-[0_8px_16px_rgba(1,15,38,0.25)]"
+            >
+              {header.label}
+            </div>
+          ))}
+        </div>
+
         <div
           className="relative overflow-hidden"
           style={{ height: `${pageViewportHeight}px` }}
@@ -421,7 +456,7 @@ function StudentSuccessStories() {
           </button>
 
           <div className="flex items-center gap-2">
-            {Array.from({ length: pageStarts.length }).map((_, idx) => {
+            {Array.from({ length: totalPages }).map((_, idx) => {
               const dotIndex = idx;
               const isActive = dotIndex === activeDot;
               return (
