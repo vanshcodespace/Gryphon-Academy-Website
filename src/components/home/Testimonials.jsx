@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const TestimonialCard = ({ review }) => {
@@ -210,10 +209,6 @@ function StudentSuccessStories() {
     return Math.max(Math.ceil(maxCategorySize / cardsPerCategory), 1);
   }, [cardsPerCategory, categoryOrder, storiesByCategory]);
 
-  useEffect(() => {
-    setStartIndex((idx) => Math.min(Math.max(idx, 0), totalPages - 1));
-  }, [totalPages]);
-
   const currentPageIndex = Math.min(Math.max(startIndex, 0), totalPages - 1);
   const lastPageIndex = Math.max(totalPages - 1, 0);
 
@@ -251,8 +246,8 @@ function StudentSuccessStories() {
   );
 
   const visibleStories = useMemo(
-    () => getPageStories(startIndex),
-    [getPageStories, startIndex],
+    () => getPageStories(currentPageIndex),
+    [currentPageIndex, getPageStories],
   );
 
   const incomingStories = useMemo(() => {
