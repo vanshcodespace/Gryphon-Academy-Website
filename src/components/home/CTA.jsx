@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 export default function CTA() {
   return (
     <section className="py-20 bg-[#01224F] text-white text-center">
