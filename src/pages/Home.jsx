@@ -11,29 +11,24 @@ import InductionPrograms from "../components/home/InductionPrograms";
 import Testimonials from "../components/home/Testimonials";
 import Blogs from "../components/home/Blogs";
 import Gallery from "../components/home/Gallery";
-// eslint-disable-next-line react/display-name
 import CTA from "../components/home/CTA";
 import Footer from "../components/home/Footer";
 import Solutions from "../components/home/Solutions";
+import WhoAreWe from "../components/WhoAreWe";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <AboutUs />
-      <Stats />
+
+      <WhoAreWe />
+
       <AudiencePathways />
-      <Solutions />
+
       <Gallery />
 
-      <Placements />
-      <WhyChooseUs />
-      <Events />
-      <InductionPrograms />
       <Testimonials />
-      <Blogs />
-      {/* eslint-disable-next-line react/display-name */}
+
       <CTA />
       <Footer />
     </>
