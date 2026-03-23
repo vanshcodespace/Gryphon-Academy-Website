@@ -48,10 +48,15 @@ const MarqueeTrack = ({ partners, reverse = false }) => {
 
 export default function PartnersMarquee() {
   return (
-    <div className="mt-14 w-full border-y border-white/15 bg-[#eef0f2] px-3 py-10 shadow-[0_18px_40px_rgba(0,0,0,0.2)] md:px-4 md:py-20">
-      <MarqueeTrack partners={topRowPartners} />
-      <div className="mt-13.5">
-        <MarqueeTrack partners={bottomRowPartners} reverse />
+    <div className="partners-marquee-shell relative w-full">
+      <div className="partners-marquee-wave partners-marquee-wave-top" />
+      <div className="partners-marquee-wave partners-marquee-wave-bottom" />
+
+      <div className="partners-marquee-surface w-full border-b border-white/15 bg-[#eef0f2] px-3 py-10 md:px-4 md:py-20">
+        <MarqueeTrack partners={topRowPartners} />
+        <div className="mt-13.5">
+          <MarqueeTrack partners={bottomRowPartners} reverse />
+        </div>
       </div>
     </div>
   );

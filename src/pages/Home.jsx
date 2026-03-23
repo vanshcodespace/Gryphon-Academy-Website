@@ -9,6 +9,7 @@ import WhyChooseUs from "../components/home/WhyChooseUs";
 import Events from "../components/home/Events";
 import InductionPrograms from "../components/home/InductionPrograms";
 import Testimonials from "../components/home/Testimonials";
+import PartnersMarquee from "../components/home/PartnersMarquee";
 import Blogs from "../components/home/Blogs";
 import Gallery from "../components/home/Gallery";
 import CTA from "../components/home/CTA";
@@ -27,9 +28,10 @@ export default function Home() {
 
       <Gallery />
 
+      <PartnersMarquee />
+
       <Testimonials />
 
-      <CTA />
       <Footer />
     </>
   );

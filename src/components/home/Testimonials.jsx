@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import PartnersMarquee from "./PartnersMarquee";
 
 function StudentSuccessStories() {
   const stories = useMemo(
@@ -42,7 +41,7 @@ function StudentSuccessStories() {
         category: "students",
         role: "Software Engineer Intern, Gryphon Academy Pvt. Ltd.",
         initials: "AP",
-        text: "From a tier-3 college with low confidence, Rahul built his base through structured mentorship and regular mock interviews. He now works as a Software Engineer and mentors new learners.",
+        text: "The OG Member of IT Team",
       },
       {
         id: 6,
@@ -348,8 +347,8 @@ function StudentSuccessStories() {
   }, [desktopCardHeight]);
 
   return (
-    <div className="mb-16 rounded-3xl bg-[#01224F] py-10 md:py-12 xl:py-8">
-      <div className="mb-6 px-4 text-center md:mb-8 xl:mb-6">
+    <div className="relative mb-16 overflow-hidden rounded-3xl py-10 md:py-12 xl:py-8">
+      <div className="relative z-10 mb-6 px-4 text-center md:mb-8 xl:mb-6">
         <h2 className="mb-3 text-4xl font-bold tracking-tight text-white md:text-6xl">
           Shaping Success Stories Since 2019
         </h2>
@@ -358,8 +357,8 @@ function StudentSuccessStories() {
         </p>
       </div>
 
-      <div className="mx-auto max-w-300 px-4 md:px-6">
-        <div className="mb-3 hidden gap-4 lg:grid lg:grid-cols-3">
+      <div className="relative z-10 mx-auto max-w-300 px-4 md:px-6">
+        <div className="mb-3 hidden gap-4 lg:grid lg:grid-cols-3 lg:pr-20">
           {[
             { id: "students", label: "Students" },
             { id: "colleges", label: "Colleges" },
@@ -374,113 +373,121 @@ function StudentSuccessStories() {
           ))}
         </div>
 
-        <div
-          className="relative overflow-hidden"
-          style={{ height: `${pageViewportHeight}px` }}
-        >
+        <div className="relative lg:pr-20">
           <div
-            className={`flex flex-col gap-4 ${
-              isTrackTransitionOn
-                ? "transition-transform duration-700 ease-in-out"
-                : "transition-none"
-            }`}
-            style={{
-              transform: `translate3d(0, ${trackTranslateY}px, 0)`,
-              willChange: "transform",
-            }}
+            className="relative z-10 overflow-hidden"
+            style={{ height: `${pageViewportHeight}px` }}
           >
-            {pageGroups.map((group, groupIndex) => (
-              <div
-                key={`page-${groupIndex}-${group[0]?.id ?? "empty"}`}
-                data-page="true"
-                className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
-              >
-                {group.map((story) => (
-                  <article key={`story-${groupIndex}-${story.id}`}>
-                    <div
-                      className="relative z-10 flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/45 bg-[linear-gradient(155deg,rgba(236,243,251,0.9)_0%,rgba(217,230,244,0.86)_100%)] p-4 shadow-[0_14px_30px_rgba(0,0,0,0.2)] backdrop-blur-xl transition-shadow duration-300 md:p-5"
-                      style={{ height: `${desktopCardHeight}px` }}
-                    >
-                      <div className="mb-2 text-3xl font-black leading-none text-[#c8cdd4] md:text-4xl">
-                        <span>“ ”</span>
-                      </div>
-
-                      <p
-                        className="min-h-0 flex-1 overflow-hidden leading-[1.35] text-[#0f172a]"
-                        style={{
-                          display: "-webkit-box",
-                          WebkitLineClamp: textLineClamp,
-                          WebkitBoxOrient: "vertical",
-                          fontSize: textFontSize,
-                        }}
+            <div
+              className={`flex flex-col gap-4 ${
+                isTrackTransitionOn
+                  ? "transition-transform duration-700 ease-in-out"
+                  : "transition-none"
+              }`}
+              style={{
+                transform: `translate3d(0, ${trackTranslateY}px, 0)`,
+                willChange: "transform",
+              }}
+            >
+              {pageGroups.map((group, groupIndex) => (
+                <div
+                  key={`page-${groupIndex}-${group[0]?.id ?? "empty"}`}
+                  data-page="true"
+                  className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+                >
+                  {group.map((story) => (
+                    <article key={`story-${groupIndex}-${story.id}`}>
+                      <div
+                        className="relative h-full w-full overflow-hidden rounded-2xl border border-white/45 bg-[linear-gradient(155deg,rgba(236,243,251,0.9)_0%,rgba(217,230,244,0.86)_100%)] p-4 shadow-[0_14px_30px_rgba(0,0,0,0.2)] backdrop-blur-xl transition-shadow duration-300 md:p-5"
+                        style={{ height: `${desktopCardHeight}px` }}
                       >
-                        {story.text}
-                      </p>
-
-                      <div className="mt-3 border-t border-[#cfd6de] pt-3">
-                        <div className="flex items-start gap-2.5">
-                          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#eadfb3] text-[10px] font-semibold text-[#6a5f2d] md:h-8 md:w-8 md:text-[11px]">
-                            {story.initials}
+                        <div className="relative z-10 flex h-full flex-col">
+                          <div className="mb-2 text-3xl font-black leading-none text-[#c8cdd4] md:text-4xl">
+                            <span>“ ”</span>
                           </div>
-                          <div className="min-w-0">
-                            <h3
-                              className="font-semibold leading-tight text-[#9f934d]"
-                              style={{ fontSize: nameFontSize }}
-                            >
-                              {story.name}
-                            </h3>
-                            <p
-                              className="mt-1 leading-tight text-[#111827]"
-                              style={{ fontSize: roleFontSize }}
-                            >
-                              {story.role}
-                            </p>
+
+                          <p
+                            className="min-h-0 flex-1 overflow-hidden leading-[1.35] text-[#0f172a]"
+                            style={{
+                              display: "-webkit-box",
+                              WebkitLineClamp: textLineClamp,
+                              WebkitBoxOrient: "vertical",
+                              fontSize: textFontSize,
+                            }}
+                          >
+                            {story.text}
+                          </p>
+
+                          <div className="mt-3 border-t border-[#cfd6de] pt-3">
+                            <div className="flex items-start gap-2.5">
+                              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#eadfb3] text-[10px] font-semibold text-[#6a5f2d] md:h-8 md:w-8 md:text-[11px]">
+                                {story.initials}
+                              </div>
+                              <div className="min-w-0">
+                                <h3
+                                  className="font-semibold leading-tight text-[#9f934d]"
+                                  style={{ fontSize: nameFontSize }}
+                                >
+                                  {story.name}
+                                </h3>
+                                <p
+                                  className="mt-1 leading-tight text-[#111827]"
+                                  style={{ fontSize: roleFontSize }}
+                                >
+                                  {story.role}
+                                </p>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </article>
-                ))}
+                    </article>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative z-10 mt-6 flex justify-center lg:absolute lg:right-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2">
+            <div className="flex items-center gap-3 rounded-xl bg-[#01224fcc] p-2 lg:flex-col lg:bg-transparent lg:p-0">
+              <button
+                type="button"
+                onClick={prevStory}
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-[#e4c55b] text-2xl text-[#e4c55b] transition hover:bg-[#ffffff12] disabled:cursor-not-allowed disabled:opacity-35"
+                aria-label="Previous testimonial"
+                disabled={isSliding || currentPageIndex <= 0}
+              >
+                ↑
+              </button>
+
+              <div className="flex items-center gap-2 lg:flex-col">
+                {Array.from({ length: totalPages }).map((_, idx) => {
+                  const dotIndex = idx;
+                  const isActive = dotIndex === activeDot;
+                  return (
+                    <span
+                      key={`dot-${dotIndex}`}
+                      className={`rounded-full transition-all ${
+                        isActive
+                          ? "h-3 w-8 bg-[#d8be5d] lg:h-8 lg:w-3"
+                          : "h-2.5 w-2.5 bg-[#cfb24f]"
+                      }`}
+                    />
+                  );
+                })}
               </div>
-            ))}
+
+              <button
+                type="button"
+                onClick={nextStory}
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-[#e4c55b] text-2xl text-[#e4c55b] transition hover:bg-[#ffffff12] disabled:cursor-not-allowed disabled:opacity-35"
+                aria-label="Next testimonial"
+                disabled={isSliding || currentPageIndex >= lastPageIndex}
+              >
+                ↓
+              </button>
+            </div>
           </div>
-        </div>
-
-        <div className="mt-6 flex items-center justify-center gap-4 xl:mt-5">
-          <button
-            type="button"
-            onClick={prevStory}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-[#e4c55b] text-2xl text-[#e4c55b] transition hover:bg-[#ffffff12] disabled:cursor-not-allowed disabled:opacity-35"
-            aria-label="Previous testimonial"
-            disabled={isSliding || currentPageIndex <= 0}
-          >
-            ↑
-          </button>
-
-          <div className="flex items-center gap-2">
-            {Array.from({ length: totalPages }).map((_, idx) => {
-              const dotIndex = idx;
-              const isActive = dotIndex === activeDot;
-              return (
-                <span
-                  key={`dot-${dotIndex}`}
-                  className={`h-3 rounded-full transition-all ${
-                    isActive ? "w-8 bg-[#d8be5d]" : "w-2.5 bg-[#cfb24f]"
-                  }`}
-                />
-              );
-            })}
-          </div>
-
-          <button
-            type="button"
-            onClick={nextStory}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-[#e4c55b] text-2xl text-[#e4c55b] transition hover:bg-[#ffffff12] disabled:cursor-not-allowed disabled:opacity-35"
-            aria-label="Next testimonial"
-            disabled={isSliding || currentPageIndex >= lastPageIndex}
-          >
-            ↓
-          </button>
         </div>
       </div>
     </div>
@@ -489,11 +496,11 @@ function StudentSuccessStories() {
 
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-[#01224F] border-t border-white border-opacity-10">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="relative mt-12">
+      <div className="testimonial-dots-bg pointer-events-none absolute inset-0" />
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         <StudentSuccessStories />
       </div>
-      <PartnersMarquee />
-    </section>
+    </div>
   );
 }
