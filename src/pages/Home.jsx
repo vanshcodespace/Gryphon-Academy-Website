@@ -14,7 +14,7 @@ import Gallery from "../components/home/Gallery";
 import CTA from "../components/home/CTA";
 import Footer from "../components/home/Footer";
 import Solutions from "../components/home/Solutions";
-import WhoAreWe from "../components/WhoAreWe";
+import WhoAreWe from "../components/home/WhoAreWe";
 
 export default function Home() {
   return (

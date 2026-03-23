@@ -1,1 +1,81 @@
 @import "tailwindcss";
+
+@keyframes partnersMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.partners-marquee-track-wrap {
+  width: 100%;
+  overflow: hidden;
+  --marquee-content-max: 1200px;
+  --marquee-content-padding: 24px;
+  --marquee-fade-width: 72px;
+  --marquee-side-gap: calc(
+    max((100vw - var(--marquee-content-max)) / 2, 0px) +
+      var(--marquee-content-padding)
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    transparent calc(var(--marquee-side-gap) - var(--marquee-fade-width)),
+    #000 var(--marquee-side-gap),
+    #000 calc(100% - var(--marquee-side-gap)),
+    transparent calc(100% - var(--marquee-side-gap) + var(--marquee-fade-width)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    transparent calc(var(--marquee-side-gap) - var(--marquee-fade-width)),
+    #000 var(--marquee-side-gap),
+    #000 calc(100% - var(--marquee-side-gap)),
+    transparent calc(100% - var(--marquee-side-gap) + var(--marquee-fade-width)),
+    transparent 100%
+  );
+}
+
+.partners-marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: partnersMarquee 34s linear infinite;
+  will-change: transform;
+}
+
+.partners-marquee-track-reverse {
+  animation-direction: reverse;
+}
+
+.partners-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 132px;
+  padding: 0 8px;
+  margin-right: 30px;
+  font-size: 2rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .partners-marquee-track-wrap {
+    --marquee-content-padding: 16px;
+    --marquee-fade-width: 48px;
+  }
+
+  .partners-marquee-track {
+    animation-duration: 27s;
+  }
+
+  .partners-marquee-item {
+    min-width: 108px;
+    margin-right: 20px;
+    font-size: 1.35rem;
+  }
+}

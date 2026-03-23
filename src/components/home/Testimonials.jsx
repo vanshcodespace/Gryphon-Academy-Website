@@ -1,27 +1,5 @@
-/* eslint-disable react/prop-types */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-
-const TestimonialCard = ({ review }) => {
-  const stars = Array.from({ length: review.rating }, (_, i) => i);
-
-  return (
-    <div className="bg-white bg-opacity-5 backdrop-blur p-8 rounded-xl hover:bg-opacity-10 transition border border-white border-opacity-10">
-      <div className="flex items-center mb-4">
-        {stars.map((i) => (
-          <span key={`star-${review.name}-${i}`} className="text-yellow-400">
-            ★
-          </span>
-        ))}
-      </div>
-      <p className="text-black mb-4 italic">&quot;{review.text}&quot;</p>
-      <div className="border-t border-white border-opacity-10 pt-4">
-        <h4 className="font-bold text-black">{review.name}</h4>
-        <p className="text-sm text-black">{review.role}</p>
-        <p className="text-sm text-yellow-400">{review.company}</p>
-      </div>
-    </div>
-  );
-};
+import PartnersMarquee from "./PartnersMarquee";
 
 function StudentSuccessStories() {
   const stories = useMemo(
@@ -510,79 +488,12 @@ function StudentSuccessStories() {
 }
 
 export default function Testimonials() {
-  const corporateReviews = [
-    {
-      name: "Vikram Patel",
-      role: "HR Director",
-      company: "Accenture",
-      text: "Gryphon Academy's hiring assistance program has been instrumental in building our talent pipeline. Highly recommended!",
-      rating: 5,
-    },
-    {
-      name: "Priya Nair",
-      role: "Training Head",
-      company: "Infosys",
-      text: "Their corporate training solutions are tailored perfectly to our needs. Outstanding ROI and employee satisfaction.",
-      rating: 5,
-    },
-  ];
-
-  const collegeReviews = [
-    {
-      name: "Dr. Ramesh Kumar",
-      role: "Dean",
-      company: "Tech Institute",
-      text: "The end-to-end admission and placement support has significantly improved our institutional metrics.",
-      rating: 5,
-    },
-    {
-      name: "Prof. Sneha Desai",
-      role: "Placement Coordinator",
-      company: "Engineering College",
-      text: "Their induction programs and placement drives have transformed our placement records. Partnering with Gryphon was the best decision!",
-      rating: 5,
-    },
-  ];
-
   return (
     <section className="py-20 bg-[#01224F] border-t border-white border-opacity-10">
       <div className="max-w-7xl mx-auto px-6">
         <StudentSuccessStories />
-
-        {/* Corporate Testimonials */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-2">
-              Corporate Partners
-            </h2>
-            <p className="text-white">
-              What leading organizations say about us
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {corporateReviews.map((review) => (
-              <TestimonialCard key={review.name} review={review} />
-            ))}
-          </div>
-        </div>
-
-        {/* College Testimonials */}
-        <div>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-2">
-              College Partners
-            </h2>
-            <p className="text-white">
-              Institutions benefit from our comprehensive solutions
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {collegeReviews.map((review) => (
-              <TestimonialCard key={review.name} review={review} />
-            ))}
-          </div>
-        </div>
       </div>
+      <PartnersMarquee />
     </section>
   );
 }
