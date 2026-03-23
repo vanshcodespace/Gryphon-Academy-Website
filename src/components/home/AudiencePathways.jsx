@@ -91,7 +91,7 @@ function ConnectorArrow({ activeIndex, totalItems }) {
     const step = totalItems > 1 ? (maxY - minY) / (totalItems - 1) : 0;
     const startY = minY + activeIndex * step;
     const isLast = activeIndex === totalItems - 1;
-    const startX = 84;
+    const startX = 74;
     const elbowX = 166;
     const endX = 224;
     const radius = 18;
@@ -121,24 +121,22 @@ function ConnectorArrow({ activeIndex, totalItems }) {
       aria-hidden
     >
       <line
-        x1="4"
+        x1="0"
         y1={pathData.lineY}
-        x2="34"
+        x2="28"
         y2={pathData.lineY}
         stroke="#8A63FF"
         strokeWidth="3"
         strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
       />
       <line
-        x1="46"
+        x1="40"
         y1={pathData.lineY}
-        x2="76"
+        x2="68"
         y2={pathData.lineY}
         stroke="#8A63FF"
         strokeWidth="3"
         strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
       />
       <path
         d={pathData.d}
@@ -147,7 +145,6 @@ function ConnectorArrow({ activeIndex, totalItems }) {
         strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
-        vectorEffect="non-scaling-stroke"
       />
       <path
         d={`M 232 ${pathData.arrowY} L 220 ${pathData.arrowY - 10} M 232 ${pathData.arrowY} L 220 ${pathData.arrowY + 10}`}
@@ -155,7 +152,6 @@ function ConnectorArrow({ activeIndex, totalItems }) {
         stroke="#8A63FF"
         strokeWidth="3"
         strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
       />
     </svg>
   );
@@ -173,8 +169,8 @@ export default function AudiencePathways() {
           One solution built for colleges, corporates, and students.
         </h2>
 
-        <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-[minmax(0,1fr)_clamp(170px,20vw,240px)_minmax(0,1.2fr)]">
-          <div className="flex h-[clamp(320px,44vw,420px)] flex-col">
+        <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-[minmax(0,1fr)_clamp(170px,20vw,290px)_minmax(0,1.2fr)]">
+          <div className="flex h-[clamp(320px,36vw,500px)] flex-col">
             {pathways.map((item) => {
               const isActive = item.id === activeId;
               return (
@@ -215,7 +211,7 @@ export default function AudiencePathways() {
             })}
           </div>
 
-          <div className="hidden h-[clamp(320px,44vw,420px)] lg:block lg:pl-8 xl:pl-10">
+          <div className="hidden h-[clamp(320px,36vw,500px)] lg:block lg:pl-4 xl:pl-6">
             <ConnectorArrow
               activeIndex={Math.max(activeIndex, 0)}
               totalItems={pathways.length}
