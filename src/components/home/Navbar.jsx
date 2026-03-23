@@ -1,18 +1,4 @@
-import { useEffect, useState } from "react";
-
-export default function Navbar() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setIsVisible(window.scrollY > 8);
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
+export default function Navbar({ isVisible, logoSrc }) {
   return (
     <nav
       className={`fixed z-50 w-full bg-[#01224F] shadow transition-all duration-300 ${
@@ -22,7 +8,13 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
-        <h1 className="text-xl font-bold text-white">Gryphon Academy</h1>
+        <a href="#home" className="shrink-0">
+          <img
+            src={logoSrc}
+            alt="Gryphon Academy"
+            className="h-16 w-auto sm:h-15"
+          />
+        </a>
 
         <div className="hidden md:flex gap-8 font-medium text-white">
           <a href="#home" className="hover:text-yellow-400 transition">

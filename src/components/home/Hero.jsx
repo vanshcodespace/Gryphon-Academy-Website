@@ -1,4 +1,4 @@
-export default function Hero() {
+export default function Hero({ showTopLeftLogo, logoSrc }) {
   return (
     <section
       id="home"
@@ -18,6 +18,19 @@ export default function Hero() {
       </video>
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(1,16,42,0.25)_0%,rgba(1,16,42,0.25)_42%,rgba(1,16,42,0.25)_100%)]" />
+
+      {showTopLeftLogo ? (
+        <a
+          href="#home"
+          className="absolute left-4 top-4 z-20 sm:left-6 sm:top-6 md:left-8 md:top-8"
+        >
+          <img
+            src={logoSrc}
+            alt="Gryphon Academy"
+            className="h-16 w-auto sm:h-20 md:h-24"
+          />
+        </a>
+      ) : null}
 
       <div className="relative z-10 flex h-full w-full items-center justify-center px-4">
         <div className="text-center">

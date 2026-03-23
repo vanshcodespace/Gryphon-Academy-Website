@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Navbar from "../components/home/Navbar";
 import Hero from "../components/home/Hero";
 import AboutUs from "../components/home/AboutUs";
@@ -18,11 +19,25 @@ import Solutions from "../components/home/Solutions";
 import WhoAreWe from "../components/home/WhoAreWe";
 
 export default function Home() {
+  const [isNavbarVisible, setIsNavbarVisible] = useState(false);
+  const logoSrc =
+    "https://res.cloudinary.com/dcjmaapvi/image/upload/v1740489025/ga-hori_ylcnm3.png";
+
+  useEffect(() => {
+    const onScroll = () => {
+      setIsNavbarVisible(window.scrollY > 8);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
-      <Navbar />
+      <Navbar isVisible={isNavbarVisible} logoSrc={logoSrc} />
 
-      <Hero />
+      <Hero showTopLeftLogo={!isNavbarVisible} logoSrc={logoSrc} />
 
       <WhoAreWe />
 
