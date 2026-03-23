@@ -40,9 +40,7 @@ export default function WhoAreWe() {
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-10 sm:mb-12">
-          <p className="mb-3 inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#cfe2ff] sm:text-sm">
-            Gryphon Academy
-          </p>
+       
           <h2 className="max-w-xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
             Who we are
           </h2>
