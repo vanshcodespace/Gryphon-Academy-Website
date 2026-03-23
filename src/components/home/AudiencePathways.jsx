@@ -91,7 +91,7 @@ function ConnectorArrow({ activeIndex, totalItems }) {
     const step = totalItems > 1 ? (maxY - minY) / (totalItems - 1) : 0;
     const startY = minY + activeIndex * step;
     const isLast = activeIndex === totalItems - 1;
-    const startX = 84;
+    const startX = 74;
     const elbowX = 166;
     const endX = 224;
     const radius = 18;
@@ -114,20 +114,25 @@ function ConnectorArrow({ activeIndex, totalItems }) {
   }, [activeIndex, totalItems]);
 
   return (
-    <svg viewBox="0 0 240 420" className="h-[420px] w-full" aria-hidden>
+    <svg
+      viewBox="0 0 240 420"
+      className="h-full w-full"
+      preserveAspectRatio="xMidYMid meet"
+      aria-hidden
+    >
       <line
-        x1="4"
+        x1="0"
         y1={pathData.lineY}
-        x2="34"
+        x2="28"
         y2={pathData.lineY}
         stroke="#8A63FF"
         strokeWidth="3"
         strokeLinecap="round"
       />
       <line
-        x1="46"
+        x1="40"
         y1={pathData.lineY}
-        x2="76"
+        x2="68"
         y2={pathData.lineY}
         stroke="#8A63FF"
         strokeWidth="3"
@@ -164,8 +169,8 @@ export default function AudiencePathways() {
           One solution built for colleges, corporates, and students.
         </h2>
 
-        <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-[1fr_240px_1.2fr]">
-          <div className="flex h-[420px] flex-col">
+        <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-[minmax(0,1fr)_clamp(170px,20vw,290px)_minmax(0,1.2fr)]">
+          <div className="flex h-[clamp(320px,36vw,500px)] flex-col">
             {pathways.map((item) => {
               const isActive = item.id === activeId;
               return (
@@ -173,7 +178,7 @@ export default function AudiencePathways() {
                   key={item.id}
                   type="button"
                   onClick={() => setActiveId(item.id)}
-                  className={`flex h-[140px] w-full items-center gap-0 rounded-xl px-2 py-2 text-left text-4xl font-semibold transition md:text-6xl ${
+                  className={`flex h-full min-h-[98px] w-full items-center gap-0 rounded-xl px-2 py-2 text-left text-4xl font-semibold transition md:text-6xl ${
                     isActive
                       ? "text-[#211953]"
                       : "text-[#b4b5c5] hover:text-[#9d9fb2]"
@@ -206,7 +211,7 @@ export default function AudiencePathways() {
             })}
           </div>
 
-          <div className="hidden lg:block">
+          <div className="hidden h-[clamp(320px,36vw,500px)] lg:block lg:pl-4 xl:pl-6">
             <ConnectorArrow
               activeIndex={Math.max(activeIndex, 0)}
               totalItems={pathways.length}
