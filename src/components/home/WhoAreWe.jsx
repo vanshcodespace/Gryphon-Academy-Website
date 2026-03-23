@@ -22,7 +22,7 @@ export default function WhoAreWe() {
       onMouseLeave={handleMouseLeave}
     >
       <div className="pointer-events-none absolute -top-40 -left-24 h-96 w-96 rounded-full bg-[#1b4f8f]/20 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-40 -right-24 h-[28rem] w-[28rem] rounded-full bg-[#3f8efc]/15 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 -right-24 h-112 w-md rounded-full bg-[#3f8efc]/15 blur-3xl" />
       <div
         className="pointer-events-none absolute inset-0 opacity-90 transition-opacity duration-300"
         style={{
@@ -77,8 +77,8 @@ export default function WhoAreWe() {
             </p>
           </article>
 
-          <div className="mx-auto h-full w-full max-w-[28rem] lg:max-w-none">
-            <div className="group relative h-full min-h-[420px] overflow-hidden rounded-[28px] border border-[#d2dfef] bg-[linear-gradient(145deg,#f7fbff_0%,#e6eff9_100%)] p-3 shadow-[0_32px_70px_-42px_rgba(0,8,22,0.9),inset_0_1px_0_rgba(255,255,255,0.85)]">
+          <div className="mx-auto h-full w-full max-w-md lg:max-w-none">
+            <div className="group relative h-full min-h-105 overflow-hidden rounded-[28px] border border-[#d2dfef] bg-[linear-gradient(145deg,#f7fbff_0%,#e6eff9_100%)] p-3 shadow-[0_32px_70px_-42px_rgba(0,8,22,0.9),inset_0_1px_0_rgba(255,255,255,0.85)]">
               <img
                 src={teamImage}
                 alt="Gryphon Academy team members"
