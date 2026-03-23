@@ -215,7 +215,7 @@ export default function AudiencePathways() {
             })}
           </div>
 
-          <div className="hidden h-[clamp(320px,44vw,420px)] lg:block">
+          <div className="hidden h-[clamp(320px,44vw,420px)] lg:block lg:pl-8 xl:pl-10">
             <ConnectorArrow
               activeIndex={Math.max(activeIndex, 0)}
               totalItems={pathways.length}
