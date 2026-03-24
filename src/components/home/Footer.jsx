@@ -1,79 +1,129 @@
-export default function Footer() {
-  const currentYear = new Date().getFullYear();
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMapMarkerAlt,
+  faMobileAlt,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
+import socialFb from "../../assets/social-fb.svg";
+import socialIg from "../../assets/social-ig.svg";
+import socialIn from "../../assets/social-in.svg";
+import youtubeIcon from "../../assets/youtube.png";
+
+const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
-    <footer className="bg-[#01224F] text-white">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          {/* Company Info */}
-          <div>
-            <h3 className="text-white text-xl font-bold mb-4">Gryphon Academy</h3>
-            <p className="mb-4">
-              Empowering careers and transforming organizations through professional training and recruitment solutions.
-            </p>
-            <div className="flex gap-4">
-              <a href="https://linkedin.com" aria-label="LinkedIn" className="hover:text-[#01224F] hover:bg-white rounded-full px-3 py-2 transition">LinkedIn</a>
-              <a href="https://twitter.com" aria-label="Twitter" className="hover:text-[#01224F] hover:bg-white rounded-full px-3 py-2 transition">Twitter</a>
-              <a href="https://facebook.com" aria-label="Facebook" className="hover:text-[#01224F] hover:bg-white rounded-full px-3 py-2 transition">Facebook</a>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-white font-bold mb-6">Quick Links</h4>
-            <ul className="space-y-3">
-              <li><a href="#home" className="hover:text-yellow-400 transition">Home</a></li>
-              <li><a href="#about" className="hover:text-yellow-400 transition">About Us</a></li>
-              <li><a href="#services" className="hover:text-yellow-400 transition">Services</a></li>
-              <li><a href="#events" className="hover:text-yellow-400 transition">Events</a></li>
-              <li><a href="#blogs" className="hover:text-yellow-400 transition">Blogs</a></li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-white font-bold mb-6">Services</h4>
-            <ul className="space-y-3">
-              <li><a href="#services" className="hover:text-yellow-400 transition">College Programs</a></li>
-              <li><a href="#services" className="hover:text-yellow-400 transition">Corporate Training</a></li>
-              <li><a href="#services" className="hover:text-yellow-400 transition">Placement Services</a></li>
-              <li><a href="#services" className="hover:text-yellow-400 transition">Faculty Development</a></li>
-              <li><a href="#services" className="hover:text-yellow-400 transition">Induction Programs</a></li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-white font-bold mb-6">Contact Us</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start">
-                <span className="mr-3">📍</span>
-                <span>123 Business Park, Tech City, India</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-3">📞</span>
-                <span>+91 (XXX) XXX-XXXX</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-3">✉️</span>
-                <span>info@gryphonacademy.com</span>
-              </li>
-            </ul>
-          </div>
+    <footer className="text-white py-8 px-4"
+      style={{
+        background: 'linear-gradient(to top right, rgba(29, 35, 52, 0.9) 0%, rgba(29, 48, 110, 0.9) 40%, rgba(29, 35, 52, 0.9) 100%)',
+      }}>
+    
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        {/* Logo Section */}
+        <div className="flex flex-col items-center mb-8 md:mb-0">
+          <img
+            src="https://res.cloudinary.com/dcjmaapvi/image/upload/v1732608342/NewLogo_glaelo.webp"
+            alt="Gryphon Academy Logo"
+            className="w-48 md:w-64"
+          />
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-600 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm">
-            &copy; {currentYear} Gryphon Academy. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-sm mt-4 md:mt-0">
-            <a href="#privacy" className="hover:text-yellow-400 transition">Privacy Policy</a>
-            <a href="#terms" className="hover:text-yellow-400 transition">Terms & Conditions</a>
-            <a href="#sitemap" className="hover:text-yellow-400 transition">Sitemap</a>
-          </div>
+        {/* Useful Links Section */}
+        <div className="flex flex-col">
+          <h2 className="text-2xl font-bold mb-4 text-center md:text-left">Useful Links</h2>
+          <ul className="space-y-2 text-center md:text-left">
+            {[
+              { name: 'Contact Us', path: '/contact' },
+              { name: 'About Us', path: '/about-us' },
+              { name: 'Learning & Development', path: '/training' },
+              { name: 'Campus Placement', path: '/placement' },
+              { name: 'Blogs', path: '/blogs' },
+              { name: 'Privacy Policy', path: '/privacy-policy' }
+            ].map((link, index) => (
+              <li key={index} className="relative">
+                <Link
+                  to={link.path}
+                  onClick={scrollToTop}
+                  className="text-white transition duration-300 text-lg border-b-2 border-transparent hover:border-yellow-400"
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
+
+        {/* Contact Us Section */}
+        <div className="flex flex-col">
+          <h2 className="text-2xl font-bold mb-4 text-center md:text-left">Contact Us</h2>
+            <ul className="space-y-4 text-center md:text-left">
+              <li className="flex items-center justify-center md:justify-start">
+              <FontAwesomeIcon
+                icon={faMapMarkerAlt}
+                className="text-yellow-400 mr-2 ml-10 sm:ml-0"
+              />
+              <p className="text-sm">
+                <a href="https://maps.app.goo.gl/LbkaqWULoGY2k7bq8" className="hover:underline hover:text-yellow-400 transition duration-300">
+                  9th Floor, Olympia Business House, Mumbai - Bangalore Highway, Pune - 411045
+                </a>
+              </p>
+              </li>
+              <li className="flex items-center justify-center md:justify-start">
+              <FontAwesomeIcon icon={faMobileAlt} className="text-yellow-400 mr-2" />
+              <p className="text-sm">
+                <a href="tel:+918956444509" className="hover:underline hover:text-yellow-400 transition duration-300">+91 8956444509</a>
+              </p>
+
+            </li>
+            <li className="flex items-center justify-center md:justify-start">
+              <FontAwesomeIcon icon={faEnvelope} className="text-yellow-400 mr-2" />
+              <p className="text-sm">
+                <a href="mailto:connect@gryphonacademy.co.in" className="hover:underline hover:text-yellow-400 transition duration-300">connect@gryphonacademy.co.in</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        {/* Follow Us Section */}
+        <div className="flex flex-col">
+          <h2 className="text-2xl font-bold mb-4 text-center md:text-left">Follow Us</h2>
+          <div className="flex justify-center md:justify-start space-x-4 mb-4">
+            <a href="https://www.facebook.com/gryphonnacademy" target="_blank" rel="noopener noreferrer">
+              <img src={socialFb} alt="Facebook" className="w-8 h-8 hover:opacity-80 transition duration-300" />
+            </a>
+            <a href="https://www.instagram.com/gryphon_academy/" target="_blank" rel="noopener noreferrer">
+              <img src={socialIg} alt="Instagram" className="w-8 h-8 hover:opacity-80 transition duration-300" />
+            </a>
+            <a href="https://www.linkedin.com/company/gryphonacademy/" target="_blank" rel="noopener noreferrer">
+              <img src={socialIn} alt="LinkedIn" className="w-8 h-8 hover:opacity-80 transition duration-300" />
+            </a>
+            <a href="https://www.youtube.com/channel/UCVn2uVWEHg8cMFd8ht3CQBw" target="_blank" rel="noopener noreferrer">
+              <img src={youtubeIcon} alt="YouTube" className="w-8 h-8 hover:opacity-80 transition duration-300" />
+            </a>
+          </div>
+          
+          {/* Badge Image */}
+          {/* <div className="mt-4 flex justify-center md:justify-start">
+            <img 
+              src="https://res.cloudinary.com/dcjmaapvi/image/upload/v1751965794/badge_yoxxtj.png" 
+              alt="Badge" 
+              className="w-32 md:w-48 object-contain" 
+              style={{ maxWidth: '176px' }}
+            />
+          </div> */}
+        </div>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="text-center mt-8 text-gray-400">
+        <p>Copyright &copy; {new Date().getFullYear()} Gryphon Academy Pvt. Ltd.</p>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
