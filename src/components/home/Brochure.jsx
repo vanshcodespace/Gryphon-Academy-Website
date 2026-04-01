@@ -1,53 +1,51 @@
 export default function Brochure() {
   return (
-    <section className="bg-[#01295f] py-0">
-      <div className="w-full px-0">
-        <div
-          className="relative flex min-h-[180px] w-full items-center overflow-hidden rounded-none px-5 py-5 sm:px-7 md:min-h-[210px] md:px-10"
+    <section className="relative overflow-hidden bg-white py-14 sm:py-16 lg:py-20">
+      {/* Subtle top-right light blue glow */}
+      <div className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-[#cce0fc]/50 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-[#cce0fc]/30 blur-3xl" />
+
+      <div className="relative mx-auto max-w-6xl px-6 text-center">
+        {/* Heading — centered */}
+        <h2
+          className="whitespace-nowrap text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl lg:text-[2.2rem]"
           style={{
-            backgroundColor: "#022a63",
-            backgroundImage:
-              "repeating-linear-gradient(0deg, rgba(66,117,196,0.22) 0 1px, transparent 1px 68px), repeating-linear-gradient(60deg, rgba(66,117,196,0.24) 0 1px, transparent 1px 92px), repeating-linear-gradient(-60deg, rgba(66,117,196,0.24) 0 1px, transparent 1px 92px)"
+            background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            display: "block",
           }}
         >
+          Everything You Need to Know - In One Document.
+        </h2>
 
-          <div className="relative z-10 flex w-full flex-col items-center gap-5 text-center py-6 md:py-10">
-            <h3 className="text-[1.45rem] font-extrabold leading-tight text-white md:text-[2.2rem] lg:text-[2.5rem]">
-              Everything You Need to Know — In One Document.
-            </h3>
-            <p className="max-w-2xl text-sm leading-relaxed text-[#b0c7e6] sm:text-base md:text-lg">
-              Download our programme brochure for a complete overview of our
-              training modules, placement outcomes, institutional partnerships,
-              and service offerings. Built for decision-makers who want the full
-              picture before the conversation.
-            </p>
+        {/* Body text */}
+        <p className="mt-5 text-base leading-relaxed text-[#1a1a2e] sm:text-lg">
+          Download our programme brochure for a complete overview of our training modules,
+          <br className="hidden sm:block" />
+          placement outcomes, institutional partnerships, and service offerings.
+          <br />
+          Built for decision-makers who want the full picture before the conversation.
+        </p>
 
-            <div className="mt-2 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-              <a
-                href="#"
-                className="inline-flex items-center gap-2.5 rounded-xl bg-[#2f67e6] px-6 py-3 text-base font-semibold text-white shadow-[0_12px_24px_rgba(0,0,0,0.28)] transition hover:bg-[#2458cf]"
-              >
-                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 4v9" />
-                  <path d="m8.5 10.5 3.5 3.5 3.5-3.5" />
-                  <rect x="4" y="17" width="16" height="3.5" rx="1.2" />
-                </svg>
-                <span>Download Brochure</span>
-              </a>
+        {/* CTAs */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          {/* Primary button */}
+          <a
+            href="#"
+            className="inline-block rounded-md bg-[#00083D] px-8 py-3.5 text-[15px] font-bold text-white shadow-md transition-all hover:bg-[#01224F]"
+          >
+            Download Brochure
+          </a>
 
-              <span className="hidden text-[#5a86bf] sm:inline">·</span>
-
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-1.5 text-base font-medium text-[#8ab4f0] transition hover:text-white"
-              >
-                Speak to Our Team Instead
-                <svg viewBox="0 0 20 20" className="h-4 w-4" fill="currentColor">
-                  <path fillRule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.19l-2.47-2.47a.75.75 0 0 1 1.06-1.06l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3.75A.75.75 0 0 1 3 10Z" clipRule="evenodd" />
-                </svg>
-              </a>
-            </div>
-          </div>
+          {/* Secondary text link */}
+          <a
+            href="#contact"
+            className="text-[15px] font-bold text-[#00083D] underline-offset-4 transition hover:underline"
+          >
+            Speak to Our Team Instead
+          </a>
         </div>
       </div>
     </section>

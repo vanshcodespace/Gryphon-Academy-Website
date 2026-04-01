@@ -56,8 +56,9 @@ export default function Home() {
       <Hero showTopLeftLogo={!isNavbarVisible} logoSrc={logoSrc} />
 
       <WhoAreWe />
+       <Brochure />
       <Numbers />
-  <Brochure />
+ 
       <AudiencePathways />
        <PartnersMarquee />
     
