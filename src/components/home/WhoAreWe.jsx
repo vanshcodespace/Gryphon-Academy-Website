@@ -42,31 +42,38 @@ export default function WhoAreWe() {
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h2 className="text-4xl font-bold leading-tight text-[#01224F] sm:text-5xl lg:text-6xl">
-              Who we are
+            <h2
+              className="text-4xl font-extrabold uppercase tracking-tight sm:text-5xl lg:text-[4rem]"
+              style={{
+                background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              WHO ARE WE?
             </h2>
 
-            <p className="mt-6 text-base leading-relaxed text-[#3b4b5e] sm:text-lg">
+            <p className="mt-8 text-base text-justify leading-relaxed text-[#2a3038] sm:text-lg lg:text-[1.05rem] lg:leading-[1.8]">
               Gryphon Academy Pvt. Ltd. is a Pan-India professional training,
               placement facilitation, and institutional development organisation
               founded in 2020. We partner with MBA, Engineering, MCA, and
               Diploma institutions to embed structured, industry-aligned
-              training directly into their academic curriculum — delivered
+              training directly into their academic curriculum - delivered
               entirely offline, on-campus, by 350+ certified industry
               practitioners. We are not a coaching institute. We are not an
               edtech platform. We are the operating bridge between academia and
-              industry — training students inside their colleges, connecting
+              industry - training students inside their colleges, connecting
               institutions to corporate networks, and placing graduates with
               India&apos;s top employers at zero cost to all parties.
-            </p><br></br>
-              <a
-          href="#contact"
-          className="group relative hidden shrink-0 overflow-hidden rounded-lg bg-white px-4 py-2 text-sm font-semibold text-[#01224F] transition-all hover:shadow-lg md:inline-block lg:px-5 lg:py-2.5 lg:text-base"
-        >
-          <span className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 scale-0 rounded-full bg-yellow-400 opacity-0 transition-all duration-500 ease-out group-hover:scale-100 group-hover:opacity-100" />
-          <span className="relative z-10 transition-colors duration-300">
-Learn more          </span>
-        </a>
+            </p>
+
+            <a
+              href="#contact"
+              className="mt-8 inline-block rounded-md bg-[#00083D] px-8 py-3.5 text-[15px] sm:text-base font-bold text-white transition-all hover:bg-[#01224F] shadow-lg"
+            >
+              Learn More
+            </a>
           </div>
 
           <div className="flex items-end justify-center lg:justify-end">

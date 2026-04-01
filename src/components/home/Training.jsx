@@ -1,4 +1,4 @@
-import trainEvaImage from "../../assets/traineva.avif";
+import trainEvaImage from "../../assets/02 1.png";
 
 export default function Training() {
   return (
@@ -8,7 +8,7 @@ export default function Training() {
           <img
             src={trainEvaImage}
             alt="Training and evaluation"
-            className="w-full h-auto object-contain"
+            className="w-full h-screen object-cover object-center"
             loading="lazy"
           />
         </div>

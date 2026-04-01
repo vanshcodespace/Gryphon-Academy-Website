@@ -19,6 +19,7 @@ import Solutions from "../components/home/Solutions";
 import WhoAreWe from "../components/home/WhoAreWe";
 import Brochure from "../components/home/Brochure";
 import Training from "../components/home/Training";
+import Numbers from "../components/home/numbers";
 
 export default function Home() {
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
@@ -55,15 +56,17 @@ export default function Home() {
       <Hero showTopLeftLogo={!isNavbarVisible} logoSrc={logoSrc} />
 
       <WhoAreWe />
+      <Numbers />
   <Brochure />
       <AudiencePathways />
+       <PartnersMarquee />
     
       <Training />
        <CTA />
 
       <Gallery />
 
-      <PartnersMarquee />
+     
      
 
       <Testimonials />
