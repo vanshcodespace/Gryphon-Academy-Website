@@ -348,11 +348,31 @@ function StudentSuccessStories() {
 
   return (
     <div className="relative mb-0 overflow-hidden rounded-3xl bg-transparent py-16 md:py-20 xl:py-14">
-      <div className="relative z-10 mb-6 px-4 text-center md:mb-8 xl:mb-6">
-        <h2 className="mb-3 text-4xl font-bold tracking-tight text-[#0b2a5a] md:text-6xl">
+      <div className="relative z-10 mb-6 text-center md:mb-8 xl:mb-6">
+        <h2
+          className="mb-4 overflow-visible px-4 pb-1 text-4xl font-bold tracking-tight leading-[1.15] md:text-6xl"
+          style={{
+            background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            display: "block",
+            width: "100%",
+          }}
+        >
           Shaping Success Stories Since 2019
         </h2>
-        <p className="text-2xl font-bold tracking-tight text-[#1f4d7e] md:text-5xl">
+        <p
+          className="overflow-visible px-4 text-2xl font-bold tracking-tight leading-[1.15] md:text-5xl"
+          style={{
+            background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            display: "block",
+            width: "100%",
+          }}
+        >
           Your Goal. Our Mission
         </p>
       </div>
@@ -449,18 +469,18 @@ function StudentSuccessStories() {
           </div>
 
           <div className="relative z-10 mt-6 flex justify-center lg:absolute lg:right-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2">
-            <div className="flex items-center gap-3 rounded-xl border border-[#9bcde8] bg-white/75 p-2 shadow-[0_8px_20px_rgba(31,95,148,0.18)] backdrop-blur-sm lg:flex-col lg:bg-transparent lg:p-0 lg:shadow-none lg:border-transparent">
+            <div className="flex items-center gap-3 lg:flex-col lg:gap-3.5">
               <button
                 type="button"
                 onClick={prevStory}
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-[#3f8fbd] text-2xl text-[#2e729d] transition hover:bg-[#e8f6ff] disabled:cursor-not-allowed disabled:opacity-35"
+                className="relative flex h-12 w-12 items-center justify-center rounded-full border border-[#62a9ce] bg-white/55 text-2xl text-[#1f709d] shadow-[0_2px_8px_rgba(35,105,150,0.12)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/75 hover:shadow-[0_6px_12px_rgba(35,105,150,0.16)] disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:translate-y-0"
                 aria-label="Previous testimonial"
                 disabled={isSliding || currentPageIndex <= 0}
               >
-                ↑
+                <span className="-mt-0.5">↑</span>
               </button>
 
-              <div className="flex items-center gap-2 lg:flex-col">
+              <div className="flex items-center gap-2.5 lg:flex-col lg:gap-2.5">
                 {Array.from({ length: totalPages }).map((_, idx) => {
                   const dotIndex = idx;
                   const isActive = dotIndex === activeDot;
@@ -469,8 +489,8 @@ function StudentSuccessStories() {
                       key={`dot-${dotIndex}`}
                       className={`rounded-full transition-all ${
                         isActive
-                          ? "h-3 w-8 bg-[#2f7fb0] lg:h-8 lg:w-3"
-                          : "h-2.5 w-2.5 bg-[#9bc8e0]"
+                          ? "h-3 w-7 bg-[#2f84b8] shadow-[0_2px_7px_rgba(47,132,184,0.25)] lg:h-8 lg:w-3"
+                          : "h-2.5 w-2.5 bg-[#8ebfdb]/90"
                       }`}
                     />
                   );
@@ -480,11 +500,11 @@ function StudentSuccessStories() {
               <button
                 type="button"
                 onClick={nextStory}
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-[#3f8fbd] text-2xl text-[#2e729d] transition hover:bg-[#e8f6ff] disabled:cursor-not-allowed disabled:opacity-35"
+                className="relative flex h-12 w-12 items-center justify-center rounded-full border border-[#62a9ce] bg-white/55 text-2xl text-[#1f709d] shadow-[0_2px_8px_rgba(35,105,150,0.12)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/75 hover:shadow-[0_6px_12px_rgba(35,105,150,0.16)] disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:translate-y-0"
                 aria-label="Next testimonial"
                 disabled={isSliding || currentPageIndex >= lastPageIndex}
               >
-                ↓
+                <span className="-mt-0.5">↓</span>
               </button>
             </div>
           </div>
