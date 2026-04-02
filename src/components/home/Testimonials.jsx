@@ -232,16 +232,29 @@ function StudentSuccessStories() {
     [getPageStories, startIndex],
   );
 
-  const incomingStories = useMemo(() => {
-    if (!isSliding || pendingStartIndex === null) return [];
-    return getPageStories(pendingStartIndex);
-  }, [getPageStories, isSliding, pendingStartIndex]);
-
   const pageGroups = useMemo(() => {
-    if (!isSliding || incomingStories.length === 0) return [visibleStories];
-    if (slideDirection === "next") return [visibleStories, incomingStories];
-    return [incomingStories, visibleStories];
-  }, [incomingStories, isSliding, slideDirection, visibleStories]);
+    if (!isSliding || pendingStartIndex === null) return [visibleStories];
+
+    const delta = Math.abs(pendingStartIndex - currentPageIndex);
+    if (delta === 0) return [visibleStories];
+
+    if (slideDirection === "next") {
+      return Array.from({ length: delta + 1 }, (_, idx) =>
+        getPageStories(currentPageIndex + idx),
+      );
+    }
+
+    return Array.from({ length: delta + 1 }, (_, idx) =>
+      getPageStories(pendingStartIndex + idx),
+    );
+  }, [
+    currentPageIndex,
+    getPageStories,
+    isSliding,
+    pendingStartIndex,
+    slideDirection,
+    visibleStories,
+  ]);
 
   const gridColumns = useMemo(() => {
     if (visibleCount >= 3) return 3;
@@ -277,17 +290,17 @@ function StudentSuccessStories() {
     }, durationMs);
   }, []);
 
-  const slide = useCallback(
-    (direction) => {
+  const goToPage = useCallback(
+    (targetPageIndex) => {
       if (isSliding) return;
-
-      const targetPageIndex =
-        direction === "next" ? currentPageIndex + 1 : currentPageIndex - 1;
       if (targetPageIndex < 0 || targetPageIndex > lastPageIndex) return;
+      if (targetPageIndex === currentPageIndex) return;
 
+      const direction = targetPageIndex > currentPageIndex ? "next" : "prev";
       const targetStartIndex = targetPageIndex;
-      const shift = pageShiftPxRef.current;
-      const durationMs = 700;
+      const steps = Math.abs(targetStartIndex - currentPageIndex);
+      const shift = pageShiftPxRef.current * steps;
+      const durationMs = Math.min(1200, 520 + steps * 180);
 
       setSlideDirection(direction);
       setPendingStartIndex(targetStartIndex);
@@ -313,14 +326,22 @@ function StudentSuccessStories() {
     [currentPageIndex, endSlide, isSliding, lastPageIndex],
   );
 
+  const slide = useCallback(
+    (direction) => {
+      const targetPageIndex =
+        direction === "next" ? currentPageIndex + 1 : currentPageIndex - 1;
+      goToPage(targetPageIndex);
+    },
+    [currentPageIndex, goToPage],
+  );
+
   const nextStory = useCallback(() => slide("next"), [slide]);
   const prevStory = useCallback(() => slide("prev"), [slide]);
 
-  const activeDot = isSliding
-    ? slideDirection === "next"
-      ? Math.min(currentPageIndex + 1, lastPageIndex)
-      : Math.max(currentPageIndex - 1, 0)
-    : currentPageIndex;
+  const activeDot =
+    isSliding && pendingStartIndex !== null
+      ? pendingStartIndex
+      : currentPageIndex;
 
   const textLineClamp = useMemo(() => {
     const estimated = Math.floor((desktopCardHeight - 130) / 24);
@@ -485,12 +506,16 @@ function StudentSuccessStories() {
                   const dotIndex = idx;
                   const isActive = dotIndex === activeDot;
                   return (
-                    <span
+                    <button
+                      type="button"
                       key={`dot-${dotIndex}`}
+                      onClick={() => goToPage(dotIndex)}
+                      aria-label={`Go to testimonial page ${dotIndex + 1}`}
+                      disabled={isSliding || dotIndex === currentPageIndex}
                       className={`rounded-full transition-all ${
                         isActive
                           ? "h-3 w-7 bg-[#2f84b8] shadow-[0_2px_7px_rgba(47,132,184,0.25)] lg:h-8 lg:w-3"
-                          : "h-2.5 w-2.5 bg-[#8ebfdb]/90"
+                          : "h-2.5 w-2.5 bg-[#8ebfdb]/90 hover:bg-[#5ea4cf]"
                       }`}
                     />
                   );
