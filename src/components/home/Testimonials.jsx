@@ -347,12 +347,12 @@ function StudentSuccessStories() {
   }, [desktopCardHeight]);
 
   return (
-    <div className="relative mb-16 overflow-hidden rounded-3xl py-10 md:py-12 xl:py-8">
+    <div className="relative mb-0 overflow-hidden rounded-3xl bg-transparent py-16 md:py-20 xl:py-14">
       <div className="relative z-10 mb-6 px-4 text-center md:mb-8 xl:mb-6">
-        <h2 className="mb-3 text-4xl font-bold tracking-tight text-white md:text-6xl">
+        <h2 className="mb-3 text-4xl font-bold tracking-tight text-[#0b2a5a] md:text-6xl">
           Shaping Success Stories Since 2019
         </h2>
-        <p className="text-2xl font-bold tracking-tight text-white md:text-5xl">
+        <p className="text-2xl font-bold tracking-tight text-[#1f4d7e] md:text-5xl">
           Your Goal. Our Mission
         </p>
       </div>
@@ -366,7 +366,7 @@ function StudentSuccessStories() {
           ].map((header) => (
             <div
               key={header.id}
-              className="rounded-xl bg-[#0B2A5A] py-2 text-center text-3xl font-semibold text-white shadow-[0_8px_16px_rgba(1,15,38,0.25)]"
+              className="rounded-xl border border-[#9bcde8] bg-white/72 py-2 text-center text-3xl font-semibold text-[#0d3d6b] shadow-[0_10px_24px_rgba(31,95,148,0.16)] backdrop-blur-sm"
             >
               {header.label}
             </div>
@@ -398,11 +398,11 @@ function StudentSuccessStories() {
                   {group.map((story) => (
                     <article key={`story-${groupIndex}-${story.id}`}>
                       <div
-                        className="relative h-full w-full overflow-hidden rounded-2xl border border-white/45 bg-[linear-gradient(155deg,rgba(236,243,251,0.9)_0%,rgba(217,230,244,0.86)_100%)] p-4 shadow-[0_14px_30px_rgba(0,0,0,0.2)] backdrop-blur-xl transition-shadow duration-300 md:p-5"
+                        className="relative h-full w-full overflow-hidden rounded-2xl border border-[#b8d9ea] bg-[linear-gradient(155deg,rgba(247,252,255,0.92)_0%,rgba(227,242,250,0.9)_100%)] p-4 shadow-[0_14px_30px_rgba(28,85,128,0.16)] backdrop-blur-xl transition-shadow duration-300 md:p-5"
                         style={{ height: `${desktopCardHeight}px` }}
                       >
                         <div className="relative z-10 flex h-full flex-col">
-                          <div className="mb-2 text-3xl font-black leading-none text-[#c8cdd4] md:text-4xl">
+                          <div className="mb-2 text-3xl font-black leading-none text-[#9ab6c8] md:text-4xl">
                             <span>“ ”</span>
                           </div>
 
@@ -420,18 +420,18 @@ function StudentSuccessStories() {
 
                           <div className="mt-3 border-t border-[#cfd6de] pt-3">
                             <div className="flex items-start gap-2.5">
-                              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#eadfb3] text-[10px] font-semibold text-[#6a5f2d] md:h-8 md:w-8 md:text-[11px]">
+                              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#dff1fb] text-[10px] font-semibold text-[#2a628d] md:h-8 md:w-8 md:text-[11px]">
                                 {story.initials}
                               </div>
                               <div className="min-w-0">
                                 <h3
-                                  className="font-semibold leading-tight text-[#9f934d]"
+                                  className="font-semibold leading-tight text-[#1c5a86]"
                                   style={{ fontSize: nameFontSize }}
                                 >
                                   {story.name}
                                 </h3>
                                 <p
-                                  className="mt-1 leading-tight text-[#111827]"
+                                  className="mt-1 leading-tight text-[#15324d]"
                                   style={{ fontSize: roleFontSize }}
                                 >
                                   {story.role}
@@ -449,11 +449,11 @@ function StudentSuccessStories() {
           </div>
 
           <div className="relative z-10 mt-6 flex justify-center lg:absolute lg:right-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2">
-            <div className="flex items-center gap-3 rounded-xl bg-[#01224fcc] p-2 lg:flex-col lg:bg-transparent lg:p-0">
+            <div className="flex items-center gap-3 rounded-xl border border-[#9bcde8] bg-white/75 p-2 shadow-[0_8px_20px_rgba(31,95,148,0.18)] backdrop-blur-sm lg:flex-col lg:bg-transparent lg:p-0 lg:shadow-none lg:border-transparent">
               <button
                 type="button"
                 onClick={prevStory}
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-[#e4c55b] text-2xl text-[#e4c55b] transition hover:bg-[#ffffff12] disabled:cursor-not-allowed disabled:opacity-35"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-[#3f8fbd] text-2xl text-[#2e729d] transition hover:bg-[#e8f6ff] disabled:cursor-not-allowed disabled:opacity-35"
                 aria-label="Previous testimonial"
                 disabled={isSliding || currentPageIndex <= 0}
               >
@@ -469,8 +469,8 @@ function StudentSuccessStories() {
                       key={`dot-${dotIndex}`}
                       className={`rounded-full transition-all ${
                         isActive
-                          ? "h-3 w-8 bg-[#d8be5d] lg:h-8 lg:w-3"
-                          : "h-2.5 w-2.5 bg-[#cfb24f]"
+                          ? "h-3 w-8 bg-[#2f7fb0] lg:h-8 lg:w-3"
+                          : "h-2.5 w-2.5 bg-[#9bc8e0]"
                       }`}
                     />
                   );
@@ -480,7 +480,7 @@ function StudentSuccessStories() {
               <button
                 type="button"
                 onClick={nextStory}
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-[#e4c55b] text-2xl text-[#e4c55b] transition hover:bg-[#ffffff12] disabled:cursor-not-allowed disabled:opacity-35"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-[#3f8fbd] text-2xl text-[#2e729d] transition hover:bg-[#e8f6ff] disabled:cursor-not-allowed disabled:opacity-35"
                 aria-label="Next testimonial"
                 disabled={isSliding || currentPageIndex >= lastPageIndex}
               >
@@ -496,8 +496,21 @@ function StudentSuccessStories() {
 
 export default function Testimonials() {
   return (
-    <div className="relative mt-12">
-      <div className="testimonial-dots-bg pointer-events-none absolute inset-0" />
+    <div
+      className="relative py-8 md:py-12"
+      style={{
+        backgroundImage:
+          "radial-gradient(120% 70% at 50% 0%, rgba(247,252,255,0.95) 0%, rgba(247,252,255,0.22) 55%, rgba(247,252,255,0) 100%), radial-gradient(65% 55% at 0% 0%, #ceecf7 0%, rgba(206,236,247,0) 75%), radial-gradient(65% 55% at 100% 0%, #a2d5f4 0%, rgba(162,213,244,0) 75%), radial-gradient(80% 50% at 50% 100%, #d3eef9 0%, rgba(211,238,249,0) 72%), linear-gradient(180deg, #eef8fd 0%, #f7fcff 48%, #ffffff 100%)",
+      }}
+    >
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          opacity: 0.38,
+          backgroundImage:
+            "repeating-linear-gradient(0deg, rgba(91,145,227,0.22) 0 1px, transparent 1px 34px), repeating-linear-gradient(60deg, rgba(91,145,227,0.24) 0 1px, transparent 1px 34px), repeating-linear-gradient(-60deg, rgba(91,145,227,0.24) 0 1px, transparent 1px 34px)",
+        }}
+      />
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <StudentSuccessStories />
       </div>

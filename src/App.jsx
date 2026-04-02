@@ -1,9 +1,9 @@
-import React from 'react';
-import Home from './pages/Home';
+import React from "react";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div className="min-h-screen w-full bg-[#01224F] font-sans">
+    <div className="min-h-screen w-full bg-white font-sans">
       <Home />
     </div>
   );
