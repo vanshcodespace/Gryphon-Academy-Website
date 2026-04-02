@@ -103,7 +103,7 @@ function StudentSuccessStories() {
     [],
   );
 
-  const [visibleCount, setVisibleCount] = useState(6);
+  const [visibleCount, setVisibleCount] = useState(3);
   const [startIndex, setStartIndex] = useState(0);
   const [pendingStartIndex, setPendingStartIndex] = useState(null);
   const [isSliding, setIsSliding] = useState(false);
@@ -117,11 +117,11 @@ function StudentSuccessStories() {
 
   useEffect(() => {
     const getCount = () => {
-      if (typeof window === "undefined") return 6;
+      if (typeof window === "undefined") return 3;
       const width = window.innerWidth;
-      if (width >= 1024) return 6;
-      if (width >= 768) return 4;
-      return 2;
+      if (width >= 1024) return 3;
+      if (width >= 768) return 2;
+      return 1;
     };
 
     const applyCount = () => setVisibleCount(getCount());
@@ -244,14 +244,14 @@ function StudentSuccessStories() {
   }, [incomingStories, isSliding, slideDirection, visibleStories]);
 
   const gridColumns = useMemo(() => {
-    if (visibleCount >= 6) return 3;
-    if (visibleCount >= 4) return 2;
+    if (visibleCount >= 3) return 3;
+    if (visibleCount >= 2) return 2;
     return 1;
   }, [visibleCount]);
 
   const pageRows = useMemo(
-    () => Math.max(Math.ceil(visibleCount / gridColumns), 1),
-    [gridColumns, visibleCount],
+    () => Math.max(Math.ceil(visibleStories.length / gridColumns), 1),
+    [gridColumns, visibleStories.length],
   );
 
   const pageViewportHeight = useMemo(
