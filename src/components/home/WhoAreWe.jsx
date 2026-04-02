@@ -80,7 +80,7 @@ export default function WhoAreWe() {
             <img
               src={teamImage}
               alt="Gryphon Academy team members"
-              className="max-h-[480px] w-auto object-contain drop-shadow-[0_20px_40px_rgba(1,34,79,0.15)]"
+              className="max-h-120 w-auto object-contain drop-shadow-[0_20px_40px_rgba(1,34,79,0.15)]"
             />
           </div>
         </div>

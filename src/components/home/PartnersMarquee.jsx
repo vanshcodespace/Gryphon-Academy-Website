@@ -50,7 +50,7 @@ const MarqueeTrack = ({ partners, reverse = false, speed = "35s" }) => {
             key={`${item.name}-${idx}`}
             className="group/badge relative mx-3 flex items-center justify-center overflow-hidden rounded-2xl bg-white px-1.5 py-1 shadow-[0_4px_24px_rgba(0,0,0,0.03)] ring-1 ring-[#f1f5f9] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(27,58,107,0.12)] hover:ring-[#1B3A6B]/20 md:mx-4 md:px-2.5 md:py-1.5 lg:py-2"
           >
-            <div className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-[#f8fafc] to-transparent opacity-0 transition-opacity duration-300 group-hover/badge:opacity-100" />
+            <div className="absolute inset-0 z-0 bg-linear-to-r from-transparent via-[#f8fafc] to-transparent opacity-0 transition-opacity duration-300 group-hover/badge:opacity-100" />
             <div className="relative z-10 flex h-12 w-32 sm:h-16 sm:w-40 md:h-20 md:w-48 items-center justify-center">
               {item.logo ? (
                 <img 
@@ -104,8 +104,8 @@ export default function PartnersMarquee() {
       `}</style>
 
       {/* Decorative Blur Orbs */}
-      <div className="pointer-events-none absolute -left-20 top-0 h-[400px] w-[400px] rounded-full bg-[#cce0fc]/40 blur-[100px]" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-[500px] w-[500px] rounded-full bg-[#f4dfe5]/50 blur-[120px]" />
+      <div className="pointer-events-none absolute -left-20 top-0 h-100 w-100 rounded-full bg-[#cce0fc]/40 blur-[100px]" />
+      <div className="pointer-events-none absolute -right-20 bottom-0 h-125 w-125 rounded-full bg-[#f4dfe5]/50 blur-[120px]" />
 
       <div className="relative z-10 mx-auto mb-8 max-w-7xl px-4 text-center sm:mb-12 sm:px-6 lg:px-8">
         <h2
@@ -129,15 +129,15 @@ export default function PartnersMarquee() {
       <div className="relative z-10 flex flex-col gap-4 sm:gap-6">
         {/* Colleges Section */}
         <div className="relative flex w-full flex-col items-center">
-          <div className="pointer-events-none absolute left-0 z-20 h-full w-16 bg-gradient-to-r from-[#fafafa] to-transparent sm:w-32 md:w-48" />
-          <div className="pointer-events-none absolute right-0 z-20 h-full w-16 bg-gradient-to-l from-[#fafafa] to-transparent sm:w-32 md:w-48" />
+          <div className="pointer-events-none absolute left-0 z-20 h-full w-16 bg-linear-to-r from-[#fafafa] to-transparent sm:w-32 md:w-48" />
+          <div className="pointer-events-none absolute right-0 z-20 h-full w-16 bg-linear-to-l from-[#fafafa] to-transparent sm:w-32 md:w-48" />
 
           <div className="mb-6 flex items-center gap-4">
-            <div className="h-[2px] w-8 bg-gradient-to-r from-transparent to-[#94a3b8]" />
+            <div className="h-0.5 w-8 bg-linear-to-r from-transparent to-[#94a3b8]" />
             <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#64748b] sm:text-base">
               Top Institutions
             </h3>
-            <div className="h-[2px] w-8 bg-gradient-to-l from-transparent to-[#94a3b8]" />
+            <div className="h-0.5 w-8 bg-linear-to-l from-transparent to-[#94a3b8]" />
           </div>
 
           <div className="flex w-full flex-col gap-2 sm:gap-4">
@@ -147,19 +147,19 @@ export default function PartnersMarquee() {
         </div>
 
         {/* Divider */}
-        <div className="mx-auto h-px w-full max-w-4xl bg-gradient-to-r from-transparent via-[#cbd5e1] to-transparent opacity-60" />
+        <div className="mx-auto h-px w-full max-w-4xl bg-linear-to-r from-transparent via-[#cbd5e1] to-transparent opacity-60" />
 
         {/* Corporate Section */}
         <div className="relative flex w-full flex-col items-center">
-          <div className="pointer-events-none absolute left-0 z-20 h-full w-16 bg-gradient-to-r from-[#fafafa] to-transparent sm:w-32 md:w-48" />
-          <div className="pointer-events-none absolute right-0 z-20 h-full w-16 bg-gradient-to-l from-[#fafafa] to-transparent sm:w-32 md:w-48" />
+          <div className="pointer-events-none absolute left-0 z-20 h-full w-16 bg-linear-to-r from-[#fafafa] to-transparent sm:w-32 md:w-48" />
+          <div className="pointer-events-none absolute right-0 z-20 h-full w-16 bg-linear-to-l from-[#fafafa] to-transparent sm:w-32 md:w-48" />
 
           <div className="mb-6 flex items-center gap-4">
-            <div className="h-[2px] w-8 bg-gradient-to-r from-transparent to-[#94a3b8]" />
+            <div className="h-0.5 w-8 bg-linear-to-r from-transparent to-[#94a3b8]" />
             <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#64748b] sm:text-base">
               Industry Leaders
             </h3>
-            <div className="h-[2px] w-8 bg-gradient-to-l from-transparent to-[#94a3b8]" />
+            <div className="h-0.5 w-8 bg-linear-to-l from-transparent to-[#94a3b8]" />
           </div>
 
           <div className="flex w-full flex-col gap-2 sm:gap-4">

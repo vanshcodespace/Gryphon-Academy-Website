@@ -151,7 +151,7 @@ export default function AudiencePathways() {
         }
       `}</style>
 
-      <div className="mx-auto w-full max-w-[1200px] px-6">
+      <div className="mx-auto w-full max-w-300 px-6">
 
         {/* ── Header ── */}
         <div className="mb-12 text-center">
@@ -180,7 +180,7 @@ export default function AudiencePathways() {
         <div className="hidden lg:grid lg:grid-cols-[220px_100px_1fr] xl:grid-cols-[240px_120px_1fr] lg:gap-4 xl:gap-6 lg:items-center">
 
           {/* Tab list */}
-          <div className="flex h-[420px] flex-col items-stretch justify-center gap-12">
+          <div className="flex h-105 flex-col items-stretch justify-center gap-12">
             {pathways.map((item) => {
               const isActive = item.id === activeId;
               return (
@@ -197,12 +197,12 @@ export default function AudiencePathways() {
           </div>
 
           {/* Arrow connector */}
-          <div className="h-[420px] w-full">
+          <div className="h-105 w-full">
             <ConnectorArrow activeIndex={Math.max(activeIndex, 0)} totalItems={pathways.length} />
           </div>
 
           {/* Content card — TEXT LEFT, ICON RIGHT */}
-          <div className="flex h-[420px] items-center">
+          <div className="flex h-105 items-center">
             <div
               key={activePath.id}
               className="pathway-card-animate flex h-full w-full overflow-hidden rounded-2xl border border-[#d0ddef] bg-white shadow-[0_8px_36px_rgba(1,34,79,0.12)]"
@@ -221,7 +221,7 @@ export default function AudiencePathways() {
                 <ul className="mt-6 space-y-3">
                   {activePath.points.map((point) => (
                     <li key={`${activePath.id}-${point}`} className="flex items-start gap-3">
-                      <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-[#1B3A6B]" />
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1B3A6B]" />
                       <span className="text-sm font-semibold leading-snug text-[#1e2d4d]">
                         {point}
                       </span>
@@ -239,7 +239,7 @@ export default function AudiencePathways() {
               </div>
 
               {/* Icon / Visual column — RIGHT */}
-              <div className="flex w-[120px] shrink-0 flex-col items-center justify-center bg-gradient-to-b from-[#1B3A6B] to-[#7B1A1A] py-8 gap-3">
+              <div className="flex w-30 shrink-0 flex-col items-center justify-center bg-linear-to-b from-[#1B3A6B] to-[#7B1A1A] py-8 gap-3">
                 <span
                   key={activePath.id + "-icon"}
                   className="icon-pulse text-6xl"
@@ -275,7 +275,7 @@ export default function AudiencePathways() {
                 key={p.id}
                 type="button"
                 onClick={() => setActiveId(p.id)}
-                className={`rounded-[6px] px-5 py-2.5 text-[12px] font-extrabold uppercase tracking-widest transition-all ${
+                className={`rounded-md px-5 py-2.5 text-[12px] font-extrabold uppercase tracking-widest transition-all ${
                   p.id === activeId
                     ? "bg-[#7B1A1A] text-white shadow"
                     : "border border-[#1B3A6B] text-[#1B3A6B] opacity-60"
@@ -299,7 +299,7 @@ export default function AudiencePathways() {
               <ul className="mt-3 space-y-1.5">
                 {activePath.points.map((pt) => (
                   <li key={pt} className="flex items-start gap-2 text-sm font-medium text-[#1e2d4d]">
-                    <span className="mt-1.5 h-[5px] w-[5px] shrink-0 rounded-full bg-[#1B3A6B]" />
+                    <span className="mt-1.5 h-1.25 w-1.25 shrink-0 rounded-full bg-[#1B3A6B]" />
                     {pt}
                   </li>
                 ))}
@@ -315,7 +315,7 @@ export default function AudiencePathways() {
             </div>
 
             {/* Icon strip — BOTTOM on mobile */}
-            <div className="flex items-center justify-center bg-gradient-to-r from-[#1B3A6B] to-[#7B1A1A] py-6 gap-4">
+            <div className="flex items-center justify-center bg-linear-to-r from-[#1B3A6B] to-[#7B1A1A] py-6 gap-4">
               <span
                 key={activePath.id + "-mob-icon"}
                 className="icon-pulse text-5xl"
