@@ -141,8 +141,8 @@ export default function PartnersMarquee() {
           </div>
 
           <div className="flex w-full flex-col gap-2 sm:gap-4">
-            <MarqueeTrack partners={collegeRowOne} />
-            <MarqueeTrack partners={collegeRowTwo} reverse />
+            <MarqueeTrack partners={collegeRowOne} speed="30s" />
+            <MarqueeTrack partners={collegeRowTwo} reverse speed="30s" />
           </div>
         </div>
 
@@ -163,8 +163,8 @@ export default function PartnersMarquee() {
           </div>
 
           <div className="flex w-full flex-col gap-2 sm:gap-4">
-            <MarqueeTrack partners={corporateRowOne} reverse speed="100s" />
-            <MarqueeTrack partners={corporateRowTwo} speed="100s" />
+            <MarqueeTrack partners={corporateRowOne} reverse speed="30s" />
+            <MarqueeTrack partners={corporateRowTwo} speed="30s" />
           </div>
         </div>
       </div>
