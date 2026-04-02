@@ -1,46 +1,55 @@
 const galleryCards = [
   {
     id: "leading-minds",
-    title: "A lifetime exposure to leading minds",
+    title: "A Lifetime Exposure To Leading Minds",
     description:
       "An immersive academic culture that brings students into dialogue with pioneers, innovators, and thought leaders through intra-mural and extra-mural engagements.",
     image:
       "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1800&q=80",
-    className: "lg:col-span-7 lg:row-span-1",
+    className: "lg:col-span-6 lg:row-span-1",
   },
   {
     id: "study-tours",
-    title: "Thrilling study tours & academic events",
+    title: "Thrilling Study Tours & Academic Events",
     description:
       "Learning that travels beyond the classroom. Be it national industry tours or international academic summits, we offer a real-world context to every discipline.",
     image:
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80",
-    className: "lg:col-span-5 lg:row-span-1",
+    className: "lg:col-span-6 lg:row-span-1",
   },
   {
     id: "diverse-campus",
-    title: "A vibrant & diverse campus",
+    title: "A Vibrant & Diverse Campus",
     description:
       "A community where cultures, disciplines, and ideas converge, celebrating diversity through art, festivals, research, and student-led initiatives.",
     image:
       "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80",
-    className: "lg:col-span-5 lg:row-span-1",
+    className: "lg:col-span-4 lg:row-span-1",
   },
   {
     id: "nep-learning",
-    title: "A skill-based & NEP aligned learning",
+    title: "A Skill-Based & NEP Aligned Learning",
     description:
       "A forward-looking approach to education that integrates skill development, interdisciplinary learning, and NEP-driven pedagogy for future-ready graduates.",
     image:
       "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1800&q=80",
-    className: "lg:col-span-7 lg:row-span-1",
+    className: "lg:col-span-4 lg:row-span-1",
+  },
+  {
+    id: "induction-programmes",
+    title: "Structured Induction Programmes",
+    description:
+      "Thoughtfully designed orientation and bridge-learning experiences that help learners transition smoothly, build confidence, and begin with clarity.",
+    image:
+      "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1400&q=80",
+    className: "lg:col-span-4 lg:row-span-1",
   },
 ];
 
 export default function Gallery() {
   return (
     <section className="bg-[#f2f2f3] py-6 sm:py-8 lg:py-8">
-      <div className="mx-auto max-w-350 px-3 sm:px-4">
+      <div className="mx-auto max-w-400 px-3 sm:px-4">
         <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-12 lg:grid-rows-2 lg:gap-1.5 lg:h-[78vh] lg:max-h-245 lg:min-h-160">
           {galleryCards.map((card) => (
             <article
@@ -50,7 +59,7 @@ export default function Gallery() {
               <img
                 src={card.image}
                 alt={card.title}
-                className="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-[1.03]"
+                className="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]"
                 loading="lazy"
               />
 
@@ -62,9 +71,7 @@ export default function Gallery() {
                 </p>
               )}
               <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 lg:p-7">
-                <h3
-                  className="max-w-[20ch] text-[20px] font-semibold leading-[1.16] tracking-tight text-transparent bg-[linear-gradient(90deg,#d94f9f,#f1a352)] bg-clip-text sm:text-[22px] lg:text-[30px]"
-                >
+                <h3 className="max-w-[20ch] text-[20px] font-semibold leading-[1.16] tracking-tight text-transparent bg-[linear-gradient(90deg,#d94f9f,#f1a352)] bg-clip-text sm:text-[22px] lg:text-[30px]">
                   {card.title}
                 </h3>
                 <p className="mt-2 max-w-[58ch] text-[11px] leading-[1.42] text-white/95 sm:text-xs lg:mt-2.5 lg:text-[15px] lg:leading-[1.32]">
