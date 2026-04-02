@@ -208,11 +208,8 @@ export default function AudiencePathways() {
               className="pathway-card-animate flex h-full w-full overflow-hidden rounded-2xl border border-[#d0ddef] bg-white shadow-[0_8px_36px_rgba(1,34,79,0.12)]"
             >
               {/* Text section — LEFT */}
-              <div className="flex flex-col justify-center px-8 py-8 text-left flex-1">
-                <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#1B3A6B]">
-                  {activePath.label}
-                </p>
-                <h3 className="mt-3 text-xl font-extrabold leading-snug text-[#0d1b3e] md:text-2xl">
+              <div className="flex flex-col justify-start px-8 py-8 text-left flex-1">
+                <h3 className="text-xl font-extrabold leading-snug text-[#0d1b3e] md:text-2xl">
                   {activePath.title}
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-[#4a5568]">
@@ -230,7 +227,7 @@ export default function AudiencePathways() {
                 </ul>
                 {(activePath.id === "colleges" || activePath.id === "corporate") && (
                   <a
-                    href="#contact" // Placeholder link
+                    href="#contact"
                     className="group mt-8 inline-flex w-max items-center gap-2 rounded bg-[#00083D] px-4 py-2 text-[12px] font-bold text-white shadow-sm transition-all hover:bg-[#01224F]"
                   >
                     Learn More <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
