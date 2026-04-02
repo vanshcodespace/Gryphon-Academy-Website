@@ -1,20 +1,28 @@
 import React from "react";
 
-const collegeRowOne = [
-  "IIT Bombay", "IIT Delhi", "IIT Madras", "IIT Kharagpur", "NIT Trichy", "BITS Pilani", "VIT", "SRM", "MIT Manipal"
-];
+// Dynamically import all images from the College Partners folder
+const collegeModules = import.meta.glob("../../assets/ga college Partners/*.{png,jpg,jpeg,svg,webp}", { eager: true });
+const allColleges = Object.entries(collegeModules).map(([path, module]) => {
+  const name = path.split('/').pop().replace(/\.[^/.]+$/, ""); // Extract filename without extension
+  return { name, logo: module.default || module };
+});
 
-const collegeRowTwo = [
-  "IISc", "IIIT Hyderabad", "NIT Surathkal", "PEC", "Thapar", "COEP", "RVCE", "DTU", "NSUT"
-];
+// Slice the array into two equal halves
+const collegeMid = Math.ceil(allColleges.length / 2);
+const collegeRowOne = allColleges.slice(0, collegeMid);
+const collegeRowTwo = allColleges.slice(collegeMid);
 
-const corporateRowOne = [
-  "Zomato", "Coinbase", "Paytm", "Uber", "Salesforce", "Amazon", "Meta", "Google", "Microsoft"
-];
+// Dynamically import all images from the Recruiters folder
+const corporateModules = import.meta.glob("../../assets/Recruiters/*.{png,jpg,jpeg,svg,webp}", { eager: true });
+const allCorporate = Object.entries(corporateModules).map(([path, module]) => {
+  const name = path.split('/').pop().replace(/\.[^/.]+$/, ""); // Extract filename without extension
+  return { name, logo: module.default || module };
+});
 
-const corporateRowTwo = [
-  "Cisco", "Stripe", "Netflix", "Flipkart", "Razorpay", "Visa", "Atlassian", "PayPal", "CRED"
-];
+// Slice into two equal halves
+const corporateMid = Math.ceil(allCorporate.length / 2);
+const corporateRowOne = allCorporate.slice(0, corporateMid);
+const corporateRowTwo = allCorporate.slice(corporateMid);
 
 const StarIcon = () => (
   <svg 
@@ -26,7 +34,7 @@ const StarIcon = () => (
   </svg>
 );
 
-const MarqueeTrack = ({ partners, reverse = false }) => {
+const MarqueeTrack = ({ partners, reverse = false, speed = "35s" }) => {
   const extendedItems = Array(4).fill(partners).flat();
 
   return (
@@ -35,18 +43,29 @@ const MarqueeTrack = ({ partners, reverse = false }) => {
         className={`flex w-max whitespace-nowrap ${
           reverse ? "animate-marquee-reverse" : "animate-marquee"
         }`}
+        style={{ animationDuration: speed }}
       >
         {extendedItems.map((item, idx) => (
           <div
-            key={`${item}-${idx}`}
-            className="group/badge relative mx-3 flex items-center justify-center overflow-hidden rounded-2xl bg-white px-8 py-3.5 shadow-[0_4px_24px_rgba(0,0,0,0.03)] ring-1 ring-[#f1f5f9] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(27,58,107,0.12)] hover:ring-[#1B3A6B]/20 md:mx-4 md:px-10 md:py-4 lg:py-5"
+            key={`${item.name}-${idx}`}
+            className="group/badge relative mx-3 flex items-center justify-center overflow-hidden rounded-2xl bg-white px-1.5 py-1 shadow-[0_4px_24px_rgba(0,0,0,0.03)] ring-1 ring-[#f1f5f9] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(27,58,107,0.12)] hover:ring-[#1B3A6B]/20 md:mx-4 md:px-2.5 md:py-1.5 lg:py-2"
           >
             <div className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-[#f8fafc] to-transparent opacity-0 transition-opacity duration-300 group-hover/badge:opacity-100" />
-            <div className="relative z-10 flex items-center">
-              <StarIcon />
-              <span className="text-base font-extrabold tracking-wide text-[#334155] transition-colors duration-300 group-hover/badge:text-[#1B3A6B] md:text-lg">
-                {item}
-              </span>
+            <div className="relative z-10 flex h-12 w-32 sm:h-16 sm:w-40 md:h-20 md:w-48 items-center justify-center">
+              {item.logo ? (
+                <img 
+                  src={item.logo} 
+                  alt={item.name} 
+                  className="max-h-full max-w-full object-contain filter transition-all duration-300 group-hover/badge:scale-110" 
+                />
+              ) : (
+                <>
+                  <StarIcon />
+                  <span className="text-base font-extrabold tracking-wide text-[#334155] transition-colors duration-300 group-hover/badge:text-[#1B3A6B] md:text-lg">
+                    {item.name}
+                  </span>
+                </>
+              )}
             </div>
           </div>
         ))}
@@ -57,7 +76,12 @@ const MarqueeTrack = ({ partners, reverse = false }) => {
 
 export default function PartnersMarquee() {
   return (
-    <section className="relative overflow-hidden bg-[#fafafa] py-12 sm:py-16 lg:py-20">
+    <section 
+      className="relative overflow-hidden py-12 sm:py-16 lg:py-20"
+      style={{
+        background: "linear-gradient(135deg, #ceecf7 0%, #a2d5f4 25%, #f7fcff 50%, #d3eef9 75%, #ffffff 100%)"
+      }}
+    >
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -85,7 +109,7 @@ export default function PartnersMarquee() {
 
       <div className="relative z-10 mx-auto mb-8 max-w-7xl px-4 text-center sm:mb-12 sm:px-6 lg:px-8">
         <h2
-          className="mx-auto mb-4 inline-block text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-[3.5rem]"
+          className="mx-auto mb-4 inline-block text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl lg:text-[2.5rem]"
           style={{
             background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
             WebkitBackgroundClip: "text",
@@ -96,7 +120,7 @@ export default function PartnersMarquee() {
         >
           Backed by the Best
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base text-[#475569] sm:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl text-sm text-[#475569] sm:text-base">
           Bridging the gap between premier educational institutions and global
           industry giants to build the next generation of top-tier talent.
         </p>
@@ -139,8 +163,8 @@ export default function PartnersMarquee() {
           </div>
 
           <div className="flex w-full flex-col gap-2 sm:gap-4">
-            <MarqueeTrack partners={corporateRowOne} reverse />
-            <MarqueeTrack partners={corporateRowTwo} />
+            <MarqueeTrack partners={corporateRowOne} reverse speed="100s" />
+            <MarqueeTrack partners={corporateRowTwo} speed="100s" />
           </div>
         </div>
       </div>
