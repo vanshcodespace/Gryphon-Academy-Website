@@ -1,7 +1,7 @@
 import React from "react";
 
 // Dynamically import all images from the College Partners folder
-const collegeModules = import.meta.glob("../../assets/ga college Partners/*.{png,jpg,jpeg,svg,webp}", { eager: true });
+const collegeModules = import.meta.glob("../../assets/GA College Partners/*.{png,jpg,jpeg,svg,webp,avif}", { eager: true });
 const allColleges = Object.entries(collegeModules).map(([path, module]) => {
   const name = path.split('/').pop().replace(/\.[^/.]+$/, ""); // Extract filename without extension
   return { name, logo: module.default || module };
