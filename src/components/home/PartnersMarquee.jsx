@@ -26,7 +26,7 @@ const corporateRowTwo = allCorporate.slice(corporateMid);
 
 const StarIcon = () => (
   <svg 
-    className="mr-2.5 h-3.5 w-3.5 text-[#cbd5e1] transition-all duration-300 group-hover/badge:rotate-90 group-hover/badge:scale-110 group-hover/badge:text-[#7B1B2A]" 
+    className="mr-2.5 h-3.5 w-3.5 text-[#cbd5e1] transition-all duration-300" 
     viewBox="0 0 24 24" 
     fill="currentColor"
   >
@@ -48,20 +48,20 @@ const MarqueeTrack = ({ partners, reverse = false, speed = "35s" }) => {
         {extendedItems.map((item, idx) => (
           <div
             key={`${item.name}-${idx}`}
-            className="group/badge relative mx-3 flex items-center justify-center overflow-hidden rounded-2xl bg-white px-1.5 py-1 shadow-[0_4px_24px_rgba(0,0,0,0.03)] ring-1 ring-[#f1f5f9] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(27,58,107,0.12)] hover:ring-[#1B3A6B]/20 md:mx-4 md:px-2.5 md:py-1.5 lg:py-2"
+            className="group/badge relative mx-3 flex items-center justify-center overflow-hidden rounded-2xl bg-white px-1.5 py-1 shadow-[0_4px_24px_rgba(0,0,0,0.03)] ring-1 ring-[#f1f5f9] transition-all duration-300 md:mx-4 md:px-2.5 md:py-1.5 lg:py-2"
           >
-            <div className="absolute inset-0 z-0 bg-linear-to-r from-transparent via-[#f8fafc] to-transparent opacity-0 transition-opacity duration-300 group-hover/badge:opacity-100" />
+            <div className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-[#f8fafc] to-transparent opacity-0 transition-opacity duration-300" />
             <div className="relative z-10 flex h-12 w-32 sm:h-16 sm:w-40 md:h-20 md:w-48 items-center justify-center">
               {item.logo ? (
                 <img 
                   src={item.logo} 
                   alt={item.name} 
-                  className="max-h-full max-w-full object-contain filter transition-all duration-300 group-hover/badge:scale-110" 
+                  className="max-h-full max-w-full object-contain filter transition-all duration-300" 
                 />
               ) : (
                 <>
                   <StarIcon />
-                  <span className="text-base font-extrabold tracking-wide text-[#334155] transition-colors duration-300 group-hover/badge:text-[#1B3A6B] md:text-lg">
+                  <span className="text-base font-extrabold tracking-wide text-[#334155] transition-colors duration-300 md:text-lg">
                     {item.name}
                   </span>
                 </>
@@ -96,10 +96,6 @@ export default function PartnersMarquee() {
         }
         .animate-marquee-reverse {
           animation: marquee-reverse 35s linear infinite;
-        }
-        .marquee-container:hover .animate-marquee,
-        .marquee-container:hover .animate-marquee-reverse {
-          animation-play-state: paused;
         }
       `}</style>
 
