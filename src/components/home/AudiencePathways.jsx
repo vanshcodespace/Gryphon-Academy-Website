@@ -170,7 +170,7 @@ export default function AudiencePathways() {
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-[#2a3038] sm:text-lg">
             Whether you lead an institution, manage campus recruitment,
             <br className="hidden sm:block" />
-            or are building your career — the industry-academia gap is affecting you right now.
+            or are building your career  the industry-academia gap is affecting you right now.
             <br />
             Here is what the data says.
           </p>
