@@ -26,13 +26,13 @@ export default function Numbers() {
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 xl:max-w-340">
         <h2
-          className="mb-14 text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[4rem]"
+          className="mb-14 text-center text-4xl font-medium tracking-tight sm:text-5xl lg:text-[4rem]"
           style={{
             background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
-            display: "block",
+            // display: "block",
           }}
         >
           Our Impact, In Numbers

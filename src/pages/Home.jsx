@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Navbar from "../components/home/Navbar";
 import Hero from "../components/home/Hero";
 import AudiencePathways from "../components/home/AudiencePathways";
@@ -15,22 +15,50 @@ import Numbers from "../components/home/numbers";
 export default function Home() {
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
   const [isNavbarFullWidth, setIsNavbarFullWidth] = useState(false);
+  const lastScrollYRef = useRef(0);
+  const downScrollAccumulatedRef = useRef(0);
   const logoSrc =
     "https://res.cloudinary.com/dcjmaapvi/image/upload/v1740489025/ga-hori_ylcnm3.png";
 
   useEffect(() => {
     const onScroll = () => {
-      setIsNavbarVisible(window.scrollY > 8);
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - lastScrollYRef.current;
+      const hideThreshold = window.innerHeight * 0.3;
 
       const whoAreWeSection = document.getElementById("about");
       if (!whoAreWeSection) {
+        setIsNavbarVisible(currentScrollY > 8);
+        lastScrollYRef.current = currentScrollY;
         return;
       }
 
       const sectionTop = whoAreWeSection.getBoundingClientRect().top;
       setIsNavbarFullWidth(sectionTop <= 0);
+
+      const isWhoAreWeStarted = sectionTop <= 0;
+
+      if (!isWhoAreWeStarted) {
+        setIsNavbarVisible(currentScrollY > 8);
+        downScrollAccumulatedRef.current = 0;
+        lastScrollYRef.current = currentScrollY;
+        return;
+      }
+
+      if (scrollDelta > 0) {
+        downScrollAccumulatedRef.current += scrollDelta;
+        if (downScrollAccumulatedRef.current >= hideThreshold) {
+          setIsNavbarVisible(false);
+        }
+      } else if (scrollDelta < 0) {
+        setIsNavbarVisible(true);
+        downScrollAccumulatedRef.current = 0;
+      }
+
+      lastScrollYRef.current = currentScrollY;
     };
 
+    lastScrollYRef.current = window.scrollY;
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);

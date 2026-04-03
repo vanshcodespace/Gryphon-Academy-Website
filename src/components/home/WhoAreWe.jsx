@@ -43,7 +43,7 @@ export default function WhoAreWe() {
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <h2
-              className="text-4xl font-extrabold uppercase tracking-tight sm:text-5xl lg:text-[4rem]"
+              className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[4rem]"
               style={{
                 background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
                 WebkitBackgroundClip: "text",
@@ -51,7 +51,7 @@ export default function WhoAreWe() {
                 backgroundClip: "text",
               }}
             >
-              WHO ARE WE?
+              Who We Are?
             </h2>
 
             <p className="mt-8 text-base text-justify leading-relaxed text-[#2a3038] sm:text-lg lg:text-[1.05rem] lg:leading-[1.8]">

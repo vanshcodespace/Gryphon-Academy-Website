@@ -51,7 +51,7 @@ export default function Gallery() {
     <section className="bg-[#f2f2f3] py-6 sm:py-8 lg:py-4 xl:py-4">
       <div className="mx-auto w-full px-3 sm:px-4 lg:max-w-[calc((100vh-8.75rem)*1.78)] xl:max-w-[calc((100vh-9rem)*2.10)]">
         <h2
-          className="mb-4 text-center text-4xl font-extrabold uppercase tracking-tight sm:mb-6 sm:text-5xl lg:mb-3 lg:text-[2.75rem] xl:text-[3.25rem]"
+          className="mb-4 text-center text-4xl font-semibold uppercase tracking-tight sm:mb-6 sm:text-5xl lg:mb-3 lg:text-[2.75rem] xl:text-[3.25rem]"
           style={{
             background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
             WebkitBackgroundClip: "text",
