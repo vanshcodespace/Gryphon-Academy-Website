@@ -82,8 +82,11 @@ export default function Home() {
       <Brochure />
       <Numbers />
 
-      <AudiencePathways />
-      <PartnersMarquee />
+     <div class="bg-[linear-gradient(to_bottom,#ceecf7_0%,#a2d5f4_25%,#f7fcff_50%,#d3eef9_75%,#ffffff_100%)]">
+
+        <AudiencePathways />
+        <PartnersMarquee />
+      </div>
 
       <Training />
       <CTA />

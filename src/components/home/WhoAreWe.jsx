@@ -55,17 +55,8 @@ export default function WhoAreWe() {
             </h2>
 
             <p className="mt-8 text-base text-justify leading-relaxed text-[#2a3038] sm:text-lg lg:text-[1.05rem] lg:leading-[1.8]">
-              Gryphon Academy Pvt. Ltd. is a Pan-India professional training,
-              placement facilitation, and institutional development organisation
-              founded in 2020. We partner with MBA, Engineering, MCA, and
-              Diploma institutions to embed structured, industry-aligned
-              training directly into their academic curriculum - delivered
-              entirely offline, on-campus, by 350+ certified industry
-              practitioners. We are not a coaching institute. We are not an
-              edtech platform. We are the operating bridge between academia and
-              industry - training students inside their colleges, connecting
-              institutions to corporate networks, and placing graduates with
-              India&apos;s top employers at zero cost to all parties.
+             Gryphon Academy Pvt. Ltd. is a Pan-India organisation built in 2020, to bridge the gap between industry and academia. We serve as a complete growth partner for institutions covering structured student training, placement facilitation, digital growth, events, and admissions, all under one roof. For corporates, we provide zero-cost campus hiring and corporate L&D solutions ensuring that trained, job-ready talent reaches the right organisations, seamlessly and at zero cost. 
+              
             </p>
 
             <a

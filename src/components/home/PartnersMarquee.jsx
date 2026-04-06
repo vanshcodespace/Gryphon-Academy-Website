@@ -76,12 +76,7 @@ const MarqueeTrack = ({ partners, reverse = false, speed = "35s" }) => {
 
 export default function PartnersMarquee() {
   return (
-    <section 
-      className="relative overflow-hidden py-6 sm:py-8 lg:py-10"
-      style={{
-        background: "linear-gradient(135deg, #ceecf7 0%, #a2d5f4 25%, #f7fcff 50%, #d3eef9 75%, #ffffff 100%)"
-      }}
-    >
+    <section className="relative overflow-hidden py-6 sm:py-8 lg:py-10">
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -100,8 +95,8 @@ export default function PartnersMarquee() {
       `}</style>
 
       {/* Decorative Blur Orbs */}
-      <div className="pointer-events-none absolute -left-20 top-0 h-100 w-100 rounded-full bg-[#cce0fc]/40 blur-[100px]" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-125 w-125 rounded-full bg-[#f4dfe5]/50 blur-[120px]" />
+      {/* <div className="pointer-events-none absolute -left-20 top-0 h-100 w-100 rounded-full bg-[#cce0fc]/40 blur-[100px]" />
+      <div className="pointer-events-none absolute -right-20 bottom-0 h-125 w-125 rounded-full bg-[#f4dfe5]/50 blur-[120px]" /> */}
 
       <div className="relative z-10 mx-auto mb-2 max-w-7xl px-4 text-center sm:mb-3 sm:px-6 lg:px-8">
         <h2
@@ -141,9 +136,6 @@ export default function PartnersMarquee() {
             <MarqueeTrack partners={collegeRowTwo} reverse speed="30s" />
           </div>
         </div>
-
-        {/* Divider */}
-        <div className="mx-auto h-px w-full max-w-4xl bg-linear-to-r from-transparent via-[#cbd5e1] to-transparent opacity-60" />
 
         {/* Corporate Section */}
         <div className="relative flex w-full flex-col items-center">

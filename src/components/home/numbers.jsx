@@ -1,5 +1,5 @@
 import React from "react";
-import mapIcon from "../../assets/image 7.png";
+import mapIcon from "../../assets/MAP-PNG.png";
 
 export default function Numbers() {
   const stats = [
@@ -10,85 +10,55 @@ export default function Numbers() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#fafafa] py-16 sm:py-20 lg:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#f0f7ff] via-[#ffffff] to-[#f8fbff] py-16 sm:py-20 lg:py-24">
       {/* Decorative Background Blob Effects */}
-      <div className="pointer-events-none absolute -left-40 top-0 h-125 w-125 rounded-full bg-[#cce0fc]/50 blur-[100px]" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-100 w-100 rounded-full bg-[#3a10b9ff]/10 blur-[100px]" />
-
-      {/* Subtle Pattern Overlay */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-40 mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, rgba(63,142,252,0.15) 0 1px, transparent 1px 34px), repeating-linear-gradient(60deg, rgba(63,142,252,0.15) 0 1px, transparent 1px 34px)",
-        }}
-      />
+      <div className="pointer-events-none absolute -left-40 top-0 h-125 w-125 rounded-full bg-[#a2d5f4]/40 blur-[120px]" />
+      <div className="pointer-events-none absolute -right-20 bottom-0 h-100 w-100 rounded-full bg-[#ceecf7]/30 blur-[120px]" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 xl:max-w-340">
         <h2
-          className="mb-14 text-center text-4xl font-medium tracking-tight sm:text-5xl lg:text-[4rem]"
+          className="mb-16 text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[4rem]"
           style={{
             background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
-            // display: "block",
           }}
         >
           Our Impact, In Numbers
         </h2>
 
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-          {/* Left Column: Center Map Container from previous code */}
-          <div className="relative flex min-h-100 flex-col items-center justify-center rounded-[2.5rem] border border-white bg-linear-to-br from-[#ffffff] to-[#f4f7fc] p-10 shadow-[0_12px_40px_rgba(1,34,79,0.08)] backdrop-blur-xl lg:min-h-125">
-            <img
-              src={mapIcon}
-              alt="Map of India showing our presence"
-              className="relative z-10 h-auto w-full max-w-sm object-contain transition-transform duration-700 hover:scale-105 filter drop-shadow-[0_20px_40px_rgba(1,34,79,0.25)]"
-            />
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
+          {/* Left Column: Center Map Container */}
+          <div className="relative flex min-h-120 flex-col items-center justify-center rounded-3xl border-3 border-[#1B3A6B]/40 bg-gradient-to-br from-[#1B3A6B] via-[#0d1b3e] to-[#00083D] p-12 shadow-[0_25px_70px_rgba(0,8,61,0.3)] backdrop-blur-2xl lg:min-h-140">
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-[#ffffff]/5 via-transparent to-[#ffffff]/10" />
+            <div className="relative z-10 flex h-full w-full items-center justify-center">
+              <img
+                src={mapIcon}
+                alt="Map of India showing our presence"
+                className="h-auto w-full max-w-lg object-contain transition-transform duration-700 hover:scale-125 filter drop-shadow-[0_20px_45px_rgba(255,255,255,0.2)]"
+              />
+            </div>
           </div>
 
-          {/* Right Column: 2x2 Stats Grid based on screenshot */}
-          <div className="grid grid-cols-2 text-center">
-            {/* Top Left */}
-            <div className="flex flex-col items-center justify-center border-b-[2.5px] border-r-[2.5px] border-dashed border-[#01224F] p-4 sm:p-8 md:p-10">
-              <span className="text-[2.5rem] font-extrabold leading-tight text-[#01224F] md:text-5xl lg:text-[3.25rem]">
-                {stats[0].number}
-              </span>
-              <span className="mt-3 whitespace-pre-line text-sm font-medium text-[#01224F] md:text-lg lg:text-xl">
-                {stats[0].label}
-              </span>
-            </div>
-
-            {/* Top Right */}
-            <div className="flex flex-col items-center justify-center border-b-[2.5px] border-dashed border-[#01224F] p-4 sm:p-8 md:p-10">
-              <span className="text-[2.5rem] font-extrabold leading-tight text-[#01224F] md:text-5xl lg:text-[3.25rem]">
-                {stats[1].number}
-              </span>
-              <span className="mt-3 whitespace-pre-line text-sm font-medium text-[#01224F] md:text-lg lg:text-xl">
-                {stats[1].label}
-              </span>
-            </div>
-
-            {/* Bottom Left */}
-            <div className="flex flex-col items-center justify-center border-r-[2.5px] border-dashed border-[#01224F] p-4 sm:p-8 md:p-10">
-              <span className="text-[2.5rem] font-extrabold leading-tight text-[#01224F] md:text-5xl lg:text-[3.25rem]">
-                {stats[2].number}
-              </span>
-              <span className="mt-3 whitespace-pre-line text-sm font-medium text-[#01224F] md:text-lg lg:text-xl">
-                {stats[2].label}
-              </span>
-            </div>
-
-            {/* Bottom Right */}
-            <div className="flex flex-col items-center justify-center p-4 sm:p-8 md:p-10">
-              <span className="text-[2.5rem] font-extrabold leading-tight text-[#01224F] md:text-5xl lg:text-[3.25rem]">
-                {stats[3].number}
-              </span>
-              <span className="mt-3 whitespace-pre-line text-sm font-medium text-[#01224F] md:text-lg lg:text-xl">
-                {stats[3].label}
-              </span>
-            </div>
+          {/* Right Column: 2x2 Stats Grid */}
+          <div className="grid grid-cols-2 text-center gap-6 lg:gap-7">
+            {stats.map((stat, index) => (
+              <div
+                key={index}
+                className="group relative flex flex-col items-center justify-center overflow-hidden rounded-3xl border-2 border-[#1B3A6B]/20 bg-gradient-to-br from-[#ffffff] to-[#f5f9ff] px-6 py-8 shadow-[0_8px_32px_rgba(27,58,107,0.12)] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(27,58,107,0.25)] hover:scale-110 md:px-8 md:py-10"
+              >
+                {/* Gradient background on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1B3A6B]/5 to-[#7B1B2A]/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                
+                <span className="relative z-10 text-4xl font-extrabold leading-tight text-[#1B3A6B] md:text-5xl lg:text-[2.8rem] transition-colors duration-300 group-hover:text-[#7B1B2A]">
+                  {stat.number}
+                </span>
+                <span className="relative z-10 mt-4 whitespace-pre-line text-xs font-bold uppercase tracking-widest text-[#01224F] md:text-sm lg:text-base transition-colors duration-300 group-hover:text-[#7B1B2A]">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
