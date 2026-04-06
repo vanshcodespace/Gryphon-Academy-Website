@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import collegeImage from "../../assets/College.png";
-import corporateImage from "../../assets/corporate.png";
-import studentImage from "../../assets/student.png";
+import corporateImage from "../../assets/Corporate.png";
+import studentImage from "../../assets/Student.png";
 
 const pathways = [
   {
