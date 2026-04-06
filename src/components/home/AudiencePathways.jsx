@@ -263,17 +263,17 @@ export default function AudiencePathways() {
         </div>
 
         {/* ── Mobile ── */}
-        <div className="flex flex-col gap-5 lg:hidden">
+        <div className="flex flex-col gap-6 lg:hidden">
           <div className="flex flex-wrap justify-center gap-3">
             {pathways.map((p) => (
               <button
                 key={p.id}
                 type="button"
                 onClick={() => setActiveId(p.id)}
-                className={`rounded-md px-5 py-2.5 text-[12px] font-extrabold uppercase tracking-widest transition-all ${
+                className={`rounded-lg px-5 py-2.5 text-[12px] font-extrabold uppercase tracking-widest transition-all duration-200 ${
                   p.id === activeId
-                    ? "bg-[#7B1A1A] text-white"
-                    : "border border-[#1B3A6B] text-[#1B3A6B] opacity-60"
+                    ? "bg-gradient-to-r from-[#1B3A6B] to-[#7B1A1A] text-white shadow-lg"
+                    : "border-2 border-[#1B3A6B] text-[#1B3A6B] opacity-60 hover:opacity-100 hover:shadow-md"
                 }`}
               >
                 {p.label}
@@ -284,25 +284,25 @@ export default function AudiencePathways() {
           {/* Mobile card — TEXT TOP, IMAGE BOTTOM */}
           <div
             key={activePath.id + "-mobile"}
-            className="pathway-card-animate overflow-hidden rounded-2xl border border-[#d0ddef] bg-white"
+            className="pathway-card-animate overflow-hidden rounded-2xl border border-[#d0ddef] bg-white shadow-lg"
           >
             {/* Text section */}
-            <div className="p-5 text-left">
+            <div className="p-6 text-left bg-gradient-to-br from-white to-[#f9fafb]">
               <p className="text-xs font-extrabold uppercase tracking-widest text-[#1B3A6B]">{activePath.label}</p>
-              <h3 className="mt-2 text-lg font-extrabold leading-snug text-[#0d1b3e]">{activePath.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-[#4a5568]">{activePath.intro}</p>
-              <ul className="mt-2 space-y-1.5">
+              <h3 className="mt-3 text-xl font-extrabold leading-snug text-[#0d1b3e]">{activePath.title}</h3>
+              <p className="mt-3 text-base leading-relaxed text-[#5a6b7a] font-medium">{activePath.intro}</p>
+              <ul className="mt-4 space-y-2.5">
                 {activePath.points.map((pt) => (
-                  <li key={pt} className="flex items-start gap-2 text-sm font-medium text-[#1e2d4d]">
-                    <span className="mt-1.5 h-1.25 w-1.25 shrink-0 rounded-full bg-[#1B3A6B]" />
+                  <li key={pt} className="flex items-start gap-2.5 text-sm font-semibold text-[#2d3e52]">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-br from-[#1B3A6B] to-[#7B1A1A]" />
                     {pt}
                   </li>
                 ))}
               </ul>
               {(activePath.id === "colleges" || activePath.id === "corporate") && (
                 <a
-                  href="#contact" // Placeholder link
-                  className="group mt-5 inline-flex w-max items-center gap-1.5 rounded bg-[#00083D] px-3.5 py-1.5 text-[11px] font-bold text-white shadow-sm transition-all hover:bg-[#01224F]"
+                  href="#contact"
+                  className="group mt-6 inline-flex w-max items-center gap-1.5 rounded-lg bg-gradient-to-r from-[#00083D] to-[#1B3A6B] px-5 py-2 text-xs font-bold text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95"
                 >
                   Learn More <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
                 </a>
@@ -310,11 +310,11 @@ export default function AudiencePathways() {
             </div>
 
             {/* Image strip — BOTTOM on mobile */}
-            <div className="flex items-end justify-start overflow-hidden px-3">
+            <div className="flex items-end justify-start overflow-hidden px-4 bg-gradient-to-b from-[#f0f4f9] to-[#e8ecf2]">
               <img
                 src={backgroundImages[activeId]}
                 alt={activePath.label}
-                className="h-[650px] w-auto object-contain drop-shadow-lg -mb-48"
+                className="h-[650px] w-auto object-contain drop-shadow-xl -mb-48 transition-transform duration-300 hover:scale-105"
               />
             </div>
           </div>
