@@ -371,13 +371,13 @@ function StudentSuccessStories() {
     <div className="relative mb-0 overflow-hidden rounded-3xl bg-transparent py-16 md:py-20 xl:py-14">
       <div className="relative z-10 mb-6 text-center md:mb-8 xl:mb-6">
         <h2
-          className="mb-4 overflow-visible px-4 pb-1 text-4xl font-bold tracking-tight leading-[1.15] md:text-6xl"
+          className="mb-4 overflow-visible px-4 pb-1 text-4xl font-semibold tracking-tight leading-[1.15] md:text-6xl"
           style={{
             background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
-            display: "block",
+            // display: "block",
             width: "100%",
           }}
         >
