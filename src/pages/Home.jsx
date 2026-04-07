@@ -1,12 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import Navbar from "../components/home/Navbar";
 import Hero from "../components/home/Hero";
+
 import AudiencePathways from "../components/home/AudiencePathways";
+
 import Testimonials from "../components/home/Testimonials";
 import PartnersMarquee from "../components/home/PartnersMarquee";
+
 import Gallery from "../components/home/Gallery";
 import CTA from "../components/home/CTA";
 import Footer from "../components/home/Footer";
+
 import WhoAreWe from "../components/home/WhoAreWe";
 import Brochure from "../components/home/Brochure";
 import Training from "../components/home/Training";
@@ -78,13 +82,19 @@ export default function Home() {
       <Brochure />
       <Numbers />
 
-      <AudiencePathways />
-      <PartnersMarquee />
+     <div class="bg-[linear-gradient(to_bottom,#ceecf7_0%,#a2d5f4_25%,#f7fcff_50%,#d3eef9_75%,#ffffff_100%)]">
+
+        <AudiencePathways />
+        <PartnersMarquee />
+      </div>
 
       <Training />
       <CTA />
 
       <Gallery />
+
+
+
 
       <Testimonials />
 

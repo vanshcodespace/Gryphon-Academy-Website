@@ -35,10 +35,10 @@ const Footer = () => {
           <ul className="space-y-2 text-center md:text-left">
             {[
               { name: "Contact Us", path: "/contact" },
-              { name: "About Us", path: "/about-us" },
-              { name: "Learning & Development", path: "/training" },
-              { name: "Campus Placement", path: "/placement" },
-              { name: "Blogs", path: "/blogs" },
+              { name: "About Us", path: "/about" },
+              { name: "For Colleges", path: "/colleges" },
+              { name: "For Corporate", path: "/corporate" },
+              { name: "Events", path: "/events" },
               { name: "Privacy Policy", path: "/privacy-policy" },
             ].map((link, index) => (
               <li key={index} className="relative">
