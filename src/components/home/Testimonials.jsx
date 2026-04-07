@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+const DUMMY_PHOTO_IDS = [12, 24, 28, 32, 36, 41, 45, 47, 52, 57, 61, 66];
+
 function StudentSuccessStories() {
   const stories = useMemo(
     () => [
@@ -110,10 +112,12 @@ function StudentSuccessStories() {
   const [slideDirection, setSlideDirection] = useState("next");
   const [trackTranslateY, setTrackTranslateY] = useState(0);
   const [isTrackTransitionOn, setIsTrackTransitionOn] = useState(false);
-  const [desktopCardHeight, setDesktopCardHeight] = useState(420);
+  const [uniformCardHeight, setUniformCardHeight] = useState(460);
 
   const pageShiftPxRef = useRef(436);
   const slideTimeoutRef = useRef(null);
+  const trackRef = useRef(null);
+  const sizingRef = useRef(null);
 
   useEffect(() => {
     const getCount = () => {
@@ -131,32 +135,31 @@ function StudentSuccessStories() {
   }, []);
 
   useEffect(() => {
-    const applyDesktopCardHeight = () => {
-      if (typeof window === "undefined") return;
-
-      if (window.innerWidth < 1024) {
-        setDesktopCardHeight(420);
-        return;
-      }
-
-      // Space budget: heading + paddings + controls + margins.
-      const reservedHeight = 300;
-      const gridGap = 16;
-      const usableHeight = Math.max(window.innerHeight - reservedHeight, 0);
-      const perCard = Math.floor((usableHeight - gridGap) / 2);
-      const bounded = Math.max(220, Math.min(380, perCard));
-      setDesktopCardHeight(bounded);
-    };
-
-    applyDesktopCardHeight();
-    window.addEventListener("resize", applyDesktopCardHeight);
-    return () => window.removeEventListener("resize", applyDesktopCardHeight);
-  }, []);
-
-  useEffect(() => {
     return () => {
       if (slideTimeoutRef.current) {
         window.clearTimeout(slideTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+
+    const existing = document.querySelector(
+      'link[data-font="playfair-display-900"]',
+    );
+    if (existing) return undefined;
+
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap";
+    link.setAttribute("data-font", "playfair-display-900");
+    document.head.appendChild(link);
+
+    return () => {
+      if (link.parentNode) {
+        link.parentNode.removeChild(link);
       }
     };
   }, []);
@@ -267,9 +270,37 @@ function StudentSuccessStories() {
     [gridColumns, visibleStories.length],
   );
 
+  const measureUniformCardHeight = useCallback(() => {
+    if (!sizingRef.current) return;
+
+    const sizingCards = Array.from(
+      sizingRef.current.querySelectorAll("[data-sizing-card='true']"),
+    );
+    if (!sizingCards.length) return;
+
+    const maxHeight = sizingCards.reduce((max, node) => {
+      const current = Math.ceil(node.getBoundingClientRect().height);
+      return Math.max(max, current);
+    }, 0);
+
+    if (maxHeight > 0) {
+      setUniformCardHeight(maxHeight);
+    }
+  }, []);
+
+  useEffect(() => {
+    measureUniformCardHeight();
+  }, [measureUniformCardHeight, visibleCount, stories]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+    window.addEventListener("resize", measureUniformCardHeight);
+    return () => window.removeEventListener("resize", measureUniformCardHeight);
+  }, [measureUniformCardHeight]);
+
   const pageViewportHeight = useMemo(
-    () => pageRows * desktopCardHeight + (pageRows - 1) * 16,
-    [desktopCardHeight, pageRows],
+    () => pageRows * uniformCardHeight + (pageRows - 1) * 16,
+    [pageRows, uniformCardHeight],
   );
 
   useEffect(() => {
@@ -343,29 +374,10 @@ function StudentSuccessStories() {
       ? pendingStartIndex
       : currentPageIndex;
 
-  const textLineClamp = useMemo(() => {
-    const estimated = Math.floor((desktopCardHeight - 130) / 24);
-    return Math.max(5, Math.min(12, estimated));
-  }, [desktopCardHeight]);
-
-  const textFontSize = useMemo(() => {
-    if (desktopCardHeight >= 340) return "1rem";
-    if (desktopCardHeight >= 300) return "0.93rem";
-    if (desktopCardHeight >= 260) return "0.88rem";
-    return "0.82rem";
-  }, [desktopCardHeight]);
-
-  const nameFontSize = useMemo(() => {
-    if (desktopCardHeight >= 340) return "1.25rem";
-    if (desktopCardHeight >= 300) return "1.12rem";
-    return "1rem";
-  }, [desktopCardHeight]);
-
-  const roleFontSize = useMemo(() => {
-    if (desktopCardHeight >= 340) return "0.98rem";
-    if (desktopCardHeight >= 300) return "0.9rem";
-    return "0.82rem";
-  }, [desktopCardHeight]);
+  const getDummyPhotoForStory = useCallback((storyId) => {
+    const photoId = DUMMY_PHOTO_IDS[(storyId - 1) % DUMMY_PHOTO_IDS.length];
+    return `https://i.pravatar.cc/800?img=${photoId}`;
+  }, []);
 
   return (
     <div className="relative mb-0 overflow-hidden rounded-3xl bg-transparent py-16 md:py-20 xl:py-14">
@@ -384,13 +396,13 @@ function StudentSuccessStories() {
           Shaping Success Stories Since 2019
         </h2>
         <p
-          className="overflow-visible px-4 text-2xl font-bold tracking-tight leading-[1.15] md:text-5xl"
+          className="overflow-visible px-4 text-2xl font-bold tracking-tight leading-[1.15] md:text-4xl"
           style={{
             background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
-            display: "block",
+            // display: "block",
             width: "100%",
           }}
         >
@@ -399,6 +411,58 @@ function StudentSuccessStories() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-300 px-4 md:px-6">
+        <div
+          ref={sizingRef}
+          aria-hidden="true"
+          className="pointer-events-none invisible absolute inset-x-4 top-0 -z-10 md:inset-x-6"
+        >
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {stories.map((story) => (
+              <article key={`sizing-${story.id}`}>
+                <div
+                  data-sizing-card="true"
+                  className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-[#b8d9ea] bg-[linear-gradient(165deg,#f6fbff_0%,#dff1fb_100%)] shadow-[0_14px_30px_rgba(28,85,128,0.16)] backdrop-blur-xl"
+                >
+                  <div className="relative h-52 overflow-hidden border-b border-[#c9deea] bg-[#dceff9] md:h-56 lg:h-52 xl:h-56">
+                    <img
+                      src={story.image || getDummyPhotoForStory(story.id)}
+                      alt=""
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                      onLoad={measureUniformCardHeight}
+                    />
+                  </div>
+
+                  <div className="relative flex flex-1 flex-col bg-[linear-gradient(180deg,#f9fdff_0%,#e7f4fc_100%)] p-4 pt-8 md:p-5 md:pt-9">
+                    <div
+                      className="absolute left-4 -top-8 z-20 select-none text-[4.4rem] font-black leading-none text-white md:left-5 md:-top-9 md:text-[5rem]"
+                      style={{
+                        fontFamily: '"Playfair Display", serif',
+                        textShadow: "0 4px 12px rgba(0,0,0,0.28)",
+                      }}
+                    >
+                      “
+                    </div>
+
+                    <p className="min-h-0 flex-1 pb-4 whitespace-normal wrap-break-word font-semibold leading-[1.3] text-[#2f4b42] text-sm md:text-[0.95rem]">
+                      {story.text}
+                    </p>
+
+                    <div className="mt-auto h-16 border-t border-[#c6d2dd] pt-1.5">
+                      <h3 className="inline-block bg-[#d8e2eb] px-2.5 py-0.5 font-black uppercase tracking-wide text-[#1f4f47] text-sm md:text-base">
+                        {story.name}
+                      </h3>
+                      <p className="mt-0.5 line-clamp-1 leading-tight text-[#375e56] text-xs md:text-sm">
+                        {story.role}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
         <div className="mb-3 hidden gap-4 lg:grid lg:grid-cols-3 lg:pr-20">
           {[
             { id: "students", label: "Students" },
@@ -420,6 +484,7 @@ function StudentSuccessStories() {
             style={{ height: `${pageViewportHeight}px` }}
           >
             <div
+              ref={trackRef}
               className={`flex flex-col gap-4 ${
                 isTrackTransitionOn
                   ? "transition-transform duration-700 ease-in-out"
@@ -439,46 +504,42 @@ function StudentSuccessStories() {
                   {group.map((story) => (
                     <article key={`story-${groupIndex}-${story.id}`}>
                       <div
-                        className="relative h-full w-full overflow-hidden rounded-2xl border border-[#b8d9ea] bg-[linear-gradient(155deg,rgba(247,252,255,0.92)_0%,rgba(227,242,250,0.9)_100%)] p-4 shadow-[0_14px_30px_rgba(28,85,128,0.16)] backdrop-blur-xl transition-shadow duration-300 md:p-5"
-                        style={{ height: `${desktopCardHeight}px` }}
+                        className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-[#b8d9ea] bg-[linear-gradient(165deg,#f6fbff_0%,#dff1fb_100%)] shadow-[0_14px_30px_rgba(28,85,128,0.16)] backdrop-blur-xl transition-shadow duration-300"
+                        style={{ height: `${uniformCardHeight}px` }}
                       >
-                        <div className="relative z-10 flex h-full flex-col">
-                          <div className="mb-2 text-3xl font-black leading-none text-[#9ab6c8] md:text-4xl">
-                            <span>“ ”</span>
+                        <div className="relative h-52 overflow-hidden border-b border-[#c9deea] bg-[#dceff9] md:h-56 lg:h-52 xl:h-56">
+                          <img
+                            src={story.image || getDummyPhotoForStory(story.id)}
+                            alt={story.name}
+                            className="h-full w-full object-cover"
+                            loading="lazy"
+                            onLoad={measureUniformCardHeight}
+                          />
+                        </div>
+
+                        <div className="relative flex flex-1 flex-col bg-[linear-gradient(180deg,#f9fdff_0%,#e7f4fc_100%)] p-4 pt-8 md:p-5 md:pt-9">
+                          <div
+                            className="absolute left-4 -top-8 z-20 select-none text-[4.4rem] font-black leading-none text-white md:left-5 md:-top-9 md:text-[5rem]"
+                            style={{
+                              fontFamily: '"Playfair Display", serif',
+                              textShadow: "0 4px 12px rgba(0,0,0,0.28)",
+                            }}
+                            aria-hidden="true"
+                          >
+                            “
                           </div>
 
-                          <p
-                            className="min-h-0 flex-1 overflow-hidden leading-[1.35] text-[#0f172a]"
-                            style={{
-                              display: "-webkit-box",
-                              WebkitLineClamp: textLineClamp,
-                              WebkitBoxOrient: "vertical",
-                              fontSize: textFontSize,
-                            }}
-                          >
+                          <p className="min-h-0 flex-1 pb-4 whitespace-normal wrap-break-word font-semibold leading-[1.3] text-[#2f4b42] text-sm md:text-[0.95rem]">
                             {story.text}
                           </p>
 
-                          <div className="mt-3 border-t border-[#cfd6de] pt-3">
-                            <div className="flex items-start gap-2.5">
-                              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#dff1fb] text-[10px] font-semibold text-[#2a628d] md:h-8 md:w-8 md:text-[11px]">
-                                {story.initials}
-                              </div>
-                              <div className="min-w-0">
-                                <h3
-                                  className="font-semibold leading-tight text-[#1c5a86]"
-                                  style={{ fontSize: nameFontSize }}
-                                >
-                                  {story.name}
-                                </h3>
-                                <p
-                                  className="mt-1 leading-tight text-[#15324d]"
-                                  style={{ fontSize: roleFontSize }}
-                                >
-                                  {story.role}
-                                </p>
-                              </div>
-                            </div>
+                          <div className="mt-auto h-16 border-t border-[#c6d2dd] pt-1.5">
+                            <h3 className="inline-block bg-[#d8e2eb] px-2.5 py-0.5 font-black uppercase tracking-wide text-[#1f4f47] text-sm md:text-base">
+                              {story.name}
+                            </h3>
+                            <p className="mt-0.5 line-clamp-1 leading-tight text-[#375e56] text-xs md:text-sm">
+                              {story.role}
+                            </p>
                           </div>
                         </div>
                       </div>
