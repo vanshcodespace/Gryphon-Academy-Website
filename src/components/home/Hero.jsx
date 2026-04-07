@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import heroVideo from "../../assets/herooo.mp4"
 
 export default function Hero({ showTopLeftLogo, logoSrc }) {
   const sectionRef = useRef(null);
@@ -75,8 +76,7 @@ export default function Hero({ showTopLeftLogo, logoSrc }) {
         playsInline
       >
         <source
-          src="https://www.iima.ac.in/sites/default/files/2024-06/IIMA%20Home%20page%20video%202024-06-06%20Compressed%20%281%29.mp4"
-          type="video/mp4"
+          src={heroVideo}
         />
       </video>
 
