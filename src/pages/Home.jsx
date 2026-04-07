@@ -15,6 +15,7 @@ import WhoAreWe from "../components/home/WhoAreWe";
 import Brochure from "../components/home/Brochure";
 import Training from "../components/home/Training";
 import Numbers from "../components/home/numbers";
+import TopPlaced from "../components/TopPlaced";
 
 export default function Home() {
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
@@ -97,6 +98,7 @@ export default function Home() {
 
 
       <Testimonials />
+ 
 
       <Footer />
     </>
