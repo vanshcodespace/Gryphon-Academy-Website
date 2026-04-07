@@ -5,7 +5,6 @@ import Hero from "../components/home/Hero";
 import AudiencePathways from "../components/home/AudiencePathways";
 
 import Testimonials from "../components/home/Testimonials";
-import PartnersMarquee from "../components/home/PartnersMarquee";
 
 import Gallery from "../components/home/Gallery";
 import CTA from "../components/home/CTA";
@@ -15,6 +14,8 @@ import WhoAreWe from "../components/home/WhoAreWe";
 import Brochure from "../components/home/Brochure";
 import Training from "../components/home/Training";
 import Numbers from "../components/home/numbers";
+import InstitutionsMarquee from "../components/home/InstitutionsMarquee";
+import CorporateMarquee from "../components/home/CorporateMarquee";
 
 export default function Home() {
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
@@ -75,29 +76,20 @@ export default function Home() {
         isFullWidth={isNavbarFullWidth}
         logoSrc={logoSrc}
       />
-
       <Hero showTopLeftLogo={!isNavbarVisible} logoSrc={logoSrc} />
-
       <WhoAreWe />
       <Brochure />
       <Numbers />
-
      <div class="bg-[linear-gradient(to_bottom,#ceecf7_0%,#a2d5f4_25%,#f7fcff_50%,#d3eef9_75%,#ffffff_100%)]">
-
+       <InstitutionsMarquee />
         <AudiencePathways />
-        <PartnersMarquee />
+        <CorporateMarquee/>
       </div>
-
       <Training />
       <CTA />
-
       <Gallery />
-
-
-
-
+      {/* <PartnersMarquee/> */}
       <Testimonials />
-
       <Footer />
     </>
   );

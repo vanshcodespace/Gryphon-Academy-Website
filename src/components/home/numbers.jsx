@@ -32,11 +32,11 @@ export default function Numbers() {
           {/* Left Column: Center Map Container */}
           <div className="relative flex min-h-120 flex-col items-center justify-center rounded-3xl border-3 border-[#1B3A6B]/40 bg-gradient-to-br from-[#1B3A6B] via-[#0d1b3e] to-[#00083D] p-12 shadow-[0_25px_70px_rgba(0,8,61,0.3)] backdrop-blur-2xl lg:min-h-140">
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-[#ffffff]/5 via-transparent to-[#ffffff]/10" />
-            <div className="relative z-10 flex h-full w-full items-center justify-center overflow-hidden">
+            <div className="relative z-10 flex h-full w-full items-center justify-center">
               <img
                 src={mapIcon}
                 alt="Map of India showing our presence"
-                className="h-auto w-full max-w-lg object-contain transition-transform duration-700 hover:scale-110 filter drop-shadow-[0_20px_45px_rgba(255,255,255,0.2)]"
+                className="h-auto w-full max-w-lg object-contain transition-all duration-700 hover:drop-shadow-[0_30px_60px_rgba(255,255,255,0.3)] filter drop-shadow-[0_20px_45px_rgba(255,255,255,0.2)]"
               />
             </div>
           </div>

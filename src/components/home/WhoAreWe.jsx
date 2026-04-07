@@ -18,7 +18,7 @@ export default function WhoAreWe() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-[#eff4fa] py-16 sm:py-20 lg:py-24"
+      className="relative overflow-hidden bg-[#eff4fa] py-2 sm:py-3 lg:py-4"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -40,10 +40,10 @@ export default function WhoAreWe() {
       />
 
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-end gap-0 lg:grid-cols-2 lg:gap-2">
           <div>
             <h2
-              className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[4rem]"
+              className="text-lg font-semibold tracking-tight sm:text-xl lg:text-2xl"
               style={{
                 background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
                 WebkitBackgroundClip: "text",
@@ -54,24 +54,23 @@ export default function WhoAreWe() {
               WHO WE ARE
             </h2>
 
-            <p className="mt-8 text-base text-justify leading-relaxed text-[#2a3038] sm:text-lg lg:text-[1.05rem] lg:leading-[1.8]">
-             Gryphon Academy Pvt. Ltd. is a Pan-India organisation built in 2020, to bridge the gap between industry and academia. We serve as a complete growth partner for institutions covering structured student training, placement facilitation, digital growth, events, and admissions, all under one roof. For corporates, we provide zero-cost campus hiring and corporate L&D solutions ensuring that trained, job-ready talent reaches the right organisations, seamlessly and at zero cost. 
-              
+            <p className="mt-2 text-sm text-justify leading-relaxed text-[#2a3038] sm:text-base lg:text-base lg:leading-[1.6]">
+              Gryphon Academy Pvt. Ltd. is a Pan-India organisation built in 2020, to bridge the gap between industry and academia. We serve as a complete growth partner for institutions covering structured student training, placement facilitation, digital growth, events, and admissions, all under one roof. For corporates, we provide zero-cost campus hiring and corporate L&D solutions ensuring that trained, job-ready talent reaches the right organisations, seamlessly and at zero cost.
             </p>
 
             <a
               href="#contact"
-              className="mt-8 inline-block rounded-md bg-[#00083D] px-8 py-3.5 text-[15px] sm:text-base font-bold text-white transition-all hover:bg-[#01224F] shadow-lg"
+              className="mt-2 inline-block rounded-md bg-[#00083D] px-4 py-1.5 text-xs font-bold text-white transition-all hover:bg-[#01224F] shadow-lg"
             >
               Learn More
             </a>
           </div>
 
-          <div className="flex items-end justify-center lg:justify-end">
+          <div className="flex h-full items-end justify-center lg:justify-end">
             <img
               src={teamImage}
               alt="Gryphon Academy team members"
-              className="max-h-120 w-auto object-contain drop-shadow-[0_20px_40px_rgba(1,34,79,0.15)]"
+              className="w-4/5 h-auto max-h-56 object-contain drop-shadow-[0_20px_40px_rgba(1,34,79,0.15)]"
             />
           </div>
         </div>
