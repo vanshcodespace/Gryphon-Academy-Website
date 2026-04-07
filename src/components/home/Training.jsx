@@ -8,7 +8,7 @@ export default function Training() {
           <img
             src={trainEvaImage}
             alt="Training and evaluation"
-            className="w-full h-screen object-contain object-center"
+            className="w-full h-auto object-cover"
             loading="lazy"
           />
         </div>
