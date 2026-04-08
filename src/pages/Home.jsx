@@ -11,6 +11,7 @@ import CTA from "../components/home/CTA";
 import Footer from "../components/home/Footer";
 
 import WhoAreWe from "../components/home/WhoAreWe";
+import TopPlaced from "../components/home/TopPlaced";
 import Brochure from "../components/home/Brochure";
 import Training from "../components/home/Training";
 import Numbers from "../components/home/numbers";
@@ -78,12 +79,13 @@ export default function Home() {
       />
       <Hero showTopLeftLogo={!isNavbarVisible} logoSrc={logoSrc} />
       <WhoAreWe />
+      <TopPlaced />
       <Brochure />
       <Numbers />
-     <div class="bg-[linear-gradient(to_bottom,#ceecf7_0%,#a2d5f4_25%,#f7fcff_50%,#d3eef9_75%,#ffffff_100%)]">
-       <InstitutionsMarquee />
+      <div class="bg-[linear-gradient(to_bottom,#ceecf7_0%,#a2d5f4_25%,#f7fcff_50%,#d3eef9_75%,#ffffff_100%)]">
+        <InstitutionsMarquee />
         <AudiencePathways />
-        <CorporateMarquee/>
+        <CorporateMarquee />
       </div>
       <Training />
       <CTA />
