@@ -61,7 +61,7 @@ export default function Gallery() {
         >
           EVENTS
         </h2>
-        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:w-full lg:grid-cols-12 lg:grid-rows-2 lg:gap-1.5 lg:h-[clamp(40rem,69vh,48rem)]">
+        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:w-full lg:grid-cols-12 lg:grid-rows-2 lg:gap-1.5 lg:h-[clamp(40rem,80vh,48rem)]">
           {galleryCards.map((card) => (
             <article
               key={card.id}
