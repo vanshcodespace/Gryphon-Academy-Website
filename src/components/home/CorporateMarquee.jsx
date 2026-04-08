@@ -38,7 +38,7 @@ const MarqueeTrack = ({ partners, reverse = false, speed = "40s" }) => {
             key={`${item.name}-${idx}`}
             className="group/badge relative mx-1.5 flex items-center justify-center overflow-hidden rounded-2xl bg-white px-1.5 py-1 shadow-[0_4px_24px_rgba(0,0,0,0.03)] ring-1 ring-[#f1f5f9] transition-all duration-300 md:mx-2 md:px-2.5 md:py-1.5 lg:py-2"
           >
-            <div className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-[#f8fafc] to-transparent opacity-0 transition-opacity duration-300" />
+            <div className="absolute inset-0 z-0 bg-linear-to-r from-transparent via-[#f8fafc] to-transparent opacity-0 transition-opacity duration-300" />
             <div className="relative z-10 flex h-12 w-32 sm:h-16 sm:w-40 md:h-20 md:w-48 items-center justify-center">
               {item.logo ? (
                 <img 

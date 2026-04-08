@@ -1,104 +1,63 @@
 import React from "react";
 
 // Dynamically import all images from the College Partners folder
-const collegeModules = import.meta.glob("../../assets/GA College Partners/*.{png,jpg,jpeg,svg,webp,avif}", { eager: true });
+const collegeModules = import.meta.glob(
+  "../../assets/GA College Partners/*.{png,jpg,jpeg,svg,webp,avif}",
+  { eager: true },
+);
 const allColleges = Object.entries(collegeModules).map(([path, module]) => {
-  const name = path.split('/').pop().replace(/\.[^/.]+$/, ""); // Extract filename without extension
+  const name = path
+    .split("/")
+    .pop()
+    .replace(/\.[^/.]+$/, ""); // Extract filename without extension
   return { name, logo: module.default || module };
 });
 
-// Slice the array into two equal halves
-const collegeMid = Math.ceil(allColleges.length / 2);
-const collegeRowOne = allColleges.slice(0, collegeMid);
-const collegeRowTwo = allColleges.slice(collegeMid);
-
-const StarIcon = () => (
-  <svg 
-    className="mr-2.5 h-3.5 w-3.5 text-[#cbd5e1] transition-all duration-300" 
-    viewBox="0 0 24 24" 
-    fill="currentColor"
-  >
-    <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
-  </svg>
+const desktopColumns = 9;
+const visibleColleges = allColleges.slice(
+  0,
+  Math.floor(allColleges.length / desktopColumns) * desktopColumns,
 );
-
-const MarqueeTrack = ({ partners, reverse = false, speed = "35s" }) => {
-  const extendedItems = Array(4).fill(partners).flat();
-
-  return (
-    <div className="marquee-container group flex w-full overflow-hidden py-2">
-      <div
-        className={`flex w-max whitespace-nowrap ${
-          reverse ? "animate-marquee-reverse" : "animate-marquee"
-        }`}
-        style={{ animationDuration: speed }}
-      >
-        {extendedItems.map((item, idx) => (
-          <div
-            key={`${item.name}-${idx}`}
-            className="group/badge relative mx-1.5 flex items-center justify-center overflow-hidden rounded-2xl bg-white px-1.5 py-1 shadow-[0_4px_24px_rgba(0,0,0,0.03)] ring-1 ring-[#f1f5f9] transition-all duration-300 md:mx-2 md:px-2.5 md:py-1.5 lg:py-2"
-          >
-            <div className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-[#f8fafc] to-transparent opacity-0 transition-opacity duration-300" />
-            <div className="relative z-10 flex h-12 w-32 sm:h-16 sm:w-40 md:h-20 md:w-48 items-center justify-center">
-              {item.logo ? (
-                <img 
-                  src={item.logo} 
-                  alt={item.name} 
-                  className="max-h-full max-w-full object-contain filter transition-all duration-300" 
-                />
-              ) : (
-                <>
-                  <StarIcon />
-                  <span className="text-base font-extrabold tracking-wide text-[#334155] transition-colors duration-300 md:text-lg">
-                    {item.name}
-                  </span>
-                </>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 export default function InstitutionsMarquee() {
   return (
-    <>
-      <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-25%); }
-        }
-        @keyframes marquee-reverse {
-          0% { transform: translateX(-25%); }
-          100% { transform: translateX(0); }
-        }
-        .animate-marquee {
-          animation: marquee 35s linear infinite;
-        }
-        .animate-marquee-reverse {
-          animation: marquee-reverse 35s linear infinite;
-        }
-      `}</style>
-
-      <div className="relative flex w-full flex-col items-center">
-        <div className="pointer-events-none absolute left-0 z-20 h-full w-16 bg-linear-to-r from-[#fafafa] to-transparent sm:w-32 md:w-48" />
-        <div className="pointer-events-none absolute right-0 z-20 h-full w-16 bg-linear-to-l from-[#fafafa] to-transparent sm:w-32 md:w-48" />
-
-        <div className="mb-1.5 flex items-center gap-4">
-          <div className="h-0.5 w-8 bg-linear-to-r from-transparent to-[#94a3b8]" />
-          <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#64748b] sm:text-base">
-            Top Institutions
-          </h3>
-          <div className="h-0.5 w-8 bg-linear-to-l from-transparent to-[#94a3b8]" />
+    <div className="w-full bg-[#01224F] px-4 py-5 sm:px-6 sm:py-6 md:px-8 md:py-7">
+      <div className="mx-auto max-w-350">
+        <div className="mb-12 flex items-center justify-center md:mb-16">
+          <div className="text-center">
+            <h3
+              className="pb-1 text-center text-4xl font-extrabold tracking-tight leading-normal sm:text-5xl lg:text-[4rem]"
+              style={{
+                background: "linear-gradient(to right, #f7f7f7, #78a8f5)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Our Top College Partners
+            </h3>
+            <p className="mt-2 text-lg font-medium tracking-wide text-[#f7f7f7] sm:text-xl">
+              Partnering with Excellence Across Leading Institutions
+            </p>
+          </div>
         </div>
 
-        <div className="flex w-full flex-col gap-1 sm:gap-2">
-          <MarqueeTrack partners={collegeRowOne} speed="35s" />
-          <MarqueeTrack partners={collegeRowTwo} reverse speed="30s" />
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9">
+          {visibleColleges.map((item) => (
+            <div
+              key={item.name}
+              className="flex h-29 items-center justify-center rounded-xl bg-[#f4f7f8] px-3 py-2 ring-1 ring-[#cfe0e4] transition-transform duration-300 hover:-translate-y-0.5"
+            >
+              <img
+                src={item.logo}
+                alt={item.name}
+                className="max-h-full max-w-full object-contain"
+                loading="lazy"
+              />
+            </div>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
