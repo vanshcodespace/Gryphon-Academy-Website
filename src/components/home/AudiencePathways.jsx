@@ -1,9 +1,7 @@
-import { useRef } from "react";
-import videoBridge from "../../assets/bridge.mp4";
+
+import videoBridge from "../../assets/Bridge.mp4";
 
 export default function AudiencePathways() {
-  const videoRef = useRef(null);
-
   return (
     <section
       id="audience-pathways"
