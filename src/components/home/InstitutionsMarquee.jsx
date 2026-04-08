@@ -46,7 +46,7 @@ export default function InstitutionsMarquee() {
           {visibleColleges.map((item) => (
             <div
               key={item.name}
-              className="flex h-29 items-center justify-center rounded-xl bg-[#f4f7f8] px-3 py-2 ring-1 ring-[#cfe0e4] transition-transform duration-300 hover:-translate-y-0.5"
+              className="flex h-29 items-center justify-center rounded-xl bg-[#ffffff] px-3 py-2 ring-1 ring-[#cfe0e4] shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.03] hover:bg-[#f8fbff] hover:ring-[#93c5fd] hover:shadow-[0_14px_30px_rgba(2,12,27,0.35)]"
             >
               <img
                 src={item.logo}
