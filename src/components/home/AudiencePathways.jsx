@@ -1,9 +1,7 @@
-import { useRef } from "react";
-import videoBridge from "../../assets/bridge.mp4";
+
+import videoBridge from "../../assets/Bridge.mp4";
 
 export default function AudiencePathways() {
-  const videoRef = useRef(null);
-
   return (
     <section
       id="audience-pathways"
@@ -12,7 +10,6 @@ export default function AudiencePathways() {
       {/* Video Container */}
       <div className="relative w-full">
         <video
-          ref={videoRef}
           className="w-full h-auto display-block"
           autoPlay
           muted
