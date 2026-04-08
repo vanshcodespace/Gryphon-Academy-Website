@@ -51,7 +51,7 @@ export default function Gallery() {
     <section className="bg-[#f2f2f3] py-6 sm:py-8 lg:py-4 xl:py-4">
       <div className="mx-auto w-full px-3 sm:px-4 lg:max-w-[calc((100vh-8.75rem)*1.78)] xl:max-w-[calc((100vh-9rem)*2.10)]">
         <h2
-          className="mb-4 text-center text-4xl font-semibold uppercase tracking-tight sm:mb-6 sm:text-5xl lg:mb-3 lg:text-[2.75rem] xl:text-[3.25rem]"
+          className="mb-4 text-center text-4xl font-bold uppercase tracking-tight sm:mb-6 sm:text-5xl lg:mb-3 lg:text-[2.75rem] xl:text-[3.25rem]"
           style={{
             background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
             WebkitBackgroundClip: "text",
@@ -78,7 +78,15 @@ export default function Gallery() {
               <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(2,5,12,0.88)_0%,rgba(2,5,12,0.72)_35%,rgba(2,5,12,0.2)_65%,rgba(2,5,12,0)_100%)]" />
 
               <div className="absolute inset-x-0 bottom-0 p-5 transition-opacity duration-300 group-hover:opacity-0 group-focus-within:opacity-0 sm:p-6 lg:p-7">
-                <h3 className="max-w-[20ch] text-[20px] font-semibold leading-[1.16] tracking-tight text-transparent bg-[linear-gradient(90deg,#d94f9f,#f1a352)] bg-clip-text sm:text-[22px] lg:text-[30px]">
+                <h3
+                  className="max-w-[20ch] text-[20px] font-semibold leading-[1.16] tracking-tight text-transparent bg-clip-text sm:text-[22px] lg:text-[30px]"
+                  style={{
+                    background: "linear-gradient(to right, #68a1fc, #ff4d68)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
                   {card.title}
                 </h3>
               </div>
