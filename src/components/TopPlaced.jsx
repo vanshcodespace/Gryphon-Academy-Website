@@ -10,7 +10,7 @@ export default function TopPlaced() {
           <div
             key={num}
             className={`
-              relative border-[1px] border-black rounded-lg
+              relative border border-black rounded-lg
               ${num === 1 ? "row-span-2" : ""}
               ${num === 2 ? "row-span-3" : ""}
               ${num === 3 ? "col-span-2 row-span-2" : ""}
@@ -31,7 +31,7 @@ export default function TopPlaced() {
           >
             {/* Corner icon in bottom right */}
             <div className="absolute bottom-1 right-1">
-              <div className="w-2 h-2 border-r-[1px] border-b-[1px] border-black"></div>
+              <div className="w-2 h-2 border-r border-b border-black"></div>
             </div>
           </div>
         ))}
