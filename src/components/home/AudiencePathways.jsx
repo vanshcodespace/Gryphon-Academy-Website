@@ -1,4 +1,3 @@
-
 import videoBridge from "../../assets/Bridge.mp4";
 
 export default function AudiencePathways() {
@@ -10,7 +9,6 @@ export default function AudiencePathways() {
       {/* Video Container */}
       <div className="relative w-full overflow-hidden bg-white leading-none">
         <video
-          ref={videoRef}
           className="block w-full h-auto align-top"
           autoPlay
           muted

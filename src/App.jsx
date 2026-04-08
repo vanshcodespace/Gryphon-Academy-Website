@@ -6,7 +6,7 @@ import CorporatePage from "./pages/CorporatePage";
 import EventsPage from "./pages/EventsPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
-import TopPlaced from "./components/TopPlaced";
+import TopPlaced from "./components/home/TopPlaced";
 
 function App() {
   return (
