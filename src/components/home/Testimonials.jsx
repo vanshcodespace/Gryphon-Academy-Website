@@ -43,6 +43,7 @@ function StudentSuccessStories() {
         category: "students",
         role: "Software Engineer Intern, Gryphon Academy Pvt. Ltd.",
         initials: "AP",
+        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
         text: "The OG Member of IT Team",
       },
       {
@@ -71,9 +72,9 @@ function StudentSuccessStories() {
       },
       {
         id: 9,
-        name: "Imran Shaikh",
+        name: "Deep Mahire",
         category: "corporate",
-        role: "Support Analyst, TechBridge",
+        role: "Software Engineer, TechBridge",
         initials: "IS",
         text: "Imran strengthened communication, debugging, and ticket handling through practical labs. He transitioned confidently into IT support and quickly became a dependable team member.",
       },

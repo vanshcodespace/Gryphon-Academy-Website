@@ -95,11 +95,11 @@ export default function Hero({ showTopLeftLogo, logoSrc }) {
         </a>
       ) : null}
 
-      <div className="relative z-10 flex h-full w-full items-center justify-center px-4">
+      <div className="relative z-10 flex h-full w-full items-end justify-center px-4 pb-8">
         <div className="text-center">
           <h1
             className="whitespace-nowrap font-bold leading-tight text-white"
-            style={{ fontSize: "clamp(1.05rem, 4.8vw, 4.5rem)" }}
+            style={{ fontSize: "clamp(0.9rem, 4.2vw, 3.8rem)" }}
           >
             Build Your Career With Industry Ready Skills
           </h1>
@@ -108,9 +108,7 @@ export default function Hero({ showTopLeftLogo, logoSrc }) {
             className="mt-4 whitespace-nowrap text-white"
             style={{ fontSize: "clamp(0.82rem, 1.75vw, 1.5rem)" }}
           >
-            Professional training programs in aviation, hospitality and
-            corporate sectors with placement support.
-          </p>
+Let’s Bridge The Gap           </p>
         </div>
       </div>
     </section>
