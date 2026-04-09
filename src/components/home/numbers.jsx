@@ -105,15 +105,12 @@ export default function Numbers() {
       <div className="pointer-events-none absolute -right-20 bottom-0 h-100 w-100 rounded-full bg-[#ceecf7]/30 blur-[120px]" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 xl:max-w-340">
-        <h2
-          className="mb-16 text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[4rem]"
-          style={{
-            background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-          }}
-        >
+        <h2 className="mb-8 text-center text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl" style={{
+          background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+        }}>
           Our Impact, In Numbers
         </h2>
 

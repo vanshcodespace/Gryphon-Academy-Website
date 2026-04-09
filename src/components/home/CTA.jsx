@@ -43,8 +43,8 @@ export default function CTA() {
       />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6">
-        <h2 className="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl lg:text-[2.8rem]">
-          <span className="block">Your Students Are Ready to Be Trained.</span>
+        <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl">
+          <span className="block text-white">Your Students Are Ready to Be Trained.</span>
           <span className="mt-2 block bg-linear-to-r from-white via-[#8ab4f0] to-[#5b91e3] bg-clip-text text-transparent">
             Your Next Hire Is Already in Our Network.
           </span>

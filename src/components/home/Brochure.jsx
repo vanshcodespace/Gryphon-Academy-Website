@@ -7,21 +7,17 @@ export default function Brochure() {
 
       <div className="relative mx-auto max-w-6xl px-6 text-center">
         {/* Heading — centered */}
-        <h2
-          className="whitespace-nowrap text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl lg:text-[2.2rem]"
-          style={{
-            background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            display: "block",
-          }}
-        >
+        <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl" style={{
+          background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+        }}>
           Everything You Need to Know - In One Document.
         </h2>
 
         {/* Body text */}
-        <p className="mt-5 text-base leading-relaxed text-[#1a1a2e] sm:text-lg">
+        <p className="mt-6 text-lg text-justify leading-relaxed text-[#2a3038] sm:text-xl lg:text-xl lg:leading-[1.8]">
           Download our programme brochure for a complete overview of our training modules,
           <br className="hidden sm:block" />
           placement outcomes, institutional partnerships, and service offerings.

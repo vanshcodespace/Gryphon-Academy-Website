@@ -34,7 +34,12 @@ export default function AudiencePathways() {
               <span className="text-3xl">🎓</span>
             </div>
             <div className="mt-4 relative z-10">
-              <h3 className="text-2xl font-bold text-blue-900 mb-4">
+              <h3 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl mb-4" style={{
+                background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}>
                 For Colleges
               </h3>
               <ul className="space-y-3 text-blue-800">
@@ -85,7 +90,12 @@ export default function AudiencePathways() {
               <span className="text-3xl">🏢</span>
             </div>
             <div className="mt-4 relative z-10">
-              <h3 className="text-2xl font-bold text-orange-900 mb-4">
+              <h3 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl mb-4" style={{
+                background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}>
                 For Corporates
               </h3>
               <ul className="space-y-3 text-orange-800">
