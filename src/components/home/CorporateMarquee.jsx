@@ -88,7 +88,7 @@ export default function CorporateMarquee() {
 
         <div className="mb-1.5 flex items-center gap-4">
           <div className="h-0.5 w-8 bg-linear-to-r from-transparent to-[#94a3b8]" />
-          <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#64748b] sm:text-base">
+          <h3 className="text-xl font-bold uppercase tracking-[0.2em] text-[#64748b] sm:text-base">
             Industry Leaders
           </h3>
           <div className="h-0.5 w-8 bg-linear-to-l from-transparent to-[#94a3b8]" />
