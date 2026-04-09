@@ -88,7 +88,12 @@ export default function CorporateMarquee() {
 
         <div className="mb-1.5 flex items-center gap-4">
           <div className="h-0.5 w-8 bg-linear-to-r from-transparent to-[#94a3b8]" />
-          <h3 className="text-xl font-bold uppercase tracking-[0.2em] text-[#64748b] sm:text-base">
+          <h3 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl" style={{
+            background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}>
             Industry Leaders
           </h3>
           <div className="h-0.5 w-8 bg-linear-to-l from-transparent to-[#94a3b8]" />
