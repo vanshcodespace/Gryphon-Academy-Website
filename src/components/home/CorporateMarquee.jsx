@@ -7,10 +7,11 @@ const allCorporate = Object.entries(corporateModules).map(([path, module]) => {
   return { name, logo: module.default || module };
 });
 
-// Slice into two equal halves
-const corporateMid = Math.ceil(allCorporate.length / 2);
-const corporateRowOne = allCorporate.slice(0, corporateMid);
-const corporateRowTwo = allCorporate.slice(corporateMid);
+// Slice into three equal parts
+const corporateThird = Math.ceil(allCorporate.length / 3);
+const corporateRowOne = allCorporate.slice(0, corporateThird);
+const corporateRowTwo = allCorporate.slice(corporateThird, corporateThird * 2);
+const corporateRowThree = allCorporate.slice(corporateThird * 2);
 
 const StarIcon = () => (
   <svg 
@@ -100,8 +101,9 @@ export default function CorporateMarquee() {
         </div>
 
         <div className="flex w-full flex-col gap-1 sm:gap-2">
-          <MarqueeTrack partners={corporateRowOne} reverse speed="40s" />
-          <MarqueeTrack partners={corporateRowTwo} speed="40s" />
+          <MarqueeTrack partners={corporateRowOne} speed="40s" />
+          <MarqueeTrack partners={corporateRowTwo} reverse speed="40s" />
+          <MarqueeTrack partners={corporateRowThree} speed="40s" />
         </div>
       </div>
     </>
