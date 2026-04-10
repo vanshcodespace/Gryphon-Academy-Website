@@ -84,8 +84,9 @@ export default function Home() {
        <InstitutionsMarquee />
         <AudiencePathways />
         <CorporateMarquee/>
+              <Training />
+
       </div>
-      <Training />
       <CTA />
       <Gallery />
       {/* <PartnersMarquee/> */}

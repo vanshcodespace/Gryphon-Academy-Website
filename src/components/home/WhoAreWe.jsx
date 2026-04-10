@@ -51,7 +51,7 @@ export default function WhoAreWe() {
                 backgroundClip: "text",
               }}
             >
-              WHO WE ARE
+              ABOUT US
             </h2>
 
             <p className="mt-6 text-lg text-justify leading-relaxed text-[#2a3038] sm:text-xl lg:text-xl lg:leading-[1.8]">

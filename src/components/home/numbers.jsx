@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import mapIcon from "../../assets/MAP-PNG.png";
+import mapIcon from "../../assets/MAP.png";
 
 const numberFormatter = new Intl.NumberFormat("en-US");
 
@@ -100,10 +100,6 @@ export default function Numbers() {
       ref={sectionRef}
       className="relative overflow-hidden bg-linear-to-b from-[#f0f7ff] via-[#ffffff] to-[#f8fbff] py-16 sm:py-20 lg:py-24"
     >
-      {/* Decorative Background Blob Effects */}
-      <div className="pointer-events-none absolute -left-40 top-0 h-125 w-125 rounded-full bg-[#a2d5f4]/40 blur-[120px]" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-100 w-100 rounded-full bg-[#ceecf7]/30 blur-[120px]" />
-
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 xl:max-w-340">
         <h2 className="mb-8 text-center text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl" style={{
           background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
@@ -114,15 +110,14 @@ export default function Numbers() {
           Our Impact, In Numbers
         </h2>
 
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[6fr_4fr] lg:gap-16 xl:gap-24">
           {/* Left Column: Center Map Container */}
-          <div className="relative flex min-h-120 flex-col items-center justify-center rounded-3xl border-3 border-[#1B3A6B]/40 bg-linear-to-br from-[#1B3A6B] via-[#0d1b3e] to-[#00083D] p-12 shadow-[0_25px_70px_rgba(0,8,61,0.3)] backdrop-blur-2xl lg:min-h-140">
-            <div className="absolute inset-0 rounded-3xl bg-linear-to-t from-[#ffffff]/5 via-transparent to-[#ffffff]/10" />
+          <div className="relative flex min-h-120 flex-col items-center justify-center rounded-3xl p-12 lg:min-h-140">
             <div className="relative z-10 flex h-full w-full items-center justify-center">
               <img
                 src={mapIcon}
                 alt="Map of India showing our presence"
-                className="h-auto w-full max-w-lg object-contain transition-all duration-700 hover:drop-shadow-[0_30px_60px_rgba(255,255,255,0.3)] filter drop-shadow-[0_20px_45px_rgba(255,255,255,0.2)]"
+                className="h-auto w-full max-w-8xl object-contain transition-all duration-700 hover:drop-shadow-[0_30px_60px_rgba(255,255,255,0.3)] filter drop-shadow-[0_20px_45px_rgba(255,255,255,0.2)]"
               />
             </div>
           </div>
