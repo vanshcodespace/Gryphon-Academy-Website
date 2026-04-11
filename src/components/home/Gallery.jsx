@@ -1,45 +1,45 @@
 const galleryCards = [
   {
     id: "leading-minds",
-    title: "A Lifetime Exposure To Leading Minds",
+    title: "HR Summits & Industry Conclaves ",
     description:
-      "An immersive academic culture that brings students into dialogue with pioneers, innovators, and thought leaders through intra-mural and extra-mural engagements.",
+      "Exclusive platforms where India's top HR leaders, CHROs, and institutional heads converge to align on talent strategy, strengthen campus-corporate connect, and shape the future of workforce development. ",
     image:
       "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1800&q=80",
     className: "lg:col-span-6 lg:row-span-1",
   },
   {
     id: "study-tours",
-    title: "Thrilling Study Tours & Academic Events",
+    title: "Annual Flagship Events ",
     description:
-      "Learning that travels beyond the classroom. Be it national industry tours or international academic summits, we offer a real-world context to every discipline.",
+      "Gryphon Academy's signature yearly gatherings unities industry leaders, academic visionaries, and expert trainers to exchange insights, recognise excellence, and drive meaningful change across the education-employment landscape. ",
     image:
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80",
     className: "lg:col-span-6 lg:row-span-1",
   },
   {
     id: "diverse-campus",
-    title: "A Vibrant & Diverse Campus",
+    title: "Signature Award Nights ",
     description:
-      "A community where cultures, disciplines, and ideas converge, celebrating diversity through art, festivals, research, and student-led initiatives.",
+      "High-impact ceremonies celebrating the individuals, institutions, and organisations that are redefining excellence, powered by Gryphon Academy's end-to-end event, branding, and production expertise. ",
     image:
       "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80",
     className: "lg:col-span-4 lg:row-span-1",
   },
   {
     id: "nep-learning",
-    title: "A Skill-Based & NEP Aligned Learning",
+    title: "Trainer Gatherings & Internal Milestones ",
     description:
-      "A forward-looking approach to education that integrates skill development, interdisciplinary learning, and NEP-driven pedagogy for future-ready graduates.",
+      "Dedicated forums for Gryphon's 350+ expert practitioners, designed for strategic alignment, collective recognition, and the kind of honest conversations that keep our training standards exceptionally high. ",
     image:
       "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1800&q=80",
     className: "lg:col-span-4 lg:row-span-1",
   },
   {
     id: "induction-programmes",
-    title: "Structured Induction Programmes",
+    title: "Induction Programmes ",
     description:
-      "Thoughtfully designed orientation and bridge-learning experiences that help learners transition smoothly, build confidence, and begin with clarity.",
+      "Structured Day-1 experiences for first-year students across partner colleges setting the right expectations, mapping career paths, and orienting every new batch towards two purposeful years of professional growth. ",
     image:
       "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1400&q=80",
     className: "lg:col-span-4 lg:row-span-1",
@@ -51,7 +51,7 @@ export default function Gallery() {
     <section className="bg-[#f2f2f3] py-6 sm:py-8 lg:py-4 xl:py-4">
       <div className="mx-auto w-full px-3 sm:px-4 lg:max-w-[calc((100vh-8.75rem)*1.78)] xl:max-w-[calc((100vh-9rem)*2.10)]">
         <h2
-          className="mb-4 text-center text-4xl font-bold uppercase tracking-tight sm:mb-6 sm:text-5xl lg:mb-3 lg:text-[2.75rem] xl:text-[3.25rem]"
+          className="mb-8 text-center text-4xl font-bold tracking-tight sm:mb-10 sm:text-5xl lg:mb-6 lg:text-5xl"
           style={{
             background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
             WebkitBackgroundClip: "text",
@@ -61,7 +61,7 @@ export default function Gallery() {
         >
           EVENTS
         </h2>
-        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:w-full lg:grid-cols-12 lg:grid-rows-2 lg:gap-1.5 lg:h-[clamp(35rem,69vh,48rem)]">
+        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:w-full lg:grid-cols-12 lg:grid-rows-2 lg:gap-1.5 lg:h-[clamp(35rem,80vh,48rem)]">
           {galleryCards.map((card) => (
             <article
               key={card.id}

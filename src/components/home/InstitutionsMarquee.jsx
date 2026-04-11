@@ -25,18 +25,16 @@ export default function InstitutionsMarquee() {
       <div className="mx-auto max-w-350">
         <div className="mb-12 flex items-center justify-center md:mb-16">
           <div className="text-center">
-            <h3
-              className="pb-1 text-center text-4xl font-extrabold tracking-tight leading-normal sm:text-5xl lg:text-[4rem]"
-              style={{
-                background: "linear-gradient(to right, #f7f7f7, #78a8f5)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            
+            <h3 className="pb-1 text-center text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl" style={{
+              background: "linear-gradient(to right, #f7f7f7, #78a8f5)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>
               Our Top College Partners
             </h3>
-            <p className="mt-2 text-lg font-medium tracking-wide text-[#f7f7f7] sm:text-xl">
+            <p className="mt-6 text-lg text-justify leading-relaxed text-[#e7ebf0] sm:text-xl lg:text-xl lg:leading-[1.8]">
               Partnering with Excellence Across Leading Institutions
             </p>
           </div>

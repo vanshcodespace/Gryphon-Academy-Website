@@ -1,4 +1,4 @@
-import videoBridge from "../../assets/Bridge.mp4";
+import videoBridge from "../../assets/Bridge4.mp4";
 
 export default function AudiencePathways() {
   return (
@@ -25,7 +25,9 @@ export default function AudiencePathways() {
 
       {/* Service Boxes */}
       <div className="w-full px-6 pt-12 md:pt-16 pb-24 relative z-10 bg-linear-to-b from-white via-slate-50 to-white">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-stretch gap-6 lg:gap-10">
+        <div className="max-w-7xl mx-auto">
+          {/* Service Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-stretch gap-6 lg:gap-10">
           {/* Colleges Box */}
           <div className="group relative overflow-visible bg-linear-to-br from-blue-50 via-blue-50 to-white rounded-3xl p-8 md:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-blue-200/80 hover:border-blue-400 w-full md:max-w-lg lg:max-w-xl md:justify-self-end min-h-96 md:min-h-105 hover:-translate-y-2">
             <div className="pointer-events-none absolute -top-16 -right-16 h-44 w-44 rounded-full bg-blue-300/30 blur-3xl transition-transform duration-500 group-hover:scale-110"></div>
@@ -34,34 +36,63 @@ export default function AudiencePathways() {
               <span className="text-3xl">🎓</span>
             </div>
             <div className="mt-4 relative z-10">
-              <h3 className="text-2xl font-bold text-blue-900 mb-4">
+              <h3 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-4xl mb-4 text-[#1B3A6B]">
                 For Colleges
               </h3>
               <ul className="space-y-3 text-blue-800">
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-3 font-bold">•</span>
-                  <span>Industry-ready curriculum development</span>
+                  <span>Professional training embedded in your curriculum (Industry Readiness Programme & Career Leadership Development Programme)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-3 font-bold">•</span>
-                  <span>Student placement assistance</span>
+                  <span>Faculty Development Programmes (FDPs) </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-3 font-bold">•</span>
-                  <span>Faculty training programs</span>
+                  <span>  Digital marketing, social media management & branding</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-3 font-bold">•</span>
-                  <span>Campus recruitment drives</span>
+                  <span>Website development, landing pages & feedback systems </span>
+                </li>
+                 <li className="flex items-start">
+                  <span className="text-blue-500 mr-3 font-bold">•</span>
+                  <span>End-to-end admissions support  </span>
+                </li>
+                 <li className="flex items-start">
+                  <span className="text-blue-500 mr-3 font-bold">•</span>
+                  <span> Campus events — fests, HR summits & corporate conclaves </span>
+                </li>
+                 <li className="flex items-start">
+                  <span className="text-blue-500 mr-3 font-bold">•</span>
+                  <span>Assessment platforms & customised feedback systems  </span>
+                </li>
+                 <li className="flex items-start">
+                  <span className="text-blue-500 mr-3 font-bold">•</span>
+                  <span>Recruiter connect & placement facilitation  </span>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* Center Tagline */}
-          <div className="hidden md:flex items-center justify-center px-2 lg:px-4">
-            <div className="px-4 py-5 rounded-2xl border border-slate-200 bg-white/80 shadow-md backdrop-blur-xs">
-              <p className="text-center text-xl lg:text-xl font-extrabold leading-8 tracking-[0.14em] text-slate-700">
+          {/* Center Heading Section */}
+          <div className="hidden md:flex flex-col items-center justify-center px-2 lg:px-4 -mt-16 mb-8">
+            <div className="text-center mb-6">
+              <h2 className="mb-3 text-5xl font-bold tracking-tight sm:text-6xl lg:text-6xl" style={{
+                background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}>
+                Our Services
+              </h2>
+              <p className="text-lg text-gray-700 sm:text-xl">
+                One Partner for Every Dimension of Growth
+              </p>
+            </div>
+            <div className="px-6 py-6 rounded-2xl border-2 border-slate-300 bg-linear-to-br from-white to-slate-50 shadow-lg backdrop-blur-xs">
+              <p className="text-center text-lg lg:text-2xl font-extrabold leading-8 tracking-[0.14em] text-slate-800">
                 <span className="block">WE TRAIN YOU.</span>
                 <span className="block">WE PREPARE YOU.</span>
                 <span className="block">WE PLACE YOU.</span>
@@ -69,13 +100,8 @@ export default function AudiencePathways() {
             </div>
           </div>
 
-          <div className="md:hidden py-2">
-            <p className="text-center text-lg font-bold leading-relaxed tracking-wide text-slate-700">
-              <span className="block">We Train You.</span>
-              <span className="block">We Prepare You.</span>
-              <span className="block">We Place You.</span>
-            </p>
-          </div>
+          
+          
 
           {/* Corporate Box */}
           <div className="group relative overflow-visible bg-linear-to-br from-orange-50 via-orange-50 to-white rounded-3xl p-8 md:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-orange-200/80 hover:border-orange-400 w-full md:max-w-lg lg:max-w-xl md:justify-self-start min-h-96 md:min-h-105 hover:-translate-y-2">
@@ -85,29 +111,38 @@ export default function AudiencePathways() {
               <span className="text-3xl">🏢</span>
             </div>
             <div className="mt-4 relative z-10">
-              <h3 className="text-2xl font-bold text-orange-900 mb-4">
+              <h3 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-4xl mb-4 text-[#1B3A6B]">
                 For Corporates
               </h3>
               <ul className="space-y-3 text-orange-800">
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-3 font-bold">•</span>
-                  <span>Talent acquisition & recruitment</span>
+                  <span>Zero-cost end-to-end campus hiring </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-3 font-bold">•</span>
-                  <span>Employee training & development</span>
+                  <span> Pre-trained talent across all major streams </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-3 font-bold">•</span>
-                  <span>Corporate events & programs</span>
+                  <span>JD-aligned candidate preparation </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-3 font-bold">•</span>
-                  <span>Skill enhancement workshops</span>
+                  <span>Pan-India drives across 25+ cities </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-500 mr-3 font-bold">•</span>
+                  <span> Corporate training & L&D solutions </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-500 mr-3 font-bold">•</span>
+                  <span>Employer branding across our institutional network  </span>
                 </li>
               </ul>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>

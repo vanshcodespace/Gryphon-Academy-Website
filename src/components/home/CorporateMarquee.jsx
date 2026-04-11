@@ -13,14 +13,11 @@ const allCorporate = Object.entries(corporateModules).map(([path, module]) => {
   return { name, logo: module.default || module };
 });
 
-// Slice into three equal chunks
-const corporateChunkSize = Math.ceil(allCorporate.length / 3);
-const corporateRowOne = allCorporate.slice(0, corporateChunkSize);
-const corporateRowTwo = allCorporate.slice(
-  corporateChunkSize,
-  corporateChunkSize * 2,
-);
-const corporateRowThree = allCorporate.slice(corporateChunkSize * 2);
+// Slice into three equal parts
+const corporateThird = Math.ceil(allCorporate.length / 3);
+const corporateRowOne = allCorporate.slice(0, corporateThird);
+const corporateRowTwo = allCorporate.slice(corporateThird, corporateThird * 2);
+const corporateRowThree = allCorporate.slice(corporateThird * 2);
 
 const StarIcon = () => (
   <svg
@@ -96,24 +93,22 @@ export default function CorporateMarquee() {
         <div className="pointer-events-none absolute left-0 z-20 h-full w-16 bg-linear-to-r from-[#c9dfec] to-transparent sm:w-32 md:w-48" />
         <div className="pointer-events-none absolute right-0 z-20 h-full w-16 bg-linear-to-l from-[#c9dfec] to-transparent sm:w-32 md:w-48" />
 
-        <div className="mb-8 flex items-center justify-center">
-          <h3
-            className="pb-1 text-center text-4xl font-extrabold tracking-tight leading-normal sm:text-5xl lg:text-[4rem]"
-            style={{
-              background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
+        <div className="mb-1.5 flex items-center gap-4">
+          <div className="h-0.5 w-8 bg-linear-to-r from-transparent to-[#94a3b8]" />
+          <h3 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl" style={{
+            background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}>
             Industry Leaders
           </h3>
         </div>
 
         <div className="flex w-full flex-col gap-1 sm:gap-2">
-          <MarqueeTrack partners={corporateRowOne} reverse speed="40s" />
-          <MarqueeTrack partners={corporateRowTwo} speed="38s" />
-          <MarqueeTrack partners={corporateRowThree} reverse speed="42s" />
+          <MarqueeTrack partners={corporateRowOne} speed="40s" />
+          <MarqueeTrack partners={corporateRowTwo} reverse speed="40s" />
+          <MarqueeTrack partners={corporateRowThree} speed="40s" />
         </div>
       </div>
     </>

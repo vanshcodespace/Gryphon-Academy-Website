@@ -17,6 +17,7 @@ import Training from "../components/home/Training";
 import Numbers from "../components/home/numbers";
 import InstitutionsMarquee from "../components/home/InstitutionsMarquee";
 import CorporateMarquee from "../components/home/CorporateMarquee";
+import TopPlaced from "../components/home/TopPlaced";
 
 export default function Home() {
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
@@ -82,12 +83,14 @@ export default function Home() {
       <TopPlaced />
       <Brochure />
       <Numbers />
-      <div class="bg-[linear-gradient(to_bottom,#ceecf7_0%,#a2d5f4_25%,#f7fcff_50%,#d3eef9_75%,#ffffff_100%)]">
-        <InstitutionsMarquee />
+      <TopPlaced/>
+     <div class="bg-[linear-gradient(to_bottom,#ceecf7_0%,#a2d5f4_25%,#f7fcff_50%,#d3eef9_75%,#ffffff_100%)]">
+       <InstitutionsMarquee />
         <AudiencePathways />
-        <CorporateMarquee />
+        <CorporateMarquee/>
+              <Training />
+
       </div>
-      <Training />
       <CTA />
       <Gallery />
       {/* <PartnersMarquee/> */}

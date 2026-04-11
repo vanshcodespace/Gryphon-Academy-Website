@@ -28,7 +28,12 @@ export default function PartnersMarquee() {
 
       <div className="relative z-10 mx-auto mb-2 max-w-7xl px-4 text-center sm:mb-3 sm:px-6 lg:px-8">
         <h2
-          className="mx-auto mb-4 inline-block text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl lg:text-[2.5rem]"
+          className="mx-auto mb-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl" style={{
+            background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
           style={{
             background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
             WebkitBackgroundClip: "text",
@@ -39,7 +44,7 @@ export default function PartnersMarquee() {
         >
           Backed by the Best
         </h2>
-        <p className="mx-auto mt-1 max-w-2xl text-sm text-[#475569] sm:text-base">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-justify leading-relaxed text-[#2a3038] sm:text-xl lg:text-xl lg:leading-[1.8]"
           Bridging the gap between premier educational institutions and global
           industry giants to build the next generation of top-tier talent.
         </p>

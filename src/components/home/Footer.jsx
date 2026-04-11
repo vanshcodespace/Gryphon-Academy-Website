@@ -29,7 +29,12 @@ const Footer = () => {
 
         {/* Useful Links Section */}
         <div className="flex flex-col">
-          <h2 className="text-2xl font-bold mb-4 text-center md:text-left">
+          <h2 className="text-3xl font-bold mb-4 text-center md:text-left" style={{
+            background: "linear-gradient(to right, #ffffff, #ffffff)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}>
             Useful Links
           </h2>
           <ul className="space-y-2 text-center md:text-left">
@@ -56,7 +61,12 @@ const Footer = () => {
 
         {/* Contact Us Section */}
         <div className="flex flex-col">
-          <h2 className="text-2xl font-bold mb-4 text-center md:text-left">
+          <h2 className="text-3xl font-bold mb-4 text-center md:text-left" style={{
+            background: "linear-gradient(to right, #ffffff, #ffffff)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}>
             Contact Us
           </h2>
           <ul className="space-y-4 text-center md:text-left">
@@ -108,7 +118,12 @@ const Footer = () => {
 
         {/* Follow Us Section */}
         <div className="flex flex-col">
-          <h2 className="text-2xl font-bold mb-4 text-center md:text-left">
+          <h2 className="text-3xl font-bold mb-4 text-center md:text-left" style={{
+            background: "linear-gradient(to right, #ffffff, #ffffff)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}>
             Follow Us
           </h2>
           <div className="flex justify-center md:justify-start space-x-4 mb-4">
