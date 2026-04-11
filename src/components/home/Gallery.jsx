@@ -1,11 +1,15 @@
+import eventImageOne from "../../assets/Events/DSC00115.jpg";
+import eventImageTwo from "../../assets/Events/DSC09999.JPG";
+import eventImageThree from "../../assets/Events/DSC_0754.JPG";
+import eventImageFour from "../../assets/Events/IMG_8579.jpg";
+
 const galleryCards = [
   {
     id: "leading-minds",
     title: "HR Summits & Industry Conclaves ",
     description:
       "Exclusive platforms where India's top HR leaders, CHROs, and institutional heads converge to align on talent strategy, strengthen campus-corporate connect, and shape the future of workforce development. ",
-    image:
-      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1800&q=80",
+    image: eventImageOne,
     className: "lg:col-span-6 lg:row-span-1",
   },
   {
@@ -13,8 +17,7 @@ const galleryCards = [
     title: "Annual Flagship Events ",
     description:
       "Gryphon Academy's signature yearly gatherings unities industry leaders, academic visionaries, and expert trainers to exchange insights, recognise excellence, and drive meaningful change across the education-employment landscape. ",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80",
+    image: eventImageTwo,
     className: "lg:col-span-6 lg:row-span-1",
   },
   {
@@ -22,8 +25,7 @@ const galleryCards = [
     title: "Signature Award Nights ",
     description:
       "High-impact ceremonies celebrating the individuals, institutions, and organisations that are redefining excellence, powered by Gryphon Academy's end-to-end event, branding, and production expertise. ",
-    image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80",
+    image: eventImageThree,
     className: "lg:col-span-4 lg:row-span-1",
   },
   {
@@ -31,8 +33,7 @@ const galleryCards = [
     title: "Trainer Gatherings & Internal Milestones ",
     description:
       "Dedicated forums for Gryphon's 350+ expert practitioners, designed for strategic alignment, collective recognition, and the kind of honest conversations that keep our training standards exceptionally high. ",
-    image:
-      "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1800&q=80",
+    image: eventImageFour,
     className: "lg:col-span-4 lg:row-span-1",
   },
   {
@@ -40,8 +41,7 @@ const galleryCards = [
     title: "Induction Programmes ",
     description:
       "Structured Day-1 experiences for first-year students across partner colleges setting the right expectations, mapping career paths, and orienting every new batch towards two purposeful years of professional growth. ",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1400&q=80",
+    image: eventImageOne,
     className: "lg:col-span-4 lg:row-span-1",
   },
 ];
