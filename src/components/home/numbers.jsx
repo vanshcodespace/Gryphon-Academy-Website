@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import mapIcon from "../../assets/MAP.png";
+import mapIcon from "../../assets/MAP.webp";
 
 const numberFormatter = new Intl.NumberFormat("en-US");
 
