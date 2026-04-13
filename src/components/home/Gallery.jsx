@@ -2,7 +2,7 @@ import eventImageOne from "../../assets/Events/DSC00115.webp";
 import eventImageTwo from "../../assets/Events/DSC09999.webp";
 import eventImageThree from "../../assets/Events/DSC_0754.webp";
 import eventImageFour from "../../assets/Events/IMG_8579.webp";
-import eventImageFive from "../../assets/Events/DSC00181.jpg";
+import eventImageFive from "../../assets/Events/DSC00181.JPG";
 
 const galleryCards = [
   {
