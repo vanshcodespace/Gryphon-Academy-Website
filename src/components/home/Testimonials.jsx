@@ -17,39 +17,95 @@ import ey from "../../assets/Recruiters/ey.png";
 import sas from "../../assets/Recruiters/sas.png";
 import coc from "../../assets/Recruiters/coc.png";
 import schneider from "../../assets/Recruiters/sch.png";
+
 function StudentSuccessStories() {
   const stories = useMemo(
     () => [
       // Students
       {
         id: 1,
-        name: "Mr. Siddhant Kadam",
+        name: "Mr. Nihal Shirkar",
         category: "students",
-        role: "BE Computer Engineering,\n Batch:2024, \n Indira College of Engineering & Management, Pune",
+        role: "B. E. Computer Engineering, Juspay",
         initials: "MS",
         image:juspay,
-        text: "Gryphon has provided with best training. The teachers were super helping and punctual. They have given us lessons for life. I would extend a special thanks to the trainers who motivated us at every step.",
+        text: " My experience with Gryphon Academy was incredible. I got placed in Force Motors and I would love to thank Gryphon Academy for being such an amazing partner for my placement opportunity",
       },
-      {
-        id: 4,
-        name: "Priyanka Patel",
-        category: "students",
-        role: "Frontend Developer, WebWorks Digital",
-        initials: "PP",
-        text: "A bright student from Surat. After family pressure and CA exam setbacks, Priyanka turned to Gryphon Academy. She is now a Frontend Developer, with a career in tech built on intense learning.",
-      },
-      {
-        id: 5,
-        name: "Ajay Pawar",
-        category: "students",
-        role: "Software Engineer Intern, Gryphon Academy Pvt. Ltd.",
-        initials: "AP",
-        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
-        text: "The OG Member of IT Team",
-      },
-      // Colleges
       {
         id: 2,
+        name: "Mr Vishal Tambe",
+        category: "students",
+        role: "Electrical Engineering, Tata Technologies",
+        initials: "PP",
+        text: "Gryphon Academy is a great resource for students to learn and explore various topics related to the placement drives. This Training programme will help students to develop their skills required during placement drives. ",
+      },
+      {
+        id: 3,
+        name: "Mr.Kishor Turkane",
+        category: "students",
+        role: "Civil Engineering, Hettich",
+        initials: "AP",
+        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
+        text: "The training on aptitude and soft skills proved to be highly beneficial, equipping us with valuable knowledge across various subjects and preparing us for the industry demands",
+      },
+       {
+        id: 4,
+        name: "Mr Shubham Bagul",
+        category: "students",
+        role: "Mechanical Engineering, Force Motors",
+        initials: "AP",
+        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
+        text: "Gryphon Academy is where dreams come true. The diverse range of training programmes gave me the confidence to enter the professional world. The trainers' practical wisdom and real -world experience were instrumental in my success.",
+      },
+       {
+        id: 5,
+        name: "Mr. Sonu Kambhire",
+        category: "students",
+        role: "Mechanical Engineering, P&W",
+        initials: "AP",
+        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
+        text: "It was a great experience with Gryphon Academy. The informative and simplified teaching style of trainers made our placement journey smooth. Grateful to Gryphon Academy for providing the opportunity to learn and aquire industry skillset.",
+      },
+       {
+        id: 6,
+        name: "Mr.Niket Gawali",
+        category: "students",
+        role: "Civil Engineering, Kin Long",
+        initials: "AP",
+        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
+        text: "Gryphon Academy has changed me for the better. Their encompassing aptitude, soft skills and technical prowess, prepared me for industry challenges.",
+      },
+       {
+        id: 7,
+        name: "Ms. Srishti Shetty",
+        category: "students",
+        role: "MBA- HR, Velocitta",
+        initials: "AP",
+        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
+        text: "The Industry Readiness Program at Gryphon Academy was a game-changer for my career. From soft skills to technical expertise, every session was designed to prepare us for real-world challenges. It gave me the confidence to excel in interviews and thrive in my new role.",
+      },
+       {
+        id: 8 ,
+        name: "Mr.Harsh Pal",
+        category: "students",
+        role: "MBA Marketing, Housiey",
+        initials: "AP",
+        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
+        text: "The program was more than just training; it was a transformation. Gryphon Academy helped me refine my skills, build my confidence, and understand what the industry truly expects from professionals like me.",
+      },
+       {
+        id: 9,
+        name: "Ms Ajal Padmam",
+        category: "students",
+        role: "MBA Marketing, Homesfy",
+        initials: "AP",
+        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
+        text: "The Tailored approach of Gryphon's Industry Readiness Program what I needed. The focus on current industry trends and in demand skills has not only made me confident but also highly competitive in the job market.",
+      },
+
+      // Colleges
+      {
+        id: 10,
         name: "Dr. Tarita Shankar",
         category: "colleges",
         role: "President Designate - Indira University & Chairperson and Chief Mentor - Indira Group of Institutes, Pune",
@@ -58,7 +114,7 @@ function StudentSuccessStories() {
         text: "Gryphon holds a special place for me. Over the years, Gryphon has experienced signinificant growth, and it's been a remarkable journey filled with valuable lessons. I wish them continued success in all their future endeavors.",
       },
       {
-        id: 6,
+        id: 11,
         name: "Ms. Dhanwantari Wangde",
         category: "colleges",
         role: "CEO - Dnyanshree Institute of Engineering & Technology, Satara",
@@ -67,7 +123,7 @@ function StudentSuccessStories() {
         text: "Gryphon Academy has achieved remarkable success in securing placements for our students in prestigious companies such as Tata Technology, KPIT, and Tata Motors, along with Plank and Weave for our students in the real estate sector. Gryphon's tailored training and placement services have opened up diverse opportunities for our students.",
       },
       {
-        id: 8,
+        id: 12,
         name: "Mr. Amit Kolhe",
         category: "colleges",
         role: "Chancellor Sanjivani Group of Institutes, Kopargaon",
@@ -76,7 +132,7 @@ function StudentSuccessStories() {
         text: "Gryphon Academy's personalized training and placements are exceptional. They prepare students for the industry while shaping their future with a dedicated commitment to excellence. With more than 2000+ students trained, Gryphon Academy continues to make a signiificant impact in the realm of education.",
       },
       {
-        id: 11,
+        id: 13,
         name: "Ms. Neha A Parsoon",
         category: "colleges",
         role: "Training and Placement Officer Sharad Institute Of Technology College Of Engineering Ichalkaranji, Kolhapur",
@@ -85,7 +141,7 @@ function StudentSuccessStories() {
         text: "Sharad Institute of Technology, College of Engineering, Ichalkaranji Kolhapur, has partnered with Gryphon Academy. Together, we are dedicated to providing comprehensive services to students across all domains. Gryphon's proven track record in delivering outstanding results for various institutions has impressed us.",
       },
       {
-        id: 12,
+        id: 14,
         name: "Ms. Priyanka Pawar ",
         category: "colleges",
         role: "Associate Professor & Dean Training & DevelopmentIndira College of Engineering & Management(ICEM), Pune",
@@ -94,7 +150,7 @@ function StudentSuccessStories() {
         text: "ICEM is associated with Gryphon Academy for the past three years,, benefiting from 3000 hours of training annually for students. Gryphon Academy has extended invaluable industry support, particularly for our students seeking core engineering job placements.",
       },
       {
-        id: 13,
+        id: 15,
         name: "Dr. Thomas George ",
         category: "colleges",
         role: "Director - Lead College of Management, Palakkad, Kerala",
@@ -103,7 +159,7 @@ function StudentSuccessStories() {
         text: "In academia and the corporate world, Gryphon Academy stands as a leader driven by vision and dedication. Gryphon Academy's training and placements are outstanding, lighting the path towards a brighter future for students.",
       },
       {
-        id: 14,
+        id: 16,
         name: "Mr. Makrand Kaingade",
         category: "colleges",
         role: "TPO -DY Patil College of Engineering & Technology, Kolhapur",
@@ -112,7 +168,7 @@ function StudentSuccessStories() {
         text: "Gryphon Academy's training kindles potential. Our students' achievements in the competitive world validate Gryphon's commitment to excellence. The expertise of their experienced trainers from various fields is second to none.",
       },
       {
-        id: 13,
+        id: 17,
         name: "Mr. Manoj Choughule",
         category: "colleges",
         role: "Director - Lead College of Management, Palakkad, Kerala",
@@ -121,7 +177,7 @@ function StudentSuccessStories() {
         text: "Thanks to Gryphon's industry-focused training and the expertise of their trainers, our students have embarked on an incredible journey from classrooms to successful careers.",
       },
       {
-        id: 13,
+        id: 18,
         name: "Mr. Anup Sheth ",
         category: "colleges",
         role: "Director- Placements & Corporate ConnectLexicon MILE - Management Institute For Leadership and Excellence",
@@ -132,7 +188,7 @@ function StudentSuccessStories() {
 
       // Corporate
       {
-        id: 3,
+        id: 19,
         name: "Dr. Rahul Bagale",
         category: "corporate",
         role: "Vice President Human ResourcesUltra Corpotech Pvt. Ltd.",
@@ -141,7 +197,7 @@ function StudentSuccessStories() {
         text: "We recruited 145 fresh engineers from batch 2022-23 with the support of Gryphon and got reliable source of talent for our company. Team Gryphon is doing a fabulous job.",
       },
       {
-        id: 7,
+        id: 20,
         name: "Mr. Suvarnanidhi Rao",
         category: "corporate",
         role: "Associate Director - Talent Acquisition Dentsu Global Services",
@@ -150,7 +206,7 @@ function StudentSuccessStories() {
         text: "The talent pool Gryphon offers is a testament to their dedication in producing industry-ready graduates. We thank Gryphon Academy for consistently providing us with such outstanding talent.",
       },
       {
-        id: 9,
+        id: 21,
         name: "Ms. Shipra Pandit",
         category: "corporate",
         role: "Director - HR Juspay",
@@ -159,7 +215,7 @@ function StudentSuccessStories() {
         text: "We've had the opportunity to undergo Gryphon Academy's training process, extending its reach to candidates from various regions. Gryphon's high-quality training programme has undeniably enhanced students’ skills.",
       },
       {
-        id: 9,
+        id: 22,
         name: "Mr. Tushar Desai ",
         category: "corporate",
         role: "Senior Director - Talent Acquisition, India and APAC, FIS",
@@ -167,7 +223,7 @@ function StudentSuccessStories() {
         image: fis,
         text: "What sets Gryphon Academy apart is how precisely their training maps to our job descriptions. The students we hired from their last-minute training program understood our business context, our tech stack, and our expectations from day one.",
       },{
-        id: 9,
+        id: 23,
         name: "Mr. Urvish Pandey",
         category: "corporate",
         role: "India Head - University Recruitment & Early Talent Engagement, Mastercard",
@@ -176,7 +232,7 @@ function StudentSuccessStories() {
         text: "Highly impressed with Gryphon Academy's training modules to create industry ready force. All the best.",
       },
       {
-        id: 9,
+        id: 24,
         name: "Mr. Sushant Kumar",
         category: "corporate",
         role: "Assistant Director - EY",
@@ -185,7 +241,7 @@ function StudentSuccessStories() {
         text: "Gryphon Academy trained students are well-prepared for the demands of the engineering industry, with a strong foundation in both technical and professional skills.",
       },
       {
-        id: 10,
+        id: 25,
         name: "Mr. Supreet Kakroo ",
         category: "corporate",
         role: "Human Resources Specialist SaS",
@@ -194,7 +250,7 @@ function StudentSuccessStories() {
         text: "The dedication and commitment displayed by Team Gryphon is unwavering. The talent they prepare is ready for the industry.",
       },
       {
-        id: 10,
+        id: 26,
         name: "Mr. Ram Honap",
         category: "corporate",
         role: "National Head - HR Hindustan Coca-Cola Beverages",
@@ -203,7 +259,7 @@ function StudentSuccessStories() {
         text: "The Synergy Sphere 2024 event showcased Gryphon Academy’s dedication to bridging academia and industry. Bringing together over 100 HR leaders on one platform was a masterstroke that facilitated meaningful collaborations and highlighted Gryphon's role as a talent powerhouse."
       },
       {
-        id: 10,
+        id: 27,
         name: "Mr. Avinash Talreja  ",
         category: "corporate",
         role: "Deputy General Manager Human Resource | Schneider ",
