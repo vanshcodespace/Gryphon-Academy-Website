@@ -1,5 +1,6 @@
 import { useState } from "react";
-import teamImage from "../../assets/Ps.webp";
+
+import teamImage from "../../assets/Ps1.png";
 
 export default function WhoAreWe() {
   const [spotlight, setSpotlight] = useState({ x: 50, y: 50, active: false });

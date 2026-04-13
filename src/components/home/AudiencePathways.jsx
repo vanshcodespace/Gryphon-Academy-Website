@@ -42,15 +42,15 @@ export default function AudiencePathways() {
               <ul className="space-y-3 text-blue-800">
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-3 font-bold">•</span>
-                  <span>Professional training embedded in your curriculum (Industry Readiness Programme & Career Leadership Development Programme)</span>
+                  <span>Professional training embedded in your curriculum (IRP & CLDP)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-3 font-bold">•</span>
-                  <span>Faculty Development Programmes (FDPs) </span>
+                  <span>Faculty Development Programmes </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-3 font-bold">•</span>
-                  <span>  Digital marketing, social media management & branding</span>
+                  <span>Digital marketing, social media management & branding</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-3 font-bold">•</span>
@@ -117,19 +117,19 @@ export default function AudiencePathways() {
               <ul className="space-y-3 text-orange-800">
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-3 font-bold">•</span>
-                  <span>Zero-cost end-to-end campus hiring </span>
+                  <span>Zero-cost end-to-end campus hiring solutions for seamless and efficient recruitment processes across institutions </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-3 font-bold">•</span>
-                  <span> Pre-trained talent across all major streams </span>
+                  <span>Pre-trained and industry-ready talent pool available across all major academic and professional streams </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-3 font-bold">•</span>
-                  <span>JD-aligned candidate preparation </span>
+                  <span>Job Description (JD)-aligned candidate preparation with role-specific training and assessment readiness </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-3 font-bold">•</span>
-                  <span>Pan-India drives across 25+ cities </span>
+                  <span>Pan-India campus hiring drives conducted across 25+ cities ensuring wide talent reach and diversity </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-3 font-bold">•</span>

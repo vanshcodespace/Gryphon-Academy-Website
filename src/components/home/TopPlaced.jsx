@@ -304,7 +304,15 @@ export default function TopPlaced() {
     <section className="w-full bg-linear-to-b from-[#f6f2ec] to-[#ece7df] px-4 py-6 md:py-8">
       <div className="mx-auto w-full max-w-7xl">
         <div className="mb-4 md:mb-6 text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight text-[#1b3a6b] md:text-5xl">
+          <h2
+              className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl"
+              style={{
+                background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
             Top Placed Students
           </h2>
         </div>
