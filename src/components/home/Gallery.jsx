@@ -1,7 +1,8 @@
-import eventImageOne from "../../assets/Events/DSC00115.jpg";
-import eventImageTwo from "../../assets/Events/DSC09999.JPG";
-import eventImageThree from "../../assets/Events/DSC_0754.JPG";
-import eventImageFour from "../../assets/Events/IMG_8579.jpg";
+import eventImageOne from "../../assets/Events/DSC00115.webp";
+import eventImageTwo from "../../assets/Events/DSC09999.webp";
+import eventImageThree from "../../assets/Events/DSC_0754.webp";
+import eventImageFour from "../../assets/Events/IMG_8579.webp";
+import eventImageFive from "../../assets/Events/DSC00181.jpg";
 
 const galleryCards = [
   {
@@ -41,7 +42,7 @@ const galleryCards = [
     title: "Induction Programmes ",
     description:
       "Structured Day-1 experiences for first-year students across partner colleges setting the right expectations, mapping career paths, and orienting every new batch towards two purposeful years of professional growth. ",
-    image: eventImageOne,
+    image: eventImageFive,
     className: "lg:col-span-4 lg:row-span-1",
   },
 ];
