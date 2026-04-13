@@ -89,27 +89,57 @@ export default function CorporateMarquee() {
         }
       `}</style>
 
-      <div className="relative flex w-full flex-col items-center bg-linear-to-b from-[#d8eaf4] via-[#c9dfec] to-[#bdd8e8] pb-8 md:pb-10">
-        <div className="pointer-events-none absolute left-0 z-20 h-full w-16 bg-linear-to-r from-[#c9dfec] to-transparent sm:w-32 md:w-48" />
-        <div className="pointer-events-none absolute right-0 z-20 h-full w-16 bg-linear-to-l from-[#c9dfec] to-transparent sm:w-32 md:w-48" />
+      <div className="relative flex w-full flex-col items-center bg-linear-to-b from-[#e8f4fb] via-[#d0e8f8] to-[#b8dcf4] pt-8 pb-12 md:pt-12 md:pb-16">
+        <svg
+          className="pointer-events-none absolute top-0 left-0 z-40 h-8 w-full -translate-y-1/2"
+          viewBox="0 0 1200 80"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M0 40 Q25 12 50 40 T100 40 T150 40 T200 40 T250 40 T300 40 T350 40 T400 40 T450 40 T500 40 T550 40 T600 40 T650 40 T700 40 T750 40 T800 40 T850 40 T900 40 T950 40 T1000 40 T1050 40 T1100 40 T1150 40 T1200 40"
+            fill="none"
+            stroke="#5b9bc9"
+            strokeWidth="4"
+          />
+        </svg>
 
-        <div className="mb-1.5 flex items-center gap-4">
-          <div className="h-0.5 w-8 bg-linear-to-r from-transparent to-[#94a3b8]" />
-          <h3 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl" style={{
-            background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-          }}>
+        <div className="pointer-events-none absolute left-0 top-20 z-20 h-full w-16 bg-linear-to-r from-[#d0e8f8] to-transparent sm:w-32 md:w-48 md:top-24" />
+        <div className="pointer-events-none absolute right-0 top-20 z-20 h-full w-16 bg-linear-to-l from-[#d0e8f8] to-transparent sm:w-32 md:w-48 md:top-24" />
+
+        <div className="relative z-30 mb-6 flex items-center gap-4 md:mb-8">
+          <h3
+            className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl"
+            style={{
+              background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
             Industry Leaders
           </h3>
         </div>
 
         <div className="flex w-full flex-col gap-1 sm:gap-2">
-          <MarqueeTrack partners={corporateRowOne} speed="40s" />
-          <MarqueeTrack partners={corporateRowTwo} reverse speed="40s" />
-          <MarqueeTrack partners={corporateRowThree} speed="40s" />
+          <MarqueeTrack partners={corporateRowOne} speed="65s" />
+          <MarqueeTrack partners={corporateRowTwo} reverse speed="65s" />
+          <MarqueeTrack partners={corporateRowThree} speed="65s" />
         </div>
+
+        <svg
+          className="pointer-events-none absolute bottom-0 left-0 z-40 h-8 w-full translate-y-1/2"
+          viewBox="0 0 1200 80"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M0 40 Q25 12 50 40 T100 40 T150 40 T200 40 T250 40 T300 40 T350 40 T400 40 T450 40 T500 40 T550 40 T600 40 T650 40 T700 40 T750 40 T800 40 T850 40 T900 40 T950 40 T1000 40 T1050 40 T1100 40 T1150 40 T1200 40"
+            fill="none"
+            stroke="#5b9bc9"
+            strokeWidth="4"
+          />
+        </svg>
       </div>
     </>
   );
