@@ -89,10 +89,11 @@ export default function Numbers() {
   }, [hasCountStarted]);
 
   const stats = [
+    { number: "1,20,000+", label: "Students\nTrained" },
     { number: "65,000+", label: "Training\nHours Delivered" },
-    { number: "70,000+", label: "Students\nTrained" },
-    { number: "55+", label: "College Partners" },
-    { number: "450+", label: "Hiring Partners" },
+      { number: "550+", label: "Hiring Partners" },
+    { number: "75+", label: "College Partners" },
+  
   ];
 
   return (

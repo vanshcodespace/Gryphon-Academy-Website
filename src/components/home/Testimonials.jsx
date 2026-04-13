@@ -1,33 +1,34 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-
-const DUMMY_PHOTO_IDS = [12, 24, 28, 32, 36, 41, 45, 47, 52, 57, 61, 66];
-
+import iuLogo from "../../assets/GA College Partners/IULo.png";
+import diet from "../../assets/GA College Partners/g (17).png";
+import sanj from "../../assets/GA College Partners/2.png";
+import sit from "../../assets/GA College Partners/sit.png";
+import icem from "../../assets/GA College Partners/6.png";
+import lead from "../../assets/GA College Partners/g (21).png";
+import dy from "../../assets/GA College Partners/10.png";
+import dkte from "../../assets/GA College Partners/g (2).png";
+import lex from "../../assets/GA College Partners/g (7).png";
+import ultra from "../../assets/Recruiters/ultra.png";
+import dentsu from '../../assets/Recruiters/dentsu.png';
+import juspay from "../../assets/Recruiters/Logo (18).jpg";
+import fis from "../../assets/Recruiters/fis.png";
+import mastercard from "../../assets/Recruiters/master.png";
+import ey from "../../assets/Recruiters/ey.png";
+import sas from "../../assets/Recruiters/sas.png";
+import coc from "../../assets/Recruiters/coc.png";
+import schneider from "../../assets/Recruiters/sch.png";
 function StudentSuccessStories() {
   const stories = useMemo(
     () => [
+      // Students
       {
         id: 1,
-        name: "Mayuri Samanta",
+        name: "Mr. Siddhant Kadam",
         category: "students",
-        role: "SDE1, LogWinTech Pvt. Ltd.",
+        role: "BE Computer Engineering,\n Batch:2024, \n Indira College of Engineering & Management, Pune",
         initials: "MS",
-        text: "From Navsari, near Surat. A bright student. After facing pressure to marry, she trained in Java at Gryphon Academy. Her dedication led to an SDE1 role at LogWinTech, showcasing the power of continuous learning.",
-      },
-      {
-        id: 2,
-        name: "Anjali Rao",
-        category: "colleges",
-        role: "Data Analyst, TechCorp Solutions",
-        initials: "AR",
-        text: "From Navsari, near Surat. Excellent student. Escaping traditional expectations, she trained intensely at Gryphon Academy. Anjali is now a successful Data Analyst, reshaping her future through tech skills.",
-      },
-      {
-        id: 3,
-        name: "Karan Singh",
-        category: "corporate",
-        role: "DevOps Engineer, CloudSolutions Inc.",
-        initials: "KS",
-        text: "Background in commerce, then failed CA exams. Facing pressure, he joined Gryphon Academy and mastered Java. Now a DevOps Engineer, Karan's journey shows the potential of switching career paths.",
+        image:juspay,
+        text: "Gryphon has provided with best training. The teachers were super helping and punctual. They have given us lessons for life. I would extend a special thanks to the trainers who motivated us at every step.",
       },
       {
         id: 4,
@@ -46,61 +47,169 @@ function StudentSuccessStories() {
         image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
         text: "The OG Member of IT Team",
       },
+      // Colleges
       {
-        id: 6,
-        name: "Sneha Iyer",
+        id: 2,
+        name: "Dr. Tarita Shankar",
         category: "colleges",
-        role: "Data Analyst, QuantHive",
-        initials: "SI",
-        text: "Sneha had theory but lacked confidence in practical application. Live projects and review cycles at Gryphon Academy made her interview ready. She now solves business problems as a Data Analyst.",
+        role: "President Designate - Indira University & Chairperson and Chief Mentor - Indira Group of Institutes, Pune",
+        initials: "AR",
+        image: iuLogo,
+        text: "Gryphon holds a special place for me. Over the years, Gryphon has experienced signinificant growth, and it's been a remarkable journey filled with valuable lessons. I wish them continued success in all their future endeavors.",
       },
       {
-        id: 7,
-        name: "Aarav Mehta",
-        category: "corporate",
-        role: "Backend Engineer, NovaStack",
-        initials: "AM",
-        text: "Aarav came from a non-CS background and built strong fundamentals through project-based learning. With steady mentoring, he moved into backend development and cracked multiple interviews.",
+        id: 6,
+        name: "Ms. Dhanwantari Wangde",
+        category: "colleges",
+        role: "CEO - Dnyanshree Institute of Engineering & Technology, Satara",
+        initials: "SI",
+        image: diet,
+        text: "Gryphon Academy has achieved remarkable success in securing placements for our students in prestigious companies such as Tata Technology, KPIT, and Tata Motors, along with Plank and Weave for our students in the real estate sector. Gryphon's tailored training and placement services have opened up diverse opportunities for our students.",
       },
       {
         id: 8,
-        name: "Nisha Kulkarni",
+        name: "Mr. Amit Kolhe",
         category: "colleges",
-        role: "QA Engineer, PixelForge",
+        role: "Chancellor Sanjivani Group of Institutes, Kopargaon",
         initials: "NK",
-        text: "Nisha improved her testing depth through hands-on automation and sprint simulations. She now works as a QA Engineer and contributes to release quality from day one.",
-      },
-      {
-        id: 9,
-        name: "Deep Mahire",
-        category: "corporate",
-        role: "Software Engineer, TechBridge",
-        initials: "IS",
-        text: "Imran strengthened communication, debugging, and ticket handling through practical labs. He transitioned confidently into IT support and quickly became a dependable team member.",
-      },
-      {
-        id: 10,
-        name: "ABC",
-        category: "corporate",
-        role: "XYZ, ABC Pvt. Ltd.",
-        initials: "ABC",
-        text: "irbne[iobnfeio[bnoeifnbeio bnieofbninb inbifnbin birngigrig jdfjfkdjkdgkdjgkj gkgjkgjkg jkgjkgjkg jkgjkgj kgjkgjkgjk gjkgjkgjk gjkgjkgj kgjkg jkgjk fhoe98rhger 8obgworbgrg",
+        image: sanj,
+        text: "Gryphon Academy's personalized training and placements are exceptional. They prepare students for the industry while shaping their future with a dedicated commitment to excellence. With more than 2000+ students trained, Gryphon Academy continues to make a signiificant impact in the realm of education.",
       },
       {
         id: 11,
-        name: "Vansh Singla",
+        name: "Ms. Neha A Parsoon",
         category: "colleges",
-        role: "Software Developer, Gryphon Academy",
+        role: "Training and Placement Officer Sharad Institute Of Technology College Of Engineering Ichalkaranji, Kolhapur",
         initials: "VS",
-        text: "Vansh strengthened communication, debugging, and ticket handling through practical labs. He transitioned confidently into IT support and quickly became a dependable team member.",
+        image: sit,
+        text: "Sharad Institute of Technology, College of Engineering, Ichalkaranji Kolhapur, has partnered with Gryphon Academy. Together, we are dedicated to providing comprehensive services to students across all domains. Gryphon's proven track record in delivering outstanding results for various institutions has impressed us.",
       },
       {
         id: 12,
-        name: "Vansh Singla",
+        name: "Ms. Priyanka Pawar ",
         category: "colleges",
-        role: "Software Developer, Gryphon Academy",
+        role: "Associate Professor & Dean Training & DevelopmentIndira College of Engineering & Management(ICEM), Pune",
         initials: "VS",
-        text: "Vansh likes to code",
+        image: icem,
+        text: "ICEM is associated with Gryphon Academy for the past three years,, benefiting from 3000 hours of training annually for students. Gryphon Academy has extended invaluable industry support, particularly for our students seeking core engineering job placements.",
+      },
+      {
+        id: 13,
+        name: "Dr. Thomas George ",
+        category: "colleges",
+        role: "Director - Lead College of Management, Palakkad, Kerala",
+        initials: "VS",
+        image: lead,
+        text: "In academia and the corporate world, Gryphon Academy stands as a leader driven by vision and dedication. Gryphon Academy's training and placements are outstanding, lighting the path towards a brighter future for students.",
+      },
+      {
+        id: 14,
+        name: "Mr. Makrand Kaingade",
+        category: "colleges",
+        role: "TPO -DY Patil College of Engineering & Technology, Kolhapur",
+        initials: "VS",
+        image: dy,
+        text: "Gryphon Academy's training kindles potential. Our students' achievements in the competitive world validate Gryphon's commitment to excellence. The expertise of their experienced trainers from various fields is second to none.",
+      },
+      {
+        id: 13,
+        name: "Mr. Manoj Choughule",
+        category: "colleges",
+        role: "Director - Lead College of Management, Palakkad, Kerala",
+        initials: "VS",
+        image: dkte,
+        text: "Thanks to Gryphon's industry-focused training and the expertise of their trainers, our students have embarked on an incredible journey from classrooms to successful careers.",
+      },
+      {
+        id: 13,
+        name: "Mr. Anup Sheth ",
+        category: "colleges",
+        role: "Director- Placements & Corporate ConnectLexicon MILE - Management Institute For Leadership and Excellence",
+        initials: "VS",
+        image: lex,
+        text: "Gryphon's training isn't just a curriculum; it's a compass guiding students toward a prosperous future. Their commitment to excellence aligns with our vision of nurturing future leaders a huge Thanks to Gryphon Academy for their exclusive trainings and placements.",
+      },
+
+      // Corporate
+      {
+        id: 3,
+        name: "Dr. Rahul Bagale",
+        category: "corporate",
+        role: "Vice President Human ResourcesUltra Corpotech Pvt. Ltd.",
+        initials: "KS",
+        image: ultra,
+        text: "We recruited 145 fresh engineers from batch 2022-23 with the support of Gryphon and got reliable source of talent for our company. Team Gryphon is doing a fabulous job.",
+      },
+      {
+        id: 7,
+        name: "Mr. Suvarnanidhi Rao",
+        category: "corporate",
+        role: "Associate Director - Talent Acquisition Dentsu Global Services",
+        initials: "AM",
+        image: dentsu,
+        text: "The talent pool Gryphon offers is a testament to their dedication in producing industry-ready graduates. We thank Gryphon Academy for consistently providing us with such outstanding talent.",
+      },
+      {
+        id: 9,
+        name: "Ms. Shipra Pandit",
+        category: "corporate",
+        role: "Director - HR Juspay",
+        initials: "IS",
+        image: juspay,
+        text: "We've had the opportunity to undergo Gryphon Academy's training process, extending its reach to candidates from various regions. Gryphon's high-quality training programme has undeniably enhanced students’ skills.",
+      },
+      {
+        id: 9,
+        name: "Mr. Tushar Desai ",
+        category: "corporate",
+        role: "Senior Director - Talent Acquisition, India and APAC, FIS",
+        initials: "IS",
+        image: fis,
+        text: "What sets Gryphon Academy apart is how precisely their training maps to our job descriptions. The students we hired from their last-minute training program understood our business context, our tech stack, and our expectations from day one.",
+      },{
+        id: 9,
+        name: "Mr. Urvish Pandey",
+        category: "corporate",
+        role: "India Head - University Recruitment & Early Talent Engagement, Mastercard",
+        initials: "IS",
+        image: mastercard,
+        text: "Highly impressed with Gryphon Academy's training modules to create industry ready force. All the best.",
+      },
+      {
+        id: 9,
+        name: "Mr. Sushant Kumar",
+        category: "corporate",
+        role: "Assistant Director - EY",
+        initials: "IS",
+        image: ey,
+        text: "Gryphon Academy trained students are well-prepared for the demands of the engineering industry, with a strong foundation in both technical and professional skills.",
+      },
+      {
+        id: 10,
+        name: "Mr. Supreet Kakroo ",
+        category: "corporate",
+        role: "Human Resources Specialist SaS",
+        initials: "ABC",
+        image: sas,
+        text: "The dedication and commitment displayed by Team Gryphon is unwavering. The talent they prepare is ready for the industry.",
+      },
+      {
+        id: 10,
+        name: "Mr. Ram Honap",
+        category: "corporate",
+        role: "National Head - HR Hindustan Coca-Cola Beverages",
+        initials: "ABC",
+        image: coc,
+        text: "The Synergy Sphere 2024 event showcased Gryphon Academy’s dedication to bridging academia and industry. Bringing together over 100 HR leaders on one platform was a masterstroke that facilitated meaningful collaborations and highlighted Gryphon's role as a talent powerhouse."
+      },
+      {
+        id: 10,
+        name: "Mr. Avinash Talreja  ",
+        category: "corporate",
+        role: "Deputy General Manager Human Resource | Schneider ",
+        initials: "ABC",
+        image: schneider,
+        text: "The training modules at Gryphon Academy are tailored to meet the evolving needs of the industry. This foresight and adaptability are why their students excel across diverse domains, making them a valuable addition to any organization.",
       },
     ],
     [],
@@ -375,9 +484,8 @@ function StudentSuccessStories() {
       ? pendingStartIndex
       : currentPageIndex;
 
-  const getDummyPhotoForStory = useCallback((storyId) => {
-    const photoId = DUMMY_PHOTO_IDS[(storyId - 1) % DUMMY_PHOTO_IDS.length];
-    return `https://i.pravatar.cc/800?img=${photoId}`;
+  const getStoryImage = useCallback((story) => {
+    return story.image || "";
   }, []);
 
   return (
@@ -394,10 +502,10 @@ function StudentSuccessStories() {
             width: "100%",
           }}
         >
-          Shaping Success Stories Since 2019
+         Trusted by the best 
         </h2>
         <p
-          className="overflow-visible px-4 text-2xl font-bold tracking-tight leading-[1.15] md:text-4xl"
+          className="overflow-visible px-4 text-2xl font-medium tracking-tight leading-[1.15] md:text-2xl"
           style={{
             background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
             WebkitBackgroundClip: "text",
@@ -407,7 +515,7 @@ function StudentSuccessStories() {
             width: "100%",
           }}
         >
-          Your Goal. Our Mission
+          Read what the students, colleges and corporate leaders have to say about us!
         </p>
       </div>
 
@@ -424,11 +532,11 @@ function StudentSuccessStories() {
                   data-sizing-card="true"
                   className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-[#b8d9ea] bg-[linear-gradient(165deg,#f6fbff_0%,#dff1fb_100%)] shadow-[0_14px_30px_rgba(28,85,128,0.16)] backdrop-blur-xl"
                 >
-                  <div className="relative h-52 overflow-hidden border-b border-[#c9deea] bg-[#dceff9] md:h-56 lg:h-52 xl:h-56">
+                  <div className="relative h-52 overflow-hidden border-b border-[#c9deea] bg-white md:h-56 lg:h-52 xl:h-56 flex items-center justify-center p-2">
                     <img
-                      src={story.image || getDummyPhotoForStory(story.id)}
+                      src={getStoryImage(story)}
                       alt=""
-                      className="h-full w-full object-cover"
+                      className="max-h-52 max-w-48 object-contain"
                       loading="lazy"
                       onLoad={measureUniformCardHeight}
                     />
@@ -449,11 +557,11 @@ function StudentSuccessStories() {
                       {story.text}
                     </p>
 
-                    <div className="mt-auto h-16 border-t border-[#c6d2dd] pt-1.5">
+                    <div className="mt-auto border-t border-[#c6d2dd] pt-1.5">
                       <h3 className="inline-block bg-[#d8e2eb] px-2.5 py-0.5 font-black uppercase tracking-wide text-[#1f4f47] text-sm md:text-base">
                         {story.name}
                       </h3>
-                      <p className="mt-0.5 line-clamp-1 leading-tight text-[#375e56] text-xs md:text-sm">
+                      <p className="mt-0.5 leading-tight text-[#375e56] text-xs md:text-sm">
                         {story.role}
                       </p>
                     </div>
@@ -508,11 +616,11 @@ function StudentSuccessStories() {
                         className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-[#b8d9ea] bg-[linear-gradient(165deg,#f6fbff_0%,#dff1fb_100%)] shadow-[0_14px_30px_rgba(28,85,128,0.16)] backdrop-blur-xl transition-shadow duration-300"
                         style={{ height: `${uniformCardHeight}px` }}
                       >
-                        <div className="relative h-52 overflow-hidden border-b border-[#c9deea] bg-[#dceff9] md:h-56 lg:h-52 xl:h-56">
+                        <div className="relative h-52 overflow-hidden border-b border-[#c9deea] bg-white md:h-56 lg:h-52 xl:h-56 flex items-center justify-center p-2">
                           <img
-                            src={story.image || getDummyPhotoForStory(story.id)}
+                            src={getStoryImage(story)}
                             alt={story.name}
-                            className="h-full w-full object-cover"
+                            className="max-h-52 max-w-48 object-contain"
                             loading="lazy"
                             onLoad={measureUniformCardHeight}
                           />
@@ -534,11 +642,11 @@ function StudentSuccessStories() {
                             {story.text}
                           </p>
 
-                          <div className="mt-auto h-16 border-t border-[#c6d2dd] pt-1.5">
+                          <div className="mt-auto border-t border-[#c6d2dd] pt-1.5">
                             <h3 className="inline-block bg-[#d8e2eb] px-2.5 py-0.5 font-black uppercase tracking-wide text-[#1f4f47] text-sm md:text-base">
                               {story.name}
                             </h3>
-                            <p className="mt-0.5 line-clamp-1 leading-tight text-[#375e56] text-xs md:text-sm">
+                            <p className="mt-0.5 leading-tight text-[#375e56] text-xs md:text-sm">
                               {story.role}
                             </p>
                           </div>
