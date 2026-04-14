@@ -94,7 +94,7 @@ export default function Numbers() {
       { number: "550+", label: "Hiring Partners" },
     { number: "75+", label: "College Partners" },
      { number: "92%", label: "Placement Ratio" },
-      { number: "27LPA", label: "Highest Package" },
+      { number: "27 LPA", label: "Highest Package" },
 
   
   ];

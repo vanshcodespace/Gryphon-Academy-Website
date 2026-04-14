@@ -9,7 +9,7 @@ import dy from "../../assets/GA College Partners/10.png";
 import dkte from "../../assets/GA College Partners/g (2).png";
 import lex from "../../assets/GA College Partners/g (7).png";
 import ultra from "../../assets/Recruiters/ultra.png";
-import dentsu from '../../assets/Recruiters/dentsu.png';
+import dentsu from "../../assets/Recruiters/dentsu.png";
 import juspay from "../../assets/Recruiters/Logo (18).jpg";
 import fis from "../../assets/Recruiters/fis.png";
 import mastercard from "../../assets/Recruiters/master.png";
@@ -50,7 +50,7 @@ import e4 from "../../assets/e4.png";
 import e5 from "../../assets/e5.png";
 import e6 from "../../assets/e6.png";
 import e7 from "../../assets/e7.png";
-import e8 from "../../assets/e8.png";   
+import e8 from "../../assets/e8.png";
 import e9 from "../../assets/e9.png";
 function StudentSuccessStories() {
   const stories = useMemo(
@@ -61,9 +61,9 @@ function StudentSuccessStories() {
         name: "Mr. Nihal Shirkar",
         category: "students",
         role: "B. E. Computer Engineering",
-        company:"Juspay",
+        company: "Juspay",
         initials: "MS",
-        image:juspay,
+        image: juspay,
         personImage: s1,
         text: " My experience with Gryphon Academy was incredible. I got placed in Force Motors and I would love to thank Gryphon Academy for being such an amazing partner for my placement opportunity",
       },
@@ -90,7 +90,7 @@ function StudentSuccessStories() {
         personImage: s3,
         text: "The training on aptitude and soft skills proved to be highly beneficial, equipping us with valuable knowledge across various subjects and preparing us for the industry demands",
       },
-       {
+      {
         id: 4,
         name: "Mr Shubham Bagul",
         category: "students",
@@ -101,7 +101,7 @@ function StudentSuccessStories() {
         personImage: s4,
         text: "Gryphon Academy is where dreams come true. The diverse range of training programmes gave me the confidence to enter the professional world. The trainers' practical wisdom and real -world experience were instrumental in my success.",
       },
-       {
+      {
         id: 5,
         name: "Mr. Sonu Kambhire",
         category: "students",
@@ -112,7 +112,7 @@ function StudentSuccessStories() {
         personImage: s5,
         text: "It was a great experience with Gryphon Academy. The informative and simplified teaching style of trainers made our placement journey smooth. Grateful to Gryphon Academy for providing the opportunity to learn and aquire industry skillset.",
       },
-       {
+      {
         id: 6,
         name: "Mr.Niket Gawali",
         category: "students",
@@ -123,29 +123,29 @@ function StudentSuccessStories() {
         personImage: s6,
         text: "Gryphon Academy has changed me for the better. Their encompassing aptitude, soft skills and technical prowess, prepared me for industry challenges.",
       },
-       {
+      {
         id: 7,
         name: "Ms. Srishti Shetty",
         category: "students",
         role: "MBA- HR",
         company: "Velocitta",
-          image: veloc,
+        image: veloc,
         initials: "AP",
         personImage: s7,
         text: "The Industry Readiness Program at Gryphon Academy was a game-changer for my career. From soft skills to technical expertise, every session was designed to prepare us for real-world challenges. It gave me the confidence to excel in interviews and thrive in my new role.",
       },
-       {
-        id: 8 ,
+      {
+        id: 8,
         name: "Mr.Harsh Pal",
         category: "students",
         role: "MBA Marketing",
         company: "Housiey",
-image: hous,
+        image: hous,
         initials: "AP",
         personImage: s8,
         text: "The program was more than just training; it was a transformation. Gryphon Academy helped me refine my skills, build my confidence, and understand what the industry truly expects from professionals like me.",
       },
-       {
+      {
         id: 9,
         name: "Ms Ajal Padmam",
         category: "students",
@@ -289,7 +289,8 @@ image: hous,
         image: fis,
         personImage: e4,
         text: "What sets Gryphon Academy apart is how precisely their training maps to our job descriptions. The students we hired from their last-minute training program understood our business context, our tech stack, and our expectations from day one.",
-      },{
+      },
+      {
         id: 23,
         name: "Mr. Urvish Pandey",
         category: "corporate",
@@ -327,7 +328,7 @@ image: hous,
         initials: "ABC",
         image: coc,
         personImage: e8,
-        text: "The Synergy Sphere 2024 event showcased Gryphon Academy’s dedication to bridging academia and industry. Bringing together over 100 HR leaders on one platform was a masterstroke that facilitated meaningful collaborations and highlighted Gryphon's role as a talent powerhouse."
+        text: "The Synergy Sphere 2024 event showcased Gryphon Academy’s dedication to bridging academia and industry. Bringing together over 100 HR leaders on one platform was a masterstroke that facilitated meaningful collaborations and highlighted Gryphon's role as a talent powerhouse.",
       },
       {
         id: 27,
@@ -545,7 +546,13 @@ image: hous,
 
   useEffect(() => {
     measureUniformCardHeight();
-  }, [measureUniformCardHeight, visibleCount, stories, startIndex, visibleStories]);
+  }, [
+    measureUniformCardHeight,
+    visibleCount,
+    stories,
+    startIndex,
+    visibleStories,
+  ]);
 
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
@@ -657,7 +664,10 @@ image: hous,
     // Update progress bar every 100ms
     const progressInterval = setInterval(() => {
       timeElapsed += PROGRESS_UPDATE_INTERVAL;
-      const progress = Math.max(0, 100 - (timeElapsed / AUTO_SCROLL_DELAY) * 100);
+      const progress = Math.max(
+        0,
+        100 - (timeElapsed / AUTO_SCROLL_DELAY) * 100,
+      );
       setAutoScrollProgress(progress);
     }, PROGRESS_UPDATE_INTERVAL);
 
@@ -691,7 +701,7 @@ image: hous,
             width: "100%",
           }}
         >
-         Trusted by the best 
+          Trusted by the best
         </h2>
         <p
           className="overflow-visible px-4 text-lg font-semibold tracking-tight leading-[1.3] md:text-xl lg:text-xl text-opacity-90"
@@ -703,7 +713,8 @@ image: hous,
             width: "100%",
           }}
         >
-          Read what the students, colleges and corporate leaders have to say about us!
+          Read what the students, colleges and corporate leaders have to say
+          about us!
         </p>
       </div>
 
@@ -750,7 +761,11 @@ image: hous,
                   <br />
 
                   {/* Name & Role - Simple */}
-                  <div data-name-role="true" className="relative bg-white rounded-b-2xl border border-t-0 border-[#a8d4eb] p-2 md:p-3 pt-2 md:pt-3 flex flex-col justify-start" style={{ minHeight: `${uniformNameRoleHeight}px` }}>
+                  <div
+                    data-name-role="true"
+                    className="relative bg-white rounded-b-2xl border border-t-0 border-[#a8d4eb] p-2 md:p-3 pt-2 md:pt-3 flex flex-col justify-start"
+                    style={{ minHeight: `${uniformNameRoleHeight}px` }}
+                  >
                     <div className="flex items-center gap-2">
                       <div>
                         <h3 className="font-black  text-[#0d3d6b] text-sm md:text-base mb-0.5">
@@ -764,7 +779,10 @@ image: hous,
 
                     {/* Company Logo */}
                     <div className="flex justify-center items-center pt-1 border-t border-[#d0e4f2] mt-auto">
-                      <div className="rounded-lg flex items-center justify-center" style={{ width: "130px", height: "100px" }}>
+                      <div
+                        className="rounded-lg flex items-center justify-center"
+                        style={{ width: "130px", height: "100px" }}
+                      >
                         <img
                           src={story.image}
                           alt="Organization"
@@ -854,7 +872,11 @@ image: hous,
                         <br />
 
                         {/* Name & Role - Simple */}
-                        <div data-name-role="true" className="relative bg-white rounded-b-2xl border border-t-0 border-[#a8d4eb] p-2 md:p-3 pt-2 md:pt-3 flex flex-col justify-start" style={{ minHeight: `${uniformNameRoleHeight}px` }}>
+                        <div
+                          data-name-role="true"
+                          className="relative bg-white rounded-b-2xl border border-t-0 border-[#a8d4eb] p-2 md:p-3 pt-2 md:pt-3 flex flex-col justify-start"
+                          style={{ minHeight: `${uniformNameRoleHeight}px` }}
+                        >
                           <div className="flex items-center gap-2">
                             <div>
                               <h3 className="font-black text-[#0d3d6b] text-sm md:text-base mb-0.5">
@@ -868,7 +890,10 @@ image: hous,
 
                           {/* Company Logo */}
                           <div className="flex justify-center items-center pt-1 border-t border-[#d0e4f2] mt-auto">
-                            <div className="rounded-lg flex items-center justify-center" style={{ width: "130px", height: "100px" }}>
+                            <div
+                              className="rounded-lg flex items-center justify-center"
+                              style={{ width: "130px", height: "100px" }}
+                            >
                               <img
                                 src={story.image}
                                 alt="Organization"
@@ -909,26 +934,29 @@ image: hous,
                       onClick={() => goToPage(dotIndex)}
                       aria-label={`Go to testimonial page ${dotIndex + 1}`}
                       disabled={isSliding || dotIndex === currentPageIndex}
-                      className={`rounded-full transition-all duration-300 ${
+                      className={`rounded-full transition-all duration-300 overflow-hidden relative ${
                         isActive
-                          ? "h-3 w-8 bg-gradient-to-r from-[#2f84b8] to-[#1f6fa8] shadow-[0_3px_10px_rgba(47,132,184,0.35)] lg:h-9 lg:w-3 relative"
-                          : "h-3 w-3 bg-[#a8c9e0]/80 hover:bg-[#6eb5d8] hover:shadow-[0_2px_6px_rgba(110,181,216,0.25)]"
+                          ? "h-3 w-8 bg-[#1f6fa8] shadow-[0_3px_10px_rgba(47,132,184,0.35)] lg:h-9 lg:w-3"
+                          : "h-3 w-3 bg-[#2f84b8]/70 hover:bg-[#1f6fa8] hover:shadow-[0_2px_6px_rgba(31,106,168,0.25)]"
                       }`}
                     >
                       {isActive && (
-                        <div className="absolute inset-0 rounded-full overflow-hidden">
+                        <div className="absolute inset-0 rounded-full overflow-hidden bg-[#d1e7f4]">
                           <div
-                            className="h-full w-full bg-gradient-to-r from-[#2f84b8] to-[#1f6fa8] origin-left lg:origin-top"
+                            className="absolute top-0 w-full bg-[#1f6fa8] rounded-b-full"
                             style={{
+                              height:
+                                window.innerWidth >= 1024
+                                  ? `${100 - autoScrollProgress}%`
+                                  : "100%",
                               width: "100%",
-                              height: window.innerWidth >= 1024 ? `${autoScrollProgress}%` : "100%",
-                              transform: window.innerWidth >= 1024 ? undefined : `scaleX(${autoScrollProgress / 100})`,
-                              transformOrigin: "left",
-                              transition: "all 0.1s linear",
+                              transition: "height 100ms linear",
+                              willChange: "height",
                             }}
                           />
                         </div>
                       )}
+                      <div className="absolute inset-0 rounded-full pointer-events-none border-2 border-[#2f84b8]/80" />
                     </button>
                   );
                 })}
