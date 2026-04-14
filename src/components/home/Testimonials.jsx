@@ -23,7 +23,7 @@ import force from "../../assets/Recruiters/Logo (1).jpg";
 import pw from "../../assets/Recruiters/pw.jpeg";
 import king from "../../assets/Recruiters/kin.png";
 import veloc from "../../assets/Recruiters/veloc.jpeg";
-import hous from "../../assets/Recruiters/hous.png";
+import hous from "../../assets/Recruiters/hous.jpeg";
 import home from "../../assets/Recruiters/homes.png";
 import s1 from "../../assets/s1.png";
 import s2 from "../../assets/s2.png";
@@ -768,7 +768,7 @@ image: hous,
                         <img
                           src={story.image}
                           alt="Organization"
-                          className="w-full h-full object-contain"
+                          className="w-full h-full object-cover"
                           loading="lazy"
                         />
                       </div>
