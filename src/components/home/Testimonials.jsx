@@ -17,7 +17,41 @@ import ey from "../../assets/Recruiters/ey.png";
 import sas from "../../assets/Recruiters/sas.png";
 import coc from "../../assets/Recruiters/coc.png";
 import schneider from "../../assets/Recruiters/sch.png";
-
+import tata from "../../assets/Recruiters/tata.png";
+import hit from "../../assets/Recruiters/15f39d5273ba1f50b413b5f5232aefed.jpg";
+import force from "../../assets/Recruiters/Logo (1).jpg";
+import pw from "../../assets/Recruiters/pw.jpeg";
+import king from "../../assets/Recruiters/kin.png";
+import veloc from "../../assets/Recruiters/veloc.jpeg";
+import hous from "../../assets/Recruiters/hous.png";
+import home from "../../assets/Recruiters/homes.png";
+import s1 from "../../assets/s1.png";
+import s2 from "../../assets/s2.png";
+import s3 from "../../assets/s3.png";
+import s4 from "../../assets/s4.png";
+import s5 from "../../assets/s5.png";
+import s6 from "../../assets/s6.png";
+import s7 from "../../assets/s7.png";
+import s8 from "../../assets/s8.png";
+import s9 from "../../assets/s9.png";
+import c1 from "../../assets/c1.jpeg";
+import c2 from "../../assets/c2.jpeg";
+import c3 from "../../assets/c3.jpeg";
+import c4 from "../../assets/c4.jpeg";
+import c5 from "../../assets/c5.jpeg";
+import c6 from "../../assets/c6.jpeg";
+import c7 from "../../assets/c7.jpeg";
+import c8 from "../../assets/c8.jpeg";
+import c9 from "../../assets/c9.jpeg";
+import e1 from "../../assets/e1.png";
+import e2 from "../../assets/e2.png";
+import e3 from "../../assets/e3.png";
+import e4 from "../../assets/e4.png";
+import e5 from "../../assets/e5.png";
+import e6 from "../../assets/e6.png";
+import e7 from "../../assets/e7.png";
+import e8 from "../../assets/e8.png";   
+import e9 from "../../assets/e9.png";
 function StudentSuccessStories() {
   const stories = useMemo(
     () => [
@@ -26,16 +60,21 @@ function StudentSuccessStories() {
         id: 1,
         name: "Mr. Nihal Shirkar",
         category: "students",
-        role: "B. E. Computer Engineering, Juspay",
+        role: "B. E. Computer Engineering",
+        company:"Juspay",
         initials: "MS",
         image:juspay,
+        personImage: s1,
         text: " My experience with Gryphon Academy was incredible. I got placed in Force Motors and I would love to thank Gryphon Academy for being such an amazing partner for my placement opportunity",
       },
       {
         id: 2,
         name: "Mr Vishal Tambe",
         category: "students",
-        role: "Electrical Engineering, Tata Technologies",
+        role: "Electrical Engineering",
+        company: "Tata Technologies",
+        image: tata,
+        personImage: s2,
         initials: "PP",
         text: "Gryphon Academy is a great resource for students to learn and explore various topics related to the placement drives. This Training programme will help students to develop their skills required during placement drives. ",
       },
@@ -43,63 +82,78 @@ function StudentSuccessStories() {
         id: 3,
         name: "Mr.Kishor Turkane",
         category: "students",
-        role: "Civil Engineering, Hettich",
+        role: "Civil Engineering",
+        company: "Hettich",
+        image: hit,
+
         initials: "AP",
-        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
+        personImage: s3,
         text: "The training on aptitude and soft skills proved to be highly beneficial, equipping us with valuable knowledge across various subjects and preparing us for the industry demands",
       },
        {
         id: 4,
         name: "Mr Shubham Bagul",
         category: "students",
-        role: "Mechanical Engineering, Force Motors",
+        role: "Mechanical Engineering",
+        company: "Force Motors",
+        image: force,
         initials: "AP",
-        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
+        personImage: s4,
         text: "Gryphon Academy is where dreams come true. The diverse range of training programmes gave me the confidence to enter the professional world. The trainers' practical wisdom and real -world experience were instrumental in my success.",
       },
        {
         id: 5,
         name: "Mr. Sonu Kambhire",
         category: "students",
-        role: "Mechanical Engineering, P&W",
+        role: "Mechanical Engineering",
+        company: "P&W",
+        image: pw,
         initials: "AP",
-        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
+        personImage: s5,
         text: "It was a great experience with Gryphon Academy. The informative and simplified teaching style of trainers made our placement journey smooth. Grateful to Gryphon Academy for providing the opportunity to learn and aquire industry skillset.",
       },
        {
         id: 6,
         name: "Mr.Niket Gawali",
         category: "students",
-        role: "Civil Engineering, Kin Long",
+        role: "Civil Engineering",
+        company: "Kin Long",
+        image: king,
         initials: "AP",
-        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
+        personImage: s6,
         text: "Gryphon Academy has changed me for the better. Their encompassing aptitude, soft skills and technical prowess, prepared me for industry challenges.",
       },
        {
         id: 7,
         name: "Ms. Srishti Shetty",
         category: "students",
-        role: "MBA- HR, Velocitta",
+        role: "MBA- HR",
+        company: "Velocitta",
+          image: veloc,
         initials: "AP",
-        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
+        personImage: s7,
         text: "The Industry Readiness Program at Gryphon Academy was a game-changer for my career. From soft skills to technical expertise, every session was designed to prepare us for real-world challenges. It gave me the confidence to excel in interviews and thrive in my new role.",
       },
        {
         id: 8 ,
         name: "Mr.Harsh Pal",
         category: "students",
-        role: "MBA Marketing, Housiey",
+        role: "MBA Marketing",
+        company: "Housiey",
+image: hous,
         initials: "AP",
-        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
+        personImage: s8,
         text: "The program was more than just training; it was a transformation. Gryphon Academy helped me refine my skills, build my confidence, and understand what the industry truly expects from professionals like me.",
       },
        {
         id: 9,
         name: "Ms Ajal Padmam",
         category: "students",
-        role: "MBA Marketing, Homesfy",
+        role: "MBA Marketing",
+        company: "Homesfy",
+        image: home,
         initials: "AP",
-        image: "https://images.zoomnews.com/photo/msid-153873071/153873071.jpg",
+        personImage: s9,
         text: "The Tailored approach of Gryphon's Industry Readiness Program what I needed. The focus on current industry trends and in demand skills has not only made me confident but also highly competitive in the job market.",
       },
 
@@ -111,6 +165,7 @@ function StudentSuccessStories() {
         role: "President Designate - Indira University & Chairperson and Chief Mentor - Indira Group of Institutes, Pune",
         initials: "AR",
         image: iuLogo,
+        personImage: c1,
         text: "Gryphon holds a special place for me. Over the years, Gryphon has experienced signinificant growth, and it's been a remarkable journey filled with valuable lessons. I wish them continued success in all their future endeavors.",
       },
       {
@@ -120,7 +175,8 @@ function StudentSuccessStories() {
         role: "CEO - Dnyanshree Institute of Engineering & Technology, Satara",
         initials: "SI",
         image: diet,
-        text: "Gryphon Academy has achieved remarkable success in securing placements for our students in prestigious companies such as Tata Technology, KPIT, and Tata Motors, along with Plank and Weave for our students in the real estate sector. Gryphon's tailored training and placement services have opened up diverse opportunities for our students.",
+        personImage: c2,
+        text: "Gryphon Academy has successfully placed students in top companies like Tata Technologies, KPIT, and Tata Motors, as well as real estate firms like Plank and Weave. Its focused training and placement support create strong career opportunities.",
       },
       {
         id: 12,
@@ -129,24 +185,27 @@ function StudentSuccessStories() {
         role: "Chancellor Sanjivani Group of Institutes, Kopargaon",
         initials: "NK",
         image: sanj,
+        personImage: c3,
         text: "Gryphon Academy's personalized training and placements are exceptional. They prepare students for the industry while shaping their future with a dedicated commitment to excellence. With more than 2000+ students trained, Gryphon Academy continues to make a signiificant impact in the realm of education.",
       },
       {
         id: 13,
         name: "Ms. Neha A Parsoon",
         category: "colleges",
-        role: "Training and Placement Officer Sharad Institute Of Technology College Of Engineering Ichalkaranji, Kolhapur",
+        role: "TPO Sharad Institute Of Technology College Of Engineering Ichalkaranji, Kolhapur",
         initials: "VS",
         image: sit,
-        text: "Sharad Institute of Technology, College of Engineering, Ichalkaranji Kolhapur, has partnered with Gryphon Academy. Together, we are dedicated to providing comprehensive services to students across all domains. Gryphon's proven track record in delivering outstanding results for various institutions has impressed us.",
+        personImage: c4,
+        text: "Sharad Institute of Technology College of Engineering Ichalkaranji has partnered with Gryphon Academy to deliver comprehensive student support across domains. Gryphon’s proven results across institutions make it a trusted partner.",
       },
       {
         id: 14,
         name: "Ms. Priyanka Pawar ",
         category: "colleges",
-        role: "Associate Professor & Dean Training & DevelopmentIndira College of Engineering & Management(ICEM), Pune",
+        role: "Associate Professor,Dean(T&D) Indira College of Engineering & Management(ICEM), Pune",
         initials: "VS",
         image: icem,
+        personImage: c5,
         text: "ICEM is associated with Gryphon Academy for the past three years,, benefiting from 3000 hours of training annually for students. Gryphon Academy has extended invaluable industry support, particularly for our students seeking core engineering job placements.",
       },
       {
@@ -156,6 +215,7 @@ function StudentSuccessStories() {
         role: "Director - Lead College of Management, Palakkad, Kerala",
         initials: "VS",
         image: lead,
+        personImage: c6,
         text: "In academia and the corporate world, Gryphon Academy stands as a leader driven by vision and dedication. Gryphon Academy's training and placements are outstanding, lighting the path towards a brighter future for students.",
       },
       {
@@ -165,24 +225,27 @@ function StudentSuccessStories() {
         role: "TPO -DY Patil College of Engineering & Technology, Kolhapur",
         initials: "VS",
         image: dy,
+        personImage: c7,
         text: "Gryphon Academy's training kindles potential. Our students' achievements in the competitive world validate Gryphon's commitment to excellence. The expertise of their experienced trainers from various fields is second to none.",
       },
       {
         id: 17,
         name: "Mr. Manoj Choughule",
         category: "colleges",
-        role: "Director - Lead College of Management, Palakkad, Kerala",
+        role: "DKTE - Yashwntaro Chavan college of polytechnic ",
         initials: "VS",
         image: dkte,
+        personImage: c8,
         text: "Thanks to Gryphon's industry-focused training and the expertise of their trainers, our students have embarked on an incredible journey from classrooms to successful careers.",
       },
       {
         id: 18,
         name: "Mr. Anup Sheth ",
         category: "colleges",
-        role: "Director- Placements & Corporate ConnectLexicon MILE - Management Institute For Leadership and Excellence",
+        role: "Director- Placements & Corporate Connect Lexicon  Management Institute For Leadership and Excellence",
         initials: "VS",
         image: lex,
+        personImage: c9,
         text: "Gryphon's training isn't just a curriculum; it's a compass guiding students toward a prosperous future. Their commitment to excellence aligns with our vision of nurturing future leaders a huge Thanks to Gryphon Academy for their exclusive trainings and placements.",
       },
 
@@ -194,6 +257,7 @@ function StudentSuccessStories() {
         role: "Vice President Human ResourcesUltra Corpotech Pvt. Ltd.",
         initials: "KS",
         image: ultra,
+        personImage: e1,
         text: "We recruited 145 fresh engineers from batch 2022-23 with the support of Gryphon and got reliable source of talent for our company. Team Gryphon is doing a fabulous job.",
       },
       {
@@ -203,6 +267,7 @@ function StudentSuccessStories() {
         role: "Associate Director - Talent Acquisition Dentsu Global Services",
         initials: "AM",
         image: dentsu,
+        personImage: e2,
         text: "The talent pool Gryphon offers is a testament to their dedication in producing industry-ready graduates. We thank Gryphon Academy for consistently providing us with such outstanding talent.",
       },
       {
@@ -212,6 +277,7 @@ function StudentSuccessStories() {
         role: "Director - HR Juspay",
         initials: "IS",
         image: juspay,
+        personImage: e3,
         text: "We've had the opportunity to undergo Gryphon Academy's training process, extending its reach to candidates from various regions. Gryphon's high-quality training programme has undeniably enhanced students’ skills.",
       },
       {
@@ -221,6 +287,7 @@ function StudentSuccessStories() {
         role: "Senior Director - Talent Acquisition, India and APAC, FIS",
         initials: "IS",
         image: fis,
+        personImage: e4,
         text: "What sets Gryphon Academy apart is how precisely their training maps to our job descriptions. The students we hired from their last-minute training program understood our business context, our tech stack, and our expectations from day one.",
       },{
         id: 23,
@@ -229,6 +296,7 @@ function StudentSuccessStories() {
         role: "India Head - University Recruitment & Early Talent Engagement, Mastercard",
         initials: "IS",
         image: mastercard,
+        personImage: e5,
         text: "Highly impressed with Gryphon Academy's training modules to create industry ready force. All the best.",
       },
       {
@@ -238,6 +306,7 @@ function StudentSuccessStories() {
         role: "Assistant Director - EY",
         initials: "IS",
         image: ey,
+        personImage: e6,
         text: "Gryphon Academy trained students are well-prepared for the demands of the engineering industry, with a strong foundation in both technical and professional skills.",
       },
       {
@@ -247,6 +316,7 @@ function StudentSuccessStories() {
         role: "Human Resources Specialist SaS",
         initials: "ABC",
         image: sas,
+        personImage: e7,
         text: "The dedication and commitment displayed by Team Gryphon is unwavering. The talent they prepare is ready for the industry.",
       },
       {
@@ -256,6 +326,7 @@ function StudentSuccessStories() {
         role: "National Head - HR Hindustan Coca-Cola Beverages",
         initials: "ABC",
         image: coc,
+        personImage: e8,
         text: "The Synergy Sphere 2024 event showcased Gryphon Academy’s dedication to bridging academia and industry. Bringing together over 100 HR leaders on one platform was a masterstroke that facilitated meaningful collaborations and highlighted Gryphon's role as a talent powerhouse."
       },
       {
@@ -265,6 +336,7 @@ function StudentSuccessStories() {
         role: "Deputy General Manager Human Resource | Schneider ",
         initials: "ABC",
         image: schneider,
+        personImage: e9,
         text: "The training modules at Gryphon Academy are tailored to meet the evolving needs of the industry. This foresight and adaptability are why their students excel across diverse domains, making them a valuable addition to any organization.",
       },
     ],
@@ -279,11 +351,14 @@ function StudentSuccessStories() {
   const [trackTranslateY, setTrackTranslateY] = useState(0);
   const [isTrackTransitionOn, setIsTrackTransitionOn] = useState(false);
   const [uniformCardHeight, setUniformCardHeight] = useState(460);
+  const [uniformNameRoleHeight, setUniformNameRoleHeight] = useState(72);
+  const [autoScrollProgress, setAutoScrollProgress] = useState(100);
 
   const pageShiftPxRef = useRef(436);
   const slideTimeoutRef = useRef(null);
   const trackRef = useRef(null);
   const sizingRef = useRef(null);
+  const autoScrollTimerRef = useRef(null);
 
   useEffect(() => {
     const getCount = () => {
@@ -452,17 +527,45 @@ function StudentSuccessStories() {
     if (maxHeight > 0) {
       setUniformCardHeight(maxHeight);
     }
+
+    // Measure name/role height
+    const nameRoleSections = Array.from(
+      sizingRef.current.querySelectorAll("[data-name-role='true']"),
+    );
+    if (nameRoleSections.length > 0) {
+      const maxNameRoleHeight = nameRoleSections.reduce((max, node) => {
+        const current = Math.ceil(node.getBoundingClientRect().height);
+        return Math.max(max, current);
+      }, 0);
+      if (maxNameRoleHeight > 0) {
+        setUniformNameRoleHeight(maxNameRoleHeight);
+      }
+    }
   }, []);
 
   useEffect(() => {
     measureUniformCardHeight();
-  }, [measureUniformCardHeight, visibleCount, stories]);
+  }, [measureUniformCardHeight, visibleCount, stories, startIndex, visibleStories]);
 
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
     window.addEventListener("resize", measureUniformCardHeight);
     return () => window.removeEventListener("resize", measureUniformCardHeight);
   }, [measureUniformCardHeight]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      measureUniformCardHeight();
+    }, 1200);
+    return () => clearTimeout(timer);
+  }, [measureUniformCardHeight, visibleCount, stories]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      measureUniformCardHeight();
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [measureUniformCardHeight, visibleCount, stories]);
 
   const pageViewportHeight = useMemo(
     () => pageRows * uniformCardHeight + (pageRows - 1) * 16,
@@ -544,30 +647,59 @@ function StudentSuccessStories() {
     return story.image || "";
   }, []);
 
+  useEffect(() => {
+    if (isSliding) return;
+
+    let timeElapsed = 0;
+    const AUTO_SCROLL_DELAY = 5000;
+    const PROGRESS_UPDATE_INTERVAL = 100;
+
+    // Update progress bar every 100ms
+    const progressInterval = setInterval(() => {
+      timeElapsed += PROGRESS_UPDATE_INTERVAL;
+      const progress = Math.max(0, 100 - (timeElapsed / AUTO_SCROLL_DELAY) * 100);
+      setAutoScrollProgress(progress);
+    }, PROGRESS_UPDATE_INTERVAL);
+
+    // Auto-scroll after 5 seconds
+    const autoScrollInterval = setInterval(() => {
+      if (currentPageIndex >= lastPageIndex) {
+        goToPage(0); // Loop back to first card
+      } else {
+        nextStory();
+      }
+      timeElapsed = 0;
+      setAutoScrollProgress(100);
+    }, AUTO_SCROLL_DELAY);
+
+    return () => {
+      clearInterval(progressInterval);
+      clearInterval(autoScrollInterval);
+    };
+  }, [isSliding, currentPageIndex, lastPageIndex, nextStory, goToPage]);
+
   return (
-    <div className="relative mb-0 overflow-hidden rounded-3xl bg-transparent py-16 md:py-20 xl:py-14">
-      <div className="relative z-10 mb-6 text-center md:mb-8 xl:mb-6">
+    <div className="relative mb-0 overflow-hidden rounded-3xl bg-transparent py-6 md:py-8 xl:py-6">
+      <div className="relative z-10 mb-4 text-center md:mb-6 xl:mb-5">
         <h2
-          className="mb-4 overflow-visible px-4 pb-1 text-4xl font-semibold tracking-tight leading-[1.15] md:text-6xl"
+          className="mb-2 overflow-visible px-4 pb-1 text-4xl font-bold tracking-tight leading-[1.1] md:text-5xl lg:text-6xl drop-shadow-sm"
           style={{
             background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
-            // display: "block",
             width: "100%",
           }}
         >
          Trusted by the best 
         </h2>
         <p
-          className="overflow-visible px-4 text-2xl font-medium tracking-tight leading-[1.15] md:text-2xl"
+          className="overflow-visible px-4 text-lg font-semibold tracking-tight leading-[1.3] md:text-xl lg:text-xl text-opacity-90"
           style={{
             background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
-            // display: "block",
             width: "100%",
           }}
         >
@@ -586,40 +718,60 @@ function StudentSuccessStories() {
               <article key={`sizing-${story.id}`}>
                 <div
                   data-sizing-card="true"
-                  className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-[#b8d9ea] bg-[linear-gradient(165deg,#f6fbff_0%,#dff1fb_100%)] shadow-[0_14px_30px_rgba(28,85,128,0.16)] backdrop-blur-xl"
+                  className="relative flex h-full w-full flex-col overflow-visible rounded-2xl shadow-[0_10px_40px_rgba(28,85,128,0.18)] hover:shadow-[0_15px_50px_rgba(28,85,128,0.22)] transition-all duration-300"
                 >
-                  <div className="relative h-52 overflow-hidden border-b border-[#c9deea] bg-white md:h-56 lg:h-52 xl:h-56 flex items-center justify-center p-2">
-                    <img
-                      src={getStoryImage(story)}
-                      alt=""
-                      className="max-h-52 max-w-48 object-contain"
-                      loading="lazy"
-                      onLoad={measureUniformCardHeight}
-                    />
-                  </div>
-
-                  <div className="relative flex flex-1 flex-col bg-[linear-gradient(180deg,#f9fdff_0%,#e7f4fc_100%)] p-4 pt-8 md:p-5 md:pt-9">
+                  {/* Testimonial Section */}
+                  <div className="relative flex-1 bg-[linear-gradient(165deg,#f6fbff_0%,#dff1fb_100%)] rounded-t-2xl border border-[#a8d4eb] p-4 md:p-5 flex flex-col justify-center">
                     <div
-                      className="absolute left-4 -top-8 z-20 select-none text-[4.4rem] font-black leading-none text-white md:left-5 md:-top-9 md:text-[5rem]"
+                      className="absolute left-6 top-3 select-none text-5xl md:text-6xl font-black leading-none text-[#5a9fcc] opacity-15"
                       style={{
                         fontFamily: '"Playfair Display", serif',
-                        textShadow: "0 4px 12px rgba(0,0,0,0.28)",
                       }}
                     >
-                      “
+                      "
                     </div>
-
-                    <p className="min-h-0 flex-1 pb-4 whitespace-normal wrap-break-word font-semibold leading-[1.3] text-[#2f4b42] text-sm md:text-[0.95rem]">
+                    <p className="relative z-10 text-center font-semibold leading-[1.5] text-[#1a3d5c] text-sm md:text-[0.95rem]">
                       {story.text}
                     </p>
+                  </div>
 
-                    <div className="mt-auto border-t border-[#c6d2dd] pt-1.5">
-                      <h3 className="inline-block bg-[#d8e2eb] px-2.5 py-0.5 font-black uppercase tracking-wide text-[#1f4f47] text-sm md:text-base">
-                        {story.name}
-                      </h3>
-                      <p className="mt-0.5 leading-tight text-[#375e56] text-xs md:text-sm">
-                        {story.role}
-                      </p>
+                  {/* Person's Circular Photo - Overlapping */}
+                  <div className="relative flex justify-center -my-6 z-20">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gradient-to-br from-[#f0f8ff] to-[#e6f2ff]">
+                      <img
+                        src={story.personImage || story.image}
+                        alt={story.name}
+                        className="w-full h-full object-cover object-center"
+                        loading="lazy"
+                        onLoad={measureUniformCardHeight}
+                      />
+                    </div>
+                  </div>
+                  <br />
+
+                  {/* Name & Role - Simple */}
+                  <div data-name-role="true" className="relative bg-white rounded-b-2xl border border-t-0 border-[#a8d4eb] p-2 md:p-3 pt-2 md:pt-3 flex flex-col justify-start" style={{ minHeight: `${uniformNameRoleHeight}px` }}>
+                    <div className="flex items-center gap-2">
+                      <div>
+                        <h3 className="font-black uppercase tracking-widest text-[#0d3d6b] text-xs md:text-sm mb-0.5">
+                          {story.name}
+                        </h3>
+                        <p className="text-[#375e56] text-xs md:text-xs font-medium leading-tight">
+                          {story.role}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Company Logo */}
+                    <div className="flex justify-center items-center pt-1.5 border-t border-[#d0e4f2] mt-auto">
+                      <div className="rounded-lg flex items-center justify-center p-1" style={{ width: "130px", height: "100px" }}>
+                        <img
+                          src={story.image}
+                          alt="Organization"
+                          className="max-h-full max-w-full object-contain"
+                          loading="lazy"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -628,7 +780,7 @@ function StudentSuccessStories() {
           </div>
         </div>
 
-        <div className="mb-3 hidden gap-4 lg:grid lg:grid-cols-3 lg:pr-20">
+        <div className="mb-3 hidden gap-3 lg:grid lg:grid-cols-3 lg:pr-20">
           {[
             { id: "students", label: "Students" },
             { id: "colleges", label: "Colleges" },
@@ -636,7 +788,7 @@ function StudentSuccessStories() {
           ].map((header) => (
             <div
               key={header.id}
-              className="rounded-xl border border-[#9bcde8] bg-white/72 py-2 text-center text-3xl font-semibold text-[#0d3d6b] shadow-[0_10px_24px_rgba(31,95,148,0.16)] backdrop-blur-sm"
+              className="rounded-2xl border border-[#8fbde8] bg-white/80 py-3 px-2 text-center text-3xl font-bold text-[#0d3d6b] shadow-[0_8px_28px_rgba(31,95,148,0.18)] backdrop-blur-md hover:bg-white/90 transition-all duration-200"
             >
               {header.label}
             </div>
@@ -650,7 +802,7 @@ function StudentSuccessStories() {
           >
             <div
               ref={trackRef}
-              className={`flex flex-col gap-4 ${
+              className={`flex flex-col gap-3 ${
                 isTrackTransitionOn
                   ? "transition-transform duration-700 ease-in-out"
                   : "transition-none"
@@ -664,47 +816,66 @@ function StudentSuccessStories() {
                 <div
                   key={`page-${groupIndex}-${group[0]?.id ?? "empty"}`}
                   data-page="true"
-                  className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+                  className="grid gap-3 md:grid-cols-2 lg:grid-cols-3"
                 >
                   {group.map((story) => (
                     <article key={`story-${groupIndex}-${story.id}`}>
                       <div
-                        className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-[#b8d9ea] bg-[linear-gradient(165deg,#f6fbff_0%,#dff1fb_100%)] shadow-[0_14px_30px_rgba(28,85,128,0.16)] backdrop-blur-xl transition-shadow duration-300"
+                        className="relative flex h-full w-full flex-col overflow-hidden rounded-3xl border border-[#a8d4eb] bg-[linear-gradient(165deg,#f6fbff_0%,#dff1fb_100%)] shadow-[0_10px_40px_rgba(28,85,128,0.18)] hover:shadow-[0_15px_50px_rgba(28,85,128,0.22)] backdrop-blur-xl transition-all duration-300"
                         style={{ height: `${uniformCardHeight}px` }}
                       >
-                        <div className="relative h-52 overflow-hidden border-b border-[#c9deea] bg-white md:h-56 lg:h-52 xl:h-56 flex items-center justify-center p-2">
-                          <img
-                            src={getStoryImage(story)}
-                            alt={story.name}
-                            className="max-h-52 max-w-48 object-contain"
-                            loading="lazy"
-                            onLoad={measureUniformCardHeight}
-                          />
-                        </div>
-
-                        <div className="relative flex flex-1 flex-col bg-[linear-gradient(180deg,#f9fdff_0%,#e7f4fc_100%)] p-4 pt-8 md:p-5 md:pt-9">
+                        {/* Testimonial Section */}
+                        <div className="relative flex-1 bg-[linear-gradient(165deg,#f6fbff_0%,#dff1fb_100%)] rounded-t-2xl border border-[#a8d4eb] p-4 md:p-5 flex flex-col justify-center">
                           <div
-                            className="absolute left-4 -top-8 z-20 select-none text-[4.4rem] font-black leading-none text-white md:left-5 md:-top-9 md:text-[5rem]"
+                            className="absolute left-6 top-3 select-none text-5xl md:text-6xl font-black leading-none text-[#5a9fcc] opacity-15"
                             style={{
                               fontFamily: '"Playfair Display", serif',
-                              textShadow: "0 4px 12px rgba(0,0,0,0.28)",
                             }}
-                            aria-hidden="true"
                           >
-                            “
+                            "
                           </div>
-
-                          <p className="min-h-0 flex-1 pb-4 whitespace-normal wrap-break-word font-semibold leading-[1.3] text-[#2f4b42] text-sm md:text-[0.95rem]">
+                          <p className="relative z-10 text-center font-semibold leading-[1.5] text-[#1a3d5c] text-sm md:text-[0.95rem]">
                             {story.text}
                           </p>
+                        </div>
 
-                          <div className="mt-auto border-t border-[#c6d2dd] pt-1.5">
-                            <h3 className="inline-block bg-[#d8e2eb] px-2.5 py-0.5 font-black uppercase tracking-wide text-[#1f4f47] text-sm md:text-base">
-                              {story.name}
-                            </h3>
-                            <p className="mt-0.5 leading-tight text-[#375e56] text-xs md:text-sm">
-                              {story.role}
-                            </p>
+                        {/* Person's Circular Photo - Overlapping */}
+                        <div className="relative flex justify-center -my-6 z-20">
+                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gradient-to-br from-[#f0f8ff] to-[#e6f2ff]">
+                            <img
+                              src={story.personImage || story.image}
+                              alt={story.name}
+                              className="w-full h-full object-cover object-center"
+                              loading="lazy"
+                              onLoad={measureUniformCardHeight}
+                            />
+                          </div>
+                        </div>
+                        <br />
+
+                        {/* Name & Role - Simple */}
+                        <div data-name-role="true" className="relative bg-white rounded-b-2xl border border-t-0 border-[#a8d4eb] p-2 md:p-3 pt-2 md:pt-3 flex flex-col justify-start" style={{ minHeight: `${uniformNameRoleHeight}px` }}>
+                          <div className="flex items-center gap-2">
+                            <div>
+                              <h3 className="font-black uppercase tracking-widest text-[#0d3d6b] text-xs md:text-sm mb-0.5">
+                                {story.name}
+                              </h3>
+                              <p className="text-[#375e56] text-xs md:text-xs font-medium leading-tight">
+                                {story.role}
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* Company Logo */}
+                          <div className="flex justify-center items-center pt-1.5 border-t border-[#d0e4f2] mt-auto">
+                            <div className="rounded-lg flex items-center justify-center p-1" style={{ width: "130px", height: "100px" }}>
+                              <img
+                                src={story.image}
+                                alt="Organization"
+                                className="max-h-full max-w-full object-contain"
+                                loading="lazy"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -720,14 +891,14 @@ function StudentSuccessStories() {
               <button
                 type="button"
                 onClick={prevStory}
-                className="relative flex h-12 w-12 items-center justify-center rounded-full border border-[#62a9ce] bg-white/55 text-2xl text-[#1f709d] shadow-[0_2px_8px_rgba(35,105,150,0.12)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/75 hover:shadow-[0_6px_12px_rgba(35,105,150,0.16)] disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:translate-y-0"
+                className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#5a9fcc] bg-gradient-to-br from-white/70 to-white/50 text-2xl text-[#1f709d] shadow-[0_4px_12px_rgba(35,105,150,0.18)] transition-all duration-300 hover:-translate-y-1 hover:from-white/85 hover:to-white/65 hover:shadow-[0_8px_16px_rgba(35,105,150,0.24)] hover:border-[#3d8dbe] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:translate-y-0 disabled:shadow-[0_2px_6px_rgba(35,105,150,0.08)] font-semibold"
                 aria-label="Previous testimonial"
                 disabled={isSliding || currentPageIndex <= 0}
               >
                 <span className="-mt-0.5">↑</span>
               </button>
 
-              <div className="flex items-center gap-2.5 lg:flex-col lg:gap-2.5">
+              <div className="flex items-center justify-center gap-2.5 lg:flex-col lg:gap-2.5 w-full lg:w-auto">
                 {Array.from({ length: totalPages }).map((_, idx) => {
                   const dotIndex = idx;
                   const isActive = dotIndex === activeDot;
@@ -738,12 +909,27 @@ function StudentSuccessStories() {
                       onClick={() => goToPage(dotIndex)}
                       aria-label={`Go to testimonial page ${dotIndex + 1}`}
                       disabled={isSliding || dotIndex === currentPageIndex}
-                      className={`rounded-full transition-all ${
+                      className={`rounded-full transition-all duration-300 ${
                         isActive
-                          ? "h-3 w-7 bg-[#2f84b8] shadow-[0_2px_7px_rgba(47,132,184,0.25)] lg:h-8 lg:w-3"
-                          : "h-2.5 w-2.5 bg-[#8ebfdb]/90 hover:bg-[#5ea4cf]"
+                          ? "h-3 w-8 bg-gradient-to-r from-[#2f84b8] to-[#1f6fa8] shadow-[0_3px_10px_rgba(47,132,184,0.35)] lg:h-9 lg:w-3 relative"
+                          : "h-3 w-3 bg-[#a8c9e0]/80 hover:bg-[#6eb5d8] hover:shadow-[0_2px_6px_rgba(110,181,216,0.25)]"
                       }`}
-                    />
+                    >
+                      {isActive && (
+                        <div className="absolute inset-0 rounded-full overflow-hidden">
+                          <div
+                            className="h-full w-full bg-gradient-to-r from-[#2f84b8] to-[#1f6fa8] origin-left lg:origin-top"
+                            style={{
+                              width: "100%",
+                              height: window.innerWidth >= 1024 ? `${autoScrollProgress}%` : "100%",
+                              transform: window.innerWidth >= 1024 ? undefined : `scaleX(${autoScrollProgress / 100})`,
+                              transformOrigin: "left",
+                              transition: "all 0.1s linear",
+                            }}
+                          />
+                        </div>
+                      )}
+                    </button>
                   );
                 })}
               </div>
@@ -751,11 +937,11 @@ function StudentSuccessStories() {
               <button
                 type="button"
                 onClick={nextStory}
-                className="relative flex h-12 w-12 items-center justify-center rounded-full border border-[#62a9ce] bg-white/55 text-2xl text-[#1f709d] shadow-[0_2px_8px_rgba(35,105,150,0.12)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/75 hover:shadow-[0_6px_12px_rgba(35,105,150,0.16)] disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:translate-y-0"
+                className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#5a9fcc] bg-gradient-to-br from-white/70 to-white/50 text-2xl text-[#1f709d] shadow-[0_4px_12px_rgba(35,105,150,0.18)] transition-all duration-300 hover:-translate-y-1 hover:from-white/85 hover:to-white/65 hover:shadow-[0_8px_16px_rgba(35,105,150,0.24)] hover:border-[#3d8dbe] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:translate-y-0 disabled:shadow-[0_2px_6px_rgba(35,105,150,0.08)] font-semibold"
                 aria-label="Next testimonial"
                 disabled={isSliding || currentPageIndex >= lastPageIndex}
               >
-                <span className="-mt-0.5">↓</span>
+                <span className=" -mt-0.5">↓</span>
               </button>
             </div>
           </div>
@@ -768,7 +954,7 @@ function StudentSuccessStories() {
 export default function Testimonials() {
   return (
     <div
-      className="relative py-8 md:py-12"
+      className="relative py-4 md:py-6"
       style={{
         backgroundImage:
           "radial-gradient(120% 70% at 50% 0%, rgba(247,252,255,0.95) 0%, rgba(247,252,255,0.22) 55%, rgba(247,252,255,0) 100%), radial-gradient(65% 55% at 0% 0%, #ceecf7 0%, rgba(206,236,247,0) 75%), radial-gradient(65% 55% at 100% 0%, #a2d5f4 0%, rgba(162,213,244,0) 75%), radial-gradient(80% 50% at 50% 100%, #d3eef9 0%, rgba(211,238,249,0) 72%), linear-gradient(180deg, #eef8fd 0%, #f7fcff 48%, #ffffff 100%)",
