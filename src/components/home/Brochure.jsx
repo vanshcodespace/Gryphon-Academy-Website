@@ -7,7 +7,7 @@ export default function Brochure() {
 
       <div className="relative mx-auto max-w-6xl px-6 text-center">
         {/* Heading — centered */}
-        <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl" style={{
+        <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl leading-tight" style={{
           background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
