@@ -1,9 +1,9 @@
 export default function Brochure() {
   return (
-    <section className="relative overflow-hidden bg-white py-14 sm:py-16 lg:py-20">
+    <section className="relative bg-white py-14 sm:py-16 lg:py-20">
       {/* Subtle top-right light blue glow */}
-      <div className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-[#cce0fc]/50 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-[#cce0fc]/30 blur-3xl" />
+      <div className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full bg-[#cce0fc]/50 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-[#cce0fc]/30 blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl px-6 text-center">
         {/* Heading — centered */}
