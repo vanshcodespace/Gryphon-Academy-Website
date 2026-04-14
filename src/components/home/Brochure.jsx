@@ -13,7 +13,7 @@ export default function Brochure() {
           WebkitTextFillColor: "transparent",
           backgroundClip: "text",
         }}>
-          Everything You Need to Know - In One Document.
+          Everything You Need to Know.
         </h2>
 
         {/* Body text */}
