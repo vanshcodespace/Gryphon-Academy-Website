@@ -2,7 +2,7 @@ import trainEvaImage from "../../assets/training.jpg";
 
 export default function Training() {
   return (
-    <section className="w-full bg-[#D6E8F2] pt-12 pb-12 md:pt-16 md:pb-16">
+    <section className="w-full bg-[#D6E8F2] pt-12 md:pt-16">
       <div className="mx-auto w-full max-w-480 px-4 sm:px-6">
         <h2
           className="mb-6 text-center text-4xl font-bold tracking-tight sm:mb-8 md:mb-10 sm:text-5xl lg:text-5xl"

@@ -18,7 +18,7 @@ export default function CTA() {
           </span>
         </h2>
 
-        <p className="mt-4 text-center text-justify text-base sm:text-lg text-gray-200">
+        <p className="mt-4 text-center text-base sm:text-lg text-gray-200">
           Whether you are looking to partner as an institution, recruit as an organisation, or begin your professional journey as a student, the next step is one conversation away.
         </p>
 

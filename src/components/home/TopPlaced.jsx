@@ -1,164 +1,184 @@
 import React from "react";
+import photo1 from "../../assets/TopPlaced/1.png";
+import photo2 from "../../assets/TopPlaced/2.png";
+import photo3 from "../../assets/TopPlaced/3.png";
+import photo4 from "../../assets/TopPlaced/4.png";
+// import photo5 from "../assets/TopPlaced/5.png";
+import photo6 from "../../assets/TopPlaced/6.png";
+import photo7 from "../../assets/TopPlaced/7.png";
+// import photo8 from "../../assets/TopPlaced/8.png";
+// import photo9 from "../../assets/TopPlaced/9.png";
+// import photo10 from "../../assets/TopPlaced/10.png";
+// import photo11 from "../../assets/TopPlaced/11.png";
+// import photo12 from "../../assets/TopPlaced/12.png";
+// import photo13 from "../../assets/TopPlaced/13.png";
+// import photo14 from "../../assets/TopPlaced/14.png";
+// import photo15 from "../../assets/TopPlaced/15.png";
+// import photo16 from "../../assets/TopPlaced/16.png";
+// import photo17 from "../../assets/TopPlaced/17.png";
 
 const studentCards = [
   {
     id: 1,
-    name: "Aarav Patil",
-    ctc: "18.5 LPA",
-    company: "Deloitte",
-    companyLogo: "https://logo.clearbit.com/deloitte.com",
-    photo: "https://i.pravatar.cc/400?img=12",
+    name: "Siddhant Kadam",
+    ctc: "27 LPA",
+    company: "JUSPAY",
+    photo: photo1,
+    companyLogo:
+      "https://1000logos.net/wp-content/uploads/2019/08/Deloitte-Logo-500x281.png",
   },
   {
     id: 2,
-    name: "Mira Kulkarni",
-    ctc: "22.0 LPA",
-    company: "Mastercard",
-    companyLogo: "https://logo.clearbit.com/mastercard.com",
-    photo: "https://i.pravatar.cc/400?img=47",
+    name: "Komal Verma",
+    ctc: "26 LPA",
+    company: "bp",
+    photo: photo2,
+    companyLogo:
+      "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg",
   },
   {
     id: 3,
-    name: "Rohan Deshmukh",
-    ctc: "25.8 LPA",
-    company: "NielsenIQ",
-    companyLogo: "https://logo.clearbit.com/nielseniq.com",
-    photo: "https://i.pravatar.cc/420?img=15",
+    name: "Suyog Parkhi",
+    ctc: "21 LPA",
+    company: "JUSPAY",
+    photo: photo3,
+    companyLogo:
+      "https://nielseniq.com/wp-content/uploads/sites/3/2020/10/NielsenIQ-large-2.jpg?resize=1024,317",
   },
   {
     id: 4,
-    name: "Nisha Jagtap",
-    ctc: "19.2 LPA",
-    company: "KPMG",
+    name: "Omkar Biradar",
+    ctc: "15 LPA",
+    company: "CrowdStrike",
+    photo: photo4,
     companyLogo: "https://logo.clearbit.com/kpmg.com",
-    photo: "https://i.pravatar.cc/400?img=32",
   },
   {
     id: 5,
-    name: "Ishaan More",
-    ctc: "17.6 LPA",
-    company: "Nestle",
+    name: "Ayesha Sheikh",
+    ctc: "13 LPA",
+    company: "COHESITY",
+    // photo: photo5,
     companyLogo: "https://logo.clearbit.com/nestle.com",
-    photo: "https://i.pravatar.cc/400?img=21",
   },
   {
     id: 6,
-    name: "Priya Joshi",
-    ctc: "20.4 LPA",
-    company: "BlackRock",
+    name: "Aniket Kharote",
+    ctc: "10.50 LPA",
+    company: "PHILIPS",
+    photo: photo6,
     companyLogo: "https://logo.clearbit.com/blackrock.com",
-    photo: "https://i.pravatar.cc/400?img=25",
   },
   {
     id: 7,
-    name: "Dev Shah",
-    ctc: "16.9 LPA",
-    company: "Infosys",
+    name: "Kritika Raina",
+    ctc: "10 LPA",
+    company: "Mastercard",
+    photo: photo7,
     companyLogo: "https://logo.clearbit.com/infosys.com",
-    photo: "https://i.pravatar.cc/400?img=14",
   },
   {
     id: 8,
-    name: "Kavya Singh",
-    ctc: "23.1 LPA",
-    company: "UBS",
+    name: "Jay Divate",
+    ctc: "10 LPA",
+    company: "epam",
+    //photo: photo8,
     companyLogo: "https://logo.clearbit.com/ubs.com",
-    photo: "https://i.pravatar.cc/400?img=5",
   },
   {
     id: 9,
-    name: "Aniket Naik",
-    ctc: "21.3 LPA",
-    company: "BNY Mellon",
+    name: "Trisha Chowdhary",
+    ctc: "0000 LPA",
+    company: "faurecia",
+    // photo: photo9,
     companyLogo: "https://logo.clearbit.com/bnymellon.com",
-    photo: "https://i.pravatar.cc/400?img=17",
   },
   {
     id: 10,
-    name: "Sara Mehta",
-    ctc: "24.4 LPA",
-    company: "Mercedes-Benz",
+    name: "Omkar Hatte",
+    ctc: "0000 LPA",
+    company: "Piaggio",
+    // photo: photo10,
     companyLogo: "https://logo.clearbit.com/mercedes-benz.com",
-    photo: "https://i.pravatar.cc/400?img=23",
   },
   {
     id: 11,
-    name: "Yash Bhosale",
-    ctc: "27.0 LPA",
-    company: "PwC",
+    name: "Suraj Pawar",
+    ctc: "0000 LPA",
+    company: "MAN trucks and bus",
+    // photo: photo11,
     companyLogo: "https://logo.clearbit.com/pwc.com",
-    photo: "https://i.pravatar.cc/420?img=29",
   },
   {
     id: 12,
-    name: "Aditi Rao",
-    ctc: "18.1 LPA",
-    company: "FIS",
+    name: "Baburao Konuri",
+    ctc: "0000 LPA",
+    company: "YASH Technologies",
+    // photo: photo12,
     companyLogo: "https://logo.clearbit.com/fisglobal.com",
-    photo: "https://i.pravatar.cc/400?img=45",
   },
   {
     id: 13,
-    name: "Omkar Kale",
-    ctc: "15.8 LPA",
-    company: "Tata Technologies",
+    name: "Juie Bankar",
+    ctc: "0000 LPA",
+    company: "Force Motors",
+    // photo: photo13,
     companyLogo: "https://logo.clearbit.com/tatatechnologies.com",
-    photo: "https://i.pravatar.cc/400?img=39",
   },
   {
     id: 14,
-    name: "Ritika Verma",
-    ctc: "26.2 LPA",
-    company: "Whirlpool",
+    name: "Apeksha Kapadnis",
+    ctc: "0000 LPA",
+    company: "Persistent",
+    // photo: photo14,
     companyLogo: "https://logo.clearbit.com/whirlpool.com",
-    photo: "https://i.pravatar.cc/420?img=9",
   },
   {
     id: 15,
-    name: "Harsh Kothari",
-    ctc: "28.4 LPA",
-    company: "Mondelez",
+    name: "Sakshi Sharma",
+    ctc: "0000 LPA",
+    company: "Data axle",
+    // photo: photo15,
     companyLogo: "https://logo.clearbit.com/mondelezinternational.com",
-    photo: "https://i.pravatar.cc/420?img=53",
   },
   {
     id: 16,
-    name: "Neha Agarwal",
-    ctc: "19.9 LPA",
-    company: "KPIT",
+    name: "Ruchika Dhope",
+    ctc: "0000 LPA",
+    company: "vanderlande",
+    // photo: photo16,
     companyLogo: "https://logo.clearbit.com/kpit.com",
-    photo: "https://i.pravatar.cc/400?img=42",
   },
   {
     id: 17,
-    name: "Tanvi Kulshrestha",
-    ctc: "21.7 LPA",
-    company: "ANZ",
+    name: "Aishwarya Sutar",
+    ctc: "0000 LPA",
+    company: "SAS",
+    // photo: photo17,
     companyLogo: "https://logo.clearbit.com/anz.com",
-    photo: "https://i.pravatar.cc/420?img=36",
   },
 ];
 
 const horizontalCards = new Set([3, 11, 14, 15, 17]);
 const tallVerticalCards = new Set([2, 4, 6, 8, 9, 10, 12, 16]);
 const collegesById = {
-  1: "PCCOE, Pune",
-  2: "VIT, Pune",
-  3: "COEP Tech",
-  4: "MIT-WPU",
-  5: "DY Patil, Pimpri",
-  6: "PICT, Pune",
-  7: "AISSMS IOIT",
-  8: "Bharati Vidyapeeth",
-  9: "Sinhgad COE",
-  10: "Vishwakarma Inst.",
-  11: "Indira COE",
-  12: "MESCOE",
-  13: "JSPM RSCOE",
-  14: "Modern COE",
-  15: "ISBM College",
-  16: "MMCOE",
-  17: "Dr. D. Y. Patil COE",
+  1: "Indira college of Engineering and Management, Pune",
+  2: "Indira college of Engineering and Management, Pune",
+  3: "Ramdeobaba University",
+  4: "Indira college of Engineering and Management, Pune",
+  5: "Indira college of Engineering and Management, Pune",
+  6: "Indira Institute of Management, Pune",
+  7: "Indira college of Engineering and Management, Pune",
+  8: "ISBR Business School, Bangalore",
+  9: "iFEEL - Institute for Future Education, Entrepreneurship and Leadership, Pune",
+  10: "Indira college of Engineering and Management, Pune",
+  11: "MET Bhujbal Knowledge City, Nashik",
+  12: "Indira college of Engineering and Management, Pune",
+  13: "Sanjivani College of Engineering, Kopargaon",
+  14: "SNJB KBJ College of Engineering, Chandwad",
+  15: "Lexicon MILE - Management Institute of Leadership and Excellence, Pune",
+  16: "Lexicon MILE - Management Institute of Leadership and Excellence, Pune",
+  17: "Indira School of Business Studies, Pune",
 };
 
 function getInitialsLogo(company) {
@@ -231,7 +251,7 @@ function StudentCard({ student }) {
           <img
             src={student.photo}
             alt={student.name}
-            className="h-full w-full object-cover transition-transform duration-400 group-hover:scale-[1.05]"
+            className="h-full w-full object-contain transition-transform duration-400 group-hover:scale-[1.05]"
             loading="lazy"
           />
           <div className="absolute inset-0 bg-linear-to-t from-[#0b132b]/35 to-transparent" />
@@ -247,7 +267,7 @@ function StudentCard({ student }) {
               {student.name}
             </h3>
 
-            <p className="mt-1 truncate text-[11px] font-medium text-[#1b3a6b] md:text-xs">
+            <p className="mt-1 line-clamp-3 text-[11px] font-medium text-[#1b3a6b] md:text-xs">
               {college}
             </p>
 
@@ -263,34 +283,26 @@ function StudentCard({ student }) {
                 <p className="inline-block shrink-0 rounded-md bg-linear-to-r from-[#1b3a6b] to-[#7b1b2a] px-2 py-1 text-[11px] font-extrabold tracking-wide text-white md:text-xs">
                   {student.ctc}
                 </p>
-                <div className="ml-auto min-w-0 flex max-w-44 items-center gap-1.5 rounded-md border border-[#1b3a6b]/15 bg-white/80 px-2 py-1">
-                  <img
-                    src={student.companyLogo}
-                    alt={`${student.company} logo`}
-                    className="h-3.5 w-3.5 shrink-0 rounded object-contain"
-                    onError={(event) => handleLogoError(event, student.company)}
-                    loading="lazy"
-                  />
-                  <span className="truncate text-[10px] font-semibold text-[#1b3a6b]">
-                    {student.company}
-                  </span>
-                </div>
+                <img
+                  src={student.companyLogo}
+                  alt={`${student.company} logo`}
+                  className="ml-auto h-12 w-12 shrink-0 rounded object-contain md:h-16 md:w-16"
+                  onError={(event) => handleLogoError(event, student.company)}
+                  loading="lazy"
+                />
               </div>
             )}
           </div>
 
           {showBottomLogo && (
-            <div className="mt-2 flex items-center gap-2 rounded-lg border border-[#1b3a6b]/15 bg-white/80 px-2 py-1.5">
+            <div className="mt-auto flex justify-center pb-3 md:pb-4">
               <img
                 src={student.companyLogo}
                 alt={`${student.company} logo`}
-                className="h-4 w-4 shrink-0 rounded object-contain md:h-5 md:w-5"
+                className="h-16 w-16 shrink-0 rounded object-contain md:h-15 md:w-29"
                 onError={(event) => handleLogoError(event, student.company)}
                 loading="lazy"
               />
-              <span className="truncate text-[10px] font-semibold text-[#1b3a6b] md:text-xs">
-                {student.company}
-              </span>
             </div>
           )}
         </div>
@@ -305,14 +317,14 @@ export default function TopPlaced() {
       <div className="mx-auto w-full max-w-7xl">
         <div className="mb-4 md:mb-6 text-center">
           <h2
-              className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl"
-              style={{
-                background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl"
+            style={{
+              background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
             Top Placed Students
           </h2>
         </div>
