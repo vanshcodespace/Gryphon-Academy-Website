@@ -88,7 +88,7 @@ const studentCards = [
   {
     id: 9,
     name: "Trisha Chowdhary",
-    ctc: "0000 LPA",
+    ctc: "000 LPA",
     company: "faurecia",
     photo: photo9,
     companyLogo: "https://logo.clearbit.com/bnymellon.com",
@@ -96,7 +96,7 @@ const studentCards = [
   {
     id: 10,
     name: "Omkar Hatte",
-    ctc: "0000 LPA",
+    ctc: "000 LPA",
     company: "Piaggio",
     photo: photo10,
     companyLogo: "https://logo.clearbit.com/mercedes-benz.com",
@@ -104,7 +104,7 @@ const studentCards = [
   {
     id: 11,
     name: "Suraj Pawar",
-    ctc: "0000 LPA",
+    ctc: "000 LPA",
     company: "MAN trucks and bus",
     // photo: photo11,
     companyLogo: "https://logo.clearbit.com/pwc.com",
@@ -112,7 +112,7 @@ const studentCards = [
   {
     id: 12,
     name: "Baburao Konuri",
-    ctc: "0000 LPA",
+    ctc: "000 LPA",
     company: "YASH Technologies",
     // photo: photo12,
     companyLogo: "https://logo.clearbit.com/fisglobal.com",
@@ -120,7 +120,7 @@ const studentCards = [
   {
     id: 13,
     name: "Juie Bankar",
-    ctc: "0000 LPA",
+    ctc: "000 LPA",
     company: "Force Motors",
     // photo: photo13,
     companyLogo: "https://logo.clearbit.com/tatatechnologies.com",
@@ -128,7 +128,7 @@ const studentCards = [
   {
     id: 14,
     name: "Apeksha Kapadnis",
-    ctc: "0000 LPA",
+    ctc: "000 LPA",
     company: "Persistent",
     // photo: photo14,
     companyLogo: "https://logo.clearbit.com/whirlpool.com",
@@ -136,7 +136,7 @@ const studentCards = [
   {
     id: 15,
     name: "Sakshi Sharma",
-    ctc: "0000 LPA",
+    ctc: "000 LPA",
     company: "Data axle",
     // photo: photo15,
     companyLogo: "https://logo.clearbit.com/mondelezinternational.com",
@@ -144,7 +144,7 @@ const studentCards = [
   {
     id: 16,
     name: "Ruchika Dhope",
-    ctc: "0000 LPA",
+    ctc: "000 LPA",
     company: "vanderlande",
     // photo: photo16,
     companyLogo: "https://logo.clearbit.com/kpit.com",
@@ -152,15 +152,15 @@ const studentCards = [
   {
     id: 17,
     name: "Aishwarya Sutar",
-    ctc: "0000 LPA",
+    ctc: "000 LPA",
     company: "SAS",
     // photo: photo17,
     companyLogo: "https://logo.clearbit.com/anz.com",
   },
   {
     id: 18,
-    name: "Vinday Solanki",
-    ctc: "0000 LPA",
+    name: "Vinay Solanki",
+    ctc: "000 LPA",
     company: "Hexaware",
     // photo: photo18,
     companyLogo: "https://logo.clearbit.com/anz.com",
@@ -348,7 +348,7 @@ function StudentCard({ student, orientation }) {
             isHorizontal ? "w-1/2 p-2.5 md:p-3" : "h-1/2 p-2 md:p-2.5"
           } flex-col justify-between`}
         >
-          <div className="min-h-0">
+          <div className="min-h-0 text-center">
             <h3 className="line-clamp-2 text-sm font-bold leading-tight text-[#081a36] md:text-[15px]">
               {student.name}
             </h3>
@@ -391,7 +391,7 @@ export default function TopPlaced() {
           </h2>
         </div>
 
-        <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-6 lg:auto-rows-[180px]">
+        <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-6 lg:auto-rows-[180px]">
           {positionedCards.map(({ slot, student, orientation }) => (
             <div key={`slot-${slot}`} className={slotConfig[slot].className}>
               <StudentCard student={student} orientation={orientation} />
