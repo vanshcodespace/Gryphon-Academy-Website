@@ -9,13 +9,14 @@ import photo7 from "../../assets/TopPlaced/7.png";
 import photo8 from "../../assets/TopPlaced/8.png";
 import photo9 from "../../assets/TopPlaced/9.png";
 import photo10 from "../../assets/TopPlaced/10.png";
-// import photo11 from "../../assets/TopPlaced/11.png";
-// import photo12 from "../../assets/TopPlaced/12.png";
-// import photo13 from "../../assets/TopPlaced/13.png";
-// import photo14 from "../../assets/TopPlaced/14.png";
-// import photo15 from "../../assets/TopPlaced/15.png";
-// import photo16 from "../../assets/TopPlaced/16.png";
-// import photo17 from "../../assets/TopPlaced/17.png";
+import photo11 from "../../assets/TopPlaced/11.png";
+import photo12 from "../../assets/TopPlaced/12.png";
+import photo13 from "../../assets/TopPlaced/13.png";
+import photo14 from "../../assets/TopPlaced/14.png";
+import photo15 from "../../assets/TopPlaced/15.png";
+import photo16 from "../../assets/TopPlaced/16.png";
+import photo17 from "../../assets/TopPlaced/17.png";
+import photo18 from "../../assets/TopPlaced/18.png";
 
 const studentCards = [
   {
@@ -106,7 +107,7 @@ const studentCards = [
     name: "Suraj Pawar",
     ctc: "000 LPA",
     company: "MAN trucks and bus",
-    // photo: photo11,
+    photo: photo11,
     companyLogo: "https://logo.clearbit.com/pwc.com",
   },
   {
@@ -114,7 +115,7 @@ const studentCards = [
     name: "Baburao Konuri",
     ctc: "000 LPA",
     company: "YASH Technologies",
-    // photo: photo12,
+    photo: photo12,
     companyLogo: "https://logo.clearbit.com/fisglobal.com",
   },
   {
@@ -122,7 +123,7 @@ const studentCards = [
     name: "Juie Bankar",
     ctc: "000 LPA",
     company: "Force Motors",
-    // photo: photo13,
+    photo: photo13,
     companyLogo: "https://logo.clearbit.com/tatatechnologies.com",
   },
   {
@@ -130,15 +131,15 @@ const studentCards = [
     name: "Apeksha Kapadnis",
     ctc: "000 LPA",
     company: "Persistent",
-    // photo: photo14,
+    photo: photo14,
     companyLogo: "https://logo.clearbit.com/whirlpool.com",
   },
   {
     id: 15,
-    name: "Sakshi Sharma",
+    name: "Aryan Sasane",
     ctc: "000 LPA",
-    company: "Data axle",
-    // photo: photo15,
+    company: "Godrej",
+    photo: photo15,
     companyLogo: "https://logo.clearbit.com/mondelezinternational.com",
   },
   {
@@ -146,23 +147,23 @@ const studentCards = [
     name: "Ruchika Dhope",
     ctc: "000 LPA",
     company: "vanderlande",
-    // photo: photo16,
+    photo: photo16,
     companyLogo: "https://logo.clearbit.com/kpit.com",
   },
   {
     id: 17,
-    name: "Aishwarya Sutar",
+    name: "Sakshi Sharma",
     ctc: "000 LPA",
-    company: "SAS",
-    // photo: photo17,
+    company: "Data axle",
+    photo: photo17,
     companyLogo: "https://logo.clearbit.com/anz.com",
   },
   {
     id: 18,
-    name: "Vinay Solanki",
+    name: "Suraj More",
     ctc: "000 LPA",
     company: "Hexaware",
-    // photo: photo18,
+    photo: photo18,
     companyLogo: "https://logo.clearbit.com/anz.com",
   },
 ];
@@ -281,10 +282,10 @@ const collegesById = {
   12: "Indira college of Engineering and Management, Pune",
   13: "Sanjivani College of Engineering, Kopargaon",
   14: "SNJB KBJ College of Engineering, Chandwad",
-  15: "Lexicon MILE - Management Institute of Leadership and Excellence, Pune",
+  15: "Sanjivani College of Engineering, Kopargaon",
   16: "Lexicon MILE - Management Institute of Leadership and Excellence, Pune",
-  17: "Indira School of Business Studies, Pune",
-  18: "Indira college of Engineering and Management, Pune",
+  17: "Lexicon MILE - Management Institute of Leadership and Excellence, Pune",
+  18: "Dnyanshree Institute of Engineering and Technology, Satara",
 };
 
 function getInitialsLogo(company) {
