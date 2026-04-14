@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import iuLogo from "../../assets/GA College Partners/IULo.png";
+import iuLogo from "../../assets/IULo.png";
 import diet from "../../assets/GA College Partners/g (17).png";
 import sanj from "../../assets/GA College Partners/2.png";
 import sit from "../../assets/GA College Partners/sit.png";
@@ -355,6 +355,7 @@ function StudentSuccessStories() {
   const [uniformNameRoleHeight, setUniformNameRoleHeight] = useState(72);
   const [autoScrollProgress, setAutoScrollProgress] = useState(100);
   const [isHovering, setIsHovering] = useState(false);
+  const [isComponentVisible, setIsComponentVisible] = useState(false);
 
   const pageShiftPxRef = useRef(436);
   const slideTimeoutRef = useRef(null);
@@ -362,10 +363,27 @@ function StudentSuccessStories() {
   const sizingRef = useRef(null);
   const autoScrollTimerRef = useRef(null);
   const isHoveringRef = useRef(false);
+  const componentRef = useRef(null);
 
   useEffect(() => {
     isHoveringRef.current = isHovering;
   }, [isHovering]);
+
+  useEffect(() => {
+    if (!componentRef.current) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsComponentVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1,
+      },
+    );
+
+    observer.observe(componentRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const getCount = () => {
@@ -661,7 +679,7 @@ function StudentSuccessStories() {
   }, []);
 
   useEffect(() => {
-    if (isSliding) return;
+    if (isSliding || !isComponentVisible) return;
 
     let timeElapsed = 0;
     const AUTO_SCROLL_DELAY = 5000;
@@ -692,10 +710,10 @@ function StudentSuccessStories() {
     return () => {
       clearInterval(interval);
     };
-  }, [isSliding, currentPageIndex, lastPageIndex, nextStory, goToPage]);
+  }, [isSliding, isComponentVisible, currentPageIndex, lastPageIndex, nextStory, goToPage]);
 
   return (
-    <div className="relative mb-0 overflow-hidden rounded-3xl bg-transparent py-6 md:py-8 xl:py-6">
+    <div className="relative mb-0 overflow-hidden rounded-3xl bg-transparent py-6 md:py-8 xl:py-6" ref={componentRef}>
       <div className="relative z-10 mb-4 text-center md:mb-6 xl:mb-5">
         <h2
           className="mb-2 overflow-visible px-4 pb-1 text-4xl font-bold tracking-tight leading-[1.1] md:text-5xl lg:text-6xl drop-shadow-sm"
@@ -773,7 +791,7 @@ function StudentSuccessStories() {
                     style={{ minHeight: `${uniformNameRoleHeight}px` }}
                   >
                     <div className="flex flex-col items-center justify-center gap-0">
-                      <h3 className="font-black text-[#0d3d6b] text-sm md:text-base mb-1 text-center">
+                      <h3 className="font-black text-[#0d3d6b] text-sm md:text-base mb-0 text-center">
                         {story.name}
                       </h3>
                       <p className="text-[#375e56] text-xs md:text-xs font-medium leading-tight text-center">
@@ -882,7 +900,7 @@ function StudentSuccessStories() {
                           style={{ minHeight: `${uniformNameRoleHeight}px` }}
                         >
                           <div className="flex flex-col items-center justify-center gap-0">
-                            <h3 className="font-black text-[#0d3d6b] text-sm md:text-base mb-1 text-center">
+                            <h3 className="font-black text-[#0d3d6b] text-sm md:text-base mb-0 text-center">
                               {story.name}
                             </h3>
                             <p className="text-[#375e56] text-xs md:text-xs font-medium leading-tight text-center">
