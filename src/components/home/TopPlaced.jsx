@@ -3,12 +3,12 @@ import photo1 from "../../assets/TopPlaced/1.png";
 import photo2 from "../../assets/TopPlaced/2.png";
 import photo3 from "../../assets/TopPlaced/3.png";
 import photo4 from "../../assets/TopPlaced/4.png";
-// import photo5 from "../assets/TopPlaced/5.png";
+import photo5 from "../../assets/TopPlaced/5.png";
 import photo6 from "../../assets/TopPlaced/6.png";
 import photo7 from "../../assets/TopPlaced/7.png";
-// import photo8 from "../../assets/TopPlaced/8.png";
-// import photo9 from "../../assets/TopPlaced/9.png";
-// import photo10 from "../../assets/TopPlaced/10.png";
+import photo8 from "../../assets/TopPlaced/8.png";
+import photo9 from "../../assets/TopPlaced/9.png";
+import photo10 from "../../assets/TopPlaced/10.png";
 // import photo11 from "../../assets/TopPlaced/11.png";
 // import photo12 from "../../assets/TopPlaced/12.png";
 // import photo13 from "../../assets/TopPlaced/13.png";
@@ -58,7 +58,7 @@ const studentCards = [
     name: "Ayesha Sheikh",
     ctc: "13 LPA",
     company: "COHESITY",
-    // photo: photo5,
+    photo: photo5,
     companyLogo: "https://logo.clearbit.com/nestle.com",
   },
   {
@@ -82,7 +82,7 @@ const studentCards = [
     name: "Jay Divate",
     ctc: "10 LPA",
     company: "epam",
-    //photo: photo8,
+    photo: photo8,
     companyLogo: "https://logo.clearbit.com/ubs.com",
   },
   {
@@ -90,7 +90,7 @@ const studentCards = [
     name: "Trisha Chowdhary",
     ctc: "0000 LPA",
     company: "faurecia",
-    // photo: photo9,
+    photo: photo9,
     companyLogo: "https://logo.clearbit.com/bnymellon.com",
   },
   {
@@ -98,7 +98,7 @@ const studentCards = [
     name: "Omkar Hatte",
     ctc: "0000 LPA",
     company: "Piaggio",
-    // photo: photo10,
+    photo: photo10,
     companyLogo: "https://logo.clearbit.com/mercedes-benz.com",
   },
   {
@@ -157,10 +157,115 @@ const studentCards = [
     // photo: photo17,
     companyLogo: "https://logo.clearbit.com/anz.com",
   },
+  {
+    id: 18,
+    name: "Vinday Solanki",
+    ctc: "0000 LPA",
+    company: "Hexaware",
+    // photo: photo18,
+    companyLogo: "https://logo.clearbit.com/anz.com",
+  },
 ];
 
-const horizontalCards = new Set([3, 11, 14, 15, 17]);
-const tallVerticalCards = new Set([2, 4, 6, 8, 9, 10, 12, 16]);
+// Read order: left-to-right within each row, then top-to-bottom.
+const gridSlotOrder = [
+  1, 11, 12, 20, 5, 13, 16, 4, 3, 22, 23, 24, 18, 7, 21, 19, 6, 17,
+];
+
+const slotConfig = {
+  1: {
+    type: "horizontal",
+    className: "lg:col-span-2 lg:row-span-1 lg:col-start-1 lg:row-start-1",
+  },
+  3: {
+    type: "horizontal",
+    className: "lg:col-span-2 lg:row-span-1 lg:col-start-2 lg:row-start-3",
+  },
+  4: {
+    type: "vertical",
+    className: "lg:col-span-1 lg:row-span-2 lg:col-start-1 lg:row-start-3",
+  },
+  5: {
+    type: "horizontal",
+    className: "lg:col-span-2 lg:row-span-1 lg:col-start-1 lg:row-start-2",
+  },
+  6: {
+    type: "horizontal",
+    className: "lg:col-span-2 lg:row-span-1 lg:col-start-2 lg:row-start-6",
+  },
+  7: {
+    type: "vertical",
+    className: "lg:col-span-1 lg:row-span-2 lg:col-start-1 lg:row-start-5",
+  },
+  11: {
+    type: "vertical",
+    className: "lg:col-span-1 lg:row-span-2 lg:col-start-3 lg:row-start-1",
+  },
+  12: {
+    type: "horizontal",
+    className: "lg:col-span-2 lg:row-span-1 lg:col-start-4 lg:row-start-1",
+  },
+  13: {
+    type: "vertical",
+    className: "lg:col-span-1 lg:row-span-2 lg:col-start-4 lg:row-start-2",
+  },
+  16: {
+    type: "vertical",
+    className: "lg:col-span-1 lg:row-span-2 lg:col-start-5 lg:row-start-2",
+  },
+  17: {
+    type: "horizontal",
+    className: "lg:col-span-2 lg:row-span-1 lg:col-start-5 lg:row-start-6",
+  },
+  18: {
+    type: "horizontal",
+    className: "lg:col-span-2 lg:row-span-1 lg:col-start-4 lg:row-start-4",
+  },
+  19: {
+    type: "horizontal",
+    className: "lg:col-span-2 lg:row-span-1 lg:col-start-5 lg:row-start-5",
+  },
+  20: {
+    type: "vertical",
+    className: "lg:col-span-1 lg:row-span-2 lg:col-start-6 lg:row-start-1",
+  },
+  21: {
+    type: "vertical",
+    className: "lg:col-span-1 lg:row-span-2 lg:col-start-4 lg:row-start-5",
+  },
+  22: {
+    type: "vertical",
+    className: "lg:col-span-1 lg:row-span-2 lg:col-start-6 lg:row-start-3",
+  },
+  23: {
+    type: "vertical",
+    className: "lg:col-span-1 lg:row-span-2 lg:col-start-2 lg:row-start-4",
+  },
+  24: {
+    type: "vertical",
+    className: "lg:col-span-1 lg:row-span-2 lg:col-start-3 lg:row-start-4",
+  },
+};
+
+function getCtcValue(ctc) {
+  const matched = String(ctc).match(/[\d.]+/);
+  if (!matched) return 0;
+  const numeric = Number(matched[0]);
+  return Number.isFinite(numeric) ? numeric : 0;
+}
+
+const duplicateStudent = studentCards.reduce((best, candidate) => {
+  return getCtcValue(candidate.ctc) > getCtcValue(best.ctc) ? candidate : best;
+}, studentCards[0]);
+
+const positionedCards = gridSlotOrder.map((slot, index) => {
+  const student = studentCards[index] || duplicateStudent;
+  return {
+    slot,
+    student,
+    orientation: slotConfig[slot].type,
+  };
+});
 const collegesById = {
   1: "Indira college of Engineering and Management, Pune",
   2: "Indira college of Engineering and Management, Pune",
@@ -179,6 +284,7 @@ const collegesById = {
   15: "Lexicon MILE - Management Institute of Leadership and Excellence, Pune",
   16: "Lexicon MILE - Management Institute of Leadership and Excellence, Pune",
   17: "Indira School of Business Studies, Pune",
+  18: "Indira college of Engineering and Management, Pune",
 };
 
 function getInitialsLogo(company) {
@@ -208,31 +314,8 @@ function handleLogoError(event, company) {
   image.src = getInitialsLogo(company);
 }
 
-function getPlacementClass(num) {
-  return `
-    ${num === 1 ? "row-span-2" : ""}
-    ${num === 2 ? "row-span-3" : ""}
-    ${num === 3 ? "col-span-2 row-span-2" : ""}
-    ${num === 4 ? "col-start-5 row-span-3" : ""}
-    ${num === 5 ? "col-start-3 row-start-3 row-span-2" : ""}
-    ${num === 6 ? "col-start-4 row-start-3 row-span-3" : ""}
-    ${num === 7 ? "col-start-5 row-start-4 row-span-2" : ""}
-    ${num === 8 ? "col-start-1 row-start-3 row-span-3" : ""}
-    ${num === 9 ? "col-start-2 row-start-4 row-span-3" : ""}
-    ${num === 10 ? "col-start-3 row-start-5 row-span-3" : ""}
-    ${num === 11 ? "col-start-4 col-span-2 row-start-6 row-span-2" : ""}
-    ${num === 12 ? "col-start-1 row-start-6 row-span-3" : ""}
-    ${num === 13 ? "col-start-2 row-start-7 row-span-2" : ""}
-    ${num === 14 ? "col-start-1 col-span-2 row-start-9 row-span-2" : ""}
-    ${num === 15 ? "col-start-3 col-span-2 row-start-8 row-span-2" : ""}
-    ${num === 16 ? "col-start-5 row-start-8 row-span-3" : ""}
-    ${num === 17 ? "col-start-3 col-span-2 row-start-10 row-span-2" : ""}
-  `;
-}
-
-function StudentCard({ student }) {
-  const isHorizontal = horizontalCards.has(student.id);
-  const showBottomLogo = isHorizontal || tallVerticalCards.has(student.id);
+function StudentCard({ student, orientation }) {
+  const isHorizontal = orientation === "horizontal";
   const college = collegesById[student.id] || "Gryphon Partner College";
 
   return (
@@ -244,10 +327,13 @@ function StudentCard({ student }) {
         className={`relative z-10 flex h-full ${isHorizontal ? "flex-row" : "flex-col"}`}
       >
         <div
-          className={`relative overflow-hidden ${
+          className={`relative shrink-0 basis-1/2 overflow-hidden ${
             isHorizontal ? "w-1/2" : "h-1/2"
           }`}
         >
+          <div className="absolute right-2 top-2 z-20 rounded-md bg-linear-to-r from-[#1b3a6b] to-[#7b1b2a] px-2 py-1 text-[10px] font-extrabold tracking-wide text-white shadow-[0_6px_14px_rgba(8,26,54,0.35)] md:text-[11px]">
+            {student.ctc}
+          </div>
           <img
             src={student.photo}
             alt={student.name}
@@ -258,53 +344,29 @@ function StudentCard({ student }) {
         </div>
 
         <div
-          className={`flex ${
-            isHorizontal ? "w-1/2 p-3 md:p-4" : "h-1/2 p-2.5 md:p-3"
+          className={`flex min-h-0 shrink-0 basis-1/2 ${
+            isHorizontal ? "w-1/2 p-2.5 md:p-3" : "h-1/2 p-2 md:p-2.5"
           } flex-col justify-between`}
         >
-          <div>
-            <h3 className="line-clamp-2 text-sm font-bold leading-tight text-[#081a36] md:text-base">
+          <div className="min-h-0">
+            <h3 className="line-clamp-2 text-sm font-bold leading-tight text-[#081a36] md:text-[15px]">
               {student.name}
             </h3>
 
-            <p className="mt-1 line-clamp-3 text-[11px] font-medium text-[#1b3a6b] md:text-xs">
+            <p className="mt-1 line-clamp-2 text-[10px] font-medium leading-snug text-[#1b3a6b] md:text-[11px]">
               {college}
             </p>
-
-            <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#7b1b2a]/80 md:text-[11px]">
-              CTC
-            </p>
-            {showBottomLogo ? (
-              <p className="mt-1 inline-block rounded-md bg-linear-to-r from-[#1b3a6b] to-[#7b1b2a] px-2 py-1 text-[11px] font-extrabold tracking-wide text-white md:text-xs">
-                {student.ctc}
-              </p>
-            ) : (
-              <div className="mt-1 flex w-full items-center gap-2">
-                <p className="inline-block shrink-0 rounded-md bg-linear-to-r from-[#1b3a6b] to-[#7b1b2a] px-2 py-1 text-[11px] font-extrabold tracking-wide text-white md:text-xs">
-                  {student.ctc}
-                </p>
-                <img
-                  src={student.companyLogo}
-                  alt={`${student.company} logo`}
-                  className="ml-auto h-12 w-12 shrink-0 rounded object-contain md:h-16 md:w-16"
-                  onError={(event) => handleLogoError(event, student.company)}
-                  loading="lazy"
-                />
-              </div>
-            )}
           </div>
 
-          {showBottomLogo && (
-            <div className="mt-auto flex justify-center pb-3 md:pb-4">
-              <img
-                src={student.companyLogo}
-                alt={`${student.company} logo`}
-                className="h-16 w-16 shrink-0 rounded object-contain md:h-15 md:w-29"
-                onError={(event) => handleLogoError(event, student.company)}
-                loading="lazy"
-              />
-            </div>
-          )}
+          <div className="mt-1 flex justify-center pb-1">
+            <img
+              src={student.companyLogo}
+              alt={`${student.company} logo`}
+              className="h-10 w-24 shrink-0 rounded object-contain md:h-11 md:w-28"
+              onError={(event) => handleLogoError(event, student.company)}
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </article>
@@ -314,7 +376,7 @@ function StudentCard({ student }) {
 export default function TopPlaced() {
   return (
     <section className="w-full bg-linear-to-b from-[#f6f2ec] to-[#ece7df] px-4 py-6 md:py-8">
-      <div className="mx-auto w-full max-w-7xl">
+      <div className="mx-auto w-full max-w-375">
         <div className="mb-4 md:mb-6 text-center">
           <h2
             className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl"
@@ -329,10 +391,10 @@ export default function TopPlaced() {
           </h2>
         </div>
 
-        <div className="grid h-[200vh] w-full grid-cols-5 grid-rows-11 gap-2">
-          {studentCards.map((student) => (
-            <div key={student.id} className={getPlacementClass(student.id)}>
-              <StudentCard student={student} />
+        <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-6 lg:auto-rows-[180px]">
+          {positionedCards.map(({ slot, student, orientation }) => (
+            <div key={`slot-${slot}`} className={slotConfig[slot].className}>
+              <StudentCard student={student} orientation={orientation} />
             </div>
           ))}
         </div>
