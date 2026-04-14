@@ -29,7 +29,7 @@ const StarIcon = () => (
   </svg>
 );
 
-const MarqueeTrack = ({ partners, reverse = false, speed = "40s" }) => {
+const MarqueeTrack = ({ partners, reverse = false, speed = "50s" }) => {
   const extendedItems = Array(4).fill(partners).flat();
 
   return (
