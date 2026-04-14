@@ -753,7 +753,7 @@ image: hous,
                   <div data-name-role="true" className="relative bg-white rounded-b-2xl border border-t-0 border-[#a8d4eb] p-2 md:p-3 pt-2 md:pt-3 flex flex-col justify-start" style={{ minHeight: `${uniformNameRoleHeight}px` }}>
                     <div className="flex items-center gap-2">
                       <div>
-                        <h3 className="font-black uppercase tracking-widest text-[#0d3d6b] text-xs md:text-sm mb-0.5">
+                        <h3 className="font-black  text-[#0d3d6b] text-sm md:text-base mb-0.5">
                           {story.name}
                         </h3>
                         <p className="text-[#375e56] text-xs md:text-xs font-medium leading-tight">
@@ -857,7 +857,7 @@ image: hous,
                         <div data-name-role="true" className="relative bg-white rounded-b-2xl border border-t-0 border-[#a8d4eb] p-2 md:p-3 pt-2 md:pt-3 flex flex-col justify-start" style={{ minHeight: `${uniformNameRoleHeight}px` }}>
                           <div className="flex items-center gap-2">
                             <div>
-                              <h3 className="font-black uppercase tracking-widest text-[#0d3d6b] text-xs md:text-sm mb-0.5">
+                              <h3 className="font-black text-[#0d3d6b] text-sm md:text-base mb-0.5">
                                 {story.name}
                               </h3>
                               <p className="text-[#375e56] text-xs md:text-xs font-medium leading-tight">
