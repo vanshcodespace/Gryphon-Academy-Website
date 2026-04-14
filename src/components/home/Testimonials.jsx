@@ -747,14 +747,14 @@ function StudentSuccessStories() {
                     >
                       "
                     </div>
-                    <p className="relative z-10 text-center font-semibold leading-[1.5] text-[#1a3d5c] text-sm md:text-[0.95rem]">
+                    <p className="relative z-10 text-center font-semibold leading-normal text-[#1a3d5c] text-sm md:text-[0.95rem]">
                       {story.text}
                     </p>
                   </div>
 
                   {/* Person's Circular Photo - Overlapping */}
                   <div className="relative flex justify-center -my-6 z-20">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gradient-to-br from-[#f0f8ff] to-[#e6f2ff]">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white shadow-lg overflow-hidden bg-linear-to-br from-[#f0f8ff] to-[#e6f2ff]">
                       <img
                         src={story.personImage || story.image}
                         alt={story.name}
@@ -856,14 +856,14 @@ function StudentSuccessStories() {
                           >
                             "
                           </div>
-                          <p className="relative z-10 text-center font-semibold leading-[1.5] text-[#1a3d5c] text-sm md:text-[0.95rem]">
+                          <p className="relative z-10 text-center font-semibold leading-normal text-[#1a3d5c] text-sm md:text-[0.95rem]">
                             {story.text}
                           </p>
                         </div>
 
                         {/* Person's Circular Photo - Overlapping */}
                         <div className="relative flex justify-center -my-6 z-20">
-                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gradient-to-br from-[#f0f8ff] to-[#e6f2ff]">
+                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white shadow-lg overflow-hidden bg-linear-to-br from-[#f0f8ff] to-[#e6f2ff]">
                             <img
                               src={story.personImage || story.image}
                               alt={story.name}
@@ -918,7 +918,7 @@ function StudentSuccessStories() {
               <button
                 type="button"
                 onClick={prevStory}
-                className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#5a9fcc] bg-gradient-to-br from-white/70 to-white/50 text-2xl text-[#1f709d] shadow-[0_4px_12px_rgba(35,105,150,0.18)] transition-all duration-300 hover:-translate-y-1 hover:from-white/85 hover:to-white/65 hover:shadow-[0_8px_16px_rgba(35,105,150,0.24)] hover:border-[#3d8dbe] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:translate-y-0 disabled:shadow-[0_2px_6px_rgba(35,105,150,0.08)] font-semibold"
+                className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#5a9fcc] bg-linear-to-br from-white/70 to-white/50 text-2xl text-[#1f709d] shadow-[0_4px_12px_rgba(35,105,150,0.18)] transition-all duration-300 hover:-translate-y-1 hover:from-white/85 hover:to-white/65 hover:shadow-[0_8px_16px_rgba(35,105,150,0.24)] hover:border-[#3d8dbe] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:translate-y-0 disabled:shadow-[0_2px_6px_rgba(35,105,150,0.08)] font-semibold"
                 aria-label="Previous testimonial"
                 disabled={isSliding || currentPageIndex <= 0}
               >
@@ -967,7 +967,7 @@ function StudentSuccessStories() {
               <button
                 type="button"
                 onClick={nextStory}
-                className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#5a9fcc] bg-gradient-to-br from-white/70 to-white/50 text-2xl text-[#1f709d] shadow-[0_4px_12px_rgba(35,105,150,0.18)] transition-all duration-300 hover:-translate-y-1 hover:from-white/85 hover:to-white/65 hover:shadow-[0_8px_16px_rgba(35,105,150,0.24)] hover:border-[#3d8dbe] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:translate-y-0 disabled:shadow-[0_2px_6px_rgba(35,105,150,0.08)] font-semibold"
+                className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#5a9fcc] bg-linear-to-br from-white/70 to-white/50 text-2xl text-[#1f709d] shadow-[0_4px_12px_rgba(35,105,150,0.18)] transition-all duration-300 hover:-translate-y-1 hover:from-white/85 hover:to-white/65 hover:shadow-[0_8px_16px_rgba(35,105,150,0.24)] hover:border-[#3d8dbe] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:translate-y-0 disabled:shadow-[0_2px_6px_rgba(35,105,150,0.08)] font-semibold"
                 aria-label="Next testimonial"
                 disabled={isSliding || currentPageIndex >= lastPageIndex}
               >
