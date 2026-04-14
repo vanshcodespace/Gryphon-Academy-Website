@@ -93,6 +93,9 @@ export default function Numbers() {
     { number: "65,000+", label: "Training\nHours Delivered" },
       { number: "550+", label: "Hiring Partners" },
     { number: "75+", label: "College Partners" },
+     { number: "92%", label: "Placement Ratio" },
+      { number: "27LPA", label: "Highest Package" },
+
   
   ];
 

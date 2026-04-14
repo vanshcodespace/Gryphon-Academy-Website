@@ -34,15 +34,15 @@ import s6 from "../../assets/s6.png";
 import s7 from "../../assets/s7.png";
 import s8 from "../../assets/s8.png";
 import s9 from "../../assets/s9.png";
-import c1 from "../../assets/c1.jpeg";
-import c2 from "../../assets/c2.jpeg";
-import c3 from "../../assets/c3.jpeg";
-import c4 from "../../assets/c4.jpeg";
-import c5 from "../../assets/c5.jpeg";
-import c6 from "../../assets/c6.jpeg";
-import c7 from "../../assets/c7.jpeg";
-import c8 from "../../assets/c8.jpeg";
-import c9 from "../../assets/c9.jpeg";
+import c1 from "../../assets/c1.png";
+import c2 from "../../assets/c2.png";
+import c3 from "../../assets/c3.png";
+import c4 from "../../assets/c4.png";
+import c5 from "../../assets/c5.png";
+import c6 from "../../assets/c6.png";
+import c7 from "../../assets/c7.png";
+import c8 from "../../assets/c8.png";
+import c9 from "../../assets/c9.png";
 import e1 from "../../assets/e1.png";
 import e2 from "../../assets/e2.png";
 import e3 from "../../assets/e3.png";
@@ -763,12 +763,12 @@ image: hous,
                     </div>
 
                     {/* Company Logo */}
-                    <div className="flex justify-center items-center pt-1.5 border-t border-[#d0e4f2] mt-auto">
-                      <div className="rounded-lg flex items-center justify-center p-1" style={{ width: "130px", height: "100px" }}>
+                    <div className="flex justify-center items-center pt-1 border-t border-[#d0e4f2] mt-auto">
+                      <div className="rounded-lg flex items-center justify-center" style={{ width: "130px", height: "100px" }}>
                         <img
                           src={story.image}
                           alt="Organization"
-                          className="max-h-full max-w-full object-contain"
+                          className="w-full h-full object-contain"
                           loading="lazy"
                         />
                       </div>
@@ -867,12 +867,12 @@ image: hous,
                           </div>
 
                           {/* Company Logo */}
-                          <div className="flex justify-center items-center pt-1.5 border-t border-[#d0e4f2] mt-auto">
-                            <div className="rounded-lg flex items-center justify-center p-1" style={{ width: "130px", height: "100px" }}>
+                          <div className="flex justify-center items-center pt-1 border-t border-[#d0e4f2] mt-auto">
+                            <div className="rounded-lg flex items-center justify-center" style={{ width: "130px", height: "100px" }}>
                               <img
                                 src={story.image}
                                 alt="Organization"
-                                className="max-h-full max-w-full object-contain"
+                                className="w-full h-full object-contain"
                                 loading="lazy"
                               />
                             </div>
