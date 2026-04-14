@@ -354,12 +354,18 @@ function StudentSuccessStories() {
   const [uniformCardHeight, setUniformCardHeight] = useState(460);
   const [uniformNameRoleHeight, setUniformNameRoleHeight] = useState(72);
   const [autoScrollProgress, setAutoScrollProgress] = useState(100);
+  const [isHovering, setIsHovering] = useState(false);
 
   const pageShiftPxRef = useRef(436);
   const slideTimeoutRef = useRef(null);
   const trackRef = useRef(null);
   const sizingRef = useRef(null);
   const autoScrollTimerRef = useRef(null);
+  const isHoveringRef = useRef(false);
+
+  useEffect(() => {
+    isHoveringRef.current = isHovering;
+  }, [isHovering]);
 
   useEffect(() => {
     const getCount = () => {
@@ -661,30 +667,30 @@ function StudentSuccessStories() {
     const AUTO_SCROLL_DELAY = 5000;
     const PROGRESS_UPDATE_INTERVAL = 100;
 
-    // Update progress bar every 100ms
-    const progressInterval = setInterval(() => {
-      timeElapsed += PROGRESS_UPDATE_INTERVAL;
-      const progress = Math.max(
-        0,
-        100 - (timeElapsed / AUTO_SCROLL_DELAY) * 100,
-      );
-      setAutoScrollProgress(progress);
+    // Single interval that pauses when hovering but doesn't restart
+    const interval = setInterval(() => {
+      if (!isHoveringRef.current) {
+        timeElapsed += PROGRESS_UPDATE_INTERVAL;
+        const progress = Math.max(
+          0,
+          100 - (timeElapsed / AUTO_SCROLL_DELAY) * 100,
+        );
+        setAutoScrollProgress(progress);
+
+        if (timeElapsed >= AUTO_SCROLL_DELAY) {
+          if (currentPageIndex >= lastPageIndex) {
+            goToPage(0);
+          } else {
+            nextStory();
+          }
+          timeElapsed = 0;
+          setAutoScrollProgress(100);
+        }
+      }
     }, PROGRESS_UPDATE_INTERVAL);
 
-    // Auto-scroll after 5 seconds
-    const autoScrollInterval = setInterval(() => {
-      if (currentPageIndex >= lastPageIndex) {
-        goToPage(0); // Loop back to first card
-      } else {
-        nextStory();
-      }
-      timeElapsed = 0;
-      setAutoScrollProgress(100);
-    }, AUTO_SCROLL_DELAY);
-
     return () => {
-      clearInterval(progressInterval);
-      clearInterval(autoScrollInterval);
+      clearInterval(interval);
     };
   }, [isSliding, currentPageIndex, lastPageIndex, nextStory, goToPage]);
 
@@ -766,31 +772,29 @@ function StudentSuccessStories() {
                     className="relative bg-white rounded-b-2xl border border-t-0 border-[#a8d4eb] p-2 md:p-3 pt-2 md:pt-3 flex flex-col justify-start"
                     style={{ minHeight: `${uniformNameRoleHeight}px` }}
                   >
-                    <div className="flex items-center gap-2">
-                      <div>
-                        <h3 className="font-black  text-[#0d3d6b] text-sm md:text-base mb-0.5">
-                          {story.name}
-                        </h3>
-                        <p className="text-[#375e56] text-xs md:text-xs font-medium leading-tight">
-                          {story.role}
-                        </p>
-                      </div>
+                    <div className="flex flex-col items-center justify-center gap-0">
+                      <h3 className="font-black text-[#0d3d6b] text-sm md:text-base mb-1 text-center">
+                        {story.name}
+                      </h3>
+                      <p className="text-[#375e56] text-xs md:text-xs font-medium leading-tight text-center">
+                        {story.role}
+                      </p>
                     </div>
 
                     {/* Company Logo */}
                     <div className="flex justify-center items-center pt-1 border-t border-[#d0e4f2] mt-auto">
-                      <div
-                        className="rounded-lg flex items-center justify-center"
-                        style={{ width: "130px", height: "100px" }}
-                      >
-                        <img
-                          src={story.image}
-                          alt="Organization"
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-                    </div>
+  <div
+    className="rounded-lg flex items-center justify-center bg-white"
+    style={{ flex: "1", height: "100px" }}
+  >
+    <img
+      src={story.image}
+      alt="Organization"
+      className="max-w-[90%] max-h-[80%] object-contain"
+      loading="lazy"
+    />
+  </div>
+</div>
                   </div>
                 </div>
               </article>
@@ -813,7 +817,7 @@ function StudentSuccessStories() {
           ))}
         </div>
 
-        <div className="relative lg:pr-20">
+        <div className="relative lg:pr-20" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
           <div
             className="relative z-10 overflow-hidden"
             style={{ height: `${pageViewportHeight}px` }}
@@ -877,22 +881,20 @@ function StudentSuccessStories() {
                           className="relative bg-white rounded-b-2xl border border-t-0 border-[#a8d4eb] p-2 md:p-3 pt-2 md:pt-3 flex flex-col justify-start"
                           style={{ minHeight: `${uniformNameRoleHeight}px` }}
                         >
-                          <div className="flex items-center gap-2">
-                            <div>
-                              <h3 className="font-black text-[#0d3d6b] text-sm md:text-base mb-0.5">
-                                {story.name}
-                              </h3>
-                              <p className="text-[#375e56] text-xs md:text-xs font-medium leading-tight">
-                                {story.role}
-                              </p>
-                            </div>
+                          <div className="flex flex-col items-center justify-center gap-0">
+                            <h3 className="font-black text-[#0d3d6b] text-sm md:text-base mb-1 text-center">
+                              {story.name}
+                            </h3>
+                            <p className="text-[#375e56] text-xs md:text-xs font-medium leading-tight text-center">
+                              {story.role}
+                            </p>
                           </div>
 
                           {/* Company Logo */}
                           <div className="flex justify-center items-center pt-1 border-t border-[#d0e4f2] mt-auto">
                             <div
                               className="rounded-lg flex items-center justify-center"
-                              style={{ width: "130px", height: "100px" }}
+                              style={{ flex: "1", height: "100px" }}
                             >
                               <img
                                 src={story.image}
