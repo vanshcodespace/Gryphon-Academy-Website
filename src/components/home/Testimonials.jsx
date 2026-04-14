@@ -186,7 +186,7 @@ function StudentSuccessStories() {
         initials: "NK",
         image: sanj,
         personImage: c3,
-        text: "Gryphon Academy's personalized training and placements are exceptional. They prepare students for the industry while shaping their future with a dedicated commitment to excellence. With more than 2000+ students trained, Gryphon Academy continues to make a signiificant impact in the realm of education.",
+        text: "Gryphon Academy delivers exceptional, personalized training and placements, preparing students for industry success. With 2000+ students trained, it continues to make a strong impact in education.",
       },
       {
         id: 13,
