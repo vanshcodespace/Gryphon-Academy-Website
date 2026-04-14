@@ -15,9 +15,10 @@ export default function Brochure() {
         }}>
           Everything You Need to Know.
         </h2>
+     
 
         {/* Body text */}
-        <p className="mt-3 mb-3 text-center text-lg text-justify leading-relaxed text-[#2a3038] sm:text-xl lg:text-xl lg:leading-[1.8]">
+        <p className="mt-8 mb-3 text-center text-lg text-justify leading-relaxed text-[#2a3038] sm:text-xl lg:text-xl lg:leading-[1.8]">
           Download our programme brochure for a complete overview of our training modules, placement outcomes, institutional partnerships, and service offerings. Built for decision-makers who want the full picture before the conversation.
         </p>
 
