@@ -71,7 +71,7 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Navbar
         isVisible={isNavbarVisible}
         isFullWidth={isNavbarFullWidth}
@@ -82,7 +82,7 @@ export default function Home() {
       <TopPlaced />
       <Brochure />
       <Numbers />
-      <div class="bg-[linear-gradient(to_bottom,#ceecf7_0%,#a2d5f4_25%,#f7fcff_50%,#d3eef9_75%,#ffffff_100%)]">
+      <div className="bg-[linear-gradient(to_bottom,#ceecf7_0%,#a2d5f4_25%,#f7fcff_50%,#d3eef9_75%,#ffffff_100%)]">
         <InstitutionsMarquee />
         <AudiencePathways />
         <CorporateMarquee />
@@ -94,6 +94,6 @@ export default function Home() {
       <Testimonials />
 
       <Footer />
-    </>
+    </div>
   );
 }

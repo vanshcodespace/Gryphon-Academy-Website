@@ -14,7 +14,7 @@ const allColleges = Object.entries(collegeModules).map(([path, module]) => {
 });
 
 const desktopColumns = 8;
-const visibleColleges = allColleges.slice(0, 40);
+const visibleColleges = allColleges.slice(0, 48);
 
 export default function InstitutionsMarquee() {
   return (
@@ -33,7 +33,7 @@ export default function InstitutionsMarquee() {
             >
               Our Top College Partners
             </h3>
-            <p className="mt-6 text-lg text-justify leading-relaxed text-[#e7ebf0] sm:text-xl lg:text-xl lg:leading-[1.8]">
+            <p className="mt-6 text-lg text-justify leading-relaxed text-[#e7ebf0] text-align: bg-center sm:text-xl lg:text-xl lg:leading-[1.8]">
               Partnering with Excellence Across Leading Institutions
             </p>
           </div>
@@ -43,7 +43,7 @@ export default function InstitutionsMarquee() {
           {visibleColleges.map((item) => (
             <div
               key={item.name}
-              className="flex h-25 items-center justify-center rounded-xl bg-[#ffffff] px-2 py-2.5 ring-1 ring-[#cfe0e4] shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.03] hover:bg-[#f8fbff] hover:ring-[#93c5fd] hover:shadow-[0_14px_30px_rgba(2,12,27,0.35)]"
+              className="flex h-25 items-center justify-center rounded-xl bg-[#ffffff] px-0 py-0.5 ring-1 ring-[#ffffff] shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.03] hover:bg-[#ffffff] hover:ring-[#93c5fd] hover:shadow-[0_14px_30px_rgba(2,12,27,0.35)]"
             >
               <img
                 src={item.logo}

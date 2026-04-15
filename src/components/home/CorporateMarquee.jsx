@@ -147,9 +147,9 @@ export default function CorporateMarquee() {
           className={`relative z-30 w-full ${CARDS_MAX_WIDTH_CLASS} px-4 sm:px-6 lg:px-8`}
         >
           <div className={`flex w-full flex-col ${TRACK_GAP_CLASS}`}>
-            <MarqueeTrack partners={corporateRowOne} speed="65s" />
-            <MarqueeTrack partners={corporateRowTwo} reverse speed="65s" />
-            <MarqueeTrack partners={corporateRowThree} speed="65s" />
+            <MarqueeTrack partners={corporateRowOne} speed="80s" />
+            <MarqueeTrack partners={corporateRowTwo} reverse speed="85s" />
+            <MarqueeTrack partners={corporateRowThree} speed="80s" />
           </div>
         </div>
 
