@@ -91,10 +91,10 @@ export default function Numbers() {
   const stats = [
     { number: "1,20,000+", label: "Students\nTrained" },
     { number: "65,000+", label: "Training\nHours Delivered" },
+    { number: "92%", label: "Placement Ratio" },
+    { number: "27 LPA", label: "Highest Package" },
       { number: "550+", label: "Hiring Partners" },
     { number: "75+", label: "College Partners" },
-     { number: "92%", label: "Placement Ratio" },
-      { number: "27 LPA", label: "Highest Package" },
 
   
   ];
