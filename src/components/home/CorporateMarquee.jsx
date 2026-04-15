@@ -19,6 +19,16 @@ const corporateRowOne = allCorporate.slice(0, corporateThird);
 const corporateRowTwo = allCorporate.slice(corporateThird, corporateThird * 2);
 const corporateRowThree = allCorporate.slice(corporateThird * 2);
 
+// Manual size controls
+const CARDS_MAX_WIDTH_CLASS = "max-w-8xl";
+const SECTION_PADDING_CLASS = "pt-6 pb-8 md:pt-8 md:pb-10";
+const HEADING_MARGIN_CLASS = "mb-4 md:mb-6";
+const TRACK_GAP_CLASS = "gap-1 sm:gap-1.5";
+const TRACK_PADDING_CLASS = "py-1";
+const LOGO_FRAME_SIZE_CLASS = "h-12 w-28 sm:h-13 sm:w-36 md:h-16 md:w-50";
+const TRACK_FADE_MASK =
+  "linear-gradient(to right, transparent 0%, black 10%, black 93%, transparent 100%)";
+
 const StarIcon = () => (
   <svg
     className="mr-2.5 h-3.5 w-3.5 text-[#cbd5e1] transition-all duration-300"
@@ -33,20 +43,28 @@ const MarqueeTrack = ({ partners, reverse = false, speed = "50s" }) => {
   const extendedItems = Array(4).fill(partners).flat();
 
   return (
-    <div className="marquee-container group flex w-full overflow-hidden py-2">
+    <div
+      className={`marquee-container group flex w-full overflow-hidden ${TRACK_PADDING_CLASS}`}
+      style={{
+        WebkitMaskImage: TRACK_FADE_MASK,
+        maskImage: TRACK_FADE_MASK,
+      }}
+    >
       <div
         className={`flex w-max whitespace-nowrap ${
           reverse ? "animate-marquee-reverse" : "animate-marquee"
-        }`}
+        } marquee-track`}
         style={{ animationDuration: speed }}
       >
         {extendedItems.map((item, idx) => (
           <div
             key={`${item.name}-${idx}`}
-            className="group/badge relative mx-1.5 flex items-center justify-center overflow-hidden rounded-2xl bg-white px-1.5 py-1 shadow-[0_4px_24px_rgba(0,0,0,0.03)] ring-1 ring-[#f1f5f9] transition-all duration-300 md:mx-2 md:px-2.5 md:py-1.5 lg:py-2"
+            className="group/badge relative mx-1.5 flex items-center justify-center overflow-hidden rounded-2xl bg-white px-1.5 py-1 shadow-[0_4px_24px_rgba(0,0,0,0.03)] ring-1 ring-[#f1f5f9] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:bg-[#fafdff] hover:ring-[#c7dded] md:mx-2 md:px-2.5 md:py-1.5 lg:py-2"
           >
-            <div className="absolute inset-0 z-0 bg-linear-to-r from-transparent via-[#f8fafc] to-transparent opacity-0 transition-opacity duration-300" />
-            <div className="relative z-10 flex h-12 w-32 sm:h-16 sm:w-40 md:h-20 md:w-48 items-center justify-center">
+            <div className="absolute inset-0 z-0 bg-linear-to-r from-transparent via-[#f8fafc] to-transparent opacity-0 transition-opacity duration-300 group-hover/badge:opacity-100" />
+            <div
+              className={`relative z-10 flex ${LOGO_FRAME_SIZE_CLASS} items-center justify-center`}
+            >
               {item.logo ? (
                 <img
                   src={item.logo}
@@ -87,9 +105,14 @@ export default function CorporateMarquee() {
         .animate-marquee-reverse {
           animation: marquee-reverse 40s linear infinite;
         }
+        .marquee-container:hover .marquee-track {
+          animation-play-state: paused;
+        }
       `}</style>
 
-      <div className="relative flex w-full flex-col items-center bg-linear-to-b from-[#e8f4fb] via-[#d0e8f8] to-[#b8dcf4] pt-8 pb-12 md:pt-12 md:pb-16">
+      <div
+        className={`relative flex w-full flex-col items-center bg-linear-to-b from-[#e8f4fb] via-[#d0e8f8] to-[#b8dcf4] ${SECTION_PADDING_CLASS}`}
+      >
         <svg
           className="pointer-events-none absolute top-0 left-0 z-40 h-8 w-full -translate-y-1/2"
           viewBox="0 0 1200 80"
@@ -104,10 +127,9 @@ export default function CorporateMarquee() {
           />
         </svg>
 
-        <div className="pointer-events-none absolute left-0 top-20 z-20 h-full w-16 bg-linear-to-r from-[#d0e8f8] to-transparent sm:w-32 md:w-48 md:top-24" />
-        <div className="pointer-events-none absolute right-0 top-20 z-20 h-full w-16 bg-linear-to-l from-[#d0e8f8] to-transparent sm:w-32 md:w-48 md:top-24" />
-
-        <div className="relative z-30 mb-6 flex items-center gap-4 md:mb-8">
+        <div
+          className={`relative z-30 flex items-center gap-4 ${HEADING_MARGIN_CLASS}`}
+        >
           <h3
             className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl"
             style={{
@@ -121,10 +143,14 @@ export default function CorporateMarquee() {
           </h3>
         </div>
 
-        <div className="flex w-full flex-col gap-1 sm:gap-2">
-          <MarqueeTrack partners={corporateRowOne} speed="65s" />
-          <MarqueeTrack partners={corporateRowTwo} reverse speed="65s" />
-          <MarqueeTrack partners={corporateRowThree} speed="65s" />
+        <div
+          className={`relative z-30 w-full ${CARDS_MAX_WIDTH_CLASS} px-4 sm:px-6 lg:px-8`}
+        >
+          <div className={`flex w-full flex-col ${TRACK_GAP_CLASS}`}>
+            <MarqueeTrack partners={corporateRowOne} speed="65s" />
+            <MarqueeTrack partners={corporateRowTwo} reverse speed="65s" />
+            <MarqueeTrack partners={corporateRowThree} speed="65s" />
+          </div>
         </div>
 
         <svg
