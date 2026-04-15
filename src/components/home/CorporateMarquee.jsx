@@ -59,9 +59,9 @@ const MarqueeTrack = ({ partners, reverse = false, speed = "50s" }) => {
         {extendedItems.map((item, idx) => (
           <div
             key={`${item.name}-${idx}`}
-            className="group/badge relative mx-1.5 flex items-center justify-center overflow-hidden rounded-2xl bg-white px-1.5 py-1 shadow-[0_4px_24px_rgba(0,0,0,0.03)] ring-1 ring-[#f1f5f9] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:bg-[#fafdff] hover:ring-[#c7dded] md:mx-2 md:px-2.5 md:py-1.5 lg:py-2"
+            className="group/badge relative mx-1.5 flex items-center justify-center overflow-hidden rounded-2xl bg-white px-1.5 py-1 shadow-[0_4px_24px_rgba(0,0,0,0.03)] ring-1 ring-[#ffffff] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:bg-[#ffffff] hover:ring-[#ffffff] md:mx-2 md:px-2.5 md:py-1.5 lg:py-2"
           >
-            <div className="absolute inset-0 z-0 bg-linear-to-r from-transparent via-[#f8fafc] to-transparent opacity-0 transition-opacity duration-300 group-hover/badge:opacity-100" />
+            <div className="absolute inset-0 z-0 bg-linear-to-r from-transparent via-[#ffffff] to-transparent opacity-0 transition-opacity duration-300 group-hover/badge:opacity-100" />
             <div
               className={`relative z-10 flex ${LOGO_FRAME_SIZE_CLASS} items-center justify-center`}
             >
