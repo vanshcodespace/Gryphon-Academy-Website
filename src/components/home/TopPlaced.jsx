@@ -249,9 +249,10 @@ const slotConfig = {
 };
 
 // Manual tuning controls for card/image sizing
-const DESKTOP_GRID_ROW_HEIGHT = 220;
-const IMAGE_SPLIT_HORIZONTAL = 0.48;
-const IMAGE_SPLIT_VERTICAL = 0.56;
+const DESKTOP_GRID_ROW_HEIGHT = 210;
+const DESKTOP_GRID_MAX_WIDTH = 1370;
+const IMAGE_SPLIT_HORIZONTAL = 0.5;
+const IMAGE_SPLIT_VERTICAL = 0.5;
 
 function getCtcValue(ctc) {
   const matched = String(ctc).match(/[\d.]+/);
@@ -390,7 +391,10 @@ function StudentCard({ student, orientation }) {
 export default function TopPlaced() {
   return (
     <section className="w-full bg-linear-to-b from-[#ffffff] via-[#f8fbff] to-[#f0f7ff] px-4 py-8 md:py-10">
-      <div className="mx-auto w-full max-w-375">
+      <div
+        className="mx-auto w-full"
+        style={{ maxWidth: `${DESKTOP_GRID_MAX_WIDTH}px` }}
+      >
         <div className="mb-8 md:mb-10 text-center">
           <h2
             className="mb-2 text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl"
