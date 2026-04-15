@@ -26,7 +26,7 @@ export default function Training() {
         >
           Gryphon Academy operates as a three-sided ecosystem. Every step of our
           model is designed to create simultaneous value for institutions,
-          students, and organisations — with no financial burden on any party.
+          students, and organisations - with no financial burden on any party.
         </h3>
       </div>
       <div className="w-full overflow-hidden bg-white">

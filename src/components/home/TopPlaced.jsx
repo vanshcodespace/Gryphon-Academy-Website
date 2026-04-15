@@ -17,6 +17,17 @@ import photo15 from "../../assets/TopPlaced/15.png";
 import photo16 from "../../assets/TopPlaced/16.png";
 import photo17 from "../../assets/TopPlaced/17.png";
 import photo18 from "../../assets/TopPlaced/18.png";
+import logo1 from "../../assets/TopPlaced/Logos/1.png";
+import logo2 from "../../assets/TopPlaced/Logos/2.png";
+import logo3 from "../../assets/TopPlaced/Logos/3.png";
+import logo4 from "../../assets/TopPlaced/Logos/4.png";
+import logo5 from "../../assets/TopPlaced/Logos/5.png";
+import logo6 from "../../assets/TopPlaced/Logos/6.png";
+import logo7 from "../../assets/TopPlaced/Logos/7.png";
+import logo8 from "../../assets/TopPlaced/Logos/8.png";
+import logo9 from "../../assets/TopPlaced/Logos/9.png";
+import logo10 from "../../assets/TopPlaced/Logos/10.png";
+import logo11 from "../../assets/TopPlaced/Logos/11.png";
 
 const studentCards = [
   {
@@ -25,8 +36,7 @@ const studentCards = [
     ctc: "27 LPA",
     company: "JUSPAY",
     photo: photo1,
-    companyLogo:
-      "https://1000logos.net/wp-content/uploads/2019/08/Deloitte-Logo-500x281.png",
+    companyLogo: logo1,
   },
   {
     id: 2,
@@ -34,8 +44,7 @@ const studentCards = [
     ctc: "26 LPA",
     company: "bp",
     photo: photo2,
-    companyLogo:
-      "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg",
+    companyLogo: logo2,
   },
   {
     id: 3,
@@ -43,8 +52,7 @@ const studentCards = [
     ctc: "21 LPA",
     company: "JUSPAY",
     photo: photo3,
-    companyLogo:
-      "https://nielseniq.com/wp-content/uploads/sites/3/2020/10/NielsenIQ-large-2.jpg?resize=1024,317",
+    companyLogo: logo1,
   },
   {
     id: 4,
@@ -52,7 +60,7 @@ const studentCards = [
     ctc: "15 LPA",
     company: "CrowdStrike",
     photo: photo4,
-    companyLogo: "https://logo.clearbit.com/kpmg.com",
+    companyLogo: null,
   },
   {
     id: 5,
@@ -60,7 +68,7 @@ const studentCards = [
     ctc: "13 LPA",
     company: "COHESITY",
     photo: photo5,
-    companyLogo: "https://logo.clearbit.com/nestle.com",
+    companyLogo: null,
   },
   {
     id: 6,
@@ -68,7 +76,7 @@ const studentCards = [
     ctc: "10.50 LPA",
     company: "PHILIPS",
     photo: photo6,
-    companyLogo: "https://logo.clearbit.com/blackrock.com",
+    companyLogo: logo3,
   },
   {
     id: 7,
@@ -76,7 +84,7 @@ const studentCards = [
     ctc: "10 LPA",
     company: "Mastercard",
     photo: photo7,
-    companyLogo: "https://logo.clearbit.com/infosys.com",
+    companyLogo: logo4,
   },
   {
     id: 8,
@@ -84,7 +92,7 @@ const studentCards = [
     ctc: "10 LPA",
     company: "epam",
     photo: photo8,
-    companyLogo: "https://logo.clearbit.com/ubs.com",
+    companyLogo: logo5,
   },
   {
     id: 9,
@@ -92,7 +100,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "faurecia",
     photo: photo9,
-    companyLogo: "https://logo.clearbit.com/bnymellon.com",
+    companyLogo: null,
   },
   {
     id: 10,
@@ -100,7 +108,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "Piaggio",
     photo: photo10,
-    companyLogo: "https://logo.clearbit.com/mercedes-benz.com",
+    companyLogo: logo6,
   },
   {
     id: 11,
@@ -108,7 +116,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "MAN trucks and bus",
     photo: photo11,
-    companyLogo: "https://logo.clearbit.com/pwc.com",
+    companyLogo: logo7,
   },
   {
     id: 12,
@@ -116,7 +124,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "YASH Technologies",
     photo: photo12,
-    companyLogo: "https://logo.clearbit.com/fisglobal.com",
+    companyLogo: logo8,
   },
   {
     id: 13,
@@ -124,7 +132,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "Force Motors",
     photo: photo13,
-    companyLogo: "https://logo.clearbit.com/tatatechnologies.com",
+    companyLogo: logo9,
   },
   {
     id: 14,
@@ -132,7 +140,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "Persistent",
     photo: photo14,
-    companyLogo: "https://logo.clearbit.com/whirlpool.com",
+    companyLogo: null,
   },
   {
     id: 15,
@@ -140,7 +148,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "Godrej",
     photo: photo15,
-    companyLogo: "https://logo.clearbit.com/mondelezinternational.com",
+    companyLogo: null,
   },
   {
     id: 16,
@@ -148,7 +156,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "vanderlande",
     photo: photo16,
-    companyLogo: "https://logo.clearbit.com/kpit.com",
+    companyLogo: null,
   },
   {
     id: 17,
@@ -156,15 +164,15 @@ const studentCards = [
     ctc: "000 LPA",
     company: "Data axle",
     photo: photo17,
-    companyLogo: "https://logo.clearbit.com/anz.com",
+    companyLogo: logo10,
   },
   {
     id: 18,
     name: "Suraj More",
     ctc: "000 LPA",
-    company: "Hexaware",
+    company: "Hettich",
     photo: photo18,
-    companyLogo: "https://logo.clearbit.com/anz.com",
+    companyLogo: logo11,
   },
 ];
 
@@ -328,8 +336,8 @@ function StudentCard({ student, orientation }) {
     ? `${IMAGE_SPLIT_HORIZONTAL * 100}%`
     : `${IMAGE_SPLIT_VERTICAL * 100}%`;
   const companyLogoSizeClass = isHorizontal
-    ? "h-10 w-20 md:h-10 md:w-24"
-    : "h-8 w-16 md:h-9 md:w-20";
+    ? "h-30 w-20 md:h-12 md:w-24"
+    : "h-12 w-30 md:h-12 md:w-30";
 
   return (
     <article className="group relative h-full overflow-hidden rounded-2xl border border-[#1b3a6b]/20 bg-linear-to-br from-[#ffffff] via-[#f0f7ff] to-[#e6f2ff] shadow-[0_12px_28px_rgba(27,58,107,0.18)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(27,58,107,0.32)]">
@@ -372,11 +380,13 @@ function StudentCard({ student, orientation }) {
           <div
             className={`${isHorizontal ? "mt-2" : "mt-auto pb-7"} flex justify-center`}
           >
-            <div className="rounded-lg bg-white/60 backdrop-blur-sm border border-[#a8d4eb]/40 p-1.5 shadow-[0_4px_12px_rgba(27,58,107,0.15)]">
+            <div
+              className={`${companyLogoSizeClass} overflow-hidden rounded-lg border border-[#a8d4eb]/40 bg-white/95 backdrop-blur-sm shadow-[0_4px_12px_rgba(27,58,107,0.15)]`}
+            >
               <img
-                src={student.companyLogo}
+                src={student.companyLogo || getInitialsLogo(student.company)}
                 alt={`${student.company} logo`}
-                className={`${companyLogoSizeClass} shrink-0 rounded object-contain`}
+                className="h-full w-full object-contain"
                 onError={(event) => handleLogoError(event, student.company)}
                 loading="lazy"
               />
