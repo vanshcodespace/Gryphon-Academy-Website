@@ -248,6 +248,11 @@ const slotConfig = {
   },
 };
 
+// Manual tuning controls for card/image sizing
+const DESKTOP_GRID_ROW_HEIGHT = 220;
+const IMAGE_SPLIT_HORIZONTAL = 0.48;
+const IMAGE_SPLIT_VERTICAL = 0.56;
+
 function getCtcValue(ctc) {
   const matched = String(ctc).match(/[\d.]+/);
   if (!matched) return 0;
@@ -318,32 +323,36 @@ function handleLogoError(event, company) {
 function StudentCard({ student, orientation }) {
   const isHorizontal = orientation === "horizontal";
   const college = collegesById[student.id] || "Gryphon Partner College";
+  const imageBasis = isHorizontal
+    ? `${IMAGE_SPLIT_HORIZONTAL * 100}%`
+    : `${IMAGE_SPLIT_VERTICAL * 100}%`;
+  const companyLogoSizeClass = isHorizontal
+    ? "h-10 w-20 md:h-10 md:w-24"
+    : "h-8 w-16 md:h-9 md:w-20";
 
   return (
-    <article className="group relative h-full overflow-hidden rounded-2xl border border-[#1b3a6b]/20 bg-gradient-to-br from-[#ffffff] via-[#f0f7ff] to-[#e6f2ff] shadow-[0_12px_28px_rgba(27,58,107,0.18)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(27,58,107,0.32)]">
-      <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-gradient-to-br from-[#7b1b2a]/20 to-[#1b3a6b]/10 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-12 -left-12 h-32 w-32 rounded-full bg-gradient-to-tr from-[#1b3a6b]/20 to-[#7b1b2a]/10 blur-3xl" />
+    <article className="group relative h-full overflow-hidden rounded-2xl border border-[#1b3a6b]/20 bg-linear-to-br from-[#ffffff] via-[#f0f7ff] to-[#e6f2ff] shadow-[0_12px_28px_rgba(27,58,107,0.18)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(27,58,107,0.32)]">
+      <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-linear-to-br from-[#7b1b2a]/20 to-[#1b3a6b]/10 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-12 -left-12 h-32 w-32 rounded-full bg-linear-to-tr from-[#1b3a6b]/20 to-[#7b1b2a]/10 blur-3xl" />
 
       <div
         className={`relative z-10 flex h-full ${isHorizontal ? "flex-row" : "flex-col"}`}
       >
         <div
-          className={`relative shrink-0 basis-1/2 overflow-hidden bg-gradient-to-br from-[#f0f7ff] to-[#dff1fb] ${isHorizontal ? "w-1/2" : "h-1/2"}`}
+          className={`relative shrink-0 overflow-hidden bg-linear-to-br from-[#f0f7ff] to-[#dff1fb] ${isHorizontal ? "w-1/2" : "h-1/2"}`}
+          style={{ flexBasis: imageBasis }}
         >
-          <div className="absolute right-3 top-3 z-20 rounded-lg bg-gradient-to-r from-[#1b3a6b] via-[#2d5a8c] to-[#7b1b2a] px-3 py-1.5 text-[11px] font-extrabold tracking-widest text-white shadow-[0_8px_20px_rgba(27,58,107,0.4)] border border-white/30 backdrop-blur-sm md:text-[12px]">
-            {student.ctc}
-          </div>
           <img
             src={student.photo}
             alt={student.name}
-            className="h-full w-full object-contain object-top transition-transform duration-500 group-hover:scale-110 brightness-95 group-hover:brightness-100"
+            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-110 brightness-95 group-hover:brightness-100"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1b3a6b]/40 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#1b3a6b]/40 via-transparent to-transparent" />
         </div>
 
         <div
-          className={`flex min-h-0 shrink-0 basis-1/2 ${isHorizontal ? "w-1/2 px-3 py-2.5 md:px-3.5 md:py-3" : "h-1/2 px-2.5 py-2 md:px-3 md:py-2.5"} flex-col justify-between`}
+          className={`flex min-h-0 shrink-0 basis-1/2 ${isHorizontal ? "w-1/2 px-3 py-2.5 md:px-3.5 md:py-5" : "h-1/2 px-2.5 py-2 md:px-3 md:py-2.5"} flex-col items-center justify-between text-center`}
         >
           <div className="min-h-0 text-center">
             <h3 className="line-clamp-2 text-sm font-bold leading-snug text-[#081a36] md:text-[15px] tracking-tight">
@@ -355,12 +364,18 @@ function StudentCard({ student, orientation }) {
             </p>
           </div>
 
-          <div className="mt-1 flex justify-center pb-0.5">
+          <div className="mt-2 rounded-lg bg-linear-to-r from-[#1b3a6b] via-[#2d5a8c] to-[#7b1b2a] px-3 py-1.5 text-[11px] font-extrabold tracking-widest text-white shadow-[0_8px_20px_rgba(27,58,107,0.35)] border border-white/30 backdrop-blur-sm md:text-[12px]">
+            {student.ctc}
+          </div>
+
+          <div
+            className={`${isHorizontal ? "mt-2" : "mt-auto pb-7"} flex justify-center`}
+          >
             <div className="rounded-lg bg-white/60 backdrop-blur-sm border border-[#a8d4eb]/40 p-1.5 shadow-[0_4px_12px_rgba(27,58,107,0.15)]">
               <img
                 src={student.companyLogo}
                 alt={`${student.company} logo`}
-                className="h-9 w-20 shrink-0 rounded object-contain md:h-10 md:w-24"
+                className={`${companyLogoSizeClass} shrink-0 rounded object-contain`}
                 onError={(event) => handleLogoError(event, student.company)}
                 loading="lazy"
               />
@@ -374,7 +389,7 @@ function StudentCard({ student, orientation }) {
 
 export default function TopPlaced() {
   return (
-    <section className="w-full bg-gradient-to-b from-[#ffffff] via-[#f8fbff] to-[#f0f7ff] px-4 py-8 md:py-10">
+    <section className="w-full bg-linear-to-b from-[#ffffff] via-[#f8fbff] to-[#f0f7ff] px-4 py-8 md:py-10">
       <div className="mx-auto w-full max-w-375">
         <div className="mb-8 md:mb-10 text-center">
           <h2
@@ -388,10 +403,15 @@ export default function TopPlaced() {
           >
             Our Top Placed Students
           </h2>
-          <p className="text-sm md:text-base text-[#1b3a6b]/70 font-medium tracking-wide">Success stories from Gryphon Academy alumni</p>
+          <p className="text-sm md:text-base text-[#1b3a6b]/70 font-medium tracking-wide">
+            Success stories from Gryphon Academy alumni
+          </p>
         </div>
 
-        <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:auto-rows-[180px]">
+        <div
+          className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6"
+          style={{ gridAutoRows: `${DESKTOP_GRID_ROW_HEIGHT}px` }}
+        >
           {positionedCards.map(({ slot, student, orientation }) => (
             <div key={`slot-${slot}`} className={slotConfig[slot].className}>
               <StudentCard student={student} orientation={orientation} />
