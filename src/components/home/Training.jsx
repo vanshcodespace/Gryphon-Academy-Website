@@ -1,4 +1,4 @@
-import trainEvaImage from "../../assets/training.jpg";
+import trainEvaImage from "../../assets/training.webp";
 
 export default function Training() {
   return (
