@@ -321,7 +321,7 @@ function getInitialsLogo(company) {
   const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
       <rect width="64" height="64" rx="14" fill="#EEF4FF" />
-      <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#1B3A6B">${initials}</text>
+      <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Myriad Pro, sans-serif" font-size="22" font-weight="700" fill="#1B3A6B">${initials}</text>
     </svg>
   `;
 

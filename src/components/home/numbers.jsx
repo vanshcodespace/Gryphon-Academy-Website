@@ -93,10 +93,8 @@ export default function Numbers() {
     { number: "65,000+", label: "Training\nHours Delivered" },
     { number: "92%", label: "Placement Ratio" },
     { number: "27 LPA", label: "Highest Package" },
-      { number: "550+", label: "Hiring Partners" },
+    { number: "550+", label: "Hiring Partners" },
     { number: "75+", label: "College Partners" },
-
-  
   ];
 
   return (
@@ -105,12 +103,15 @@ export default function Numbers() {
       className="relative overflow-hidden bg-linear-to-b from-[#f0f7ff] via-[#ffffff] to-[#f8fbff] py-8 sm:py-10 lg:py-12"
     >
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 xl:max-w-340">
-        <h2 className="mb-4 text-center text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl" style={{
-          background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-        }}>
+        <h2
+          className="mb-4 px-4 text-center text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl"
+          style={{
+            background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        >
           Our Impact, In Numbers
         </h2>
 

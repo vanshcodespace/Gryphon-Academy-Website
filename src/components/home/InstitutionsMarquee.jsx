@@ -33,7 +33,7 @@ export default function InstitutionsMarquee() {
             >
               Our Top College Partners
             </h3>
-            <p className="mt-6 text-lg text-justify leading-relaxed text-[#e7ebf0] text-align: bg-center sm:text-xl lg:text-xl lg:leading-[1.8]">
+            <p className="mt-6 text-lg text-center leading-relaxed text-[#e7ebf0] sm:text-xl lg:text-xl lg:leading-[1.8]">
               Partnering with Excellence Across Leading Institutions
             </p>
           </div>

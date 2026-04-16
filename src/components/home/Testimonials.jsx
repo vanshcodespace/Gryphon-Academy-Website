@@ -710,10 +710,20 @@ function StudentSuccessStories() {
     return () => {
       clearInterval(interval);
     };
-  }, [isSliding, isComponentVisible, currentPageIndex, lastPageIndex, nextStory, goToPage]);
+  }, [
+    isSliding,
+    isComponentVisible,
+    currentPageIndex,
+    lastPageIndex,
+    nextStory,
+    goToPage,
+  ]);
 
   return (
-    <div className="relative mb-0 overflow-hidden rounded-3xl bg-transparent py-6 md:py-8 xl:py-6" ref={componentRef}>
+    <div
+      className="relative mb-0 overflow-hidden rounded-3xl bg-transparent py-6 md:py-8 xl:py-6"
+      ref={componentRef}
+    >
       <div className="relative z-10 mb-4 text-center md:mb-6 xl:mb-5">
         <h2
           className="mb-2 overflow-visible px-4 pb-1 text-4xl font-bold tracking-tight leading-[1.1] md:text-5xl lg:text-6xl drop-shadow-sm"
@@ -757,12 +767,7 @@ function StudentSuccessStories() {
                 >
                   {/* Testimonial Section */}
                   <div className="relative flex-1 bg-[linear-gradient(165deg,#f6fbff_0%,#dff1fb_100%)] rounded-t-2xl border border-[#a8d4eb] p-4 md:p-5 flex flex-col justify-center">
-                    <div
-                      className="absolute left-6 top-3 select-none text-5xl md:text-6xl font-black leading-none text-[#5a9fcc] opacity-15"
-                      style={{
-                        fontFamily: '"Playfair Display", serif',
-                      }}
-                    >
+                    <div className="absolute left-6 top-3 select-none text-5xl md:text-6xl font-black leading-none text-[#5a9fcc] opacity-15">
                       "
                     </div>
                     <p className="relative z-10 text-center font-semibold leading-normal text-[#1a3d5c] text-sm md:text-[0.95rem]">
@@ -801,18 +806,18 @@ function StudentSuccessStories() {
 
                     {/* Company Logo */}
                     <div className="flex justify-center items-center pt-1 border-t border-[#d0e4f2] mt-auto">
-  <div
-    className="rounded-lg flex items-center justify-center bg-white"
-    style={{ flex: "1", height: "100px" }}
-  >
-    <img
-      src={story.image}
-      alt="Organization"
-      className="max-w-[90%] max-h-[80%] object-contain"
-      loading="lazy"
-    />
-  </div>
-</div>
+                      <div
+                        className="rounded-lg flex items-center justify-center bg-white"
+                        style={{ flex: "1", height: "100px" }}
+                      >
+                        <img
+                          src={story.image}
+                          alt="Organization"
+                          className="max-w-[90%] max-h-[80%] object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -835,7 +840,11 @@ function StudentSuccessStories() {
           ))}
         </div>
 
-        <div className="relative lg:pr-20" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+        <div
+          className="relative lg:pr-20"
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+        >
           <div
             className="relative z-10 overflow-hidden"
             style={{ height: `${pageViewportHeight}px` }}
@@ -866,12 +875,7 @@ function StudentSuccessStories() {
                       >
                         {/* Testimonial Section */}
                         <div className="relative flex-1 bg-[linear-gradient(165deg,#f6fbff_0%,#dff1fb_100%)] rounded-t-2xl border border-[#a8d4eb] p-4 md:p-5 flex flex-col justify-center">
-                          <div
-                            className="absolute left-6 top-3 select-none text-5xl md:text-6xl font-black leading-none text-[#5a9fcc] opacity-15"
-                            style={{
-                              fontFamily: '"Playfair Display", serif',
-                            }}
-                          >
+                          <div className="absolute left-6 top-3 select-none text-5xl md:text-6xl font-black leading-none text-[#5a9fcc] opacity-15">
                             "
                           </div>
                           <p className="relative z-10 text-center font-semibold leading-normal text-[#1a3d5c] text-sm md:text-[0.95rem]">
