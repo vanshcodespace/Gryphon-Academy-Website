@@ -79,17 +79,17 @@ export default function Home() {
       />
       <Hero showTopLeftLogo={!isNavbarVisible} logoSrc={logoSrc} />
       <WhoAreWe />
-      <TopPlaced />
-      <Brochure />
+         <Brochure />
+      <AudiencePathways />
+       <Training />
       <Numbers />
-      <div className="bg-[linear-gradient(to_bottom,#ceecf7_0%,#a2d5f4_25%,#f7fcff_50%,#d3eef9_75%,#ffffff_100%)]">
         <InstitutionsMarquee />
-        <AudiencePathways />
+        <TopPlaced/>
         <CorporateMarquee />
         <Training />
-      </div>
+        <Gallery/>
+      
       <CTA />
-      <Gallery />
       {/* <PartnersMarquee/> */}
       <Testimonials />
 
