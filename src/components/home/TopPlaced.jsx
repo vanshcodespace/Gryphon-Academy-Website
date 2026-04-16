@@ -261,6 +261,14 @@ const DESKTOP_GRID_ROW_HEIGHT = 210;
 const DESKTOP_GRID_MAX_WIDTH = 1370;
 const IMAGE_SPLIT_HORIZONTAL = 0.5;
 const IMAGE_SPLIT_VERTICAL = 0.5;
+const CONTENT_TOP_OFFSET = {
+  horizontal: 29,
+  vertical: 37,
+};
+const CTC_TOP_MARGIN = {
+  horizontal: 12,
+  vertical: 12,
+};
 
 function getCtcValue(ctc) {
   const matched = String(ctc).match(/[\d.]+/);
@@ -335,9 +343,15 @@ function StudentCard({ student, orientation }) {
   const imageBasis = isHorizontal
     ? `${IMAGE_SPLIT_HORIZONTAL * 100}%`
     : `${IMAGE_SPLIT_VERTICAL * 100}%`;
+  const contentTopOffset = isHorizontal
+    ? CONTENT_TOP_OFFSET.horizontal
+    : CONTENT_TOP_OFFSET.vertical;
+  const ctcTopMargin = isHorizontal
+    ? CTC_TOP_MARGIN.horizontal
+    : CTC_TOP_MARGIN.vertical;
   const companyLogoSizeClass = isHorizontal
-    ? "h-30 w-20 md:h-12 md:w-24"
-    : "h-12 w-30 md:h-12 md:w-30";
+    ? "h-14 w-30 md:h-15 md:w-34"
+    : "h-14 w-30 md:h-15 md:w-34";
 
   return (
     <article className="group relative h-full overflow-hidden rounded-2xl border border-[#1b3a6b]/20 bg-linear-to-br from-[#ffffff] via-[#f0f7ff] to-[#e6f2ff] shadow-[0_12px_28px_rgba(27,58,107,0.18)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(27,58,107,0.32)]">
@@ -361,9 +375,12 @@ function StudentCard({ student, orientation }) {
         </div>
 
         <div
-          className={`flex min-h-0 shrink-0 basis-1/2 ${isHorizontal ? "w-1/2 px-3 py-2.5 md:px-3.5 md:py-5" : "h-1/2 px-2.5 py-2 md:px-3 md:py-2.5"} flex-col items-center justify-between text-center`}
+          className={`flex min-h-0 shrink-0 basis-1/2 ${isHorizontal ? "w-1/2" : "h-1/2"} flex-col items-center text-center`}
+          style={{ paddingTop: `${contentTopOffset}px` }}
         >
-          <div className="min-h-0 text-center">
+          <div
+            className={`min-h-0 text-center ${isHorizontal ? "px-3 md:px-3.5" : "px-2.5 md:px-3"}`}
+          >
             <h3 className="line-clamp-2 text-sm font-bold leading-snug text-[#081a36] md:text-[15px] tracking-tight">
               {student.name}
             </h3>
@@ -373,24 +390,23 @@ function StudentCard({ student, orientation }) {
             </p>
           </div>
 
-          <div className="mt-2 rounded-lg bg-linear-to-r from-[#1b3a6b] via-[#2d5a8c] to-[#7b1b2a] px-3 py-1.5 text-[11px] font-extrabold tracking-widest text-white shadow-[0_8px_20px_rgba(27,58,107,0.35)] border border-white/30 backdrop-blur-sm md:text-[12px]">
+          <div
+            className="rounded-lg bg-linear-to-r from-[#1b3a6b] via-[#2d5a8c] to-[#7b1b2a] px-3 py-1.5 text-[11px] font-extrabold tracking-widest text-white shadow-[0_8px_20px_rgba(27,58,107,0.35)] border border-white/30 backdrop-blur-sm md:text-[12px]"
+            style={{ marginTop: `${ctcTopMargin}px` }}
+          >
             {student.ctc}
           </div>
 
           <div
-            className={`${isHorizontal ? "mt-2" : "mt-auto pb-7"} flex justify-center`}
+            className={`mt-auto ${companyLogoSizeClass} overflow-hidden rounded-t-lg rounded-b-none border border-[#9ac9e4]/45 border-b-0 bg-white shadow-[0_6px_14px_rgba(27,58,107,0.18)]`}
           >
-            <div
-              className={`${companyLogoSizeClass} overflow-hidden rounded-lg border border-[#a8d4eb]/40 bg-white/95 backdrop-blur-sm shadow-[0_4px_12px_rgba(27,58,107,0.15)]`}
-            >
-              <img
-                src={student.companyLogo || getInitialsLogo(student.company)}
-                alt={`${student.company} logo`}
-                className="h-full w-full object-contain"
-                onError={(event) => handleLogoError(event, student.company)}
-                loading="lazy"
-              />
-            </div>
+            <img
+              src={student.companyLogo || getInitialsLogo(student.company)}
+              alt={`${student.company} logo`}
+              className="h-full w-full object-contain"
+              onError={(event) => handleLogoError(event, student.company)}
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
