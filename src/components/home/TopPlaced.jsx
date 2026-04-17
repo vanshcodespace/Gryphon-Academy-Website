@@ -28,13 +28,6 @@ import logo8 from "../../assets/TopPlaced/Logos/8.webp";
 import logo9 from "../../assets/TopPlaced/Logos/9.webp";
 import logo10 from "../../assets/TopPlaced/Logos/10.webp";
 import logo11 from "../../assets/TopPlaced/Logos/11.webp";
-import logo12 from "../../assets/TopPlaced/Logos/12.webp";
-import logo13 from "../../assets/TopPlaced/Logos/13.webp";
-import logo14 from "../../assets/TopPlaced/Logos/14.webp";
-import logo15 from "../../assets/TopPlaced/Logos/15.webp";
-import logo16 from "../../assets/TopPlaced/Logos/16.webp";
-// import logo17 from "../../assets/TopPlaced/Logos/17.webp";
-// import logo18 from "../../assets/TopPlaced/Logos/18.webp";
 
 const studentCards = [
   {
@@ -67,7 +60,7 @@ const studentCards = [
     ctc: "15 LPA",
     company: "CrowdStrike",
     photo: photo4,
-    companyLogo: logo16,
+    companyLogo: null,
   },
   {
     id: 5,
@@ -147,7 +140,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "Persistent",
     photo: photo14,
-    companyLogo: logo14,
+    companyLogo: null,
   },
   {
     id: 15,
@@ -155,7 +148,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "Godrej",
     photo: photo15,
-    companyLogo: logo15,
+    companyLogo: null,
   },
   {
     id: 16,
@@ -163,7 +156,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "vanderlande",
     photo: photo16,
-    companyLogo: logo13,
+    companyLogo: null,
   },
   {
     id: 17,
@@ -242,7 +235,7 @@ function StudentCard({ student }) {
 
   return (
     <article
-      className="group relative overflow-hidden rounded-3xl border-2 border-[#1B3A6B]/20 bg-linear-to-br from-white via-[#f5f9ff] to-[#f0f7ff] shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+      className="group relative overflow-hidden rounded-3xl border-2 border-[#1B3A6B]/20 bg-linear-to-br from-white via-[#f5f9ff] to-[#f0f7ff] shadow-lg hover:shadow-2xl transition-all duration-300"
       style={{ width: SCROLLER_CARD_WIDTH, height: SCROLLER_CARD_HEIGHT }}
     >
       {/* Background glow effect */}
@@ -252,7 +245,7 @@ function StudentCard({ student }) {
       <div className="relative z-10 flex h-full flex-col">
         {/* Photo section - Circular and compact */}
         <div className="relative shrink-0 flex items-center justify-center py-3 bg-linear-to-b from-[#f0f7ff] to-white">
-          <div className="relative h-20 w-20 rounded-full overflow-hidden bg-linear-to-br from-[#e6f2ff] to-[#d0ddef] border-3 border-[#1B3A6B]/30 shadow-md">
+          <div className="relative h-20 w-20 rounded-full overflow-hidden bg-gradient-to-br from-[#e6f2ff] to-[#d0ddef] border-3 border-[#1B3A6B]/30 shadow-md">
             <img
               src={student.photo}
               alt={student.name}
@@ -265,8 +258,8 @@ function StudentCard({ student }) {
         {/* Content section */}
         <div className="flex min-h-0 flex-1 flex-col items-center justify-between px-3 py-3 text-center space-y-2">
           {/* Student Name and College - PROMINENT */}
-          <div className="w-full min-h-13 flex flex-col justify-center">
-            <h3 className="line-clamp-1 text-base font-black leading-tight text-[#081a36] md:text-lg tracking-tight">
+          <div className="w-full min-h-[52px] flex flex-col justify-center">
+            <h3 className="line-clamp-1 text-base font-black leading-tight text-[#081a36] md:text-lg tracking-tight" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
               {student.name}
             </h3>
             <p className="line-clamp-3 text-[8px] font-extrabold text-[#1B3A6B] uppercase tracking-wider leading-tight mt-1" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
@@ -311,13 +304,10 @@ function StudentCard({ student }) {
 
 export default function TopPlaced() {
   const trackRef = useRef(null);
-  const scrollBeatTimeoutRef = useRef(null);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(true);
   const [activePage, setActivePage] = useState(0);
   const [autoScrollProgress, setAutoScrollProgress] = useState(100);
-  const [beatTick, setBeatTick] = useState(0);
-  const [isBeatAnimating, setIsBeatAnimating] = useState(false);
   const isHoveringRef = useRef(false);
   const cardsPerPage = 2;
   const totalPages = Math.max(Math.ceil(studentCards.length / cardsPerPage), 1);
@@ -358,19 +348,7 @@ export default function TopPlaced() {
     const track = trackRef.current;
     if (!track) return undefined;
 
-    const handleScroll = () => {
-      updateScrollState();
-      setIsBeatAnimating(true);
-
-      if (scrollBeatTimeoutRef.current) {
-        window.clearTimeout(scrollBeatTimeoutRef.current);
-      }
-
-      scrollBeatTimeoutRef.current = window.setTimeout(() => {
-        setIsBeatAnimating(false);
-      }, 260);
-    };
-
+    const handleScroll = () => updateScrollState();
     track.addEventListener("scroll", handleScroll, { passive: true });
 
     const resizeObserver =
@@ -386,9 +364,6 @@ export default function TopPlaced() {
 
     return () => {
       track.removeEventListener("scroll", handleScroll);
-      if (scrollBeatTimeoutRef.current) {
-        window.clearTimeout(scrollBeatTimeoutRef.current);
-      }
       if (resizeObserver) {
         resizeObserver.disconnect();
       }
@@ -432,14 +407,8 @@ export default function TopPlaced() {
 
         if (timeElapsed >= AUTO_SCROLL_DELAY) {
           // After the last visible dot, loop back to the first page.
-          const effectiveActivePage = Math.min(
-            activePage,
-            displayedLastPageIndex,
-          );
-          const nextPage =
-            effectiveActivePage >= displayedLastPageIndex
-              ? 0
-              : effectiveActivePage + 1;
+          const effectiveActivePage = Math.min(activePage, displayedLastPageIndex);
+          const nextPage = effectiveActivePage >= displayedLastPageIndex ? 0 : effectiveActivePage + 1;
           goToCard(nextPage);
           timeElapsed = 0;
           setAutoScrollProgress(100);
@@ -452,26 +421,11 @@ export default function TopPlaced() {
     };
   }, [activePage, goToCard, totalPages]);
 
-  useEffect(() => {
-    if (!isBeatAnimating) {
-      return undefined;
-    }
-
-    const beatInterval = window.setInterval(() => {
-      setBeatTick((currentTick) => currentTick + 1);
-    }, 120);
-
-    return () => {
-      window.clearInterval(beatInterval);
-    };
-  }, [isBeatAnimating]);
-
   const scrollTrack = useCallback(
     (direction) => {
       const track = trackRef.current;
       if (!track) return;
 
-      setIsBeatAnimating(true);
       const delta = getScrollStep() * cardsPerPage;
 
       track.scrollBy({
@@ -482,31 +436,9 @@ export default function TopPlaced() {
     [cardsPerPage, getScrollStep],
   );
 
-  const getWaveBarHeight = (pageIndex, isActive) => {
-    if (!isActive) {
-      if (!isBeatAnimating) {
-        return 14;
-      }
-
-      const ambientSeed = Math.sin((pageIndex + 1) * 41 + beatTick * 1.35);
-      const ambientNormalized = (ambientSeed + 1) / 2;
-      return Math.round(12 + ambientNormalized * 10);
-    }
-
-    if (!isBeatAnimating) {
-      return 40;
-    }
-
-    const randomSeed = Math.sin((pageIndex + 1) * 73 + beatTick * 1.9);
-    const normalized = (randomSeed + 1) / 2;
-    const beatHeight = 22 + normalized * 30;
-
-    return Math.round(beatHeight);
-  };
-
   return (
     <section className="w-full overflow-hidden bg-linear-to-b from-white via-[#f8fbff] to-[#f0f7ff] px-4 py-8 md:py-12">
-      <div className="mx-auto w-full max-w-360">
+      <div className="mx-auto w-full max-w-[1370px]">
         <div className="mb-10 text-center md:mb-12">
           <h2
             className="mb-4 text-5xl font-black tracking-tighter sm:text-6xl lg:text-7xl"
@@ -527,10 +459,10 @@ export default function TopPlaced() {
 
         <div className="relative">
           <div
-            className="overflow-x-auto px-1 pb-5 [scrollbar-width:none] scroll-smooth"
+            className="overflow-x-auto pb-4 [scrollbar-width:none] scroll-smooth"
             ref={trackRef}
           >
-            <div className="flex w-max gap-4 pr-12">
+            <div className="flex w-max gap-4 pr-2">
               {studentCards.map((student) => (
                 <div
                   key={student.id}
@@ -551,9 +483,7 @@ export default function TopPlaced() {
               aria-label="Scroll placed students left"
               disabled={!canScrollPrev}
             >
-              <span className="flex h-full w-full items-center justify-center text-xl leading-none">
-                ‹
-              </span>
+              <span className="text-lg">‹</span>
             </button>
 
             <div
@@ -568,45 +498,44 @@ export default function TopPlaced() {
               {(() => {
                 const displayedPages = Math.max(totalPages - 2, 1);
                 const displayedLastPageIndex = displayedPages - 1;
-                const effectiveActivePage = Math.min(
-                  activePage,
-                  displayedLastPageIndex,
-                );
-
-                return Array.from({ length: displayedPages }).map(
-                  (_, index) => {
-                    const isActive = index === effectiveActivePage;
-                    return (
-                      <button
-                        type="button"
-                        key={`dot-${index}`}
-                        onClick={() => {
-                          setIsBeatAnimating(true);
-                          goToCard(index);
-                          setAutoScrollProgress(100);
-                          isHoveringRef.current = false;
-                        }}
-                        aria-label={`Go to student page ${index + 1}`}
-                        className="relative flex h-14 w-4 items-center justify-center bg-transparent transition-transform duration-200 hover:scale-110"
-                      >
-                        <span
-                          className={`block w-[4px] rounded-full transition-[height,background-color,transform,opacity] duration-150 ease-out ${
-                            isActive
-                              ? "bg-[#1B3A6B] opacity-100 shadow-[0_0_12px_rgba(27,58,107,0.18)]"
-                              : "bg-[#9bb9d8] opacity-90"
-                          }`}
-                          style={{
-                            height: `${getWaveBarHeight(index, isActive)}px`,
-                            transform:
-                              isActive && isBeatAnimating
-                                ? "scaleY(1.03)"
-                                : "scaleY(1)",
-                          }}
-                        />
-                      </button>
-                    );
-                  },
-                );
+                const effectiveActivePage = Math.min(activePage, displayedLastPageIndex);
+                
+                return Array.from({ length: displayedPages }).map((_, index) => {
+                  const isActive = index === effectiveActivePage;
+                  return (
+                    <button
+                      type="button"
+                      key={`dot-${index}`}
+                      onClick={() => {
+                        goToCard(index);
+                        setAutoScrollProgress(100);
+                        isHoveringRef.current = false;
+                      }}
+                      aria-label={`Go to student page ${index + 1}`}
+                      className={`relative rounded-full transition-all duration-300 overflow-hidden flex items-center justify-center ${
+                        isActive
+                          ? "h-2 w-6 bg-[#1B3A6B]/20 shadow-md shadow-[#1B3A6B]/30"
+                          : "h-2 w-2 bg-[#b8d0e8] hover:bg-[#1B3A6B] hover:shadow-md"
+                      }`}
+                    >
+                      {isActive && (
+                        <>
+                          <div className="absolute inset-0 rounded-full bg-[#1B3A6B]" />
+                          <div
+                            className="absolute left-0 top-0 bottom-0 bg-[#1f6fa8] rounded-full"
+                            style={{
+                              width: `${autoScrollProgress}%`,
+                              height: "100%",
+                              transition: "width 0.1s linear",
+                              willChange: "width",
+                            }}
+                          />
+                          <div className="absolute inset-0 rounded-full border border-[#1B3A6B]/50" />
+                        </>
+                      )}
+                    </button>
+                  );
+                });
               })()}
             </div>
 
@@ -617,9 +546,7 @@ export default function TopPlaced() {
               aria-label="Scroll placed students right"
               disabled={!canScrollNext}
             >
-              <span className="flex h-full w-full items-center justify-center text-xl leading-none">
-                ›
-              </span>
+              <span className="text-lg">›</span>
             </button>
           </div>
         </div>
