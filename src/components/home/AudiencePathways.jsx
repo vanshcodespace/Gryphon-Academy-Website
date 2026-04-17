@@ -4,7 +4,7 @@ export default function AudiencePathways() {
   return (
     <section
       id="audience-pathways"
-      className="relative w-full overflow-hidden bg-[#01224F] pt-8 md:pt-10"
+      className="relative w-full overflow-hidden bg-[#01224F]"
     >
       {/* Video Container */}
       <div className="relative w-full overflow-hidden bg-white leading-none">
