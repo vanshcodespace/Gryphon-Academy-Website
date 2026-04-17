@@ -550,7 +550,9 @@ export default function TopPlaced() {
               aria-label="Scroll placed students left"
               disabled={!canScrollPrev}
             >
-              <span className="text-xl">‹</span>
+              <span className="flex h-full w-full items-center justify-center text-xl leading-none">
+                ‹
+              </span>
             </button>
 
             <div
@@ -614,7 +616,9 @@ export default function TopPlaced() {
               aria-label="Scroll placed students right"
               disabled={!canScrollNext}
             >
-              <span className="text-xl">›</span>
+              <span className="flex h-full w-full items-center justify-center text-xl leading-none">
+                ›
+              </span>
             </button>
           </div>
         </div>

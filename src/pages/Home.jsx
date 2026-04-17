@@ -86,7 +86,6 @@ export default function Home() {
       <InstitutionsMarquee />
       <CorporateMarquee />
       <TopPlaced/>
-      <Training />
       <Gallery/>
       
       <CTA />
