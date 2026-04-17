@@ -235,52 +235,58 @@ function StudentCard({ student }) {
 
   return (
     <article
-      className="group relative overflow-hidden rounded-2xl border border-[#1b3a6b]/20 bg-linear-to-br from-[#ffffff] via-[#f0f7ff] to-[#e6f2ff] shadow-[0_12px_28px_rgba(27,58,107,0.18)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_48px_rgba(27,58,107,0.28)]"
+      className="group relative overflow-hidden rounded-3xl border-2 border-[#1B3A6B]/20 bg-linear-to-br from-white via-[#f5f9ff] to-[#f0f7ff] shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-3"
       style={{ width: SCROLLER_CARD_WIDTH, height: SCROLLER_CARD_HEIGHT }}
     >
-      <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-linear-to-br from-[#7b1b2a]/20 to-[#1b3a6b]/10 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-12 -left-12 h-32 w-32 rounded-full bg-linear-to-tr from-[#1b3a6b]/20 to-[#7b1b2a]/10 blur-3xl" />
+      {/* Background glow effect */}
+      <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#1B3A6B]/15 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-8 -left-8 h-40 w-40 rounded-full bg-[#7B1B2A]/10 blur-3xl" />
 
       <div className="relative z-10 flex h-full flex-col">
-        <div
-          className="relative shrink-0 overflow-hidden bg-linear-to-br from-[#f0f7ff] to-[#dff1fb]"
-          style={{ flexBasis: `${IMAGE_SPLIT_VERTICAL * 100}%` }}
-        >
-          <img
-            src={student.photo}
-            alt={student.name}
-            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-110 brightness-95 group-hover:brightness-100"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-linear-to-t from-[#1b3a6b]/40 via-transparent to-transparent" />
+        {/* Photo section - Circular and compact */}
+        <div className="relative shrink-0 flex items-center justify-center py-3 bg-linear-to-b from-[#f0f7ff] to-white">
+          <div className="relative h-20 w-20 rounded-full overflow-hidden bg-gradient-to-br from-[#e6f2ff] to-[#d0ddef] border-3 border-[#1B3A6B]/30 shadow-md">
+            <img
+              src={student.photo}
+              alt={student.name}
+              className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110 brightness-100 group-hover:brightness-110"
+              loading="lazy"
+            />
+          </div>
         </div>
 
-        <div className="flex min-h-0 flex-1 flex-col items-center px-3 pb-3 pt-3.5 text-center">
-          <div className="min-h-0 text-center">
-            <h3 className="line-clamp-2 text-[13px] font-bold leading-snug tracking-tight text-[#081a36] md:text-sm">
+        {/* Content section */}
+        <div className="flex min-h-0 flex-1 flex-col items-center justify-between px-3 py-3 text-center space-y-2">
+          {/* Student Name and College - PROMINENT */}
+          <div className="w-full min-h-[52px] flex flex-col justify-center">
+            <h3 className="line-clamp-1 text-sm font-black leading-tight text-[#081a36] md:text-base tracking-tight">
               {student.name}
             </h3>
-
-            <p className="mt-0.5 line-clamp-2 text-[8px] font-semibold leading-tight tracking-wide uppercase text-[#1b3a6b]/80 md:text-[9px]">
+            <p className="line-clamp-1 text-[7px] font-bold text-white uppercase tracking-wider leading-tight bg-[#1B3A6B] rounded-full px-2 py-0.5 mt-1 inline-block mx-auto">
               {college}
             </p>
           </div>
 
-          <div
-            className="mt-2 rounded-lg border border-white/30 bg-linear-to-r from-[#1b3a6b] via-[#2d5a8c] to-[#7b1b2a] px-3 py-1.5 text-[10px] font-extrabold tracking-widest text-white shadow-[0_8px_20px_rgba(27,58,107,0.35)] backdrop-blur-sm md:text-[11px]"
-            style={{ marginTop: `${CTC_TOP_MARGIN_VERTICAL}px` }}
-          >
-            {student.ctc}
+          {/* CTC Badge - LARGE AND PROMINENT */}
+          <div className="w-full px-2">
+            <div className="inline-block rounded-xl border-2 border-[#7B1B2A]/40 bg-linear-to-r from-[#1B3A6B] to-[#7B1B2A] px-4 py-2 text-center shadow-md hover:shadow-lg transition-shadow">
+              <span className="text-xl font-black text-white drop-shadow-sm">
+                {student.ctc}
+              </span>
+            </div>
           </div>
 
-          <div className="mt-auto h-12 w-full overflow-hidden rounded-t-lg rounded-b-none border border-[#9ac9e4]/45 border-b-0 bg-white shadow-[0_6px_14px_rgba(27,58,107,0.18)] md:h-14">
-            <img
-              src={student.companyLogo || getInitialsLogo(student.company)}
-              alt={`${student.company} logo`}
-              className="h-full w-full object-contain"
-              onError={(event) => handleLogoError(event, student.company)}
-              loading="lazy"
-            />
+          {/* Company Logo - HIGHLIGHTED AND CENTERED */}
+          <div className="mt-auto w-full flex flex-col items-center">
+            <div className="h-20 w-20 rounded-full border-3 border-[#1B3A6B] bg-white shadow-lg overflow-hidden flex items-center justify-center md:h-24 md:w-24 hover:border-[#7B1B2A] transition-all">
+              <img
+                src={student.companyLogo || getInitialsLogo(student.company)}
+                alt={`${student.company} logo`}
+                className="h-16 w-16 object-contain md:h-20 md:w-20"
+                onError={(event) => handleLogoError(event, student.company)}
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -293,8 +299,11 @@ export default function TopPlaced() {
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(true);
   const [activePage, setActivePage] = useState(0);
+  const [autoScrollProgress, setAutoScrollProgress] = useState(100);
+  const isHoveringRef = useRef(false);
   const cardsPerPage = 2;
   const totalPages = Math.max(Math.ceil(studentCards.length / cardsPerPage), 1);
+  const lastPageIndex = Math.max(totalPages - 1, 0);
 
   const getScrollStep = useCallback(() => {
     const track = trackRef.current;
@@ -354,20 +363,8 @@ export default function TopPlaced() {
     };
   }, [updateScrollState]);
 
-  const scrollTrack = useCallback(
-    (direction) => {
-      const track = trackRef.current;
-      if (!track) return;
-
-      const delta = getScrollStep() * cardsPerPage;
-
-      track.scrollBy({
-        left: direction === "next" ? delta : -delta,
-        behavior: "smooth",
-      });
-    },
-    [cardsPerPage, getScrollStep],
-  );
+  const AUTO_SCROLL_DELAY = 5000;
+  const PROGRESS_UPDATE_INTERVAL = 100;
 
   const goToCard = useCallback(
     (index) => {
@@ -385,12 +382,58 @@ export default function TopPlaced() {
     [cardsPerPage, getScrollStep, totalPages],
   );
 
+  useEffect(() => {
+    let timeElapsed = 0;
+    const displayedPages = Math.max(totalPages - 2, 1);
+    const displayedLastPageIndex = displayedPages - 1;
+
+    // Single interval that manages both progress and auto-scroll
+    const interval = setInterval(() => {
+      if (!isHoveringRef.current) {
+        timeElapsed += PROGRESS_UPDATE_INTERVAL;
+        const progress = Math.max(
+          0,
+          100 - (timeElapsed / AUTO_SCROLL_DELAY) * 100,
+        );
+        setAutoScrollProgress(progress);
+
+        if (timeElapsed >= AUTO_SCROLL_DELAY) {
+          // After the last visible dot, loop back to the first page.
+          const effectiveActivePage = Math.min(activePage, displayedLastPageIndex);
+          const nextPage = effectiveActivePage >= displayedLastPageIndex ? 0 : effectiveActivePage + 1;
+          goToCard(nextPage);
+          timeElapsed = 0;
+          setAutoScrollProgress(100);
+        }
+      }
+    }, PROGRESS_UPDATE_INTERVAL);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [activePage, goToCard, totalPages]);
+
+  const scrollTrack = useCallback(
+    (direction) => {
+      const track = trackRef.current;
+      if (!track) return;
+
+      const delta = getScrollStep() * cardsPerPage;
+
+      track.scrollBy({
+        left: direction === "next" ? delta : -delta,
+        behavior: "smooth",
+      });
+    },
+    [cardsPerPage, getScrollStep],
+  );
+
   return (
-    <section className="w-full overflow-hidden bg-linear-to-b from-[#ffffff] via-[#f8fbff] to-[#f0f7ff] px-4 py-8 md:py-10">
+    <section className="w-full overflow-hidden bg-linear-to-b from-white via-[#f8fbff] to-[#f0f7ff] px-4 py-8 md:py-12">
       <div className="mx-auto w-full max-w-[1370px]">
-        <div className="mb-8 text-center md:mb-10">
+        <div className="mb-10 text-center md:mb-12">
           <h2
-            className="mb-2 text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl"
+            className="mb-4 text-5xl font-black tracking-tighter sm:text-6xl lg:text-7xl"
             style={{
               background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
               WebkitBackgroundClip: "text",
@@ -398,16 +441,16 @@ export default function TopPlaced() {
               backgroundClip: "text",
             }}
           >
-            Our Top Placed Students
+            Top Placements
           </h2>
-          <p className="text-sm md:text-base text-[#1b3a6b]/70 font-medium tracking-wide">
-            Success stories from Gryphon Academy alumni
+          <p className="text-base md:text-lg font-semibold text-[#4a5568] tracking-wide">
+            Meet our highest achievers
           </p>
         </div>
 
         <div className="relative">
           <div
-            className="overflow-x-auto pb-4 [scrollbar-width:thin] scroll-smooth"
+            className="overflow-x-auto pb-4 [scrollbar-width:none] scroll-smooth"
             ref={trackRef}
           >
             <div className="flex w-max gap-4 pr-2">
@@ -427,43 +470,74 @@ export default function TopPlaced() {
             <button
               type="button"
               onClick={() => scrollTrack("prev")}
-              className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#5a9fcc] bg-linear-to-br from-white/70 to-white/50 text-2xl text-[#1f709d] shadow-[0_4px_12px_rgba(35,105,150,0.18)] transition-all duration-300 hover:-translate-y-1 hover:from-white/85 hover:to-white/65 hover:shadow-[0_8px_16px_rgba(35,105,150,0.24)] hover:border-[#3d8dbe] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:translate-y-0 disabled:shadow-[0_2px_6px_rgba(35,105,150,0.08)] font-semibold"
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1B3A6B] text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 hover:bg-[#2d5a8c] disabled:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 disabled:shadow-none font-bold"
               aria-label="Scroll placed students left"
               disabled={!canScrollPrev}
             >
-              <span className="-mt-0.5">←</span>
+              <span className="text-xl">‹</span>
             </button>
 
-            <div className="flex items-center justify-center gap-2 w-full lg:w-auto">
-              {Array.from({ length: totalPages }).map((_, index) => {
-                const isActive = index === activePage;
-                return (
-                  <button
-                    type="button"
-                    key={`dot-${index}`}
-                    onClick={() => goToCard(index)}
-                    aria-label={`Go to student page ${index + 1}`}
-                    disabled={index === activePage}
-                    className={`rounded-full transition-all duration-300 overflow-hidden relative border border-[#2f84b8]/70 shadow-[0_2px_6px_rgba(31,106,168,0.18)] ${
-                      isActive
-                        ? "h-10 w-3.5 bg-[#1f6fa8] shadow-[0_4px_10px_rgba(47,132,184,0.35)] lg:h-11 lg:w-4"
-                        : "h-4 w-2.5 bg-[#5fa0c9]/85 hover:bg-[#1f6fa8] hover:shadow-[0_3px_8px_rgba(31,106,168,0.22)]"
-                    }`}
-                  >
-                    <div className="absolute inset-0 rounded-full pointer-events-none bg-white/10" />
-                  </button>
-                );
-              })}
+            <div
+              className="flex items-center justify-center gap-2.5 w-full lg:w-auto"
+              onMouseEnter={() => {
+                isHoveringRef.current = true;
+              }}
+              onMouseLeave={() => {
+                isHoveringRef.current = false;
+              }}
+            >
+              {(() => {
+                const displayedPages = Math.max(totalPages - 2, 1);
+                const displayedLastPageIndex = displayedPages - 1;
+                const effectiveActivePage = Math.min(activePage, displayedLastPageIndex);
+                
+                return Array.from({ length: displayedPages }).map((_, index) => {
+                  const isActive = index === effectiveActivePage;
+                  return (
+                    <button
+                      type="button"
+                      key={`dot-${index}`}
+                      onClick={() => {
+                        goToCard(index);
+                        setAutoScrollProgress(100);
+                        isHoveringRef.current = false;
+                      }}
+                      aria-label={`Go to student page ${index + 1}`}
+                      className={`relative rounded-full transition-all duration-300 overflow-hidden flex items-center justify-center ${
+                        isActive
+                          ? "h-3 w-8 bg-[#1B3A6B]/20 shadow-md shadow-[#1B3A6B]/30"
+                          : "h-3 w-3 bg-[#b8d0e8] hover:bg-[#1B3A6B] hover:shadow-md"
+                      }`}
+                    >
+                      {isActive && (
+                        <>
+                          <div className="absolute inset-0 rounded-full bg-[#1B3A6B]" />
+                          <div
+                            className="absolute left-0 top-0 bottom-0 bg-[#1f6fa8] rounded-full"
+                            style={{
+                              width: `${autoScrollProgress}%`,
+                              height: "100%",
+                              transition: "width 0.1s linear",
+                              willChange: "width",
+                            }}
+                          />
+                          <div className="absolute inset-0 rounded-full border border-[#1B3A6B]/50" />
+                        </>
+                      )}
+                    </button>
+                  );
+                });
+              })()}
             </div>
 
             <button
               type="button"
               onClick={() => scrollTrack("next")}
-              className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#5a9fcc] bg-linear-to-br from-white/70 to-white/50 text-2xl text-[#1f709d] shadow-[0_4px_12px_rgba(35,105,150,0.18)] transition-all duration-300 hover:-translate-y-1 hover:from-white/85 hover:to-white/65 hover:shadow-[0_8px_16px_rgba(35,105,150,0.24)] hover:border-[#3d8dbe] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:translate-y-0 disabled:shadow-[0_2px_6px_rgba(35,105,150,0.08)] font-semibold"
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1B3A6B] text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 hover:bg-[#2d5a8c] disabled:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 disabled:shadow-none font-bold"
               aria-label="Scroll placed students right"
               disabled={!canScrollNext}
             >
-              <span className="-mt-0.5">→</span>
+              <span className="text-xl">›</span>
             </button>
           </div>
         </div>
