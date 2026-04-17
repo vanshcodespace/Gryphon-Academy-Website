@@ -45,8 +45,8 @@ export default function Navbar({ isVisible, isFullWidth, logoSrc }) {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`transition-colors duration-200 hover:text-yellow-400 ${
-                  isActive ? "text-yellow-400 font-semibold" : ""
+                className={`transition-all duration-200 hover:text-transparent hover:bg-clip-text hover:bg-[linear-gradient(to_right,#68a1fc,#ff4d68)] ${
+                  isActive ? "text-maroon-400 font-semibold" : ""
                 }`}
               >
                 {link.label}
@@ -59,8 +59,8 @@ export default function Navbar({ isVisible, isFullWidth, logoSrc }) {
           to="/contact"
           className="group relative hidden shrink-0 overflow-hidden rounded-lg bg-white px-4 py-2 text-sm font-semibold text-[#01224F] transition-all hover:shadow-lg md:inline-block lg:px-5 lg:py-2.5 lg:text-base"
         >
-          <span className="absolute left-1/2 top-1/2 h-75 w-75 -translate-x-1/2 -translate-y-1/2 scale-0 rounded-full bg-yellow-400 opacity-0 transition-all duration-500 ease-out group-hover:scale-100 group-hover:opacity-100" />
-          <span className="relative z-10 transition-colors duration-300">
+          <span className="absolute left-1/2 top-1/2 h-75 w-75 -translate-x-1/2 -translate-y-1/2 scale-0 rounded-full bg-[linear-gradient(to_right,#1B3A6B,#7B1B2A)] opacity-0 transition-all duration-500 ease-out group-hover:scale-100 group-hover:opacity-100" />
+          <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
             Partner With Us
           </span>
         </Link>
