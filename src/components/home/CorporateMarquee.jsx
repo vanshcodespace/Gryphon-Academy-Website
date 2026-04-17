@@ -25,7 +25,7 @@ const SECTION_PADDING_CLASS = "pt-6 pb-8 md:pt-8 md:pb-10";
 const HEADING_MARGIN_CLASS = "mb-4 md:mb-6";
 const TRACK_GAP_CLASS = "gap-1 sm:gap-1.5";
 const TRACK_PADDING_CLASS = "py-1";
-const LOGO_FRAME_SIZE_CLASS = "h-12 w-28 sm:h-13 sm:w-36 md:h-16 md:w-50";
+const LOGO_FRAME_SIZE_CLASS = "h-12 w-24 sm:h-13 sm:w-36 md:h-18 md:w-35";
 const TRACK_FADE_MASK =
   "linear-gradient(to right, transparent 0%, black 10%, black 93%, transparent 100%)";
 

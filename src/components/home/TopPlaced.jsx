@@ -277,7 +277,7 @@ function StudentCard({ student }) {
           {/* CTC Badge - LARGE AND PROMINENT */}
           <div className="w-full px-2">
             <div className="inline-block px-4 py-2 text-center">
-              <span 
+              <span
                 className="text-xl font-black drop-shadow-sm"
                 style={{
                   background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
@@ -485,21 +485,21 @@ export default function TopPlaced() {
   const getWaveBarHeight = (pageIndex, isActive) => {
     if (!isActive) {
       if (!isBeatAnimating) {
-        return 14;
+        return 10;
       }
 
       const ambientSeed = Math.sin((pageIndex + 1) * 41 + beatTick * 1.35);
       const ambientNormalized = (ambientSeed + 1) / 2;
-      return Math.round(12 + ambientNormalized * 10);
+      return Math.round(9 + ambientNormalized * 8);
     }
 
     if (!isBeatAnimating) {
-      return 40;
+      return 30;
     }
 
     const randomSeed = Math.sin((pageIndex + 1) * 73 + beatTick * 1.9);
     const normalized = (randomSeed + 1) / 2;
-    const beatHeight = 22 + normalized * 30;
+    const beatHeight = 16 + normalized * 20;
 
     return Math.round(beatHeight);
   };
@@ -542,21 +542,21 @@ export default function TopPlaced() {
             </div>
           </div>
 
-          <div className="mt-4 flex items-center justify-center gap-3 lg:gap-3.5">
+          <div className="mt-3 flex items-center justify-center gap-2.5 lg:gap-3">
             <button
               type="button"
               onClick={() => scrollTrack("prev")}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1B3A6B] text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 hover:bg-[#2d5a8c] disabled:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 disabled:shadow-none font-bold"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1B3A6B] text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 hover:bg-[#2d5a8c] disabled:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 disabled:shadow-none font-bold"
               aria-label="Scroll placed students left"
               disabled={!canScrollPrev}
             >
-              <span className="flex h-full w-full items-center justify-center text-xl leading-none">
+              <span className="flex h-full w-full items-center justify-center text-lg leading-none">
                 ‹
               </span>
             </button>
 
             <div
-              className="flex items-center justify-center gap-2.5 w-full lg:w-auto"
+              className="flex w-full items-center justify-center gap-2 lg:w-auto"
               onMouseEnter={() => {
                 isHoveringRef.current = true;
               }}
@@ -586,10 +586,10 @@ export default function TopPlaced() {
                           isHoveringRef.current = false;
                         }}
                         aria-label={`Go to student page ${index + 1}`}
-                        className="relative flex h-14 w-4 items-center justify-center bg-transparent transition-transform duration-200 hover:scale-110"
+                        className="relative flex h-11 w-3 items-center justify-center bg-transparent transition-transform duration-200 hover:scale-110"
                       >
                         <span
-                          className={`block w-[4px] rounded-full transition-[height,background-color,transform,opacity] duration-150 ease-out ${
+                          className={`block w-0.75 rounded-full transition-[height,background-color,transform,opacity] duration-150 ease-out ${
                             isActive
                               ? "bg-[#1B3A6B] opacity-100 shadow-[0_0_12px_rgba(27,58,107,0.18)]"
                               : "bg-[#9bb9d8] opacity-90"
@@ -612,11 +612,11 @@ export default function TopPlaced() {
             <button
               type="button"
               onClick={() => scrollTrack("next")}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1B3A6B] text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 hover:bg-[#2d5a8c] disabled:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 disabled:shadow-none font-bold"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1B3A6B] text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 hover:bg-[#2d5a8c] disabled:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 disabled:shadow-none font-bold"
               aria-label="Scroll placed students right"
               disabled={!canScrollNext}
             >
-              <span className="flex h-full w-full items-center justify-center text-xl leading-none">
+              <span className="flex h-full w-full items-center justify-center text-lg leading-none">
                 ›
               </span>
             </button>
