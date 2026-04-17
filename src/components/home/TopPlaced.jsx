@@ -28,6 +28,13 @@ import logo8 from "../../assets/TopPlaced/Logos/8.webp";
 import logo9 from "../../assets/TopPlaced/Logos/9.webp";
 import logo10 from "../../assets/TopPlaced/Logos/10.webp";
 import logo11 from "../../assets/TopPlaced/Logos/11.webp";
+import logo12 from "../../assets/TopPlaced/Logos/12.webp";
+import logo13 from "../../assets/TopPlaced/Logos/13.webp";
+import logo14 from "../../assets/TopPlaced/Logos/14.webp";
+import logo15 from "../../assets/TopPlaced/Logos/15.webp";
+import logo16 from "../../assets/TopPlaced/Logos/16.webp";
+// import logo17 from "../../assets/TopPlaced/Logos/17.webp";
+// import logo18 from "../../assets/TopPlaced/Logos/18.webp";
 
 const studentCards = [
   {
@@ -60,7 +67,7 @@ const studentCards = [
     ctc: "15 LPA",
     company: "CrowdStrike",
     photo: photo4,
-    companyLogo: null,
+    companyLogo: logo16,
   },
   {
     id: 5,
@@ -140,7 +147,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "Persistent",
     photo: photo14,
-    companyLogo: null,
+    companyLogo: logo14,
   },
   {
     id: 15,
@@ -148,7 +155,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "Godrej",
     photo: photo15,
-    companyLogo: null,
+    companyLogo: logo15,
   },
   {
     id: 16,
@@ -156,7 +163,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "vanderlande",
     photo: photo16,
-    companyLogo: null,
+    companyLogo: logo13,
   },
   {
     id: 17,
