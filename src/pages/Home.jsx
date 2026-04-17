@@ -90,7 +90,6 @@ export default function Home() {
       <Gallery/>
       
       <CTA />
-      {/* <PartnersMarquee/> */}
       <Testimonials />
 
       <Footer />

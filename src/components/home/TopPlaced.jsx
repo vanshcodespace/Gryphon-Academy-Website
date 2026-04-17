@@ -1,4 +1,4 @@
-import React from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import photo1 from "../../assets/TopPlaced/1.webp";
 import photo2 from "../../assets/TopPlaced/2.webp";
 import photo3 from "../../assets/TopPlaced/3.webp";
@@ -176,119 +176,12 @@ const studentCards = [
   },
 ];
 
-// Read order: left-to-right within each row, then top-to-bottom.
-const gridSlotOrder = [
-  1, 11, 12, 20, 5, 13, 16, 4, 3, 22, 23, 24, 18, 7, 21, 19, 6, 17,
-];
+const SCROLLER_CARD_WIDTH = "clamp(190px, 64vw, 225px)";
+const SCROLLER_CARD_HEIGHT = "360px";
+const IMAGE_SPLIT_VERTICAL = 0.55;
+const CTC_TOP_MARGIN_VERTICAL = 9;
+const SCROLLER_GAP = 16;
 
-const slotConfig = {
-  1: {
-    type: "horizontal",
-    className: "lg:col-span-2 lg:row-span-1 lg:col-start-1 lg:row-start-1",
-  },
-  3: {
-    type: "horizontal",
-    className: "lg:col-span-2 lg:row-span-1 lg:col-start-2 lg:row-start-3",
-  },
-  4: {
-    type: "vertical",
-    className: "lg:col-span-1 lg:row-span-2 lg:col-start-1 lg:row-start-3",
-  },
-  5: {
-    type: "horizontal",
-    className: "lg:col-span-2 lg:row-span-1 lg:col-start-1 lg:row-start-2",
-  },
-  6: {
-    type: "horizontal",
-    className: "lg:col-span-2 lg:row-span-1 lg:col-start-2 lg:row-start-6",
-  },
-  7: {
-    type: "vertical",
-    className: "lg:col-span-1 lg:row-span-2 lg:col-start-1 lg:row-start-5",
-  },
-  11: {
-    type: "vertical",
-    className: "lg:col-span-1 lg:row-span-2 lg:col-start-3 lg:row-start-1",
-  },
-  12: {
-    type: "horizontal",
-    className: "lg:col-span-2 lg:row-span-1 lg:col-start-4 lg:row-start-1",
-  },
-  13: {
-    type: "vertical",
-    className: "lg:col-span-1 lg:row-span-2 lg:col-start-4 lg:row-start-2",
-  },
-  16: {
-    type: "vertical",
-    className: "lg:col-span-1 lg:row-span-2 lg:col-start-5 lg:row-start-2",
-  },
-  17: {
-    type: "horizontal",
-    className: "lg:col-span-2 lg:row-span-1 lg:col-start-5 lg:row-start-6",
-  },
-  18: {
-    type: "horizontal",
-    className: "lg:col-span-2 lg:row-span-1 lg:col-start-4 lg:row-start-4",
-  },
-  19: {
-    type: "horizontal",
-    className: "lg:col-span-2 lg:row-span-1 lg:col-start-5 lg:row-start-5",
-  },
-  20: {
-    type: "vertical",
-    className: "lg:col-span-1 lg:row-span-2 lg:col-start-6 lg:row-start-1",
-  },
-  21: {
-    type: "vertical",
-    className: "lg:col-span-1 lg:row-span-2 lg:col-start-4 lg:row-start-5",
-  },
-  22: {
-    type: "vertical",
-    className: "lg:col-span-1 lg:row-span-2 lg:col-start-6 lg:row-start-3",
-  },
-  23: {
-    type: "vertical",
-    className: "lg:col-span-1 lg:row-span-2 lg:col-start-2 lg:row-start-4",
-  },
-  24: {
-    type: "vertical",
-    className: "lg:col-span-1 lg:row-span-2 lg:col-start-3 lg:row-start-4",
-  },
-};
-
-// Manual tuning controls for card/image sizing
-const DESKTOP_GRID_ROW_HEIGHT = 210;
-const DESKTOP_GRID_MAX_WIDTH = 1370;
-const IMAGE_SPLIT_HORIZONTAL = 0.5;
-const IMAGE_SPLIT_VERTICAL = 0.5;
-const CONTENT_TOP_OFFSET = {
-  horizontal: 29,
-  vertical: 37,
-};
-const CTC_TOP_MARGIN = {
-  horizontal: 12,
-  vertical: 12,
-};
-
-function getCtcValue(ctc) {
-  const matched = String(ctc).match(/[\d.]+/);
-  if (!matched) return 0;
-  const numeric = Number(matched[0]);
-  return Number.isFinite(numeric) ? numeric : 0;
-}
-
-const duplicateStudent = studentCards.reduce((best, candidate) => {
-  return getCtcValue(candidate.ctc) > getCtcValue(best.ctc) ? candidate : best;
-}, studentCards[0]);
-
-const positionedCards = gridSlotOrder.map((slot, index) => {
-  const student = studentCards[index] || duplicateStudent;
-  return {
-    slot,
-    student,
-    orientation: slotConfig[slot].type,
-  };
-});
 const collegesById = {
   1: "Indira college of Engineering and Management, Pune",
   2: "Indira college of Engineering and Management, Pune",
@@ -337,33 +230,21 @@ function handleLogoError(event, company) {
   image.src = getInitialsLogo(company);
 }
 
-function StudentCard({ student, orientation }) {
-  const isHorizontal = orientation === "horizontal";
+function StudentCard({ student }) {
   const college = collegesById[student.id] || "Gryphon Partner College";
-  const imageBasis = isHorizontal
-    ? `${IMAGE_SPLIT_HORIZONTAL * 100}%`
-    : `${IMAGE_SPLIT_VERTICAL * 100}%`;
-  const contentTopOffset = isHorizontal
-    ? CONTENT_TOP_OFFSET.horizontal
-    : CONTENT_TOP_OFFSET.vertical;
-  const ctcTopMargin = isHorizontal
-    ? CTC_TOP_MARGIN.horizontal
-    : CTC_TOP_MARGIN.vertical;
-  const companyLogoSizeClass = isHorizontal
-    ? "h-14 w-30 md:h-15 md:w-34"
-    : "h-14 w-30 md:h-15 md:w-34";
 
   return (
-    <article className="group relative h-full overflow-hidden rounded-2xl border border-[#1b3a6b]/20 bg-linear-to-br from-[#ffffff] via-[#f0f7ff] to-[#e6f2ff] shadow-[0_12px_28px_rgba(27,58,107,0.18)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(27,58,107,0.32)]">
+    <article
+      className="group relative overflow-hidden rounded-2xl border border-[#1b3a6b]/20 bg-linear-to-br from-[#ffffff] via-[#f0f7ff] to-[#e6f2ff] shadow-[0_12px_28px_rgba(27,58,107,0.18)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_48px_rgba(27,58,107,0.28)]"
+      style={{ width: SCROLLER_CARD_WIDTH, height: SCROLLER_CARD_HEIGHT }}
+    >
       <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-linear-to-br from-[#7b1b2a]/20 to-[#1b3a6b]/10 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-12 -left-12 h-32 w-32 rounded-full bg-linear-to-tr from-[#1b3a6b]/20 to-[#7b1b2a]/10 blur-3xl" />
 
-      <div
-        className={`relative z-10 flex h-full ${isHorizontal ? "flex-row" : "flex-col"}`}
-      >
+      <div className="relative z-10 flex h-full flex-col">
         <div
-          className={`relative shrink-0 overflow-hidden bg-linear-to-br from-[#f0f7ff] to-[#dff1fb] ${isHorizontal ? "w-1/2" : "h-1/2"}`}
-          style={{ flexBasis: imageBasis }}
+          className="relative shrink-0 overflow-hidden bg-linear-to-br from-[#f0f7ff] to-[#dff1fb]"
+          style={{ flexBasis: `${IMAGE_SPLIT_VERTICAL * 100}%` }}
         >
           <img
             src={student.photo}
@@ -374,32 +255,25 @@ function StudentCard({ student, orientation }) {
           <div className="absolute inset-0 bg-linear-to-t from-[#1b3a6b]/40 via-transparent to-transparent" />
         </div>
 
-        <div
-          className={`flex min-h-0 shrink-0 basis-1/2 ${isHorizontal ? "w-1/2" : "h-1/2"} flex-col items-center text-center`}
-          style={{ paddingTop: `${contentTopOffset}px` }}
-        >
-          <div
-            className={`min-h-0 text-center ${isHorizontal ? "px-3 md:px-3.5" : "px-2.5 md:px-3"}`}
-          >
-            <h3 className="line-clamp-2 text-sm font-bold leading-snug text-[#081a36] md:text-[15px] tracking-tight">
+        <div className="flex min-h-0 flex-1 flex-col items-center px-3 pb-3 pt-3.5 text-center">
+          <div className="min-h-0 text-center">
+            <h3 className="line-clamp-2 text-[13px] font-bold leading-snug tracking-tight text-[#081a36] md:text-sm">
               {student.name}
             </h3>
 
-            <p className="mt-0.5 line-clamp-2 text-[9px] font-semibold leading-tight text-[#1b3a6b]/80 md:text-[10px] tracking-wide uppercase">
+            <p className="mt-0.5 line-clamp-2 text-[8px] font-semibold leading-tight tracking-wide uppercase text-[#1b3a6b]/80 md:text-[9px]">
               {college}
             </p>
           </div>
 
           <div
-            className="rounded-lg bg-linear-to-r from-[#1b3a6b] via-[#2d5a8c] to-[#7b1b2a] px-3 py-1.5 text-[11px] font-extrabold tracking-widest text-white shadow-[0_8px_20px_rgba(27,58,107,0.35)] border border-white/30 backdrop-blur-sm md:text-[12px]"
-            style={{ marginTop: `${ctcTopMargin}px` }}
+            className="mt-2 rounded-lg border border-white/30 bg-linear-to-r from-[#1b3a6b] via-[#2d5a8c] to-[#7b1b2a] px-3 py-1.5 text-[10px] font-extrabold tracking-widest text-white shadow-[0_8px_20px_rgba(27,58,107,0.35)] backdrop-blur-sm md:text-[11px]"
+            style={{ marginTop: `${CTC_TOP_MARGIN_VERTICAL}px` }}
           >
             {student.ctc}
           </div>
 
-          <div
-            className={`mt-auto ${companyLogoSizeClass} overflow-hidden rounded-t-lg rounded-b-none border border-[#9ac9e4]/45 border-b-0 bg-white shadow-[0_6px_14px_rgba(27,58,107,0.18)]`}
-          >
+          <div className="mt-auto h-12 w-full overflow-hidden rounded-t-lg rounded-b-none border border-[#9ac9e4]/45 border-b-0 bg-white shadow-[0_6px_14px_rgba(27,58,107,0.18)] md:h-14">
             <img
               src={student.companyLogo || getInitialsLogo(student.company)}
               alt={`${student.company} logo`}
@@ -415,13 +289,106 @@ function StudentCard({ student, orientation }) {
 }
 
 export default function TopPlaced() {
+  const trackRef = useRef(null);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(true);
+  const [activePage, setActivePage] = useState(0);
+  const cardsPerPage = 2;
+  const totalPages = Math.max(Math.ceil(studentCards.length / cardsPerPage), 1);
+
+  const getScrollStep = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return 225 + SCROLLER_GAP;
+
+    const card = track.querySelector("[data-top-placed-card='true']");
+    if (!card) return 225 + SCROLLER_GAP;
+
+    return card.getBoundingClientRect().width + SCROLLER_GAP;
+  }, []);
+
+  const updateScrollState = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    const step = getScrollStep();
+    const pageStep = step * cardsPerPage;
+    const maxScrollLeft = Math.max(track.scrollWidth - track.clientWidth, 0);
+    const nextCanScrollPrev = track.scrollLeft > 1;
+    const nextCanScrollNext = track.scrollLeft < maxScrollLeft - 1;
+    const nextActiveIndex = Math.max(
+      0,
+      Math.min(totalPages - 1, Math.round(track.scrollLeft / pageStep)),
+    );
+
+    setCanScrollPrev(nextCanScrollPrev);
+    setCanScrollNext(nextCanScrollNext);
+    setActivePage(nextActiveIndex);
+  }, [cardsPerPage, getScrollStep, totalPages]);
+
+  useEffect(() => {
+    updateScrollState();
+
+    const track = trackRef.current;
+    if (!track) return undefined;
+
+    const handleScroll = () => updateScrollState();
+    track.addEventListener("scroll", handleScroll, { passive: true });
+
+    const resizeObserver =
+      typeof ResizeObserver === "undefined"
+        ? null
+        : new ResizeObserver(() => updateScrollState());
+
+    if (resizeObserver) {
+      resizeObserver.observe(track);
+    }
+
+    window.addEventListener("resize", updateScrollState);
+
+    return () => {
+      track.removeEventListener("scroll", handleScroll);
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
+      window.removeEventListener("resize", updateScrollState);
+    };
+  }, [updateScrollState]);
+
+  const scrollTrack = useCallback(
+    (direction) => {
+      const track = trackRef.current;
+      if (!track) return;
+
+      const delta = getScrollStep() * cardsPerPage;
+
+      track.scrollBy({
+        left: direction === "next" ? delta : -delta,
+        behavior: "smooth",
+      });
+    },
+    [cardsPerPage, getScrollStep],
+  );
+
+  const goToCard = useCallback(
+    (index) => {
+      const track = trackRef.current;
+      if (!track) return;
+
+      const targetIndex = Math.max(0, Math.min(totalPages - 1, index));
+      const delta = getScrollStep() * cardsPerPage;
+
+      track.scrollTo({
+        left: targetIndex * delta,
+        behavior: "smooth",
+      });
+    },
+    [cardsPerPage, getScrollStep, totalPages],
+  );
+
   return (
-    <section className="w-full bg-linear-to-b from-[#ffffff] via-[#f8fbff] to-[#f0f7ff] px-4 py-8 md:py-10">
-      <div
-        className="mx-auto w-full"
-        style={{ maxWidth: `${DESKTOP_GRID_MAX_WIDTH}px` }}
-      >
-        <div className="mb-8 md:mb-10 text-center">
+    <section className="w-full overflow-hidden bg-linear-to-b from-[#ffffff] via-[#f8fbff] to-[#f0f7ff] px-4 py-8 md:py-10">
+      <div className="mx-auto w-full max-w-[1370px]">
+        <div className="mb-8 text-center md:mb-10">
           <h2
             className="mb-2 text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl"
             style={{
@@ -438,15 +405,67 @@ export default function TopPlaced() {
           </p>
         </div>
 
-        <div
-          className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6"
-          style={{ gridAutoRows: `${DESKTOP_GRID_ROW_HEIGHT}px` }}
-        >
-          {positionedCards.map(({ slot, student, orientation }) => (
-            <div key={`slot-${slot}`} className={slotConfig[slot].className}>
-              <StudentCard student={student} orientation={orientation} />
+        <div className="relative">
+          <div
+            className="overflow-x-auto pb-4 [scrollbar-width:thin] scroll-smooth"
+            ref={trackRef}
+          >
+            <div className="flex w-max gap-4 pr-2">
+              {studentCards.map((student) => (
+                <div
+                  key={student.id}
+                  className="shrink-0 snap-start"
+                  data-top-placed-card="true"
+                >
+                  <StudentCard student={student} />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          <div className="mt-4 flex items-center justify-center gap-3 lg:gap-3.5">
+            <button
+              type="button"
+              onClick={() => scrollTrack("prev")}
+              className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#5a9fcc] bg-linear-to-br from-white/70 to-white/50 text-2xl text-[#1f709d] shadow-[0_4px_12px_rgba(35,105,150,0.18)] transition-all duration-300 hover:-translate-y-1 hover:from-white/85 hover:to-white/65 hover:shadow-[0_8px_16px_rgba(35,105,150,0.24)] hover:border-[#3d8dbe] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:translate-y-0 disabled:shadow-[0_2px_6px_rgba(35,105,150,0.08)] font-semibold"
+              aria-label="Scroll placed students left"
+              disabled={!canScrollPrev}
+            >
+              <span className="-mt-0.5">←</span>
+            </button>
+
+            <div className="flex items-center justify-center gap-2 w-full lg:w-auto">
+              {Array.from({ length: totalPages }).map((_, index) => {
+                const isActive = index === activePage;
+                return (
+                  <button
+                    type="button"
+                    key={`dot-${index}`}
+                    onClick={() => goToCard(index)}
+                    aria-label={`Go to student page ${index + 1}`}
+                    disabled={index === activePage}
+                    className={`rounded-full transition-all duration-300 overflow-hidden relative border border-[#2f84b8]/70 shadow-[0_2px_6px_rgba(31,106,168,0.18)] ${
+                      isActive
+                        ? "h-10 w-3.5 bg-[#1f6fa8] shadow-[0_4px_10px_rgba(47,132,184,0.35)] lg:h-11 lg:w-4"
+                        : "h-4 w-2.5 bg-[#5fa0c9]/85 hover:bg-[#1f6fa8] hover:shadow-[0_3px_8px_rgba(31,106,168,0.22)]"
+                    }`}
+                  >
+                    <div className="absolute inset-0 rounded-full pointer-events-none bg-white/10" />
+                  </button>
+                );
+              })}
+            </div>
+
+            <button
+              type="button"
+              onClick={() => scrollTrack("next")}
+              className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#5a9fcc] bg-linear-to-br from-white/70 to-white/50 text-2xl text-[#1f709d] shadow-[0_4px_12px_rgba(35,105,150,0.18)] transition-all duration-300 hover:-translate-y-1 hover:from-white/85 hover:to-white/65 hover:shadow-[0_8px_16px_rgba(35,105,150,0.24)] hover:border-[#3d8dbe] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:translate-y-0 disabled:shadow-[0_2px_6px_rgba(35,105,150,0.08)] font-semibold"
+              aria-label="Scroll placed students right"
+              disabled={!canScrollNext}
+            >
+              <span className="-mt-0.5">→</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
