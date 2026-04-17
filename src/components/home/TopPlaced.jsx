@@ -28,6 +28,13 @@ import logo8 from "../../assets/TopPlaced/Logos/8.webp";
 import logo9 from "../../assets/TopPlaced/Logos/9.webp";
 import logo10 from "../../assets/TopPlaced/Logos/10.webp";
 import logo11 from "../../assets/TopPlaced/Logos/11.webp";
+import logo12 from "../../assets/TopPlaced/Logos/12.webp";
+import logo13 from "../../assets/TopPlaced/Logos/13.webp";
+import logo14 from "../../assets/TopPlaced/Logos/14.webp";
+import logo15 from "../../assets/TopPlaced/Logos/15.webp";
+import logo16 from "../../assets/TopPlaced/Logos/16.webp";
+// import logo17 from "../../assets/TopPlaced/Logos/17.webp";
+// import logo18 from "../../assets/TopPlaced/Logos/18.webp";
 
 const studentCards = [
   {
@@ -60,7 +67,7 @@ const studentCards = [
     ctc: "15 LPA",
     company: "CrowdStrike",
     photo: photo4,
-    companyLogo: null,
+    companyLogo: logo16,
   },
   {
     id: 5,
@@ -140,7 +147,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "Persistent",
     photo: photo14,
-    companyLogo: null,
+    companyLogo: logo14,
   },
   {
     id: 15,
@@ -148,7 +155,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "Godrej",
     photo: photo15,
-    companyLogo: null,
+    companyLogo: logo15,
   },
   {
     id: 16,
@@ -156,7 +163,7 @@ const studentCards = [
     ctc: "000 LPA",
     company: "vanderlande",
     photo: photo16,
-    companyLogo: null,
+    companyLogo: logo13,
   },
   {
     id: 17,
@@ -245,7 +252,7 @@ function StudentCard({ student }) {
       <div className="relative z-10 flex h-full flex-col">
         {/* Photo section - Circular and compact */}
         <div className="relative shrink-0 flex items-center justify-center py-3 bg-linear-to-b from-[#f0f7ff] to-white">
-          <div className="relative h-20 w-20 rounded-full overflow-hidden bg-gradient-to-br from-[#e6f2ff] to-[#d0ddef] border-3 border-[#1B3A6B]/30 shadow-md">
+          <div className="relative h-20 w-20 rounded-full overflow-hidden bg-linear-to-br from-[#e6f2ff] to-[#d0ddef] border-3 border-[#1B3A6B]/30 shadow-md">
             <img
               src={student.photo}
               alt={student.name}
@@ -258,7 +265,7 @@ function StudentCard({ student }) {
         {/* Content section */}
         <div className="flex min-h-0 flex-1 flex-col items-center justify-between px-3 py-3 text-center space-y-2">
           {/* Student Name and College - PROMINENT */}
-          <div className="w-full min-h-[52px] flex flex-col justify-center">
+          <div className="w-full min-h-13 flex flex-col justify-center">
             <h3 className="line-clamp-1 text-base font-black leading-tight text-[#081a36] md:text-lg tracking-tight">
               {student.name}
             </h3>
