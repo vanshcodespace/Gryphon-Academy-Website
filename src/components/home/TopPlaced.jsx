@@ -259,18 +259,26 @@ function StudentCard({ student }) {
         <div className="flex min-h-0 flex-1 flex-col items-center justify-between px-3 py-3 text-center space-y-2">
           {/* Student Name and College - PROMINENT */}
           <div className="w-full min-h-[52px] flex flex-col justify-center">
-            <h3 className="line-clamp-1 text-sm font-black leading-tight text-[#081a36] md:text-base tracking-tight">
+            <h3 className="line-clamp-1 text-base font-black leading-tight text-[#081a36] md:text-lg tracking-tight">
               {student.name}
             </h3>
-            <p className="line-clamp-1 text-[7px] font-bold text-white uppercase tracking-wider leading-tight bg-[#1B3A6B] rounded-full px-2 py-0.5 mt-1 inline-block mx-auto">
+            <p className="line-clamp-2 text-[8px] font-extrabold text-[#1B3A6B] uppercase tracking-wider leading-tight mt-1">
               {college}
             </p>
           </div>
 
           {/* CTC Badge - LARGE AND PROMINENT */}
           <div className="w-full px-2">
-            <div className="inline-block rounded-xl border-2 border-[#7B1B2A]/40 bg-linear-to-r from-[#1B3A6B] to-[#7B1B2A] px-4 py-2 text-center shadow-md hover:shadow-lg transition-shadow">
-              <span className="text-xl font-black text-white drop-shadow-sm">
+            <div className="inline-block px-4 py-2 text-center">
+              <span 
+                className="text-xl font-black drop-shadow-sm"
+                style={{
+                  background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
                 {student.ctc}
               </span>
             </div>
