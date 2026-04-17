@@ -68,16 +68,25 @@ function AnimatedCount({ value, start, delayMs = 0 }) {
 export default function Numbers() {
   const sectionRef = useRef(null);
   const [hasCountStarted, setHasCountStarted] = useState(false);
+  const [spotlight, setSpotlight] = useState({ x: 50, y: 50, active: false });
+
+  const handleMouseMove = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    setSpotlight({ x, y, active: true });
+  };
+
+  const handleMouseLeave = () => {
+    setSpotlight((prev) => ({ ...prev, active: false }));
+  };
 
   useEffect(() => {
-    if (!sectionRef.current || hasCountStarted) return undefined;
+    if (!sectionRef.current) return undefined;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setHasCountStarted(true);
-          observer.disconnect();
-        }
+        setHasCountStarted(entry.isIntersecting);
       },
       {
         threshold: 0.35,
@@ -86,7 +95,7 @@ export default function Numbers() {
 
     observer.observe(sectionRef.current);
     return () => observer.disconnect();
-  }, [hasCountStarted]);
+  }, []);
 
   const stats = [
     { number: "1,20,000+", label: "Students\nTrained" },
@@ -101,8 +110,24 @@ export default function Numbers() {
     <section
       ref={sectionRef}
       className="relative overflow-hidden bg-linear-to-b from-[#f0f7ff] via-[#ffffff] to-[#f8fbff] py-8 sm:py-10 lg:py-12"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 xl:max-w-340">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-90 transition-opacity duration-300"
+        style={{
+          opacity: spotlight.active ? 1.0 : 0.2,
+          backgroundImage:
+            "repeating-linear-gradient(0deg, rgba(63,142,252,0.28) 0 1px, transparent 1px 34px), repeating-linear-gradient(60deg, rgba(63,142,252,0.35) 0 1px, transparent 1px 34px), repeating-linear-gradient(-60deg, rgba(63,142,252,0.35) 0 1px, transparent 1px 34px)",
+          WebkitMaskImage: spotlight.active
+            ? `radial-gradient(circle 220px at ${spotlight.x}% ${spotlight.y}%, #000 0%, #000 35%, transparent 100%)`
+            : "none",
+          maskImage: spotlight.active
+            ? `radial-gradient(circle 220px at ${spotlight.x}% ${spotlight.y}%, #000 0%, #000 35%, transparent 100%)`
+            : "none",
+        }}
+      />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 xl:max-w-340 z-10">
         <h2
           className="mb-4 px-4 text-center text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl"
           style={{

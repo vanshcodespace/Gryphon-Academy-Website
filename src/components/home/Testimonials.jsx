@@ -52,7 +52,7 @@ import e6 from "../../assets/testimonies/PF/e6.webp";
 import e7 from "../../assets/testimonies/PF/e7.webp";
 import e8 from "../../assets/testimonies/PF/e8.webp";
 import e9 from "../../assets/testimonies/PF/e9.webp";
-function StudentSuccessStories() {
+function StudentSuccessStories({ spotlight, handleMouseMove, handleMouseLeave }) {
   const stories = useMemo(
     () => [
       // Students
@@ -1004,25 +1004,48 @@ function StudentSuccessStories() {
 }
 
 export default function Testimonials() {
+  const [spotlight, setSpotlight] = useState({ x: 50, y: 50, active: false });
+
+  const handleMouseMove = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    setSpotlight({ x, y, active: true });
+  };
+
+  const handleMouseLeave = () => {
+    setSpotlight((prev) => ({ ...prev, active: false }));
+  };
+
   return (
-    <div
-      className="relative py-4 md:py-6"
-      style={{
-        backgroundImage:
-          "radial-gradient(120% 70% at 50% 0%, rgba(247,252,255,0.95) 0%, rgba(247,252,255,0.22) 55%, rgba(247,252,255,0) 100%), radial-gradient(65% 55% at 0% 0%, #ceecf7 0%, rgba(206,236,247,0) 75%), radial-gradient(65% 55% at 100% 0%, #a2d5f4 0%, rgba(162,213,244,0) 75%), radial-gradient(80% 50% at 50% 100%, #d3eef9 0%, rgba(211,238,249,0) 72%), linear-gradient(180deg, #eef8fd 0%, #f7fcff 48%, #ffffff 100%)",
-      }}
+    <section
+      className="relative overflow-hidden bg-[#eff4fa] py-4 md:py-6"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
+      <div className="pointer-events-none absolute -top-40 -left-24 h-96 w-96 rounded-full bg-[#cce0fc]/60 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 -right-24 h-112 w-md rounded-full bg-[#bddefa]/50 blur-3xl" />
       <div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 opacity-90 transition-opacity duration-300"
         style={{
-          opacity: 0.38,
+          opacity: spotlight.active ? 1.0 : 0.2,
           backgroundImage:
-            "repeating-linear-gradient(0deg, rgba(91,145,227,0.22) 0 1px, transparent 1px 34px), repeating-linear-gradient(60deg, rgba(91,145,227,0.24) 0 1px, transparent 1px 34px), repeating-linear-gradient(-60deg, rgba(91,145,227,0.24) 0 1px, transparent 1px 34px)",
+            "repeating-linear-gradient(0deg, rgba(63,142,252,0.28) 0 1px, transparent 1px 34px), repeating-linear-gradient(60deg, rgba(63,142,252,0.35) 0 1px, transparent 1px 34px), repeating-linear-gradient(-60deg, rgba(63,142,252,0.35) 0 1px, transparent 1px 34px)",
+          WebkitMaskImage: spotlight.active
+            ? `radial-gradient(circle 220px at ${spotlight.x}% ${spotlight.y}%, #000 0%, #000 35%, transparent 100%)`
+            : "none",
+          maskImage: spotlight.active
+            ? `radial-gradient(circle 220px at ${spotlight.x}% ${spotlight.y}%, #000 0%, #000 35%, transparent 100%)`
+            : "none",
         }}
       />
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <StudentSuccessStories />
+        <StudentSuccessStories 
+          spotlight={spotlight}
+          handleMouseMove={handleMouseMove}
+          handleMouseLeave={handleMouseLeave}
+        />
       </div>
-    </div>
+    </section>
   );
 }
