@@ -83,9 +83,9 @@ export default function Home() {
       <AudiencePathways />
       <Training />
       <Numbers />
-      <InstitutionsMarquee />
       <CorporateMarquee />
-      <TopPlaced/>
+       <TopPlaced/>
+      <InstitutionsMarquee />
       <Gallery/>
       
       <CTA />

@@ -269,7 +269,7 @@ function StudentCard({ student }) {
             <h3 className="line-clamp-1 text-base font-black leading-tight text-[#081a36] md:text-lg tracking-tight">
               {student.name}
             </h3>
-            <p className="line-clamp-2 text-[8px] font-extrabold text-[#1B3A6B] uppercase tracking-wider leading-tight mt-1">
+            <p className="line-clamp-3 text-[8px] font-extrabold text-[#1B3A6B] uppercase tracking-wider leading-tight mt-1" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
               {college}
             </p>
           </div>
@@ -280,6 +280,7 @@ function StudentCard({ student }) {
               <span 
                 className="text-xl font-black drop-shadow-sm"
                 style={{
+                  fontFamily: "system-ui, -apple-system, sans-serif",
                   background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
@@ -293,11 +294,10 @@ function StudentCard({ student }) {
 
           {/* Company Logo - HIGHLIGHTED AND CENTERED */}
           <div className="mt-auto w-full flex flex-col items-center">
-            <div className="h-20 w-20 rounded-full border-3 border-[#1B3A6B] bg-white shadow-lg overflow-hidden flex items-center justify-center md:h-24 md:w-24 hover:border-[#7B1B2A] transition-all">
+            <div className=" rounded-sm border-1 border-gray-600 bg-white shadow-lg overflow-hidden flex items-center justify-center md:h-20 md:w-32 hover:border-gray-800 transition-all">
               <img
                 src={student.companyLogo || getInitialsLogo(student.company)}
                 alt={`${student.company} logo`}
-                className="h-16 w-16 object-contain md:h-20 md:w-20"
                 onError={(event) => handleLogoError(event, student.company)}
                 loading="lazy"
               />
@@ -511,6 +511,7 @@ export default function TopPlaced() {
           <h2
             className="mb-4 text-5xl font-black tracking-tighter sm:text-6xl lg:text-7xl"
             style={{
+              fontFamily: "system-ui, -apple-system, sans-serif",
               background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -519,7 +520,7 @@ export default function TopPlaced() {
           >
             Top Placements
           </h2>
-          <p className="text-base md:text-lg font-semibold text-[#4a5568] tracking-wide">
+          <p className="text-base md:text-lg font-semibold text-[#4a5568] tracking-wide" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
             Meet our highest achievers
           </p>
         </div>
@@ -546,7 +547,7 @@ export default function TopPlaced() {
             <button
               type="button"
               onClick={() => scrollTrack("prev")}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1B3A6B] text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 hover:bg-[#2d5a8c] disabled:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 disabled:shadow-none font-bold"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1B3A6B] text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 hover:bg-[#2d5a8c] disabled:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 disabled:shadow-none font-bold"
               aria-label="Scroll placed students left"
               disabled={!canScrollPrev}
             >
@@ -612,7 +613,7 @@ export default function TopPlaced() {
             <button
               type="button"
               onClick={() => scrollTrack("next")}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1B3A6B] text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 hover:bg-[#2d5a8c] disabled:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 disabled:shadow-none font-bold"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1B3A6B] text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 hover:bg-[#2d5a8c] disabled:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 disabled:shadow-none font-bold"
               aria-label="Scroll placed students right"
               disabled={!canScrollNext}
             >
