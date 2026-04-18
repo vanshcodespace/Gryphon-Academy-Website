@@ -83,9 +83,42 @@ export default function Home() {
       <AudiencePathways />
       <Training />
       <Numbers />
-      <CorporateMarquee />
-       <TopPlaced/>
-      <InstitutionsMarquee />
+      {/* ── Unified marquee + placements band ──────────────────────── */}
+      <div className="relative w-full overflow-visible bg-linear-to-b from-[#e8f4fb] via-[#d0e8f8] to-[#b8dcf4]">
+        {/* Top wavy divider */}
+        <svg
+          className="pointer-events-none absolute top-0 left-0 z-40 h-8 w-full -translate-y-1/2"
+          viewBox="0 0 1200 80"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M0 40 Q25 12 50 40 T100 40 T150 40 T200 40 T250 40 T300 40 T350 40 T400 40 T450 40 T500 40 T550 40 T600 40 T650 40 T700 40 T750 40 T800 40 T850 40 T900 40 T950 40 T1000 40 T1050 40 T1100 40 T1150 40 T1200 40"
+            fill="none"
+            stroke="#5b9bc9"
+            strokeWidth="4"
+          />
+        </svg>
+
+        <CorporateMarquee />
+        <InstitutionsMarquee />
+        <TopPlaced/>
+
+        {/* Bottom wavy divider */}
+        <svg
+          className="pointer-events-none absolute bottom-0 left-0 z-40 h-8 w-full translate-y-1/2"
+          viewBox="0 0 1200 80"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M0 40 Q25 12 50 40 T100 40 T150 40 T200 40 T250 40 T300 40 T350 40 T400 40 T450 40 T500 40 T550 40 T600 40 T650 40 T700 40 T750 40 T800 40 T850 40 T900 40 T950 40 T1000 40 T1050 40 T1100 40 T1150 40 T1200 40"
+            fill="none"
+            stroke="#5b9bc9"
+            strokeWidth="4"
+          />
+        </svg>
+      </div>
       <Gallery/>
       
       <CTA />

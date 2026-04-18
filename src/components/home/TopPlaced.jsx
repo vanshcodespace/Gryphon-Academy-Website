@@ -183,11 +183,11 @@ const studentCards = [
   },
 ];
 
-const SCROLLER_CARD_WIDTH = "clamp(190px, 64vw, 225px)";
-const SCROLLER_CARD_HEIGHT = "360px";
+const SCROLLER_CARD_WIDTH = "clamp(210px, 68vw, 248px)";
+const SCROLLER_CARD_HEIGHT = "400px";
 const IMAGE_SPLIT_VERTICAL = 0.55;
 const CTC_TOP_MARGIN_VERTICAL = 9;
-const SCROLLER_GAP = 16;
+const SCROLLER_GAP = 18;
 
 const collegesById = {
   1: "Indira college of Engineering and Management, Pune",
@@ -444,11 +444,11 @@ export default function TopPlaced() {
   );
 
   return (
-    <section className="w-full overflow-hidden bg-linear-to-b from-white via-[#f8fbff] to-[#f0f7ff] px-4 py-8 md:py-12">
+    <section className="w-full overflow-hidden px-4 py-10 md:py-14">
       <div className="mx-auto w-full max-w-[1370px]">
         <div className="mb-10 text-center md:mb-12">
           <h2
-            className="mb-4 text-5xl font-black tracking-tighter sm:text-6xl lg:text-7xl"
+            className="mb-4 text-5xl font-bold tracking-tighter sm:text-6xl lg:text-5xl"
             style={{
               fontFamily: "system-ui, -apple-system, sans-serif",
               background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
@@ -459,7 +459,16 @@ export default function TopPlaced() {
           >
             Top Placements
           </h2>
-          <p className="text-base md:text-lg font-semibold text-[#4a5568] tracking-wide" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
+          <p
+            style={{
+              fontFamily: "system-ui, -apple-system, sans-serif",
+              background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+            className="text-base md:text-lg font-semibold tracking-wide"
+          >
             Meet our highest achievers
           </p>
         </div>

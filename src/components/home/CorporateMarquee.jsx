@@ -21,11 +21,11 @@ const corporateRowThree = allCorporate.slice(corporateThird * 2);
 
 // Manual size controls
 const CARDS_MAX_WIDTH_CLASS = "max-w-8xl";
-const SECTION_PADDING_CLASS = "pt-6 pb-8 md:pt-8 md:pb-10";
-const HEADING_MARGIN_CLASS = "mb-4 md:mb-6";
-const TRACK_GAP_CLASS = "gap-1 sm:gap-1.5";
-const TRACK_PADDING_CLASS = "py-1";
-const LOGO_FRAME_SIZE_CLASS = "h-12 w-24 sm:h-13 sm:w-36 md:h-18 md:w-35";
+const SECTION_PADDING_CLASS = "pt-7 pb-9 md:pt-9 md:pb-11";
+const HEADING_MARGIN_CLASS = "mb-5 md:mb-7";
+const TRACK_GAP_CLASS = "gap-1.5 sm:gap-2";
+const TRACK_PADDING_CLASS = "py-1.5";
+const LOGO_FRAME_SIZE_CLASS = "h-14 w-28 sm:h-16 sm:w-40 md:h-20 md:w-40";
 const TRACK_FADE_MASK =
   "linear-gradient(to right, transparent 0%, black 10%, black 93%, transparent 100%)";
 
@@ -59,7 +59,7 @@ const MarqueeTrack = ({ partners, reverse = false, speed = "50s" }) => {
         {extendedItems.map((item, idx) => (
           <div
             key={`${item.name}-${idx}`}
-            className="group/badge relative mx-1.5 flex items-center justify-center overflow-hidden rounded-2xl bg-white px-1.5 py-1 shadow-[0_4px_24px_rgba(0,0,0,0.03)] ring-1 ring-[#ffffff] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:bg-[#ffffff] hover:ring-[#ffffff] md:mx-2 md:px-2.5 md:py-1.5 lg:py-2"
+            className="group/badge relative mx-2 flex items-center justify-center overflow-hidden rounded-2xl bg-white px-2 py-1.5 shadow-[0_4px_24px_rgba(0,0,0,0.03)] ring-1 ring-[#ffffff] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:bg-[#ffffff] hover:ring-[#ffffff] md:mx-2.5 md:px-3 md:py-2 lg:py-2.5"
           >
             <div className="absolute inset-0 z-0 bg-linear-to-r from-transparent via-[#ffffff] to-transparent opacity-0 transition-opacity duration-300 group-hover/badge:opacity-100" />
             <div
@@ -111,28 +111,15 @@ export default function CorporateMarquee() {
       `}</style>
 
       <div
-        className={`relative flex w-full flex-col items-center bg-linear-to-b from-[#e8f4fb] via-[#d0e8f8] to-[#b8dcf4] ${SECTION_PADDING_CLASS}`}
+        className={`relative flex w-full flex-col items-center ${SECTION_PADDING_CLASS}`}
       >
-        <svg
-          className="pointer-events-none absolute top-0 left-0 z-40 h-8 w-full -translate-y-1/2"
-          viewBox="0 0 1200 80"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M0 40 Q25 12 50 40 T100 40 T150 40 T200 40 T250 40 T300 40 T350 40 T400 40 T450 40 T500 40 T550 40 T600 40 T650 40 T700 40 T750 40 T800 40 T850 40 T900 40 T950 40 T1000 40 T1050 40 T1100 40 T1150 40 T1200 40"
-            fill="none"
-            stroke="#5b9bc9"
-            strokeWidth="4"
-          />
-        </svg>
-
         <div
           className={`relative z-30 flex items-center gap-4 ${HEADING_MARGIN_CLASS}`}
         >
           <h3
-            className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl"
+            className="text-2xl font-bold tracking-tighter sm:text-6xl lg:text-5xl"
             style={{
+              fontFamily: "system-ui, -apple-system, sans-serif",
               background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -152,20 +139,6 @@ export default function CorporateMarquee() {
             <MarqueeTrack partners={corporateRowThree} speed="80s" />
           </div>
         </div>
-
-        <svg
-          className="pointer-events-none absolute bottom-0 left-0 z-40 h-8 w-full translate-y-1/2"
-          viewBox="0 0 1200 80"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M0 40 Q25 12 50 40 T100 40 T150 40 T200 40 T250 40 T300 40 T350 40 T400 40 T450 40 T500 40 T550 40 T600 40 T650 40 T700 40 T750 40 T800 40 T850 40 T900 40 T950 40 T1000 40 T1050 40 T1100 40 T1150 40 T1200 40"
-            fill="none"
-            stroke="#5b9bc9"
-            strokeWidth="4"
-          />
-        </svg>
       </div>
     </>
   );
