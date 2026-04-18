@@ -117,16 +117,20 @@ export default function CorporateMarquee() {
           className={`relative z-30 flex items-center gap-4 ${HEADING_MARGIN_CLASS}`}
         >
           <h3
-            className="text-2xl font-bold tracking-tighter sm:text-6xl lg:text-5xl"
+            className="text-2xl font-bold tracking-tighter sm:text-6xl lg:text-6xl"
             style={{
               fontFamily: "system-ui, -apple-system, sans-serif",
               background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
+              /* ↓ Edit these to fix letter clipping */
+              lineHeight: 1.5,
+              paddingLeft: "0.05em",
+              paddingRight: "0.05em",
             }}
           >
-            Industry Leaders
+            Our Industry Partners
           </h3>
         </div>
 

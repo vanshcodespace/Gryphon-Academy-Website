@@ -148,43 +148,29 @@ function Tooltip({ college, cardRect, containerRect }) {
           height: 0,
           borderLeft: `${arrowSize}px solid transparent`,
           borderRight: `${arrowSize}px solid transparent`,
-          [showAbove ? "borderTop" : "borderBottom"]: `${arrowSize}px solid rgba(15,23,42,0.92)`,
+          [showAbove ? "borderTop" : "borderBottom"]: `${arrowSize}px solid rgba(0, 0, 0, 0.8)`,
         }}
       />
 
       {/* Card body */}
       <div
-        className="rounded-xl p-4"
+        className="rounded-xl p-5"
         style={{
-          background: "rgba(15,23,42,0.92)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
-          border: "1px solid rgba(255,255,255,0.12)",
-          boxShadow:
-            "0 12px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.06)",
+          background: "rgba(0, 0, 0, 0.8)",
+          backdropFilter: "blur(24px)",
+          WebkitBackdropFilter: "blur(24px)",
+          border: "1px solid rgba(255, 255, 255, 0.15)",
+          boxShadow: "0 12px 40px rgba(0, 0, 0, 0.5)",
         }}
       >
-        {/* Logo + Name row */}
-        <div className="flex items-center gap-3">
-          <div
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg"
-            style={{
-              background: "rgba(255,255,255,0.08)",
-              border: "1px solid rgba(255,255,255,0.1)",
-            }}
-          >
-            <img
-              src={college.logo}
-              alt=""
-              className="max-h-8 max-w-8 object-contain"
-            />
-          </div>
-          <div className="min-w-0">
-            <p className="truncate text-sm font-bold text-white leading-snug">
-              {college.name}
-            </p>
+        {/* Name block */}
+        <div className="flex flex-col gap-2">
+          <p className="text-lg font-black text-white leading-tight" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
+            {college.name}
+          </p>
+          <div>
             <span
-              className="mt-0.5 inline-block rounded-full px-2 py-px text-[10px] font-semibold leading-tight"
+              className="inline-block rounded-md px-2 py-0.5 text-xs font-bold leading-tight"
               style={{
                 background: catStyle.bg,
                 color: catStyle.text,
@@ -198,30 +184,24 @@ function Tooltip({ college, cardRect, containerRect }) {
 
         {/* Divider */}
         <div
-          className="my-3 h-px"
-          style={{ background: "rgba(255,255,255,0.08)" }}
+          className="my-3 h-px w-full"
+          style={{ background: "rgba(255, 255, 255, 0.15)" }}
         />
 
         {/* Detail rows */}
-        <div className="space-y-1.5 text-xs">
+        <div className="space-y-2 text-sm font-medium">
           <div className="flex items-center gap-2">
-            <svg className="h-3.5 w-3.5 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className="h-4 w-4 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            <span className="text-slate-300">{college.location}</span>
+            <span className="text-slate-200">{college.location}</span>
           </div>
           <div className="flex items-center gap-2">
-            <svg className="h-3.5 w-3.5 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className="h-4 w-4 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
-            <span className="text-slate-300">{college.type}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <svg className="h-3.5 w-3.5 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span className="text-emerald-400">GA Partner</span>
+            <span className="text-slate-200">{college.type}</span>
           </div>
         </div>
       </div>
@@ -346,29 +326,21 @@ export default function InstitutionsMarquee() {
         {/* Header */}
         <div className={`relative z-30 flex flex-col items-center ${HEADING_MARGIN_CLASS}`}>
           <h3
-            className="pb-1 text-center text-5xl font-bold tracking-tighter sm:text-6xl lg:text-5xl"
+            className="pb-1 text-center text-5xl font-bold tracking-tighter sm:text-6xl lg:text-6xl"
             style={{
               fontFamily: "system-ui, -apple-system, sans-serif",
               background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
+              /* ↓ Edit these to fix letter clipping */
+              lineHeight: 1.2,
+              paddingLeft: "0.05em",
+              paddingRight: "0.05em",
             }}
           >
-            Top College Partners
+            Our College Partners
           </h3>
-          <p
-            className="mt-3 text-lg text-center font-semibold leading-relaxed sm:text-xl lg:text-lg lg:leading-[1.8]"
-            style={{
-              fontFamily: "system-ui, -apple-system, sans-serif",
-              background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            Partnering with Excellence Across Leading Institutions
-          </p>
         </div>
 
         {/* Marquee rows with tooltip container */}

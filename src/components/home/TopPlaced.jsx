@@ -444,17 +444,22 @@ export default function TopPlaced() {
   );
  
   return (
-    <section className="w-full overflow-hidden px-4 py-8 md:py-12" style={{ background: "#BCDEF4" }}>
+    <section className="w-full overflow-x-hidden px-4 py-8 md:py-12" style={{ background: "#BCDEF4" }}>
       <div className="mx-auto w-full max-w-[1370px]">
         <div className="mb-10 text-center md:mb-12">
           <h2
-            className="mb-4 text-5xl font-bold tracking-tighter sm:text-6xl lg:text-5xl"
+            className="mb-4 text-5xl font-bold tracking-tighter sm:text-6xl lg:text-6xl"
             style={{
               fontFamily: "system-ui, -apple-system, sans-serif",
               background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
+              /* ↓ Use lineHeight (not paddingBottom) to prevent letter clipping
+                    paddingBottom causes the gradient to show as a coloured strip  */
+              lineHeight: 1.2,
+              paddingLeft: "0.05em",
+              paddingRight: "0.05em",
             }}
           >
             Top Placements
