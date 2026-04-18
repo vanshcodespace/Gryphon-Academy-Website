@@ -341,6 +341,7 @@ export default function InstitutionsMarquee() {
 
       <div
         className={`relative flex w-full flex-col items-center ${SECTION_PADDING_CLASS}`}
+        style={{ background: "linear-gradient(to bottom, #daeef8, #BCDEF4)" }}
       >
         {/* Header */}
         <div className={`relative z-30 flex flex-col items-center ${HEADING_MARGIN_CLASS}`}>
@@ -354,10 +355,10 @@ export default function InstitutionsMarquee() {
               backgroundClip: "text",
             }}
           >
-            Our Top College Partners
+            Top College Partners
           </h3>
           <p
-            className="mt-3 text-lg text-center leading-relaxed sm:text-xl lg:text-xl lg:leading-[1.8]"
+            className="mt-3 text-lg text-center font-semibold leading-relaxed sm:text-xl lg:text-lg lg:leading-[1.8]"
             style={{
               fontFamily: "system-ui, -apple-system, sans-serif",
               background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",

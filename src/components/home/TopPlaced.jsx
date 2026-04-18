@@ -35,7 +35,7 @@ import logo15 from "../../assets/TopPlaced/Logos/15.webp";
 import logo16 from "../../assets/TopPlaced/Logos/16.webp";
 // import logo17 from "../../assets/TopPlaced/Logos/17.webp";
 // import logo18 from "../../assets/TopPlaced/Logos/18.webp";
-
+ 
 const studentCards = [
   {
     id: 1,
@@ -182,13 +182,13 @@ const studentCards = [
     companyLogo: logo11,
   },
 ];
-
-const SCROLLER_CARD_WIDTH = "clamp(210px, 68vw, 248px)";
-const SCROLLER_CARD_HEIGHT = "400px";
+ 
+const SCROLLER_CARD_WIDTH = "clamp(190px, 64vw, 225px)";
+const SCROLLER_CARD_HEIGHT = "280px";
 const IMAGE_SPLIT_VERTICAL = 0.55;
 const CTC_TOP_MARGIN_VERTICAL = 9;
-const SCROLLER_GAP = 18;
-
+const SCROLLER_GAP = 16;
+ 
 const collegesById = {
   1: "Indira college of Engineering and Management, Pune",
   2: "Indira college of Engineering and Management, Pune",
@@ -209,7 +209,7 @@ const collegesById = {
   17: "Lexicon MILE - Management Institute of Leadership and Excellence, Pune",
   18: "Dnyanshree Institute of Engineering and Technology, Satara",
 };
-
+ 
 function getInitialsLogo(company) {
   const initials = company
     .split(" ")
@@ -217,17 +217,17 @@ function getInitialsLogo(company) {
     .join("")
     .slice(0, 2)
     .toUpperCase();
-
+ 
   const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
       <rect width="64" height="64" rx="14" fill="#EEF4FF" />
       <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Myriad Pro, sans-serif" font-size="22" font-weight="700" fill="#1B3A6B">${initials}</text>
     </svg>
   `;
-
+ 
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 }
-
+ 
 function handleLogoError(event, company) {
   const image = event.currentTarget;
   if (image.dataset.fallbackApplied === "1") {
@@ -236,10 +236,10 @@ function handleLogoError(event, company) {
   image.dataset.fallbackApplied = "1";
   image.src = getInitialsLogo(company);
 }
-
+ 
 function StudentCard({ student }) {
   const college = collegesById[student.id] || "Gryphon Partner College";
-
+ 
   return (
     <article
       className="group relative overflow-hidden rounded-3xl border-2 border-[#1B3A6B]/20 bg-linear-to-br from-white via-[#f5f9ff] to-[#f0f7ff] shadow-lg hover:shadow-2xl transition-all duration-300"
@@ -248,10 +248,10 @@ function StudentCard({ student }) {
       {/* Background glow effect */}
       <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#1B3A6B]/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-8 -left-8 h-40 w-40 rounded-full bg-[#7B1B2A]/10 blur-3xl" />
-
+ 
       <div className="relative z-10 flex h-full flex-col">
         {/* Photo section - Circular and compact */}
-        <div className="relative shrink-0 flex items-center justify-center py-3 bg-linear-to-b from-[#f0f7ff] to-white">
+        <div className="relative shrink-0 flex items-center justify-center py-2 bg-linear-to-b from-[#f0f7ff] to-white">
           <div className="relative h-20 w-20 rounded-full overflow-hidden bg-gradient-to-br from-[#e6f2ff] to-[#d0ddef] border-3 border-[#1B3A6B]/30 shadow-md">
             <img
               src={student.photo}
@@ -261,24 +261,24 @@ function StudentCard({ student }) {
             />
           </div>
         </div>
-
+ 
         {/* Content section */}
-        <div className="flex min-h-0 flex-1 flex-col items-center justify-between px-3 py-3 text-center space-y-2">
+        <div className="flex min-h-0 flex-1 flex-col items-center justify-between px-2 py-1 pb-2 text-center space-y-0">
           {/* Student Name and College - PROMINENT */}
-          <div className="w-full min-h-[52px] flex flex-col justify-center">
+          <div className="w-full min-h-[35px] flex flex-col justify-center">
             <h3 className="line-clamp-1 text-base font-black leading-tight text-[#081a36] md:text-lg tracking-tight" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
               {student.name}
             </h3>
-            <p className="line-clamp-3 text-[8px] font-extrabold text-[#1B3A6B] uppercase tracking-wider leading-tight mt-1" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
+            <p className="line-clamp-3 text-[8px] font-extrabold text-[#1B3A6B] uppercase tracking-wider leading-tight" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
               {college}
             </p>
           </div>
-
+ 
           {/* CTC Badge - LARGE AND PROMINENT */}
-          <div className="w-full px-2">
-            <div className="inline-block px-4 py-2 text-center">
+          <div className="w-full px-1">
+            <div className="inline-block px-3 py-0.5 text-center">
               <span
-                className="text-xl font-black drop-shadow-sm"
+                className="text-lg font-black drop-shadow-sm"
                 style={{
                   fontFamily: "system-ui, -apple-system, sans-serif",
                   background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
@@ -291,9 +291,9 @@ function StudentCard({ student }) {
               </span>
             </div>
           </div>
-
+ 
           {/* Company Logo - HIGHLIGHTED AND CENTERED */}
-          <div className="mt-auto w-full flex flex-col items-center">
+          <div className="-mt-3 w-full flex flex-col items-center">
             <div className=" rounded-sm border-1 border-gray-600 bg-white shadow-lg overflow-hidden flex items-center justify-center md:h-20 md:w-32 hover:border-gray-800 transition-all">
               <img
                 src={student.companyLogo || getInitialsLogo(student.company)}
@@ -308,7 +308,7 @@ function StudentCard({ student }) {
     </article>
   );
 }
-
+ 
 export default function TopPlaced() {
   const trackRef = useRef(null);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
@@ -319,21 +319,21 @@ export default function TopPlaced() {
   const cardsPerPage = 2;
   const totalPages = Math.max(Math.ceil(studentCards.length / cardsPerPage), 1);
   const lastPageIndex = Math.max(totalPages - 1, 0);
-
+ 
   const getScrollStep = useCallback(() => {
     const track = trackRef.current;
     if (!track) return 225 + SCROLLER_GAP;
-
+ 
     const card = track.querySelector("[data-top-placed-card='true']");
     if (!card) return 225 + SCROLLER_GAP;
-
+ 
     return card.getBoundingClientRect().width + SCROLLER_GAP;
   }, []);
-
+ 
   const updateScrollState = useCallback(() => {
     const track = trackRef.current;
     if (!track) return;
-
+ 
     const step = getScrollStep();
     const pageStep = step * cardsPerPage;
     const maxScrollLeft = Math.max(track.scrollWidth - track.clientWidth, 0);
@@ -343,32 +343,32 @@ export default function TopPlaced() {
       0,
       Math.min(totalPages - 1, Math.round(track.scrollLeft / pageStep)),
     );
-
+ 
     setCanScrollPrev(nextCanScrollPrev);
     setCanScrollNext(nextCanScrollNext);
     setActivePage(nextActiveIndex);
   }, [cardsPerPage, getScrollStep, totalPages]);
-
+ 
   useEffect(() => {
     updateScrollState();
-
+ 
     const track = trackRef.current;
     if (!track) return undefined;
-
+ 
     const handleScroll = () => updateScrollState();
     track.addEventListener("scroll", handleScroll, { passive: true });
-
+ 
     const resizeObserver =
       typeof ResizeObserver === "undefined"
         ? null
         : new ResizeObserver(() => updateScrollState());
-
+ 
     if (resizeObserver) {
       resizeObserver.observe(track);
     }
-
+ 
     window.addEventListener("resize", updateScrollState);
-
+ 
     return () => {
       track.removeEventListener("scroll", handleScroll);
       if (resizeObserver) {
@@ -377,18 +377,18 @@ export default function TopPlaced() {
       window.removeEventListener("resize", updateScrollState);
     };
   }, [updateScrollState]);
-
+ 
   const AUTO_SCROLL_DELAY = 5000;
   const PROGRESS_UPDATE_INTERVAL = 100;
-
+ 
   const goToCard = useCallback(
     (index) => {
       const track = trackRef.current;
       if (!track) return;
-
+ 
       const targetIndex = Math.max(0, Math.min(totalPages - 1, index));
       const delta = getScrollStep() * cardsPerPage;
-
+ 
       track.scrollTo({
         left: targetIndex * delta,
         behavior: "smooth",
@@ -396,12 +396,12 @@ export default function TopPlaced() {
     },
     [cardsPerPage, getScrollStep, totalPages],
   );
-
+ 
   useEffect(() => {
     let timeElapsed = 0;
     const displayedPages = Math.max(totalPages - 2, 1);
     const displayedLastPageIndex = displayedPages - 1;
-
+ 
     // Single interval that manages both progress and auto-scroll
     const interval = setInterval(() => {
       if (!isHoveringRef.current) {
@@ -411,7 +411,7 @@ export default function TopPlaced() {
           100 - (timeElapsed / AUTO_SCROLL_DELAY) * 100,
         );
         setAutoScrollProgress(progress);
-
+ 
         if (timeElapsed >= AUTO_SCROLL_DELAY) {
           // After the last visible dot, loop back to the first page.
           const effectiveActivePage = Math.min(activePage, displayedLastPageIndex);
@@ -422,19 +422,19 @@ export default function TopPlaced() {
         }
       }
     }, PROGRESS_UPDATE_INTERVAL);
-
+ 
     return () => {
       clearInterval(interval);
     };
   }, [activePage, goToCard, totalPages]);
-
+ 
   const scrollTrack = useCallback(
     (direction) => {
       const track = trackRef.current;
       if (!track) return;
-
+ 
       const delta = getScrollStep() * cardsPerPage;
-
+ 
       track.scrollBy({
         left: direction === "next" ? delta : -delta,
         behavior: "smooth",
@@ -442,9 +442,9 @@ export default function TopPlaced() {
     },
     [cardsPerPage, getScrollStep],
   );
-
+ 
   return (
-    <section className="w-full overflow-hidden px-4 py-10 md:py-14">
+    <section className="w-full overflow-hidden px-4 py-8 md:py-12" style={{ background: "#BCDEF4" }}>
       <div className="mx-auto w-full max-w-[1370px]">
         <div className="mb-10 text-center md:mb-12">
           <h2
@@ -459,20 +459,11 @@ export default function TopPlaced() {
           >
             Top Placements
           </h2>
-          <p
-            style={{
-              fontFamily: "system-ui, -apple-system, sans-serif",
-              background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-            className="text-base md:text-lg font-semibold tracking-wide"
-          >
+          <p className="text-base md:text-lg font-semibold text-[#4a5568] tracking-wide" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
             Meet our highest achievers
           </p>
         </div>
-
+ 
         <div className="relative">
           <div
             className="overflow-x-auto pb-4 [scrollbar-width:none] scroll-smooth"
@@ -490,7 +481,7 @@ export default function TopPlaced() {
               ))}
             </div>
           </div>
-
+ 
           <div className="mt-3 flex items-center justify-center gap-2.5 lg:gap-3">
             <button
               type="button"
@@ -501,7 +492,7 @@ export default function TopPlaced() {
             >
               <span className="text-lg">‹</span>
             </button>
-
+ 
             <div
               className="flex w-full items-center justify-center gap-2 lg:w-auto"
               onMouseEnter={() => {
@@ -554,7 +545,7 @@ export default function TopPlaced() {
                 });
               })()}
             </div>
-
+ 
             <button
               type="button"
               onClick={() => scrollTrack("next")}
@@ -570,3 +561,5 @@ export default function TopPlaced() {
     </section>
   );
 }
+ 
+ 
