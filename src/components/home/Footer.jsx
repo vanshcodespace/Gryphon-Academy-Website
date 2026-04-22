@@ -18,14 +18,8 @@ function GradientFaIcon({ icon, gradientId, className = "" }) {
       viewBox={`0 0 ${width} ${height}`}
       aria-hidden="true"
       className={className}
-      fill={`url(#${gradientId})`}
+      fill="white"
     >
-      <defs>
-        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#68a1fc" />
-          <stop offset="100%" stopColor="#ff4d68" />
-        </linearGradient>
-      </defs>
       {paths.map((path, index) => (
         <path key={`${gradientId}-${index}`} d={path} />
       ))}
