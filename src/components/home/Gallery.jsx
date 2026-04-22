@@ -49,7 +49,7 @@ const galleryCards = [
 
 export default function Gallery() {
   return (
-    <section className="bg-[#f2f2f3] py-6 sm:py-8 lg:py-4 xl:py-4">
+    <section className="bg-[#f2f2f3] py-16 sm:py-20 lg:py-16 xl:py-16">
       <div className="mx-auto w-full px-3 sm:px-4 lg:max-w-[calc((100vh-8.75rem)*1.78)] xl:max-w-[calc((100vh-9rem)*2.10)]">
         <h2
           className="mb-8 text-center text-4xl font-bold tracking-tight sm:mb-10 sm:text-5xl lg:mb-6 lg:text-5xl"

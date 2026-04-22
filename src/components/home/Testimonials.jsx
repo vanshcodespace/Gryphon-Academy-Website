@@ -767,9 +767,7 @@ function StudentSuccessStories({ spotlight, handleMouseMove, handleMouseLeave })
                 >
                   {/* Testimonial Section */}
                   <div className="relative flex-1 bg-[linear-gradient(165deg,#f6fbff_0%,#dff1fb_100%)] rounded-t-2xl border border-[#a8d4eb] p-4 md:p-5 flex flex-col justify-center">
-                    <div className="absolute left-6 top-3 select-none text-5xl md:text-6xl font-black leading-none text-[#5a9fcc] opacity-15">
-                      "
-                    </div>
+
                     <p className="relative z-10 text-center font-semibold leading-normal text-[#1a3d5c] text-sm md:text-[0.95rem]">
                       {story.text}
                     </p>
@@ -875,9 +873,7 @@ function StudentSuccessStories({ spotlight, handleMouseMove, handleMouseLeave })
                       >
                         {/* Testimonial Section */}
                         <div className="relative flex-1 bg-[linear-gradient(165deg,#f6fbff_0%,#dff1fb_100%)] rounded-t-2xl border border-[#a8d4eb] p-4 md:p-5 flex flex-col justify-center">
-                          <div className="absolute left-6 top-3 select-none text-5xl md:text-6xl font-black leading-none text-[#5a9fcc] opacity-15">
-                            "
-                          </div>
+
                           <p className="relative z-10 text-center font-semibold leading-normal text-[#1a3d5c] text-sm md:text-[0.95rem]">
                             {story.text}
                           </p>
