@@ -5,7 +5,7 @@ export default function Training() {
     <section className="w-full bg-[#D6E8F2] pt-12 md:pt-16">
       <div className="mx-auto w-full max-w-480 px-4 sm:px-6">
         <h2
-          className="mb-6 text-center text-4xl font-bold tracking-tight sm:mb-8 md:mb-10 sm:text-5xl lg:text-5xl"
+          className="mb-2 text-center text-4xl font-bold tracking-tight sm:mb-3 md:mb-4 sm:text-5xl lg:text-5xl"
           style={{
             background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
             WebkitBackgroundClip: "text",
@@ -16,7 +16,7 @@ export default function Training() {
           How It Works?
         </h2>
         <h3
-          className="mb-10 mx-auto max-w-6xl text-center text-lg font-medium tracking-tight wrap-break-word whitespace-normal sm:mb-8 md:mb-12 sm:text-xl lg:text-xl"
+          className="mb-2 mx-auto max-w-6xl text-center text-lg font-medium tracking-tight wrap-break-word whitespace-normal sm:mb-2 md:mb-3 sm:text-xl lg:text-xl"
           style={{
             background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
             WebkitBackgroundClip: "text",

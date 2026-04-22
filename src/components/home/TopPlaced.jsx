@@ -448,7 +448,7 @@ export default function TopPlaced() {
       <div className="mx-auto w-full max-w-[1370px]">
         <div className="mb-10 text-center md:mb-12">
           <h2
-            className="mb-4 text-5xl font-bold tracking-tighter sm:text-6xl lg:text-6xl"
+            className="mb-1 text-5xl font-bold tracking-tighter sm:text-6xl lg:text-6xl"
             style={{
               fontFamily: "system-ui, -apple-system, sans-serif",
               background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
