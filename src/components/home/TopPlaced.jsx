@@ -293,7 +293,7 @@ function StudentCard({ student }) {
           </div>
  
           {/* Company Logo - HIGHLIGHTED AND CENTERED */}
-          <div clnpmassName="-mt-3 w-full flex flex-col items-center">
+          <div className="-mt-3 w-full flex flex-col items-center">
             <div className=" rounded-sm border-1 border-gray-600 bg-white shadow-lg overflow-hidden flex items-center justify-center md:h-20 md:w-32 hover:border-gray-800 transition-all">
               <img
                 src={student.companyLogo || getInitialsLogo(student.company)}
