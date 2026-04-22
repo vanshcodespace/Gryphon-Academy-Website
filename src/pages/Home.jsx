@@ -86,11 +86,11 @@ export default function Home() {
       {/* ── Unified marquee + placements band ──────────────────────── */}
     
 
-        <div style={{ background: "linear-gradient(to bottom, #daeef8, #BCDEF4)" }}>
+      <div style={{ background: "linear-gradient(to bottom, #daeef8, #BCDEF4)" }}>
           <CorporateMarquee />
           <InstitutionsMarquee />
-        </div>
-        <TopPlaced/>
+       </div>
+      <TopPlaced/>
       <Gallery/>
       <CTA />
       <Testimonials />

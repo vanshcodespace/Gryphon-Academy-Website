@@ -31,7 +31,7 @@ export default function CTA() {
             <span className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-[#2f67e6]/10 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
           </a>
 
-          <span className="hidden text-xl text-[#3a6aa8] sm:inline">·</span>
+          <span className="hidden text-xl text-[#3a6aa8] sm:inline"></span>
 
           <a
             href="#contact"
@@ -40,7 +40,7 @@ export default function CTA() {
             Register as a Hiring Partner
           </a>
 
-          <span className="hidden text-xl text-[#3a6aa8] sm:inline">·</span>
+          <span className="hidden text-xl text-[#3a6aa8] sm:inline"></span>
 
           <a
             href="#contact"
