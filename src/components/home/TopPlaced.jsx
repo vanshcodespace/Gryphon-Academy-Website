@@ -444,46 +444,43 @@ export default function TopPlaced() {
   );
  
   return (
-    <section className="w-full overflow-x-hidden px-4 py-8 md:py-12" style={{ background: "#BCDEF4" }}>
-      <div className="mx-auto w-full max-w-[1370px]">
+    <section className="relative w-full overflow-hidden bg-[#01224F] px-4 py-8 md:py-12">
+      {/* Ambient glow orbs */}
+      <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-[#1b4f8f]/25 blur-[120px]" />
+      <div className="pointer-events-none absolute -bottom-24 -right-24 h-[28rem] w-[28rem] rounded-full bg-[#3f8efc]/15 blur-[100px]" />
+
+      <div className="relative z-10 mx-auto w-full max-w-[1370px]">
         <div className="mb-10 text-center md:mb-12">
-          <h2
-            className="mb-1 text-5xl font-bold tracking-tighter sm:text-6xl lg:text-6xl"
-            style={{
-              fontFamily: "system-ui, -apple-system, sans-serif",
-              background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              /* ↓ Use lineHeight (not paddingBottom) to prevent letter clipping
-                    paddingBottom causes the gradient to show as a coloured strip  */
-              lineHeight: 1.2,
-              paddingLeft: "0.05em",
-              paddingRight: "0.05em",
-            }}
-          >
-            Top Placements
+          <h2 className="mb-2 text-5xl font-bold tracking-tighter sm:text-6xl lg:text-6xl">
+            <span className="bg-linear-to-r from-white via-[#8ab4f0] to-[#5b91e3] bg-clip-text text-transparent">
+              Top Placements
+            </span>
           </h2>
-          <p className="text-base md:text-lg font-semibold text-[#4a5568] tracking-wide" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
+          <p
+            className="text-base font-semibold tracking-wide text-gray-200 md:text-lg"
+            style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
+          >
             Meet our highest achievers
           </p>
         </div>
  
         <div className="relative">
           <div
-            className="overflow-x-auto pb-4 [scrollbar-width:none] scroll-smooth"
+            className="overflow-x-auto pb-10 pt-4 -mt-4 [scrollbar-width:none] scroll-smooth snap-x snap-mandatory"
             ref={trackRef}
           >
-            <div className="flex w-max gap-4 pr-2">
+            <div className="flex gap-4 px-2 md:px-4">
               {studentCards.map((student) => (
                 <div
                   key={student.id}
-                  className="shrink-0 snap-start"
+                  className="shrink-0 snap-center py-4"
                   data-top-placed-card="true"
                 >
                   <StudentCard student={student} />
                 </div>
               ))}
+              {/* Invisible spacer div to force the scroll area to extend fully */}
+              <div aria-hidden="true" className="w-[10vw] shrink-0" />
             </div>
           </div>
  

@@ -321,7 +321,6 @@ export default function InstitutionsMarquee() {
 
       <div
         className={`relative flex w-full flex-col items-center ${SECTION_PADDING_CLASS}`}
-        style={{ background: "linear-gradient(to bottom, #daeef8, #BCDEF4)" }}
       >
         {/* Header */}
         <div className={`relative z-30 flex flex-col items-center ${HEADING_MARGIN_CLASS}`}>
