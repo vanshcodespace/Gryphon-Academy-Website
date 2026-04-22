@@ -1,4 +1,4 @@
-import videoBridge from "../../assets/Bridge4.mp4";
+import videoBridge from "../../assets/Bridge.mp4";
 
 export default function AudiencePathways() {
   return (
