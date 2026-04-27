@@ -72,7 +72,7 @@ const TRACK_FADE_MASK =
 function Tooltip({ college, cardRect, containerRect }) {
   if (!college || !cardRect || !containerRect) return null;
 
-  const tooltipW = 300;
+  const tooltipW = 290;
   const gap = 12;
   const arrowSize = 8;
 
@@ -87,12 +87,11 @@ function Tooltip({ college, cardRect, containerRect }) {
   left = Math.max(8, Math.min(left, containerRect.width - tooltipW - 8));
 
   const top = showAbove
-    ? cardRect.top - containerRect.top - 204 - gap
+    ? cardRect.top - containerRect.top - 196 - gap
     : cardRect.bottom - containerRect.top + gap;
 
   const arrowLeft = cardCenterX - left;
   const catStyle = getCategoryStyle(college.category);
-  const gradientAura = `radial-gradient(circle at 18% 20%, ${catStyle.text}40 0%, transparent 52%), radial-gradient(circle at 84% 88%, ${catStyle.border}55 0%, transparent 50%)`;
 
   return (
     <div
@@ -101,7 +100,7 @@ function Tooltip({ college, cardRect, containerRect }) {
         left,
         top,
         width: tooltipW,
-        animation: "tooltipIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) both",
+        animation: "tooltipIn 0.24s ease-out both",
       }}
     >
       {/* Arrow */}
@@ -114,7 +113,7 @@ function Tooltip({ college, cardRect, containerRect }) {
           height: 0,
           borderLeft: `${arrowSize}px solid transparent`,
           borderRight: `${arrowSize}px solid transparent`,
-          [showAbove ? "borderTop" : "borderBottom"]: `${arrowSize}px solid rgba(7, 12, 25, 0.86)`,
+          [showAbove ? "borderTop" : "borderBottom"]: `${arrowSize}px solid rgba(12, 18, 32, 0.82)`,
         }}
       />
 
@@ -122,27 +121,19 @@ function Tooltip({ college, cardRect, containerRect }) {
       <div
         className="relative overflow-hidden rounded-2xl p-5"
         style={{
-          background: `linear-gradient(145deg, rgba(10, 14, 30, 0.92), rgba(8, 11, 24, 0.86)), ${gradientAura}`,
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          border: `1px solid ${catStyle.border}`,
-          boxShadow: `0 18px 46px rgba(3, 7, 18, 0.65), 0 0 0 1px ${catStyle.text}30, 0 0 40px ${catStyle.text}25`,
+          background:
+            "linear-gradient(165deg, rgba(13, 19, 34, 0.94), rgba(17, 24, 39, 0.9))",
+          backdropFilter: "blur(14px)",
+          WebkitBackdropFilter: "blur(14px)",
+          border: "1px solid rgba(255, 255, 255, 0.14)",
+          boxShadow: "0 14px 34px rgba(2, 6, 18, 0.42)",
         }}
       >
         <div
-          className="absolute inset-0 opacity-60"
+          className="absolute inset-0 opacity-40"
           style={{
             background:
-              "linear-gradient(115deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 40%), repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 8px)",
-            mixBlendMode: "soft-light",
-          }}
-        />
-        <div
-          className="absolute -right-16 -top-16 h-44 w-44 rounded-full opacity-75"
-          style={{
-            background: `radial-gradient(circle, ${catStyle.text}70 0%, transparent 70%)`,
-            filter: "blur(2px)",
-            animation: "tooltipGlow 3.2s ease-in-out infinite",
+              "linear-gradient(120deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 46%)",
           }}
         />
 
@@ -150,23 +141,21 @@ function Tooltip({ college, cardRect, containerRect }) {
         {/* Name block */}
         <div className="flex flex-col gap-2">
           <p
-            className="text-[1.15rem] font-black leading-tight text-white"
+            className="text-[1.06rem] font-bold leading-tight text-white"
             style={{
               fontFamily: "'Avenir Next', 'Trebuchet MS', 'Segoe UI', sans-serif",
-              letterSpacing: "0.01em",
-              textShadow: "0 2px 12px rgba(7, 12, 25, 0.75)",
+              letterSpacing: "0.005em",
             }}
           >
             {college.name}
           </p>
           <div>
             <span
-              className="inline-block rounded-full px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.12em]"
+              className="inline-block rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.11em]"
               style={{
-                background: `linear-gradient(90deg, ${catStyle.bg}, #121a33)`,
+                background: `${catStyle.bg}88`,
                 color: catStyle.text,
                 border: `1px solid ${catStyle.border}`,
-                boxShadow: `0 0 14px ${catStyle.text}30`,
               }}
             >
               {college.category}
@@ -178,32 +167,24 @@ function Tooltip({ college, cardRect, containerRect }) {
         <div
           className="my-3 h-px w-full"
           style={{
-            background: `linear-gradient(to right, transparent 0%, ${catStyle.text}80 48%, transparent 100%)`,
+            background: "linear-gradient(to right, transparent 0%, rgba(255,255,255,0.34) 50%, transparent 100%)",
           }}
         />
 
         {/* Detail rows */}
-        <div className="space-y-2.5 text-sm">
-          <div className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 backdrop-blur-sm">
-            <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-300/85">Location</p>
+        <div className="space-y-2 text-sm">
+          <div className="rounded-xl border border-white/10 bg-white/6 px-2.5 py-2">
+            <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-300/80">Location</p>
             <div className="flex items-center gap-2">
-              <svg className="h-4 w-4 shrink-0 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <svg className="h-4 w-4 shrink-0 text-slate-300/90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-              <span className="font-semibold text-slate-100">{college.location}</span>
+              <span className="font-medium text-slate-100/95">{college.location}</span>
             </div>
           </div>
 
-          <div className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 backdrop-blur-sm">
-            <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-300/85">Institution Type</p>
-            <div className="flex items-center gap-2">
-              <svg className="h-4 w-4 shrink-0 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-              <span className="font-semibold text-slate-100">{college.type}</span>
-            </div>
-          </div>
+
         </div>
         </div>
       </div>
@@ -318,10 +299,6 @@ export default function InstitutionsMarquee() {
         @keyframes tooltipIn {
           from { opacity: 0; transform: translateY(4px); }
           to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes tooltipGlow {
-          0%, 100% { transform: scale(1); opacity: 0.58; }
-          50% { transform: scale(1.08); opacity: 0.88; }
         }
       `}</style>
 

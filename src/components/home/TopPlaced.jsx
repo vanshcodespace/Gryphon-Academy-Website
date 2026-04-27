@@ -33,8 +33,8 @@ import logo13 from "../../assets/TopPlaced/Logos/13.webp";
 import logo14 from "../../assets/TopPlaced/Logos/14.webp";
 import logo15 from "../../assets/TopPlaced/Logos/15.webp";
 import logo16 from "../../assets/TopPlaced/Logos/16.webp";
-// import logo17 from "../../assets/TopPlaced/Logos/17.webp";
-// import logo18 from "../../assets/TopPlaced/Logos/18.webp";
+import logo17 from "../../assets/TopPlaced/Logos/17.png";
+import logo18 from "../../assets/TopPlaced/Logos/18.jpeg";
  
 const studentCards = [
   {
@@ -75,7 +75,7 @@ const studentCards = [
     ctc: "13 LPA",
     company: "COHESITY",
     photo: photo5,
-    companyLogo: null,
+    companyLogo: logo17,
   },
   {
     id: 6,
@@ -104,15 +104,15 @@ const studentCards = [
   {
     id: 9,
     name: "Trisha Chowdhary",
-    ctc: "000 LPA",
+   
     company: "faurecia",
     photo: photo9,
-    companyLogo: null,
+    companyLogo: logo18,
   },
   {
     id: 10,
     name: "Omkar Hatte",
-    ctc: "000 LPA",
+  
     company: "Piaggio",
     photo: photo10,
     companyLogo: logo6,
@@ -120,7 +120,7 @@ const studentCards = [
   {
     id: 11,
     name: "Suraj Pawar",
-    ctc: "000 LPA",
+    
     company: "MAN trucks and bus",
     photo: photo11,
     companyLogo: logo7,
@@ -128,7 +128,7 @@ const studentCards = [
   {
     id: 12,
     name: "Baburao Konuri",
-    ctc: "000 LPA",
+   
     company: "YASH Technologies",
     photo: photo12,
     companyLogo: logo8,
@@ -136,7 +136,7 @@ const studentCards = [
   {
     id: 13,
     name: "Juie Bankar",
-    ctc: "000 LPA",
+    
     company: "Force Motors",
     photo: photo13,
     companyLogo: logo9,
@@ -144,7 +144,7 @@ const studentCards = [
   {
     id: 14,
     name: "Apeksha Kapadnis",
-    ctc: "000 LPA",
+  
     company: "Persistent",
     photo: photo14,
     companyLogo: logo14,
@@ -152,7 +152,7 @@ const studentCards = [
   {
     id: 15,
     name: "Aryan Sasane",
-    ctc: "000 LPA",
+   
     company: "Godrej",
     photo: photo15,
     companyLogo: logo15,
@@ -160,7 +160,7 @@ const studentCards = [
   {
     id: 16,
     name: "Ruchika Dhope",
-    ctc: "000 LPA",
+    
     company: "vanderlande",
     photo: photo16,
     companyLogo: logo13,
@@ -168,7 +168,7 @@ const studentCards = [
   {
     id: 17,
     name: "Sakshi Sharma",
-    ctc: "000 LPA",
+   
     company: "Data axle",
     photo: photo17,
     companyLogo: logo10,
@@ -176,18 +176,19 @@ const studentCards = [
   {
     id: 18,
     name: "Suraj More",
-    ctc: "000 LPA",
+    
     company: "Hettich",
     photo: photo18,
     companyLogo: logo11,
   },
 ];
  
-const SCROLLER_CARD_WIDTH = "clamp(190px, 64vw, 225px)";
+const SCROLLER_CARD_WIDTH = "clamp(150px, 18vw, 225px)";
 const SCROLLER_CARD_HEIGHT = "280px";
 const IMAGE_SPLIT_VERTICAL = 0.55;
 const CTC_TOP_MARGIN_VERTICAL = 9;
 const SCROLLER_GAP = 16;
+const STUDENTS_PER_PAGE = 5;
  
 const collegesById = {
   1: "Indira college of Engineering and Management, Pune",
@@ -209,6 +210,11 @@ const collegesById = {
   17: "Lexicon MILE - Management Institute of Leadership and Excellence, Pune",
   18: "Dnyanshree Institute of Engineering and Technology, Satara",
 };
+
+const studentPages = [];
+for (let index = 0; index < studentCards.length; index += STUDENTS_PER_PAGE) {
+  studentPages.push(studentCards.slice(index, index + STUDENTS_PER_PAGE));
+}
  
 function getInitialsLogo(company) {
   const initials = company
@@ -316,26 +322,20 @@ export default function TopPlaced() {
   const [activePage, setActivePage] = useState(0);
   const [autoScrollProgress, setAutoScrollProgress] = useState(100);
   const isHoveringRef = useRef(false);
-  const cardsPerPage = 2;
-  const totalPages = Math.max(Math.ceil(studentCards.length / cardsPerPage), 1);
+  const totalPages = Math.max(studentPages.length, 1);
   const lastPageIndex = Math.max(totalPages - 1, 0);
  
   const getScrollStep = useCallback(() => {
     const track = trackRef.current;
-    if (!track) return 225 + SCROLLER_GAP;
- 
-    const card = track.querySelector("[data-top-placed-card='true']");
-    if (!card) return 225 + SCROLLER_GAP;
- 
-    return card.getBoundingClientRect().width + SCROLLER_GAP;
+    if (!track) return 0;
+    return track.clientWidth;
   }, []);
  
   const updateScrollState = useCallback(() => {
     const track = trackRef.current;
     if (!track) return;
  
-    const step = getScrollStep();
-    const pageStep = step * cardsPerPage;
+    const pageStep = Math.max(getScrollStep(), 1);
     const maxScrollLeft = Math.max(track.scrollWidth - track.clientWidth, 0);
     const nextCanScrollPrev = track.scrollLeft > 1;
     const nextCanScrollNext = track.scrollLeft < maxScrollLeft - 1;
@@ -347,7 +347,7 @@ export default function TopPlaced() {
     setCanScrollPrev(nextCanScrollPrev);
     setCanScrollNext(nextCanScrollNext);
     setActivePage(nextActiveIndex);
-  }, [cardsPerPage, getScrollStep, totalPages]);
+  }, [getScrollStep, totalPages]);
  
   useEffect(() => {
     updateScrollState();
@@ -387,20 +387,18 @@ export default function TopPlaced() {
       if (!track) return;
  
       const targetIndex = Math.max(0, Math.min(totalPages - 1, index));
-      const delta = getScrollStep() * cardsPerPage;
+      const delta = getScrollStep();
  
       track.scrollTo({
         left: targetIndex * delta,
         behavior: "smooth",
       });
     },
-    [cardsPerPage, getScrollStep, totalPages],
+    [getScrollStep, totalPages],
   );
  
   useEffect(() => {
     let timeElapsed = 0;
-    const displayedPages = Math.max(totalPages - 2, 1);
-    const displayedLastPageIndex = displayedPages - 1;
  
     // Single interval that manages both progress and auto-scroll
     const interval = setInterval(() => {
@@ -413,9 +411,7 @@ export default function TopPlaced() {
         setAutoScrollProgress(progress);
  
         if (timeElapsed >= AUTO_SCROLL_DELAY) {
-          // After the last visible dot, loop back to the first page.
-          const effectiveActivePage = Math.min(activePage, displayedLastPageIndex);
-          const nextPage = effectiveActivePage >= displayedLastPageIndex ? 0 : effectiveActivePage + 1;
+          const nextPage = activePage >= lastPageIndex ? 0 : activePage + 1;
           goToCard(nextPage);
           timeElapsed = 0;
           setAutoScrollProgress(100);
@@ -426,21 +422,14 @@ export default function TopPlaced() {
     return () => {
       clearInterval(interval);
     };
-  }, [activePage, goToCard, totalPages]);
+  }, [activePage, goToCard, lastPageIndex]);
  
   const scrollTrack = useCallback(
     (direction) => {
-      const track = trackRef.current;
-      if (!track) return;
- 
-      const delta = getScrollStep() * cardsPerPage;
- 
-      track.scrollBy({
-        left: direction === "next" ? delta : -delta,
-        behavior: "smooth",
-      });
+      const nextPage = direction === "next" ? activePage + 1 : activePage - 1;
+      goToCard(nextPage);
     },
-    [cardsPerPage, getScrollStep],
+    [activePage, goToCard],
   );
  
   return (
@@ -469,18 +458,21 @@ export default function TopPlaced() {
             className="overflow-x-auto pb-10 pt-4 -mt-4 [scrollbar-width:none] scroll-smooth snap-x snap-mandatory"
             ref={trackRef}
           >
-            <div className="flex gap-4 px-2 md:px-4">
-              {studentCards.map((student) => (
+            <div className="flex gap-0">
+              {studentPages.map((page) => (
                 <div
-                  key={student.id}
-                  className="shrink-0 snap-center py-4"
-                  data-top-placed-card="true"
+                  key={`page-${page[0]?.id || "empty"}`}
+                  className="w-full shrink-0 snap-start px-2 py-4 md:px-4"
                 >
-                  <StudentCard student={student} />
+                  <div className="grid grid-cols-5 gap-4 justify-items-center">
+                    {page.map((student) => (
+                      <div key={student.id} data-top-placed-card="true">
+                        <StudentCard student={student} />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
-              {/* Invisible spacer div to force the scroll area to extend fully */}
-              <div aria-hidden="true" className="w-[10vw] shrink-0" />
             </div>
           </div>
  
@@ -504,48 +496,43 @@ export default function TopPlaced() {
                 isHoveringRef.current = false;
               }}
             >
-              {(() => {
-                const displayedPages = Math.max(totalPages - 2, 1);
-                const displayedLastPageIndex = displayedPages - 1;
-                const effectiveActivePage = Math.min(activePage, displayedLastPageIndex);
-                
-                return Array.from({ length: displayedPages }).map((_, index) => {
-                  const isActive = index === effectiveActivePage;
-                  return (
-                    <button
-                      type="button"
-                      key={`dot-${index}`}
-                      onClick={() => {
-                        goToCard(index);
-                        setAutoScrollProgress(100);
-                        isHoveringRef.current = false;
-                      }}
-                      aria-label={`Go to student page ${index + 1}`}
-                      className={`relative rounded-full transition-all duration-300 overflow-hidden flex items-center justify-center ${
-                        isActive
-                          ? "h-2 w-6 bg-[#1B3A6B]/20 shadow-md shadow-[#1B3A6B]/30"
-                          : "h-2 w-2 bg-[#b8d0e8] hover:bg-[#1B3A6B] hover:shadow-md"
-                      }`}
-                    >
-                      {isActive && (
-                        <>
-                          <div className="absolute inset-0 rounded-full bg-[#1B3A6B]" />
-                          <div
-                            className="absolute left-0 top-0 bottom-0 bg-[#1f6fa8] rounded-full"
-                            style={{
-                              width: `${autoScrollProgress}%`,
-                              height: "100%",
-                              transition: "width 0.1s linear",
-                              willChange: "width",
-                            }}
-                          />
-                          <div className="absolute inset-0 rounded-full border border-[#1B3A6B]/50" />
-                        </>
-                      )}
-                    </button>
-                  );
-                });
-              })()}
+              {Array.from({ length: totalPages }, (_, pageNumber) => pageNumber + 1).map((pageNumber) => {
+                const index = pageNumber - 1;
+                const isActive = index === activePage;
+                return (
+                  <button
+                    type="button"
+                    key={`dot-${pageNumber}`}
+                    onClick={() => {
+                      goToCard(index);
+                      setAutoScrollProgress(100);
+                      isHoveringRef.current = false;
+                    }}
+                    aria-label={`Go to student page ${index + 1}`}
+                    className={`relative rounded-full transition-all duration-300 overflow-hidden flex items-center justify-center ${
+                      isActive
+                        ? "h-2 w-6 bg-[#1B3A6B]/20 shadow-md shadow-[#1B3A6B]/30"
+                        : "h-2 w-2 bg-[#b8d0e8] hover:bg-[#1B3A6B] hover:shadow-md"
+                    }`}
+                  >
+                    {isActive && (
+                      <>
+                        <div className="absolute inset-0 rounded-full bg-[#1B3A6B]" />
+                        <div
+                          className="absolute left-0 top-0 bottom-0 bg-[#1f6fa8] rounded-full"
+                          style={{
+                            width: `${autoScrollProgress}%`,
+                            height: "100%",
+                            transition: "width 0.1s linear",
+                            willChange: "width",
+                          }}
+                        />
+                        <div className="absolute inset-0 rounded-full border border-[#1B3A6B]/50" />
+                      </>
+                    )}
+                  </button>
+                );
+              })}
             </div>
  
             <button
