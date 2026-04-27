@@ -1,0 +1,380 @@
+[
+  {
+    "id": "1",
+    "imagePath": "../../assets/GA College Partners/1.webp",
+    "name": "Indira College Of Engineering And Management",
+    "category": "ICEM",
+    "location": "Pune, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "2",
+    "imagePath": "../../assets/GA College Partners/2.webp",
+    "name": "Indira Global School Of Business",
+    "category": "IGSB",
+    "location": "Pune, Maharashtra ",
+    "type": ""
+  },
+  {
+    "id": "3",
+    "imagePath": "../../assets/GA College Partners/3.webp",
+    "name": "Shri Ramdeobaba College of Engineering and Management",
+    "category": "RCOEM",
+    "location": "Nagpur, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "4",
+    "imagePath": "../../assets/GA College Partners/4.webp",
+    "name": "Sri Eshwar College of Engineering",
+    "category": "SECE",
+    "location": "Coimbatore, Tamil Nadu ",
+    "type": ""
+  },
+  {
+    "id": "5",
+    "imagePath": "../../assets/GA College Partners/5.webp",
+    "name": "Dnyanshree Institute of Engineering and Technology",
+    "category": "DIET",
+    "location": "Sonavadi, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "6",
+    "imagePath": "../../assets/GA College Partners/6.webp",
+    "name": "Sharda University",
+    "category": "SU",
+    "location": "Greater Noida, Uttar Pradesh",
+    "type": ""
+  },
+  {
+    "id": "7",
+    "imagePath": "../../assets/GA College Partners/7.webp",
+    "name": "Nagpur Institute Of Technology",
+    "category": "NIT",
+    "location": "Mahurzari, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "8",
+    "imagePath": "../../assets/GA College Partners/8.webp",
+    "name": "Institute for Future Education, Entrepreneurship and Leadership",
+    "category": "IFEL",
+    "location": "Karla, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "9",
+    "imagePath": "../../assets/GA College Partners/9.webp",
+    "name": "Indira University",
+    "category": "IU",
+    "location": "Pune, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "10",
+    "imagePath": "../../assets/GA College Partners/10.webp",
+    "name": "Sanjivani College of Engineering",
+    "category": "SCE",
+    "location": "Kopargaon, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "11",
+    "imagePath": "../../assets/GA College Partners/11.webp",
+    "name": "Sanjivani K.B.P. Polytechnic",
+    "category": "SKBP",
+    "location": "Singnapur, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "12",
+    "imagePath": "../../assets/GA College Partners/12.webp",
+    "name": "Sri Ramakrishna Engineering College",
+    "category": "SREC",
+    "location": "Coimbatore, Tamil Nadu",
+    "type": ""
+  },
+  {
+    "id": "13",
+    "imagePath": "../../assets/GA College Partners/13.webp",
+    "name": "Ajeenkya DY Patil University",
+    "category": "ADYPU",
+    "location": "Pimpri-Chinchwad, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "14",
+    "imagePath": "../../assets/GA College Partners/14.webp",
+    "name": "LEAD College of Management",
+    "category": "LEAD",
+    "location": "Akathethara, Kerala",
+    "type": ""
+  },
+  {
+    "id": "15",
+    "imagePath": "../../assets/GA College Partners/15.webp",
+    "name": "Dr. D. Y. Patil Institute of Management Studies ",
+    "category": "DYPIMS",
+    "location": "Pimpri-Chinchwad, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "16",
+    "imagePath": "../../assets/GA College Partners/16.webp",
+    "name": "Ballari Institute of Technology & Management",
+    "category": "BITM",
+    "location": "Bellary, Karnataka",
+    "type": ""
+  },
+  {
+    "id": "17",
+    "imagePath": "../../assets/GA College Partners/17.webp",
+    "name": "Pune Business School",
+    "category": "PBS",
+    "location": "Pune, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "18",
+    "imagePath": "../../assets/GA College Partners/18.webp",
+    "name": "JSPM Group Of Institutes",
+    "category": "JSPM",
+    "location": "Pune, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "19",
+    "imagePath": "../../assets/GA College Partners/19.webp",
+    "name": "Government College For Girls, Ludhiana",
+    "category": "GCFG",
+    "location": "Ludhiana, Punjab",
+    "type": ""
+  },
+  {
+    "id": "20",
+    "imagePath": "../../assets/GA College Partners/20.webp",
+    "name": "Lexicon Management Institute of Leadership and Excellence",
+    "category": "Lexicon MILE",
+    "location": "Pune, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "21",
+    "imagePath": "../../assets/GA College Partners/21.webp",
+    "name": "Mulshi Institute of Business Management",
+    "category": "MIBM",
+    "location": "Pune, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "22",
+    "imagePath": "../../assets/GA College Partners/22.webp",
+    "name": "Siksha 'O' Anusandhan",
+    "category": "SOA",
+    "location": "Bhubaneswar, Odisha",
+    "type": ""
+  },
+  {
+    "id": "23",
+    "imagePath": "../../assets/GA College Partners/23.webp",
+    "name": "DY Patil International University",
+    "category": "DPIU",
+    "location": "Pune, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "24",
+    "imagePath": "../../assets/GA College Partners/24.webp",
+    "name": "Dr. J. J. Magdum College of Engineering",
+    "category": "JJMCOE",
+    "location": "Pune, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "25",
+    "imagePath": "../../assets/GA College Partners/25.webp",
+    "name": "Vidya Jyothi Institute of Technology",
+    "category": "VJIT",
+    "location": "Telangana",
+    "type": ""
+  },
+  {
+    "id": "26",
+    "imagePath": "../../assets/GA College Partners/26.webp",
+    "name": "ISBR Business School",
+    "category": "ISBR",
+    "location": "Bengaluru, Karnataka",
+    "type": ""
+  },
+  {
+    "id": "27",
+    "imagePath": "../../assets/GA College Partners/27.webp",
+    "name": "",
+    "category": "",
+    "location": "",
+    "type": ""
+  },
+  {
+    "id": "28",
+    "imagePath": "../../assets/GA College Partners/28.webp",
+    "name": "SNJB's Late Sau Kantabai Bhavarlalji Jain College of Engineering",
+    "category": "SNJB",
+    "location": "Chandvad, Maharashtra",
+    "type": ""
+  },
+ 
+  {
+    "id": "29",
+    "imagePath": "../../assets/GA College Partners/29.webp",
+    "name": "D. Y. Patil College Of Engineering & Technology",
+    "category": "DYPCET",
+    "location": "Kolhapur, Maharashtra",
+    "type": ""
+  },
+  
+  {
+    "id": "31",
+    "imagePath": "../../assets/GA College Partners/31.webp",
+    "name": "Pune District Education Association's College of Engineering",
+    "category": "PDEA",
+    "location": "Pune, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "32",
+    "imagePath": "../../assets/GA College Partners/32.webp",
+    "name": "Yashoda College of Architecture and Planning",
+    "category": "YSPM",
+    "location": "Satara, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "33",
+    "imagePath": "../../assets/GA College Partners/33.webp",
+    "name": "Savitribai Phule Pune University",
+    "category": "SPPU",
+    "location": "Pune, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "34",
+    "imagePath": "../../assets/GA College Partners/34.webp",
+    "name": "P. R. Pote Patil College of Engineering and Management",
+    "category": "PRP",
+    "location": "Kathora, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "35",
+    "imagePath": "../../assets/GA College Partners/35.webp",
+    "name": "Audyogik Shikshan Mandal Institute of Professional Studies",
+    "category": "ASM",
+    "location": "Pimpri-Chinchwad, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "36",
+    "imagePath": "../../assets/GA College Partners/36.webp",
+    "name": "IDEAL Institute Of Technology",
+    "category": "IDEAL",
+    "location": " Kakinada, Andhra Pradesh 533004",
+    "type": ""
+  },
+  {
+    "id": "37",
+    "imagePath": "../../assets/GA College Partners/37.webp",
+    "name": "Ramachandran International Institute Of Management",
+    "category": "RIIM",
+    "location": "Pune, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "38",
+    "imagePath": "../../assets/GA College Partners/38.webp",
+    "name": "Dnyanshree Institute of Engineering and Technology",
+    "category": "DIET",
+    "location": "Sonavadi, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "39",
+    "imagePath": "../../assets/GA College Partners/39.webp",
+    "name": "Agnel Institute of Engineering and Management",
+    "category": "AITD",
+    "location": "Goa",
+    "type": ""
+  },
+  {
+    "id": "40",
+    "imagePath": "../../assets/GA College Partners/40.webp",
+    "name": "S. B. Patil Institute of Management",
+    "category": "SBPIM",
+    "location": "Pune, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "41",
+    "imagePath": "../../assets/GA College Partners/41.webp",
+    "name": "Vijay Patil School of Management",
+    "category": "VPSM",
+    "location": "Navi Mumbai, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "42",
+    "imagePath": "../../assets/GA College Partners/42.webp",
+    "name": "DKTE Society's Textile & Engineering Institute",
+    "category": "DKTE",
+    "location": "Ichalkaranji, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "43",
+    "imagePath": "../../assets/GA College Partners/43.webp",
+    "name": "Sanskrithi School Of Engineering",
+    "category": "SSE",
+    "location": "Bade Nayak Thanda, Andhra Pradesh",
+    "type": ""
+  },
+  {
+    "id": "44",
+    "imagePath": "../../assets/GA College Partners/44.webp",
+    "name": "Mauli College of Engineering & Technology",
+    "category": "MCOET",
+    "location": "Sawarna,Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "45",
+    "imagePath": "../../assets/GA College Partners/45.webp",
+    "name": "Institute of Industrial and Computer Management and Research",
+    "category": "IICMR",
+    "location": "Pune, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "46",
+    "imagePath": "../../assets/GA College Partners/46.webp",
+    "name": "Sharad Institute of Technology College of Engineering",
+    "category": "SIT",
+    "location": "Kolhapur, Maharashtra",
+    "type": ""
+  },
+  {
+    "id": "47",
+    "imagePath": "../../assets/GA College Partners/47.webp",
+    "name": "SAGE University",
+    "category": "SAGE",
+    "location": "Indore, Madhya Pradesh",
+    "type": ""
+  },
+   {
+    "id": "48",
+    "imagePath": "../../assets/GA College Partners/48.webp",
+    "name": "Karmaveer Dadasaheb Kannamwar Engineering College",
+    "category": "KDK",
+    "location": "Nagpur, Maharashtra",
+    "type": ""
+  }
+]

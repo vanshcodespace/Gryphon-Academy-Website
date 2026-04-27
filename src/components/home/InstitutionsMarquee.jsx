@@ -1,62 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import collegePartners from "../../data/collegePartners.json";
 
 // Dynamically import all images from the College Partners folder
 const collegeModules = import.meta.glob(
   "../../assets/GA College Partners/*.{png,jpg,jpeg,svg,webp,avif}",
   { eager: true },
 );
-
-// Mapping of logo numbers (1-48) to institution details
-const collegeDataMap = {
-  1:  { name: "IIT Delhi",                          category: "IIT",             location: "New Delhi",           type: "Institute of National Importance" },
-  2:  { name: "IIT Bombay",                         category: "IIT",             location: "Mumbai, Maharashtra", type: "Institute of National Importance" },
-  3:  { name: "IIT Madras",                          category: "IIT",             location: "Chennai, Tamil Nadu", type: "Institute of National Importance" },
-  4:  { name: "IIT Kharagpur",                       category: "IIT",             location: "Kharagpur, West Bengal", type: "Institute of National Importance" },
-  5:  { name: "IIT Kanpur",                          category: "IIT",             location: "Kanpur, UP",          type: "Institute of National Importance" },
-  6:  { name: "IIT Roorkee",                         category: "IIT",             location: "Roorkee, Uttarakhand", type: "Institute of National Importance" },
-  7:  { name: "IIT Guwahati",                        category: "IIT",             location: "Guwahati, Assam",     type: "Institute of National Importance" },
-  8:  { name: "IIT BHU",                            category: "IIT",             location: "Varanasi, UP",        type: "Institute of National Importance" },
-  9:  { name: "NIT Trichy",                          category: "NIT",             location: "Tiruchirappalli, TN", type: "Institute of National Importance" },
-  10: { name: "NIT Surathkal",                       category: "NIT",             location: "Surathkal, Karnataka", type: "Institute of National Importance" },
-  11: { name: "NIT Warangal",                        category: "NIT",             location: "Warangal, Telangana", type: "Institute of National Importance" },
-  12: { name: "NIT Calicut",                         category: "NIT",             location: "Calicut, Kerala",     type: "Institute of National Importance" },
-  13: { name: "NIT Rourkela",                        category: "NIT",             location: "Rourkela, Odisha",    type: "Institute of National Importance" },
-  14: { name: "NIT Durgapur",                        category: "NIT",             location: "Durgapur, West Bengal", type: "Institute of National Importance" },
-  15: { name: "NIT Hamirpur",                        category: "NIT",             location: "Hamirpur, HP",        type: "Institute of National Importance" },
-  16: { name: "NIT Jalandhar",                       category: "NIT",             location: "Jalandhar, Punjab",   type: "Institute of National Importance" },
-  17: { name: "NIT Jaipur",                          category: "NIT",             location: "Jaipur, Rajasthan",   type: "Institute of National Importance" },
-  18: { name: "NIT Allahabad",                       category: "NIT",             location: "Prayagraj, UP",       type: "Institute of National Importance" },
-  19: { name: "BITS Pilani",                         category: "BITS",            location: "Pilani, Rajasthan",   type: "Deemed University" },
-  20: { name: "BITS Goa",                            category: "BITS",            location: "Goa",                 type: "Deemed University" },
-  21: { name: "BITS Hyderabad",                      category: "BITS",            location: "Hyderabad, Telangana", type: "Deemed University" },
-  22: { name: "VIT Vellore",                         category: "VIT",             location: "Vellore, Tamil Nadu", type: "Deemed University" },
-  23: { name: "Manipal Institute",                   category: "Private",         location: "Manipal, Karnataka",  type: "Deemed University" },
-  24: { name: "SRM University",                      category: "Private",         location: "Chennai, Tamil Nadu", type: "Deemed University" },
-  25: { name: "Amrita Vishwa Vidyapeetham",          category: "Private",         location: "Coimbatore, TN",      type: "Deemed University" },
-  26: { name: "Anna University",                     category: "State University", location: "Chennai, Tamil Nadu", type: "State University" },
-  27: { name: "Mumbai University",                   category: "State University", location: "Mumbai, Maharashtra", type: "State University" },
-  28: { name: "Delhi University",                    category: "Central University", location: "New Delhi",         type: "Central University" },
-  29: { name: "Pune University",                     category: "State University", location: "Pune, Maharashtra",   type: "State University" },
-  30: { name: "Bangalore University",                category: "State University", location: "Bangalore, Karnataka", type: "State University" },
-  31: { name: "Chennai University",                  category: "State University", location: "Chennai, Tamil Nadu", type: "State University" },
-  32: { name: "Hyderabad University",                category: "State University", location: "Hyderabad, Telangana", type: "State University" },
-  33: { name: "Calcutta University",                 category: "State University", location: "Kolkata, West Bengal", type: "State University" },
-  34: { name: "Banaras Hindu University",            category: "Central University", location: "Varanasi, UP",     type: "Central University" },
-  35: { name: "Jawaharlal Nehru University",         category: "Central University", location: "New Delhi",       type: "Central University" },
-  36: { name: "University of Rajasthan",             category: "State University", location: "Jaipur, Rajasthan",   type: "State University" },
-  37: { name: "Gujarat University",                  category: "State University", location: "Ahmedabad, Gujarat",  type: "State University" },
-  38: { name: "Tamil Nadu Open University",          category: "State University", location: "Chennai, Tamil Nadu", type: "State Open University" },
-  39: { name: "Dr. B.R. Ambedkar University",       category: "State University", location: "Agra, UP",            type: "State University" },
-  40: { name: "Aligarh Muslim University",           category: "Central University", location: "Aligarh, UP",    type: "Central University" },
-  41: { name: "Jamia Millia Islamia",                category: "Central University", location: "New Delhi",       type: "Central University" },
-  42: { name: "DU College of Engineering",           category: "State University", location: "New Delhi",           type: "State University" },
-  43: { name: "Delhi Technological University",      category: "State University", location: "New Delhi",           type: "State University" },
-  44: { name: "Netaji Subhas University",            category: "State University", location: "Kolkata, West Bengal", type: "State University" },
-  45: { name: "Christ University",                   category: "Private",         location: "Bangalore, Karnataka", type: "Deemed University" },
-  46: { name: "JSS Science and Technology University", category: "Private",       location: "Mysore, Karnataka",   type: "Deemed University" },
-  47: { name: "Savitribai Phule Pune University",    category: "State University", location: "Pune, Maharashtra",   type: "State University" },
-  48: { name: "Lovely Professional University",      category: "Private",         location: "Jalandhar, Punjab",   type: "Private University" },
-};
 
 // Category badge color mapping
 const categoryColors = {
@@ -71,21 +20,37 @@ const categoryColors = {
 
 const getCategoryStyle = (category) => categoryColors[category] || categoryColors.Private;
 
-const allColleges = Object.entries(collegeModules).map(([path, module]) => {
-  const fileKey = path
-    .split("/")
-    .pop()
-    .replace(/\.[^/.]+$/, "");
-  const data = collegeDataMap[fileKey] || {};
-  return {
-    id: fileKey,
-    logo: module.default || module,
-    name: data.name || fileKey,
-    category: data.category || "Institution",
-    location: data.location || "India",
-    type: data.type || "University",
-  };
-});
+const toTitleCase = (value) =>
+  value
+    .replaceAll(/[_-]+/g, " ")
+    .replaceAll(/\s+/g, " ")
+    .trim()
+    .replaceAll(/\b\w/g, (char) => char.toUpperCase());
+
+const allColleges = collegePartners
+  .map((college) => {
+    const fileName = college.imagePath.split("/").pop() || "";
+    const fileKey = fileName.replace(/\.[^/.]+$/, "") || String(college.id || "");
+    const module = collegeModules[college.imagePath];
+
+    return {
+      id: String(college.id || fileKey),
+      logo: module?.default || module || null,
+      name: college.name || toTitleCase(fileKey),
+      category: college.category || "Institution",
+      location: college.location || "India",
+      type: college.type || "University",
+    };
+  })
+  .sort((a, b) => {
+    const aNum = Number.parseInt(a.id, 10);
+    const bNum = Number.parseInt(b.id, 10);
+
+    if (!Number.isNaN(aNum) && !Number.isNaN(bNum)) return aNum - bNum;
+    if (!Number.isNaN(aNum)) return -1;
+    if (!Number.isNaN(bNum)) return 1;
+    return a.id.localeCompare(b.id);
+  });
 
 // Slice into three equal parts for the marquee rows
 const collegeThird = Math.ceil(allColleges.length / 3);
@@ -107,8 +72,8 @@ const TRACK_FADE_MASK =
 function Tooltip({ college, cardRect, containerRect }) {
   if (!college || !cardRect || !containerRect) return null;
 
-  const tooltipW = 260;
-  const gap = 10;
+  const tooltipW = 300;
+  const gap = 12;
   const arrowSize = 8;
 
   // Decide whether tooltip appears above or below the card
@@ -122,11 +87,12 @@ function Tooltip({ college, cardRect, containerRect }) {
   left = Math.max(8, Math.min(left, containerRect.width - tooltipW - 8));
 
   const top = showAbove
-    ? cardRect.top - containerRect.top - 170 - gap
+    ? cardRect.top - containerRect.top - 204 - gap
     : cardRect.bottom - containerRect.top + gap;
 
   const arrowLeft = cardCenterX - left;
   const catStyle = getCategoryStyle(college.category);
+  const gradientAura = `radial-gradient(circle at 18% 20%, ${catStyle.text}40 0%, transparent 52%), radial-gradient(circle at 84% 88%, ${catStyle.border}55 0%, transparent 50%)`;
 
   return (
     <div
@@ -135,7 +101,7 @@ function Tooltip({ college, cardRect, containerRect }) {
         left,
         top,
         width: tooltipW,
-        animation: "tooltipIn 0.18s ease-out both",
+        animation: "tooltipIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) both",
       }}
     >
       {/* Arrow */}
@@ -148,33 +114,59 @@ function Tooltip({ college, cardRect, containerRect }) {
           height: 0,
           borderLeft: `${arrowSize}px solid transparent`,
           borderRight: `${arrowSize}px solid transparent`,
-          [showAbove ? "borderTop" : "borderBottom"]: `${arrowSize}px solid rgba(0, 0, 0, 0.8)`,
+          [showAbove ? "borderTop" : "borderBottom"]: `${arrowSize}px solid rgba(7, 12, 25, 0.86)`,
         }}
       />
 
       {/* Card body */}
       <div
-        className="rounded-xl p-5"
+        className="relative overflow-hidden rounded-2xl p-5"
         style={{
-          background: "rgba(0, 0, 0, 0.8)",
-          backdropFilter: "blur(24px)",
-          WebkitBackdropFilter: "blur(24px)",
-          border: "1px solid rgba(255, 255, 255, 0.15)",
-          boxShadow: "0 12px 40px rgba(0, 0, 0, 0.5)",
+          background: `linear-gradient(145deg, rgba(10, 14, 30, 0.92), rgba(8, 11, 24, 0.86)), ${gradientAura}`,
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          border: `1px solid ${catStyle.border}`,
+          boxShadow: `0 18px 46px rgba(3, 7, 18, 0.65), 0 0 0 1px ${catStyle.text}30, 0 0 40px ${catStyle.text}25`,
         }}
       >
+        <div
+          className="absolute inset-0 opacity-60"
+          style={{
+            background:
+              "linear-gradient(115deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 40%), repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 8px)",
+            mixBlendMode: "soft-light",
+          }}
+        />
+        <div
+          className="absolute -right-16 -top-16 h-44 w-44 rounded-full opacity-75"
+          style={{
+            background: `radial-gradient(circle, ${catStyle.text}70 0%, transparent 70%)`,
+            filter: "blur(2px)",
+            animation: "tooltipGlow 3.2s ease-in-out infinite",
+          }}
+        />
+
+        <div className="relative z-10">
         {/* Name block */}
         <div className="flex flex-col gap-2">
-          <p className="text-lg font-black text-white leading-tight" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
+          <p
+            className="text-[1.15rem] font-black leading-tight text-white"
+            style={{
+              fontFamily: "'Avenir Next', 'Trebuchet MS', 'Segoe UI', sans-serif",
+              letterSpacing: "0.01em",
+              textShadow: "0 2px 12px rgba(7, 12, 25, 0.75)",
+            }}
+          >
             {college.name}
           </p>
           <div>
             <span
-              className="inline-block rounded-md px-2 py-0.5 text-xs font-bold leading-tight"
+              className="inline-block rounded-full px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.12em]"
               style={{
-                background: catStyle.bg,
+                background: `linear-gradient(90deg, ${catStyle.bg}, #121a33)`,
                 color: catStyle.text,
                 border: `1px solid ${catStyle.border}`,
+                boxShadow: `0 0 14px ${catStyle.text}30`,
               }}
             >
               {college.category}
@@ -185,24 +177,34 @@ function Tooltip({ college, cardRect, containerRect }) {
         {/* Divider */}
         <div
           className="my-3 h-px w-full"
-          style={{ background: "rgba(255, 255, 255, 0.15)" }}
+          style={{
+            background: `linear-gradient(to right, transparent 0%, ${catStyle.text}80 48%, transparent 100%)`,
+          }}
         />
 
         {/* Detail rows */}
-        <div className="space-y-2 text-sm font-medium">
-          <div className="flex items-center gap-2">
-            <svg className="h-4 w-4 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+        <div className="space-y-2.5 text-sm">
+          <div className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 backdrop-blur-sm">
+            <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-300/85">Location</p>
+            <div className="flex items-center gap-2">
+              <svg className="h-4 w-4 shrink-0 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            <span className="text-slate-200">{college.location}</span>
+              <span className="font-semibold text-slate-100">{college.location}</span>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <svg className="h-4 w-4 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+
+          <div className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 backdrop-blur-sm">
+            <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-300/85">Institution Type</p>
+            <div className="flex items-center gap-2">
+              <svg className="h-4 w-4 shrink-0 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
-            <span className="text-slate-200">{college.type}</span>
+              <span className="font-semibold text-slate-100">{college.type}</span>
+            </div>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -316,6 +318,10 @@ export default function InstitutionsMarquee() {
         @keyframes tooltipIn {
           from { opacity: 0; transform: translateY(4px); }
           to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes tooltipGlow {
+          0%, 100% { transform: scale(1); opacity: 0.58; }
+          50% { transform: scale(1.08); opacity: 0.88; }
         }
       `}</style>
 
