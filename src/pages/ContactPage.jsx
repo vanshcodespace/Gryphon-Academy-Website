@@ -295,7 +295,7 @@ export default function ContactPage() {
       <section className="bg-white">
         <iframe
           title="Gryphon Academy Office Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.0395019186037!2d73.82505977522337!3d18.467279882620205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf0101a3db0b%3A0x985990bfb64cdfbb!2sOlympia%20Business%20House!5e0!3m2!1sen!2sin!4v1712000000000!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.4536495747366!2d73.76831887436869!3d18.553575668166875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xab4cb7fb73c5c4ff%3A0x14e62cad775d447b!2sGryphon%20Academy%20Pvt.%20Ltd!5e0!3m2!1sen!2sin!4v1724220761014!5m2!1sen!2sin"
           width="100%"
           height="360"
           style={{ border: 0 }}
