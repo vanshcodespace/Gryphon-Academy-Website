@@ -1,6 +1,5 @@
 // About.jsx
 import { useState, useEffect } from "react";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";

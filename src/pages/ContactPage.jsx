@@ -1,7 +1,6 @@
 import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";
 import { useState, useEffect } from "react";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const logoSrc = "https://res.cloudinary.com/dcjmaapvi/image/upload/v1740489025/ga-hori_ylcnm3.png";
 
