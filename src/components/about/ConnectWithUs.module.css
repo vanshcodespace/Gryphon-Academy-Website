@@ -1,0 +1,95 @@
+.appContainer {
+  --color-text: #ffffff;
+  --color-neon: #FFC80E;
+  --color-black: #01224F;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  display: grid;
+  place-items: center;
+  padding: 10px 20px 50px; /* Increased top padding */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.5s ease-in-out; /* Smooth transition */
+}
+
+.neonLinkButton {
+  font-size: 1.5rem; /* Default larger font size */
+  border: 0.05em solid var(--color-text); /* Thinner border */
+  color: var(--color-black); /* Set text color to black */
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 0.25em;
+  text-decoration: none;
+  box-shadow: 0 0 0.5em 0 var(--color-neon),
+    inset 0 0 0.5em 0 var(--color-neon),
+    0 0 0.1em 0.05em var(--color-text),
+    inset 0 0 0.1em 0.05em var(--color-text);
+  text-shadow: 0 0 0.5em var(--color-neon), 0 0 0.1em var(--color-text);
+  background: var(--color-neon); /* Solid yellow background */
+  padding: 0.25em 1em; /* Default padding */
+  position: relative;
+  margin-top: 20px; /* Added margin for space above */
+}
+
+/* Add Fade-In effect */
+.fadeIn {
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.neonLinkButton::before,
+.neonLinkButton::after {
+  content: "";
+  position: absolute;
+  transition: opacity 50ms linear;
+}
+
+.neonLinkButton::before {
+  top: 120%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-neon);
+  transform: perspective(1em) rotateX(45deg) scale(1, 0.35);
+  filter: blur(1em);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.neonLinkButton::after {
+  top: -0.1em;
+  right: -0.1em;
+  bottom: -0.1em;
+  left: -0.1em;
+  border-radius: 0.25em;
+  border: 0.1em solid var(--color-text);
+  box-shadow: 0 0 2em 0.5em var(--color-neon), inset 0 0 1em 0 var(--color-neon);
+  opacity: 0;
+}
+
+.neonLinkButton:focus {
+  outline: none;
+}
+
+.neonLinkButton:hover::before,
+.neonLinkButton:focus::before,
+.neonLinkButton:hover::after,
+.neonLinkButton:focus::after {
+  opacity: 1;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .neonLinkButton {
+    font-size: 1.3rem; /* Slightly larger font size */
+    padding: 0.2em 0.9em; /* Slightly larger padding */
+    margin-top: 18px; /* Adjusted margin */
+  }
+}
+
+@media (max-width: 480px) {
+  .neonLinkButton {
+    font-size: 1.3rem; /* Slightly larger font size */
+    padding: 0.15em 0.75em; /* Slightly larger padding */
+    margin-top: 12px; /* Slightly reduced margin */
+  }
+}
