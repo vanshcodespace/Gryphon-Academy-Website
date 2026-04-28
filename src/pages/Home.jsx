@@ -14,7 +14,7 @@ import WhoAreWe from "../components/home/WhoAreWe";
 import TopPlaced from "../components/home/TopPlaced";
 import Brochure from "../components/home/Brochure";
 import Training from "../components/home/Training";
-import Numbers from "../components/home/numbers";
+import Numbers from "../components/home/Numbers";
 import InstitutionsMarquee from "../components/home/InstitutionsMarquee";
 import CorporateMarquee from "../components/home/CorporateMarquee";
 

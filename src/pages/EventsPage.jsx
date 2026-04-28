@@ -72,7 +72,7 @@ const eventTypes = [
 const logoSrc = "https://res.cloudinary.com/dcjmaapvi/image/upload/v1740489025/ga-hori_ylcnm3.png";
 
 export default function EventsPage() {
-  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [isNavbarVisible] = useState(true);
   const [filter, setFilter] = useState("All");
 
   useEffect(() => {

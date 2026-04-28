@@ -1,6 +1,7 @@
 import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";
 import { useState, useEffect } from "react";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const logoSrc = "https://res.cloudinary.com/dcjmaapvi/image/upload/v1740489025/ga-hori_ylcnm3.png";
 
@@ -15,7 +16,7 @@ const offices = [
 ];
 
 export default function ContactPage() {
-  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [isNavbarVisible] = useState(true);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -46,21 +47,21 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-white font-sans">
+    <div className="min-h-screen w-full bg-white font-sans roboto-regular overflow-x-hidden">
       <Navbar isVisible={isNavbarVisible} isFullWidth={true} logoSrc={logoSrc} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#01224F] pt-32 pb-20 text-white">
-        <div className="pointer-events-none absolute -top-40 -left-24 h-96 w-96 rounded-full bg-[#1b4f8f]/30 blur-[120px]" />
-        <div className="pointer-events-none absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-[#7B1A1A]/25 blur-[100px]" />
+      <section className="relative overflow-hidden pt-32 pb-20" style={{ background: "linear-gradient(to bottom, #daeef8, #ffffff)" }}>
+        <div className="pointer-events-none absolute -top-40 -left-24 h-96 w-96 rounded-full bg-[#BCDEF4]/50 blur-[120px]" />
+        <div className="pointer-events-none absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-[#daeef8]/50 blur-[100px]" />
         <div className="relative mx-auto max-w-6xl px-6 text-center">
-          <span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-white/80">
+          <span className="inline-block rounded-full border border-[#1B3A6B]/20 bg-[#1B3A6B]/5 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-[#1B3A6B]">
             Get in Touch
           </span>
           <h1
             className="mt-6 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl"
             style={{
-              background: "linear-gradient(to right, #ffffff, #b0d0f0)",
+              background: "linear-gradient(to right, #1B3A6B, #7B1B2A)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -68,7 +69,7 @@ export default function ContactPage() {
           >
             Let's Build Something<br />Great Together
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#4a5568]">
             Whether you're a college looking to train your students, a company looking to hire,
             or a student ready to grow — we want to hear from you.
           </p>
@@ -76,7 +77,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main content */}
-      <section className="bg-[#eff4fa] py-20">
+      <section className="bg-white py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
 
@@ -220,7 +221,7 @@ export default function ContactPage() {
               {/* Office Info */}
               {offices.map((o) => (
                 <div key={o.city} className="rounded-2xl bg-white border border-[#d0ddef] p-7 shadow-sm">
-                  <h3 className="text-lg font-extrabold text-[#01224F]">📍 {o.city}</h3>
+                  <h3 className="text-lg font-extrabold text-[#01224F]"><i className="fas fa-map-marker-alt mr-2 text-[#7B1B2A]"></i>{o.city}</h3>
                   <div className="mt-4 space-y-3">
                     <a
                       href={o.mapLink}
@@ -228,15 +229,15 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="flex items-start gap-3 text-sm text-[#4a5568] hover:text-[#01224F] transition-colors"
                     >
-                      <span className="mt-0.5">🗺️</span>
+                      <i className="fas fa-map mt-1 w-4 text-center text-[#1B3A6B]"></i>
                       <span>{o.address}</span>
                     </a>
                     <a href={`tel:${o.phone}`} className="flex items-center gap-3 text-sm text-[#4a5568] hover:text-[#01224F] transition-colors">
-                      <span>📞</span>
+                      <i className="fas fa-phone-alt w-4 text-center text-[#1B3A6B]"></i>
                       <span>{o.phone}</span>
                     </a>
                     <a href={`mailto:${o.email}`} className="flex items-center gap-3 text-sm text-[#4a5568] hover:text-[#01224F] transition-colors">
-                      <span>✉️</span>
+                      <i className="fas fa-envelope w-4 text-center text-[#1B3A6B]"></i>
                       <span>{o.email}</span>
                     </a>
                   </div>
@@ -246,17 +247,17 @@ export default function ContactPage() {
               {/* Quick Connect Cards */}
               <div className="grid gap-4 sm:grid-cols-3">
                 {[
-                  { icon: "🏛️", label: "For Colleges", sub: "Partner with us", href: "mailto:connect@gryphonacademy.co.in?subject=College Partnership" },
-                  { icon: "🏢", label: "For Corporate", sub: "Hire from us", href: "mailto:connect@gryphonacademy.co.in?subject=Hiring Partnership" },
-                  { icon: "🎓", label: "For Students", sub: "Get trained", href: "mailto:connect@gryphonacademy.co.in?subject=Student Enquiry" },
+                  { icon: "fas fa-university", label: "For Colleges", sub: "Partner with us", href: "mailto:connect@gryphonacademy.co.in?subject=College Partnership" },
+                  { icon: "fas fa-building", label: "For Corporate", sub: "Hire from us", href: "mailto:connect@gryphonacademy.co.in?subject=Hiring Partnership" },
+                  { icon: "fas fa-graduation-cap", label: "For Students", sub: "Get trained", href: "mailto:connect@gryphonacademy.co.in?subject=Student Enquiry" },
                 ].map((card) => (
                   <a
                     key={card.label}
                     href={card.href}
                     className="flex flex-col items-center rounded-2xl border border-[#d0ddef] bg-white p-5 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
                   >
-                    <span className="text-2xl">{card.icon}</span>
-                    <p className="mt-2 text-sm font-extrabold text-[#01224F]">{card.label}</p>
+                    <i className={`${card.icon} text-3xl text-[#1B3A6B]`}></i>
+                    <p className="mt-3 text-sm font-extrabold text-[#01224F]">{card.label}</p>
                     <p className="mt-0.5 text-xs text-[#4a5568]">{card.sub}</p>
                   </a>
                 ))}
@@ -268,10 +269,10 @@ export default function ContactPage() {
                 <p className="mt-2 text-sm text-white/60">Follow us for updates on drives, events, and opportunities.</p>
                 <div className="mt-5 flex gap-4">
                   {[
-                    { label: "LinkedIn", href: "https://www.linkedin.com/company/gryphonacademy/", icon: "in" },
-                    { label: "Instagram", href: "https://www.instagram.com/gryphon_academy/", icon: "📸" },
-                    { label: "Facebook", href: "https://www.facebook.com/gryphonnacademy", icon: "f" },
-                    { label: "YouTube", href: "https://www.youtube.com/channel/UCVn2uVWEHg8cMFd8ht3CQBw", icon: "▶" },
+                    { label: "LinkedIn", href: "https://www.linkedin.com/company/gryphonacademy/", icon: "fab fa-linkedin-in" },
+                    { label: "Instagram", href: "https://www.instagram.com/gryphon_academy/", icon: "fab fa-instagram" },
+                    { label: "Facebook", href: "https://www.facebook.com/gryphonnacademy", icon: "fab fa-facebook-f" },
+                    { label: "YouTube", href: "https://www.youtube.com/channel/UCVn2uVWEHg8cMFd8ht3CQBw", icon: "fab fa-youtube" },
                   ].map((s) => (
                     <a
                       key={s.label}
@@ -281,7 +282,7 @@ export default function ContactPage() {
                       title={s.label}
                       className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-sm font-bold text-white transition-all hover:bg-white/30"
                     >
-                      {s.icon}
+                      <i className={`${s.icon} text-lg`}></i>
                     </a>
                   ))}
                 </div>

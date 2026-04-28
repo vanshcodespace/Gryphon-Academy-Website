@@ -17,7 +17,7 @@ import AboutNew from "../components/about/AboutNew";
 const logoSrc = "https://res.cloudinary.com/dcjmaapvi/image/upload/v1740489025/ga-hori_ylcnm3.png";
 
 const AboutPage = () => {
-  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [isNavbarVisible] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
