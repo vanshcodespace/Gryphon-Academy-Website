@@ -207,20 +207,21 @@
     "location": "Bengaluru, Karnataka",
     "type": ""
   },
+ 
   {
     "id": "27",
     "imagePath": "../../assets/GA College Partners/27.webp",
-    "name": "",
-    "category": "",
-    "location": "",
+    "name": "SNJB's Late Sau Kantabai Bhavarlalji Jain College of Engineering",
+    "category": "SNJB",
+    "location": "Chandvad, Maharashtra",
     "type": ""
   },
   {
     "id": "28",
     "imagePath": "../../assets/GA College Partners/28.webp",
-    "name": "SNJB's Late Sau Kantabai Bhavarlalji Jain College of Engineering",
-    "category": "SNJB",
-    "location": "Chandvad, Maharashtra",
+    "name": "International School of Management Excellence",
+    "category": "ISME",
+    "location": "Bengaluru, Karnataka",
     "type": ""
   },
  
