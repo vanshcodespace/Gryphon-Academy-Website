@@ -2,9 +2,10 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar({ isVisible, isFullWidth, logoSrc }) {
   const location = useLocation();
-  const isHome = location.pathname === "/";
+  const currentPath = location.pathname;
 
   const navLinks = [
+    { label: "Home", to: "/" },
     { label: "Colleges", to: "/colleges" },
     { label: "Corporate", to: "/corporate" },
     { label: "Events", to: "/events" },
@@ -30,23 +31,29 @@ export default function Navbar({ isVisible, isFullWidth, logoSrc }) {
           width: isFullWidth ? "100%" : "min(90vw, clamp(920px, 70vw, 1140px))",
         }}
       >
-        <Link to="/" className="shrink-0">
+        <div className="shrink-0">
           <img
             src={logoSrc}
             alt="Gryphon Academy"
             className="h-10 w-auto md:h-12 xl:h-14"
           />
-        </Link>
+        </div>
 
-        <div className="hidden md:flex flex-1 items-center justify-center gap-8 font-medium text-white lg:gap-12 xl:gap-16">
+        <div className="hidden md:flex flex-1 items-center justify-center gap-5 font-medium text-white lg:gap-7 xl:gap-9">
           {navLinks.map((link) => {
-            const isActive = location.pathname === link.to;
+            const isActive =
+              link.to === "/"
+                ? currentPath === "/"
+                : currentPath === link.to || currentPath.startsWith(`${link.to}/`);
             return (
               <Link
                 key={link.to}
                 to={link.to}
-                className={`transition-all duration-200 hover:text-transparent hover:bg-clip-text hover:bg-[linear-gradient(to_right,#68a1fc,#ff4d68)] ${
-                  isActive ? "text-maroon-400 font-semibold" : ""
+                aria-current={isActive ? "page" : undefined}
+                className={`px-2 py-1.5 transition-all duration-200 ${
+                  isActive
+                    ? "text-transparent bg-clip-text bg-[linear-gradient(to_right,#68a1fc,#ff4d68)] font-semibold"
+                    : "text-white hover:text-transparent hover:bg-clip-text hover:bg-[linear-gradient(to_right,#68a1fc,#ff4d68)]"
                 }`}
               >
                 {link.label}
