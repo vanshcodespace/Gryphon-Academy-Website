@@ -52,7 +52,9 @@ import e6 from "../../assets/testimonies/PF/e6.webp";
 import e7 from "../../assets/testimonies/PF/e7.webp";
 import e8 from "../../assets/testimonies/PF/e8.webp";
 import e9 from "../../assets/testimonies/PF/e9.webp";
-function StudentSuccessStories({ spotlight, handleMouseMove, handleMouseLeave }) {
+import useScrollAwareSpotlight from "../../hooks/useScrollAwareSpotlight";
+
+function StudentSuccessStories() {
   const stories = useMemo(
     () => [
       // Students
@@ -1000,24 +1002,13 @@ function StudentSuccessStories({ spotlight, handleMouseMove, handleMouseLeave })
 }
 
 export default function Testimonials() {
-  const [spotlight, setSpotlight] = useState({ x: 50, y: 50, active: false });
-
-  const handleMouseMove = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = ((event.clientX - rect.left) / rect.width) * 100;
-    const y = ((event.clientY - rect.top) / rect.height) * 100;
-    setSpotlight({ x, y, active: true });
-  };
-
-  const handleMouseLeave = () => {
-    setSpotlight((prev) => ({ ...prev, active: false }));
-  };
+  const { sectionRef, spotlight, spotlightHandlers } = useScrollAwareSpotlight();
 
   return (
     <section
+      ref={sectionRef}
       className="relative overflow-hidden bg-[#eff4fa] py-4 md:py-6"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      {...spotlightHandlers}
     >
       <div className="pointer-events-none absolute -top-40 -left-24 h-96 w-96 rounded-full bg-[#cce0fc]/60 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-40 -right-24 h-112 w-md rounded-full bg-[#bddefa]/50 blur-3xl" />
@@ -1036,11 +1027,7 @@ export default function Testimonials() {
         }}
       />
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <StudentSuccessStories 
-          spotlight={spotlight}
-          handleMouseMove={handleMouseMove}
-          handleMouseLeave={handleMouseLeave}
-        />
+        <StudentSuccessStories />
       </div>
     </section>
   );

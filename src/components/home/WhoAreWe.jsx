@@ -1,27 +1,15 @@
-import { useState } from "react";
-
 import teamImage from "../../assets/Ps.png";
+import useScrollAwareSpotlight from "../../hooks/useScrollAwareSpotlight";
 
 export default function WhoAreWe() {
-  const [spotlight, setSpotlight] = useState({ x: 50, y: 50, active: false });
-
-  const handleMouseMove = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = ((event.clientX - rect.left) / rect.width) * 100;
-    const y = ((event.clientY - rect.top) / rect.height) * 100;
-    setSpotlight({ x, y, active: true });
-  };
-
-  const handleMouseLeave = () => {
-    setSpotlight((prev) => ({ ...prev, active: false }));
-  };
+  const { sectionRef, spotlight, spotlightHandlers } = useScrollAwareSpotlight();
 
   return (
     <section
+      ref={sectionRef}
       id="about"
       className="relative overflow-hidden bg-[#eff4fa] pt-0 pb-0"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      {...spotlightHandlers}
     >
       <div className="pointer-events-none absolute -top-40 -left-24 h-96 w-96 rounded-full bg-[#cce0fc]/60 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-40 -right-24 h-112 w-md rounded-full bg-[#bddefa]/50 blur-3xl" />

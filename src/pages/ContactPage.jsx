@@ -165,13 +165,13 @@ export default function ContactPage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="overflow-hidden rounded-lg border border-white/70 bg-white shadow-[0_22px_70px_rgba(1,34,79,0.18)]">
             <div className="grid lg:grid-cols-[1.35fr_0.65fr]">
-              <div className="min-h-[340px] bg-[#dce9f5] lg:min-h-[460px]">
+              <div className="min-h-85 bg-[#dce9f5] lg:min-h-115">
                 <iframe
                   title="Gryphon Academy Office Location"
                   src={mapEmbedSrc}
                   width="100%"
                   height="100%"
-                  className="h-[340px] w-full lg:h-full"
+                  className="h-85 w-full lg:h-full"
                   style={{ border: 0 }}
                   allowFullScreen=""
                   loading="lazy"
@@ -179,7 +179,7 @@ export default function ContactPage() {
                 />
               </div>
 
-              <div className="bg-gradient-to-br from-[#01224F] via-[#123565] to-[#7B1B2A] p-7 text-white sm:p-9">
+              <div className="bg-linear-to-br from-[#01224F] via-[#123565] to-[#7B1B2A] p-7 text-white sm:p-9">
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-white/15 text-xl">
                   <i className="fas fa-map-marker-alt"></i>
                 </span>
@@ -232,7 +232,7 @@ export default function ContactPage() {
           <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
             <div className="rounded-lg border border-[#d0ddef] bg-white p-6 shadow-[0_14px_44px_rgba(1,34,79,0.08)] sm:p-8">
               {submitted ? (
-                <div className="flex min-h-[460px] flex-col items-center justify-center text-center">
+                <div className="flex min-h-115 flex-col items-center justify-center text-center">
                   <span className="flex h-20 w-20 items-center justify-center rounded-full bg-[#e7f6ee] text-4xl text-[#128743]">
                     <i className="fas fa-check"></i>
                   </span>
@@ -350,7 +350,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#01224F] to-[#7B1B2A] px-6 py-4 text-base font-bold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-60"
+                    className="flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-[#01224F] to-[#7B1B2A] px-6 py-4 text-base font-bold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {loading ? (
                       <>

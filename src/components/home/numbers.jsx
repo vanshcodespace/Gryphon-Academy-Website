@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import mapIcon from "../../assets/MAP.webp";
+import useScrollAwareSpotlight from "../../hooks/useScrollAwareSpotlight";
 
 const numberFormatter = new Intl.NumberFormat("en-US");
 
@@ -66,23 +67,12 @@ function AnimatedCount({ value, start, delayMs = 0 }) {
 }
 
 export default function Numbers() {
-  const sectionRef = useRef(null);
+  const countSectionRef = useRef(null);
+  const { sectionRef, spotlight, spotlightHandlers } = useScrollAwareSpotlight();
   const [hasCountStarted, setHasCountStarted] = useState(false);
-  const [spotlight, setSpotlight] = useState({ x: 50, y: 50, active: false });
-
-  const handleMouseMove = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = ((event.clientX - rect.left) / rect.width) * 100;
-    const y = ((event.clientY - rect.top) / rect.height) * 100;
-    setSpotlight({ x, y, active: true });
-  };
-
-  const handleMouseLeave = () => {
-    setSpotlight((prev) => ({ ...prev, active: false }));
-  };
 
   useEffect(() => {
-    if (!sectionRef.current) return undefined;
+    if (!countSectionRef.current) return undefined;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -93,7 +83,7 @@ export default function Numbers() {
       },
     );
 
-    observer.observe(sectionRef.current);
+    observer.observe(countSectionRef.current);
     return () => observer.disconnect();
   }, []);
 
@@ -108,10 +98,12 @@ export default function Numbers() {
 
   return (
     <section
-      ref={sectionRef}
+      ref={(node) => {
+        sectionRef.current = node;
+        countSectionRef.current = node;
+      }}
       className="relative overflow-hidden bg-linear-to-b from-[#f0f7ff] via-[#ffffff] to-[#f8fbff] py-8 sm:py-10 lg:py-12"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      {...spotlightHandlers}
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-90 transition-opacity duration-300"
