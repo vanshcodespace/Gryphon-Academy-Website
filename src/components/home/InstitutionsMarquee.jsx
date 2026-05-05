@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import collegePartners from "../../data/collegePartners.json";
+import useDraggableMarquee from "../../hooks/useDraggableMarquee";
 
 // Dynamically import all images from the College Partners folder
 const collegeModules = import.meta.glob(
@@ -193,22 +194,26 @@ function Tooltip({ college, cardRect, containerRect }) {
 }
 
 /* ─── Marquee Track (identical to CorporateMarquee) ─────────────── */
-function MarqueeTrack({ partners, reverse = false, speed = "50s", onMouseEnter, onMouseLeave }) {
+function MarqueeTrack({ partners, reverse = false, speed = "50s", onMouseEnter, onMouseLeave, onDragStart }) {
   const extendedItems = Array(4).fill(partners).flat();
+  const { trackRef, offset, dragHandlers } = useDraggableMarquee({ onDragStart, reverse, speed });
 
   return (
     <div
-      className={`marquee-container group flex w-full overflow-hidden ${TRACK_PADDING_CLASS}`}
+      className={`marquee-container group flex w-full cursor-grab overflow-hidden active:cursor-grabbing ${TRACK_PADDING_CLASS}`}
       style={{
         WebkitMaskImage: TRACK_FADE_MASK,
         maskImage: TRACK_FADE_MASK,
+        touchAction: "pan-y",
       }}
+      {...dragHandlers}
     >
       <div
-        className={`flex w-max whitespace-nowrap ${
-          reverse ? "animate-marquee-reverse" : "animate-marquee"
-        } marquee-track`}
-        style={{ animationDuration: speed }}
+        ref={trackRef}
+        className="marquee-track flex w-max select-none whitespace-nowrap"
+        style={{
+          transform: `translateX(${offset}px)`,
+        }}
       >
         {extendedItems.map((item, idx) => (
           <div
@@ -227,6 +232,7 @@ function MarqueeTrack({ partners, reverse = false, speed = "50s", onMouseEnter, 
                   alt={item.name}
                   className="max-h-full max-w-full object-contain filter transition-all duration-300"
                   loading="lazy"
+                  draggable="false"
                 />
               ) : (
                 <span className="text-base font-extrabold tracking-wide text-[#334155] transition-colors duration-300 md:text-lg">
@@ -276,26 +282,15 @@ export default function InstitutionsMarquee() {
     hoverTimerRef.current = setTimeout(() => setHoveredCollege(null), 180);
   }, []);
 
+  const handleDragStart = useCallback(() => {
+    if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
+    setTooltipVisible(false);
+    setHoveredCollege(null);
+  }, []);
+
   return (
     <>
       <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-25%); }
-        }
-        @keyframes marquee-reverse {
-          0% { transform: translateX(-25%); }
-          100% { transform: translateX(0); }
-        }
-        .animate-marquee {
-          animation: marquee 40s linear infinite;
-        }
-        .animate-marquee-reverse {
-          animation: marquee-reverse 40s linear infinite;
-        }
-        .marquee-container:hover .marquee-track {
-          animation-play-state: paused;
-        }
         @keyframes tooltipIn {
           from { opacity: 0; transform: translateY(4px); }
           to   { opacity: 1; transform: translateY(0); }
@@ -336,6 +331,7 @@ export default function InstitutionsMarquee() {
               speed="80s"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              onDragStart={handleDragStart}
             />
             <MarqueeTrack
               partners={collegeRowTwo}
@@ -343,12 +339,14 @@ export default function InstitutionsMarquee() {
               speed="85s"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              onDragStart={handleDragStart}
             />
             <MarqueeTrack
               partners={collegeRowThree}
               speed="80s"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              onDragStart={handleDragStart}
             />
           </div>
 

@@ -1,4 +1,4 @@
-import React from "react";
+import useDraggableMarquee from "../../hooks/useDraggableMarquee";
 
 // Dynamically import all images from the Recruiters folder
 const corporateModules = import.meta.glob(
@@ -41,20 +41,21 @@ const StarIcon = () => (
 
 const MarqueeTrack = ({ partners, reverse = false, speed = "50s" }) => {
   const extendedItems = Array(4).fill(partners).flat();
+  const { trackRef, dragHandlers } = useDraggableMarquee({ reverse, speed });
 
   return (
     <div
-      className={`marquee-container group flex w-full overflow-hidden ${TRACK_PADDING_CLASS}`}
+      className={`marquee-container group flex w-full cursor-grab overflow-hidden active:cursor-grabbing ${TRACK_PADDING_CLASS}`}
       style={{
         WebkitMaskImage: TRACK_FADE_MASK,
         maskImage: TRACK_FADE_MASK,
+        touchAction: "pan-y",
       }}
+      {...dragHandlers}
     >
       <div
-        className={`flex w-max whitespace-nowrap ${
-          reverse ? "animate-marquee-reverse" : "animate-marquee"
-        } marquee-track`}
-        style={{ animationDuration: speed }}
+        ref={trackRef}
+        className="marquee-track flex w-max select-none whitespace-nowrap"
       >
         {extendedItems.map((item, idx) => (
           <div
@@ -70,6 +71,7 @@ const MarqueeTrack = ({ partners, reverse = false, speed = "50s" }) => {
                   src={item.logo}
                   alt={item.name}
                   className="max-h-full max-w-full object-contain filter transition-all duration-300"
+                  draggable="false"
                 />
               ) : (
                 <>
@@ -91,23 +93,6 @@ export default function CorporateMarquee() {
   return (
     <>
       <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-25%); }
-        }
-        @keyframes marquee-reverse {
-          0% { transform: translateX(-25%); }
-          100% { transform: translateX(0); }
-        }
-        .animate-marquee {
-          animation: marquee 40s linear infinite;
-        }
-        .animate-marquee-reverse {
-          animation: marquee-reverse 40s linear infinite;
-        }
-        .marquee-container:hover .marquee-track {
-          animation-play-state: paused;
-        }
       `}</style>
 
       <div
