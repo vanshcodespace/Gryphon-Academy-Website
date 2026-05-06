@@ -6,37 +6,38 @@ function getDurationMs(speed) {
 }
 
 export default function useDraggableMarquee({ onDragStart, reverse = false, speed = "50s" } = {}) {
-  const trackRef = useRef(null);
-  const autoFrameRef = useRef(null);
-  const momentumFrameRef = useRef(null);
-  const lastFrameTimeRef = useRef(null);
-  const lastPointRef = useRef({ x: 0, time: 0 });
-  const offsetRef = useRef(0);
-  const velocityRef = useRef(0);
-  const isDraggingRef = useRef(false);
-  const isMomentumActiveRef = useRef(false);
+  const trackRef          = useRef(null);
+  const autoFrameRef      = useRef(null);
+  const momentumFrameRef  = useRef(null);
+  const lastFrameTimeRef  = useRef(null);
+  const lastPointRef      = useRef({ x: 0, time: 0 });
+  const offsetRef         = useRef(0);
+  const velocityRef       = useRef(0);
+  const isDraggingRef     = useRef(false);
+  const isMomentumActive  = useRef(false);
+  // ─── NEW: visibility flag so rAF pauses when off-screen ───────────
+  const isVisibleRef      = useRef(false);
 
   const getLoopWidth = useCallback(() => {
-    const trackWidth = trackRef.current?.scrollWidth || 0;
-    return trackWidth ? trackWidth / 4 : 0;
+    const w = trackRef.current?.scrollWidth || 0;
+    return w ? w / 4 : 0;
   }, []);
 
   const normalizeOffset = useCallback(
-    (nextOffset) => {
-      const loopWidth = getLoopWidth();
-      if (!loopWidth) return nextOffset;
-      return ((nextOffset % loopWidth) + loopWidth) % loopWidth - loopWidth;
+    (next) => {
+      const lw = getLoopWidth();
+      if (!lw) return next;
+      return ((next % lw) + lw) % lw - lw;
     },
     [getLoopWidth],
   );
 
   const applyOffset = useCallback(
-    (nextOffset) => {
-      const normalizedOffset = normalizeOffset(nextOffset);
-      offsetRef.current = normalizedOffset;
-
+    (next) => {
+      const norm = normalizeOffset(next);
+      offsetRef.current = norm;
       if (trackRef.current) {
-        trackRef.current.style.transform = `translate3d(${normalizedOffset}px, 0, 0)`;
+        trackRef.current.style.transform = `translate3d(${norm}px, 0, 0)`;
       }
     },
     [normalizeOffset],
@@ -47,39 +48,36 @@ export default function useDraggableMarquee({ onDragStart, reverse = false, spee
       window.cancelAnimationFrame(momentumFrameRef.current);
       momentumFrameRef.current = null;
     }
-    isMomentumActiveRef.current = false;
+    isMomentumActive.current = false;
   }, []);
 
   const startMomentum = useCallback(() => {
     const step = () => {
       velocityRef.current *= 0.94;
       applyOffset(offsetRef.current + velocityRef.current * 16);
-
       if (Math.abs(velocityRef.current) > 0.02) {
         momentumFrameRef.current = window.requestAnimationFrame(step);
         return;
       }
-
       momentumFrameRef.current = null;
-      isMomentumActiveRef.current = false;
+      isMomentumActive.current = false;
       lastFrameTimeRef.current = null;
     };
-
-    isMomentumActiveRef.current = true;
+    isMomentumActive.current = true;
     momentumFrameRef.current = window.requestAnimationFrame(step);
   }, [applyOffset]);
 
+  // ── Pointer handlers ─────────────────────────────────────────────
   const handlePointerDown = useCallback(
     (event) => {
       if (event.button !== undefined && event.button !== 0) return;
-
       stopMomentum();
       onDragStart?.();
       event.currentTarget.setPointerCapture?.(event.pointerId);
-      isDraggingRef.current = true;
+      isDraggingRef.current    = true;
       lastFrameTimeRef.current = null;
-      lastPointRef.current = { x: event.clientX, time: performance.now() };
-      velocityRef.current = 0;
+      lastPointRef.current     = { x: event.clientX, time: performance.now() };
+      velocityRef.current      = 0;
     },
     [onDragStart, stopMomentum],
   );
@@ -87,13 +85,11 @@ export default function useDraggableMarquee({ onDragStart, reverse = false, spee
   const handlePointerMove = useCallback(
     (event) => {
       if (!isDraggingRef.current) return;
-
-      const now = performance.now();
-      const lastPoint = lastPointRef.current;
-      const deltaX = event.clientX - lastPoint.x;
-      const deltaTime = Math.max(now - lastPoint.time, 16);
-
-      velocityRef.current = deltaX / deltaTime;
+      const now       = performance.now();
+      const last      = lastPointRef.current;
+      const deltaX    = event.clientX - last.x;
+      const deltaTime = Math.max(now - last.time, 16);
+      velocityRef.current  = deltaX / deltaTime;
       lastPointRef.current = { x: event.clientX, time: now };
       applyOffset(offsetRef.current + deltaX);
     },
@@ -103,10 +99,8 @@ export default function useDraggableMarquee({ onDragStart, reverse = false, spee
   const handlePointerUp = useCallback(
     (event) => {
       if (!isDraggingRef.current) return;
-
       event.currentTarget.releasePointerCapture?.(event.pointerId);
       isDraggingRef.current = false;
-
       if (Math.abs(velocityRef.current) > 0.08) {
         startMomentum();
       } else {
@@ -116,14 +110,36 @@ export default function useDraggableMarquee({ onDragStart, reverse = false, spee
     [startMomentum],
   );
 
+  // Set initial position
   useLayoutEffect(() => {
     applyOffset(reverse ? -getLoopWidth() : 0);
   }, [applyOffset, getLoopWidth, reverse]);
 
+  // ── Auto-scroll rAF — pauses when off-screen ─────────────────────
   useEffect(() => {
     const durationMs = getDurationMs(speed);
 
+    // IntersectionObserver: start/stop rAF based on visibility
+    const container = trackRef.current?.parentElement;
+    const observer  = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) {
+          // Reset time so there's no jump after a long pause
+          lastFrameTimeRef.current = null;
+        }
+      },
+      { threshold: 0 },
+    );
+    if (container) observer.observe(container);
+
     const step = (now) => {
+      // Skip frames when not visible — saves CPU/GPU on low-end devices
+      if (!isVisibleRef.current) {
+        autoFrameRef.current = window.requestAnimationFrame(step);
+        return;
+      }
+
       if (lastFrameTimeRef.current === null) {
         lastFrameTimeRef.current = now;
       }
@@ -131,11 +147,11 @@ export default function useDraggableMarquee({ onDragStart, reverse = false, spee
       const deltaTime = now - lastFrameTimeRef.current;
       lastFrameTimeRef.current = now;
 
-      if (!isDraggingRef.current && !isMomentumActiveRef.current) {
-        const loopWidth = getLoopWidth();
-        if (loopWidth) {
-          const direction = reverse ? 1 : -1;
-          applyOffset(offsetRef.current + (loopWidth / durationMs) * deltaTime * direction);
+      if (!isDraggingRef.current && !isMomentumActive.current) {
+        const lw = getLoopWidth();
+        if (lw) {
+          const dir = reverse ? 1 : -1;
+          applyOffset(offsetRef.current + (lw / durationMs) * deltaTime * dir);
         }
       }
 
@@ -145,9 +161,8 @@ export default function useDraggableMarquee({ onDragStart, reverse = false, spee
     autoFrameRef.current = window.requestAnimationFrame(step);
 
     return () => {
-      if (autoFrameRef.current) {
-        window.cancelAnimationFrame(autoFrameRef.current);
-      }
+      if (autoFrameRef.current) window.cancelAnimationFrame(autoFrameRef.current);
+      observer.disconnect();
       stopMomentum();
       lastFrameTimeRef.current = null;
     };
@@ -156,9 +171,9 @@ export default function useDraggableMarquee({ onDragStart, reverse = false, spee
   return {
     trackRef,
     dragHandlers: {
-      onPointerDown: handlePointerDown,
-      onPointerMove: handlePointerMove,
-      onPointerUp: handlePointerUp,
+      onPointerDown:  handlePointerDown,
+      onPointerMove:  handlePointerMove,
+      onPointerUp:    handlePointerUp,
       onPointerCancel: handlePointerUp,
     },
   };

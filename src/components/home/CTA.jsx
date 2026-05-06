@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
+import { Link } from "react-router-dom";
 
 export default function CTA() {
 
@@ -23,31 +23,31 @@ export default function CTA() {
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="group relative overflow-hidden rounded-xl bg-white px-6 py-3 text-base font-semibold text-[#01224F] shadow-[0_0_30px_rgba(47,103,230,0.3)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(47,103,230,0.5)]"
           >
             <span className="relative z-10">Partner With Us</span>
             <span className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-[#2f67e6]/10 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
-          </a>
+          </Link>
 
           <span className="hidden text-xl text-[#3a6aa8] sm:inline"></span>
 
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="rounded-xl border border-white/25 bg-white/5 px-6 py-3 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] hover:border-white/50 hover:bg-white/10"
           >
             Register as a Hiring Partner
-          </a>
+          </Link>
 
           <span className="hidden text-xl text-[#3a6aa8] sm:inline"></span>
 
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="rounded-xl border border-white/25 bg-white/5 px-6 py-3 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] hover:border-white/50 hover:bg-white/10"
           >
             I Am a Student
-          </a>
+          </Link>
         </div>
       </div>
     </section>

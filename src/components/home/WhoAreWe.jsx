@@ -1,4 +1,5 @@
 import teamImage from "../../assets/Ps.png";
+import { Link } from "react-router-dom";
 import useScrollAwareSpotlight from "../../hooks/useScrollAwareSpotlight";
 
 export default function WhoAreWe() {
@@ -44,14 +45,14 @@ export default function WhoAreWe() {
             </h2>
 
             <p className="mt-1 text-lg text-justify leading-relaxed text-[#2a3038] sm:text-xl lg:text-xl lg:leading-[1.8]">
-              Gryphon Academy Pvt. Ltd. is a Pan-India organisation built in 2020, to bridge the gap between industry and academia. We serve as a complete growth partner for institutions covering structured student training, placement facilitation, digital growth, events, and admissions, all under one roof. For corporates, we provide zero-cost campus hiring and corporate L&D solutions ensuring that trained, job-ready talent reaches the right organisations, seamlessly and at zero cost.
+              Gryphon Academy Pvt. Ltd. is a Pan-India organisation built in 2020, to bridge the gap between industry and academia. We serve as a complete growth partner for institutions covering structured student training, placement facilitation, digital growth, events, and admissions, all under one roof. For corporates, we provide zero-cost campus hiring and corporate L&amp;D solutions ensuring that trained, job-ready talent reaches the right organisations, seamlessly and at zero cost.
             </p>
-           <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="mt-2 mb-0 inline-block w-48 rounded-lg bg-[#00083D] px-6 py-3 text-center text-base font-bold text-white transition-all hover:bg-[#01224F] shadow-lg"
             >
               Learn More
-            </a>
+            </Link>
           </div>
 
           <div className="flex h-full items-end justify-center lg:justify-end">

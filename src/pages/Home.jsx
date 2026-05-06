@@ -80,21 +80,31 @@ export default function Home() {
       <Hero showTopLeftLogo={!isNavbarVisible} logoSrc={logoSrc} />
       <WhoAreWe />
       <Brochure />
-      <AudiencePathways />
-      <Training />
-      <Numbers />
+      {/* content-visibility:auto defers layout/paint of off-screen sections */}
+      <div className="cv-auto">
+        <AudiencePathways />
+      </div>
+      <div className="cv-auto">
+        <Training />
+      </div>
+      <div className="cv-auto">
+        <Numbers />
+      </div>
       {/* ── Unified marquee + placements band ──────────────────────── */}
-    
-
-      <div style={{ background: "linear-gradient(to bottom, #daeef8, #BCDEF4)" }}>
-          <CorporateMarquee />
-          <InstitutionsMarquee />
-       </div>
-      <TopPlaced/>
-      <Gallery/>
+      <div className="cv-auto" style={{ background: "linear-gradient(to bottom, #daeef8, #BCDEF4)" }}>
+        <CorporateMarquee />
+        <InstitutionsMarquee />
+      </div>
+      <div className="cv-auto">
+        <TopPlaced />
+      </div>
+      <div className="cv-auto">
+        <Gallery />
+      </div>
       <CTA />
-      <Testimonials />
-
+      <div className="cv-auto">
+        <Testimonials />
+      </div>
       <Footer />
     </div>
   );

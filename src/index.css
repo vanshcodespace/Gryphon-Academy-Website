@@ -1,5 +1,39 @@
 @import "tailwindcss";
 
+/* ─── Performance: defer rendering of off-screen sections ─────────
+   content-visibility:auto skips paint/layout for sections not yet
+   in the viewport — biggest single win for low-end devices.        */
+.cv-auto {
+  content-visibility: auto;
+  /* contain-intrinsic-size prevents layout shift while deferred */
+  contain-intrinsic-size: auto 600px;
+}
+
+/* ─── Respect prefers-reduced-motion (accessibility + perf) ───────
+   Disables marquee scroll animations for users who opt out.        */
+@media (prefers-reduced-motion: reduce) {
+  .partners-marquee-track {
+    animation: none !important;
+  }
+  /* Also throttle any CSS transitions to instant */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── GPU compositing hint for marquee tracks ─────────────────────
+   Forces the browser to promote these elements to their own GPU
+   layer so the main-thread stays free.                             */
+.marquee-track {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+
 @keyframes tooltipIn {
   0% {
     opacity: 0;
