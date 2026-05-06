@@ -72,7 +72,7 @@ export default function Gallery() {
               <img
                 src={card.image}
                 alt={card.title}
-                className="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]"
+                className="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0 group-hover:scale-[1.03] transform-gpu will-change-transform"
                 loading="lazy"
               />
 

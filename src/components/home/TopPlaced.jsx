@@ -251,9 +251,9 @@ function StudentCard({ student }) {
       className="group relative overflow-hidden rounded-3xl border-2 border-[#1B3A6B]/20 bg-linear-to-br from-white via-[#f5f9ff] to-[#f0f7ff] shadow-lg hover:shadow-2xl transition-all duration-300"
       style={{ width: SCROLLER_CARD_WIDTH, height: SCROLLER_CARD_HEIGHT }}
     >
-      {/* Background glow effect */}
-      <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#1B3A6B]/15 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-8 -left-8 h-40 w-40 rounded-full bg-[#7B1B2A]/10 blur-3xl" />
+      {/* Background glow effect (optimized to remove heavy CSS blur) */}
+      <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 bg-[radial-gradient(circle,rgba(27,58,107,0.35)_0%,transparent_70%)]" />
+      <div className="pointer-events-none absolute -bottom-8 -left-8 h-40 w-40 bg-[radial-gradient(circle,rgba(123,27,42,0.25)_0%,transparent_70%)]" />
  
       <div className="relative z-10 flex h-full flex-col">
         {/* Photo section - Circular and compact */}
@@ -317,6 +317,8 @@ function StudentCard({ student }) {
  
 export default function TopPlaced() {
   const trackRef = useRef(null);
+  const sectionRef = useRef(null);
+  const isVisibleRef = useRef(false);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(true);
   const [activePage, setActivePage] = useState(0);
@@ -398,11 +400,22 @@ export default function TopPlaced() {
   );
  
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        isVisibleRef.current = entries[0].isIntersecting;
+      },
+      { rootMargin: "200px" }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     let timeElapsed = 0;
  
     // Single interval that manages both progress and auto-scroll
     const interval = setInterval(() => {
-      if (!isHoveringRef.current) {
+      if (!isHoveringRef.current && isVisibleRef.current) {
         timeElapsed += PROGRESS_UPDATE_INTERVAL;
         const progress = Math.max(
           0,
@@ -433,10 +446,10 @@ export default function TopPlaced() {
   );
  
   return (
-    <section className="relative w-full overflow-hidden bg-[#01224F] px-4 py-8 md:py-12">
-      {/* Ambient glow orbs */}
-      <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-[#1b4f8f]/25 blur-[120px]" />
-      <div className="pointer-events-none absolute -bottom-24 -right-24 h-[28rem] w-[28rem] rounded-full bg-[#3f8efc]/15 blur-[100px]" />
+    <section ref={sectionRef} className="relative w-full overflow-hidden bg-[#01224F] px-4 py-8 md:py-12">
+      {/* Ambient glow orbs (optimized to remove heavy CSS blur) */}
+      <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 bg-[radial-gradient(circle,rgba(27,79,143,0.4)_0%,transparent_60%)]" />
+      <div className="pointer-events-none absolute -bottom-24 -right-24 h-[28rem] w-[28rem] bg-[radial-gradient(circle,rgba(63,142,252,0.25)_0%,transparent_60%)]" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1370px]">
         <div className="mb-10 text-center md:mb-12">
